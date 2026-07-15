@@ -1,0 +1,7 @@
+#librerie istallate
+pip list
+#aggiorna requi
+pip freeze > requirements.txt
+
+#attivare venv
+.\env\Scripts\Activate.ps1
