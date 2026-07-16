@@ -1,0 +1,70 @@
+{
+    "model": "llama2",
+    "prompt_mode": "Q+Domain",
+    "timestamp": "2026-07-16 11:27:19",
+    "responses": [
+        {
+            "question": "Which pizzas are vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Which pizzas are vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "Which pizzas contain meat?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Which pizzas contain meat?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "Which pizzas contain seafood?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Which pizzas contain seafood?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "Is the Margherita pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Is the Margherita pizza vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "Is the Giardiniera pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Is the Giardiniera pizza vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "Is the FruttiDiMare pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Is the FruttiDiMare pizza vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "List all the toppings used in the Margherita pizza.",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: List all the toppings used in the Margherita pizza.\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "List all the toppings used in the Giardiniera pizza.",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: List all the toppings used in the Giardiniera pizza.\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        },
+        {
+            "question": "List all named pizzas.",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: List all named pizzas.\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: model 'llama2' not found (status code: 404)"
+        }
+    ]
+}

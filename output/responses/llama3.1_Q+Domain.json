@@ -1,0 +1,70 @@
+{
+    "model": "llama3.1",
+    "prompt_mode": "Q+Domain",
+    "timestamp": "2026-07-16 11:26:18",
+    "responses": [
+        {
+            "question": "Which pizzas are vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Which pizzas are vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "Which pizzas contain meat?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Which pizzas contain meat?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "Which pizzas contain seafood?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Which pizzas contain seafood?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "Is the Margherita pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Is the Margherita pizza vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "Is the Giardiniera pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Is the Giardiniera pizza vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "Is the FruttiDiMare pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: Is the FruttiDiMare pizza vegetarian?\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "List all the toppings used in the Margherita pizza.",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: List all the toppings used in the Margherita pizza.\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "List all the toppings used in the Giardiniera pizza.",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: List all the toppings used in the Giardiniera pizza.\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        },
+        {
+            "question": "List all named pizzas.",
+            "ontology_context": null,
+            "prompt": "Focus strictly on pizza-related topics.\n\nQuestion: List all named pizzas.\n\nAnswer:",
+            "response_time": null,
+            "answer": "Error: 'messages'"
+        }
+    ]
+}

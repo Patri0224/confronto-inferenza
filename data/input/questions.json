@@ -1,0 +1,90 @@
+{
+    "questions": [
+        {
+            "id": "QP1",
+            "category": "Subsumption",
+            "question": "Which pizzas are vegetarian?",
+            "ontology": "pizza.owl",
+            "correct_answer": [
+                "Margherita",
+                "Giardiniera"
+            ]
+        },
+        {
+            "id": "QP2",
+            "category": "Subsumption",
+            "question": "Which pizzas contain meat?",
+            "ontology": "pizza.owl",
+            "correct_answer": [
+                "Capricciosa",
+                "Diavola",
+                "Prosciutto"
+            ]
+        },
+        {
+            "id": "QP3",
+            "category": "Subsumption",
+            "question": "Which pizzas contain seafood?",
+            "ontology": "pizza.owl",
+            "correct_answer": [
+                "FruttiDiMare"
+            ]
+        },
+        {
+            "id": "QP4",
+            "category": "Instance Checking",
+            "question": "Is the Margherita pizza vegetarian?",
+            "ontology": "pizza.owl",
+            "correct_answer": "Yes"
+        },
+        {
+            "id": "QP5",
+            "category": "Instance Checking",
+            "question": "Is the Giardiniera pizza vegetarian?",
+            "ontology": "pizza.owl",
+            "correct_answer": "Yes"
+        },
+        {
+            "id": "QP6",
+            "category": "Instance Checking",
+            "question": "Is the FruttiDiMare pizza vegetarian?",
+            "ontology": "pizza.owl",
+            "correct_answer": "No"
+        },
+        {
+            "id": "QP7",
+            "category": "Extraction",
+            "question": "List all the toppings used in the Margherita pizza.",
+            "ontology": "pizza.owl",
+            "correct_answer": [
+                "Tomato",
+                "Mozzarella"
+            ]
+        },
+        {
+            "id": "QP8",
+            "category": "Extraction",
+            "question": "List all the toppings used in the Giardiniera pizza.",
+            "ontology": "pizza.owl",
+            "correct_answer": [
+                "Tomato",
+                "Mozzarella",
+                "Vegetables"
+            ]
+        },
+        {
+            "id": "QP9",
+            "category": "Extraction",
+            "question": "List all named pizzas.",
+            "ontology": "pizza.owl",
+            "correct_answer": [
+                "Margherita",
+                "Giardiniera",
+                "Capricciosa",
+                "Diavola",
+                "Prosciutto",
+                "FruttiDiMare"
+            ]
+        }
+    ]
+}
