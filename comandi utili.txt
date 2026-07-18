@@ -6,7 +6,8 @@ pip freeze > requirements.txt
 #attivare venv
 .\env\Scripts\Activate.ps1
 
-
+#attivare files
+python -m src.llm.runner
 
 
 

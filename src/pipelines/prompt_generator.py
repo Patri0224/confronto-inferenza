@@ -8,22 +8,26 @@ class PromptGenerator:
         )
 
     def generate_prompt(self, question, ontology_context=None, mode="Q+Onto+Domain"):
-        #Q, Q+Onto, Q+Domain, Q+Onto+Domain
-        
+        # Q, Q+Onto, Q+Domain, Q+Onto+Domain
+
         prompt_parts = []
 
         if "Onto" in mode:
             prompt_parts.append(self.system_role)
             if ontology_context:
-                prompt_parts.append(f"Refer to the following Pizza Ontology when responding to questions:\n{ontology_context}")
+                prompt_parts.append(
+                    f"Refer to the following Pizza Ontology when responding to questions:\n{ontology_context}")
             else:
-                prompt_parts.append("Refer to your internal ontology knowledge when responding.")
+                prompt_parts.append(
+                    "Refer to your internal ontology knowledge when responding.")
 
+        prompt_parts.append(
+            "Provide a clear and concise answer to the following question.")
         if "Domain" in mode:
             prompt_parts.append(self.domain_constraint)
 
+        prompt_parts.append("Avoid extra explanation or unrelated details")
         prompt_parts.append(f"Question: {question}")
         prompt_parts.append("Answer:")
 
         return "\n\n".join(prompt_parts)
-

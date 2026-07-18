@@ -1,17 +1,20 @@
 import json
 import os
+import sys
 import ollama
 from time import time
 from datetime import datetime
 
-from src.evaluation.scorer import Scorer
-from src.pipelines.prompt_generator import PromptGenerator
 
 
 BASE_DIR=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
+from src.pipelines.prompt_generator import PromptGenerator
+
 INPUT_PATH=os.path.join(BASE_DIR,"data","input")
 OUTPUT_PATH=os.path.join(BASE_DIR,"output","responses")
-
 
 
 def benchmark(model_name,prompt_mode="Q+Onto+Domain"):
@@ -43,7 +46,7 @@ def benchmark(model_name,prompt_mode="Q+Onto+Domain"):
                 messages=[{"role":"user","content":prompt}],
                 options={"temperature":0.0}
             )
-            answer=response['messages']['content'].strip()
+            answer=response['message']['content'].strip()
             time_taken=round(time()-start_time, 2)
 
         except Exception as e:
@@ -61,12 +64,13 @@ def benchmark(model_name,prompt_mode="Q+Onto+Domain"):
         })
         print(results["responses"][-1])
         
-        
-        name_file_output=f"{model_name.replace('/','_')}_{prompt_mode}.json"
-        with open(os.path.join(OUTPUT_PATH,name_file_output),"w") as f:
-            json.dump(results,f,indent=4)
+    safe_model_name = model_name.replace(':', '_').replace('/', '_')
+    name_file_output = f"{safe_model_name}_{prompt_mode}.json"
+    percorso_salvataggio = os.path.join(OUTPUT_PATH, name_file_output)
+    with open(percorso_salvataggio,"w") as f:
+        json.dump(results,f,indent=4)
 
 
 if __name__ == "__main__":
-    # Puoi cambiare il modello qui per testare i vari Llama o Qwen scaricati
+    print(BASE_DIR)
     benchmark(model_name="llama2:7b", prompt_mode="Q+Domain")
