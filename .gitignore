@@ -10,7 +10,7 @@ ENV/
 *.pyd
 
 # File di configurazione di VS Code che potrebbero contenere percorsi locali
-#.vscode/
+.vscode/
 
 
 # Cartella exe protege
