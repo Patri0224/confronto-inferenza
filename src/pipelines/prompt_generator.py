@@ -1,12 +1,12 @@
 class PromptGenerator:
-    def __init__(self, system_role=None, domain_constraint=None):
+    def __init__(self, system_role=None, domain_constraint=None, answer_type=None):
         self.system_role = system_role or (
             "You are a specialized model for answering questions using ontology-based knowledge."
         )
         self.domain_constraint = domain_constraint or (
             "Focus strictly on pizza-related topics."
         )
-
+        self.answer_type=answer_type or ("Mostra i passaggi di inferenza utilizzati per arrivare alla risposta") 
     def generate_prompt(self, question, ontology_context=None, mode="Q+Onto+Domain"):
         # Q, Q+Onto, Q+Domain, Q+Onto+Domain
 
@@ -28,6 +28,7 @@ class PromptGenerator:
 
         prompt_parts.append("Avoid extra explanation or unrelated details")
         prompt_parts.append(f"Question: {question}")
+        prompt_parts.append(self.answer_type)
         prompt_parts.append("Answer:")
 
         return "\n\n".join(prompt_parts)
