@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html -->
+<html lang="en" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ontology Evals for LLMs | Ojitha Hewa Kumanayaka</title>
+<meta name="generator" content="Jekyll v3.10.0">
+<meta property="og:title" content="Ontology Evals for LLMs">
+<meta name="author" content="Ojitha Kumanayaka">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="LLMOWLSPARQLSHACLPizzaCan a Large Language Model write a pizza recipe that actually makes sense? This post turns formal domain ontologies into evaluation frameworks for LLM outputs, using the canonical Stanford Pizza ontology as the running example. The pipeline parses OWL classes and properties, extracts entities from the generated text into RDF triples, then runs reasoners and SHACL shapes to check class membership, cardinality and forbidden combinations. SPARQL ASK queries flag violations such as meat toppings on a vegetarian pizza, yielding factual coverage, relation correctness and logical coherence scores that go far beyond what surface metrics like BLEU or ROUGE can measure.">
+<meta property="og:description" content="LLMOWLSPARQLSHACLPizzaCan a Large Language Model write a pizza recipe that actually makes sense? This post turns formal domain ontologies into evaluation frameworks for LLM outputs, using the canonical Stanford Pizza ontology as the running example. The pipeline parses OWL classes and properties, extracts entities from the generated text into RDF triples, then runs reasoners and SHACL shapes to check class membership, cardinality and forbidden combinations. SPARQL ASK queries flag violations such as meat toppings on a vegetarian pizza, yielding factual coverage, relation correctness and logical coherence scores that go far beyond what surface metrics like BLEU or ROUGE can measure.">
+<link rel="canonical" href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html">
+<meta property="og:url" content="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html">
+<meta property="og:site_name" content="Ojitha Hewa Kumanayaka">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2025-10-08T00:00:00+11:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Ontology Evals for LLMs">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ojitha Kumanayaka"},"dateModified":"2025-10-08T00:00:00+11:00","datePublished":"2025-10-08T00:00:00+11:00","description":"LLMOWLSPARQLSHACLPizzaCan a Large Language Model write a pizza recipe that actually makes sense? This post turns formal domain ontologies into evaluation frameworks for LLM outputs, using the canonical Stanford Pizza ontology as the running example. The pipeline parses OWL classes and properties, extracts entities from the generated text into RDF triples, then runs reasoners and SHACL shapes to check class membership, cardinality and forbidden combinations. SPARQL ASK queries flag violations such as meat toppings on a vegetarian pizza, yielding factual coverage, relation correctness and logical coherence scores that go far beyond what surface metrics like BLEU or ROUGE can measure.","headline":"Ontology Evals for LLMs","mainEntityOfPage":{"@type":"WebPage","@id":"https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html"},"url":"https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link id="main-stylesheet" rel="stylesheet" href="./Ontology Evals for LLMs _ Ojitha Hewa Kumanayaka_files/style.css"><link type="application/atom+xml" rel="alternate" href="https://ojitha.github.io/feed.xml" title="Ojitha Hewa Kumanayaka"><script async="" src="./Ontology Evals for LLMs _ Ojitha Hewa Kumanayaka_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-12622200-2');
+</script>
+<!-- Apply stored theme before first paint to avoid flash of unstyled content -->
+<script>
+(function(){
+  var t = localStorage.getItem('minima-theme');
+  if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<meta name="description" content="Technical documentation and engineering reference for Cloud Architecture, Data Engineering, AWS, and AI Agent development.">
+<meta name="keywords" content="Technical Documentation, Software Engineering, Data Science, AWS Architecture, Artificial Intelligence, Scala, Java, System Design">
+<meta name="author" content="Ojitha Hewa Kumanayaka">
+
+<meta name="category" content="Information Technology">
+<meta name="subject" content="Software Development Reference">
+<meta name="classification" content="Technical Reference">
+<meta name="robots" content="index, follow">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ojitha.github.io/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ojitha.github.io/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ojitha.github.io/icons/favicon-16x16.png">
+<link rel="manifest" href="https://ojitha.github.io/icons/site.webmanifest">
+<link rel="mask-icon" href="https://ojitha.github.io/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="https://ojitha.github.io/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff"><script src="./Ontology Evals for LLMs _ Ojitha Hewa Kumanayaka_files/noerrors.js.download" charset="UTF-8"></script><style id="MJX-sx-styles">:root {
+  --mjx-fg-red: 255, 0, 0;
+  --mjx-fg-green: 0, 255, 0;
+  --mjx-fg-blue: 0, 0, 255;
+  --mjx-fg-yellow: 255, 255, 0;
+  --mjx-fg-cyan: 0, 255, 255;
+  --mjx-fg-magenta: 255, 0, 255;
+  --mjx-fg-white: 255, 255, 255;
+  --mjx-fg-black: 0, 0, 0;
+  --mjx-bg-red: 255, 0, 0;
+  --mjx-bg-green: 0, 255, 0;
+  --mjx-bg-blue: 0, 0, 255;
+  --mjx-bg-yellow: 255, 255, 0;
+  --mjx-bg-cyan: 0, 255, 255;
+  --mjx-bg-magenta: 255, 0, 255;
+  --mjx-bg-white: 255, 255, 255;
+  --mjx-bg-black: 0, 0, 0;
+  --mjx-live-bg-color: white;
+  --mjx-live-shadow-color: #888;
+  --mjx-live-border-color: #CCCCCC;
+  --mjx-bg1-color: rgba(var(--mjx-bg-blue), var(--mjx-bg1-alpha));
+  --mjx-fg1-color: rgba(var(--mjx-fg-black), 1);
+  --mjx-bg2-color: rgba(var(--mjx-bg-red), 1);
+  --mjx-fg2-color: rgba(var(--mjx-fg-black), 1);
+  --mjx-bg1-alpha: 0.2;
+  --mjx-fg1-alpha: 1;
+  --mjx-bg2-alpha: 1;
+  --mjx-fg2-alpha: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mjx-bg-blue: 132, 132, 255;
+      --mjx-bg-white: 0, 0, 0;
+      --mjx-bg-black: 255, 255, 255;
+      --mjx-fg-white: 0, 0, 0;
+      --mjx-fg-black: 255, 255, 255;
+      --mjx-live-bg-color: #222025;
+      --mjx-live-shadow-color: black;
+      --mjx-live-border-color: #7C7C7C;
+      --mjx-bg1-alpha: 0.3;
+      --mjx-fg1-alpha: 1;
+      --mjx-bg2-alpha: 1;
+      --mjx-fg2-alpha: 1;
+  }
+}
+
+.MJX_LiveRegion {
+  position: absolute;
+  top: 0;
+  display: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  opacity: 1;
+  z-index: 202;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: var(--mjx-live-bg-color);
+  box-shadow: 0px 5px 20px var(--mjx-live-shadow-color);
+  border: 2px solid var(--mjx-live-border-color);
+}
+
+.MJX_LiveRegion_Show {
+  display: block;
+}
+
+.MJX_LiveRegion > div {
+  color: var(--mjx-fg1-color);
+  background-color: var(--mjx-bg1-color);
+}
+
+mjx-container [data-sre-highlight-1]:not([data-mjx-collapsed], rect) {
+  color: var(--mjx-fg1-color) ! important;
+  fill: var(--mjx-fg1-color) ! important;
+}
+
+mjx-container:not([data-mjx-clone-container]) [data-sre-highlight-1]:not([data-sre-enclosed], rect) {
+  background-color: var(--mjx-bg1-color) ! important;
+}
+
+mjx-container rect[data-sre-highlight-1]:not([data-sre-enclosed]) {
+  fill: var(--mjx-bg1-color) ! important;
+}
+
+mjx-container [data-sre-highlight-2] {
+  color: var(--mjx-fg2-color) ! important;
+  background-color: var(--mjx-bg2-color) ! important;
+  fill: var(--mjx-fg2-color) ! important;
+}
+
+mjx-container rect[data-sre-highlight-2] {
+  fill: var(--mjx-bg2-color) ! important;
+}</style><style id="MJX-rx-styles">.MJX_HoverRegion {
+  display: block;
+  position: absolute;
+  width: max-content;
+  height: auto;
+  padding: 0;
+  opacity: 1;
+  z-index: 202;
+  margin: 0 auto;
+  background-color: white;
+  line-height: 0;
+  box-shadow: 0px 10px 20px #888;
+  border: 2px solid #CCCCCC;
+}
+
+.MJX_HoverRegion > div {
+  overflow: hidden;
+  color: var(--mjx-fg1-color);
+  background-color: var(--mjx-bg1-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  .MJX_HoverRegion {
+    background-color: #222025;
+      box-shadow: 0px 5px 20px #000;
+      border: 1px solid #7C7C7C;
+  }
+}
+
+mjx-container[data-mjx-clone-container] {
+  padding: 2px ! important;
+}
+
+mjx-math > mjx-mlabeledtr {
+  display: inline-block;
+  margin-right: .5em ! important;
+}
+
+mjx-math > mjx-mtd {
+  float: right;
+}</style><style id="MJX-ex-styles">.MJX_ToolTip {
+  width: auto;
+  height: auto;
+  opacity: 1;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0;
+  border-bottom: 1px dotted black;
+  position: absolute;
+  display: inline-block;
+  background-color: white;
+  z-index: 202;
+}
+
+.MJX_ToolTip > div {
+  border-radius: inherit;
+  padding: 0 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .MJX_ToolTip {
+    background-color: #222025;
+      box-shadow: 0px 5px 20px #000;
+      border: 1px solid #7C7C7C;
+  }
+}</style><style id="MJX-Menu-styles">.CtxtMenu_Menu {
+  position: absolute;
+  background-color: white;
+  color: black;
+  width: auto;
+  padding: 5px 0px;
+  border: 1px solid #CCCCCC;
+  margin: 0;
+  cursor: default;
+  font: menu;
+  text-align: left;
+  text-indent: 0;
+  text-transform: none;
+  line-height: normal;
+  letter-spacing: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  float: none;
+  z-index: 1001;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px #808080;
+}
+.CtxtMenu_MenuItem {
+  padding: 1px 2em;
+  background: transparent;
+}
+.CtxtMenu_MenuArrow {
+  position: absolute;
+  right: 0.5em;
+  padding-top: 0.25em;
+  color: #666666;
+  font-family: null;
+  font-size: 0.75em;
+}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {
+  color: white;
+}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {
+  left: 0.5em;
+  right: auto;
+}
+.CtxtMenu_MenuCheck {
+  position: absolute;
+  left: 0.7em;
+  font-family: null;
+}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL {
+  right: 0.7em;
+  left: auto;
+}
+.CtxtMenu_MenuRadioCheck {
+  position: absolute;
+  left: 0.7em;
+}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {
+  right: 0.7em;
+  left: auto;
+}
+.CtxtMenu_MenuInputBox {
+  padding-left: 1em;
+  right: 0.5em;
+  color: #666666;
+  font-family: null;
+}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {
+  left: 0.1em;
+}
+.CtxtMenu_MenuComboBox {
+  left: 0.1em;
+  padding-bottom: 0.5em;
+}
+.CtxtMenu_MenuSlider {
+  left: 0.1em;
+}
+.CtxtMenu_SliderValue {
+  position: absolute;
+  right: 0.1em;
+  padding-top: 0.25em;
+  color: #333333;
+  font-size: 0.75em;
+}
+.CtxtMenu_MenuActive .CtxtMenu_SliderValue {
+  color: #DDDDDD;
+}
+.CtxtMenu_SliderBar {
+  outline: none;
+  background: #D3D3D3;
+}
+.CtxtMenu_MenuLabel {
+  padding: 1px 2em 3px 1.33em;
+  font-style: italic;
+}
+.CtxtMenu_MenuRule {
+  border-top: 1px solid #DDDDDD;
+  margin: 4px 3px;
+}
+.CtxtMenu_MenuDisabled {
+  color: #999;
+}
+.CtxtMenu_MenuActive {
+  background-color: #606872;
+  color: white;
+}
+.CtxtMenu_MenuDisabled:focus {
+  background-color: #E8E8E8;
+}
+.CtxtMenu_MenuLabel:focus {
+  background-color: #E8E8E8;
+}
+.CtxtMenu_ContextMenu:focus {
+  outline: none;
+}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {
+  outline: none;
+}
+.CtxtMenu_SelectionMenu {
+  position: relative;
+  float: left;
+  border-bottom: none;
+  box-shadow: none ! important;
+  border-radius: 0px !important;
+}
+.CtxtMenu_SelectionItem {
+  padding-right: 1em;
+}
+.CtxtMenu_Selection {
+  right: 40%;
+  width: 50%;
+}
+.CtxtMenu_SelectionBox {
+  padding: 0em;
+  max-height: 20em;
+  max-width: none;
+  background-color: #FFFFFF;
+}
+.CtxtMenu_SelectionDivider {
+  clear: both;
+  border-top: 2px solid #000000;
+}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {
+  top: -10px;
+  left: -10px;
+}
+@media (prefers-color-scheme: dark) /* menu */ {
+  .CtxtMenu_Menu {
+  color: #E0E0E0;
+  background-color: #242436;
+  box-shadow: 0px 10px 20px #000;
+  border: 1px solid #808080;
+}
+  .CtxtMenu_SliderValue {
+  color: #D0D0D0;
+}
+  .CtxtMenu_MenuDisabled:focus {
+  background-color: #383838;
+}
+  .CtxtMenu_MenuLabel:focus {
+  background-color: #585858;
+}
+  .CtxtMenu_MenuRule {
+  border-top: 1px solid #808080;
+}
+  .CtxtMenu_SelectionDivider {
+  border-top: 2px solid #808080;
+};
+}
+.CtxtMenu_MenuClose {
+  position: absolute;
+  cursor: pointer;
+  display: inline-block;
+  border: 2px solid #AAA;
+  border-radius: 18px;
+  font-family:  "Courier New", Courier;
+  font-size: 24px;
+  color: #F0F0F0;
+}
+.CtxtMenu_MenuClose span {
+  display: block;
+  background-color: #AAA;
+  border: 1.5px solid;
+  border-radius: 18px;
+  line-height: 0;
+  padding: 8px 0 6px;
+}
+.CtxtMenu_MenuClose:hover {
+  color: white !important;
+  border: 2px solid #CCC !important;
+}
+.CtxtMenu_MenuClose:hover span {
+  background-color: #CCC !important;
+}
+.CtxtMenu_MenuClose:hover:focus {
+  outline: none;
+}</style><style id="MJX-CHTML-styles">
+mjx-container[overflow="scroll"][display] {
+  overflow: auto clip;
+  min-width: initial !important;
+}
+
+mjx-container[overflow="truncate"][display] {
+  overflow: hidden clip;
+  min-width: initial !important;
+}
+
+mjx-container[display] {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin: .7em 0;
+  padding: .3em 2px;
+}
+
+mjx-container[display][width="full"] {
+  display: flex;
+}
+
+mjx-container[justify="left"] {
+  text-align: left;
+  justify-content: left;
+}
+
+mjx-container[justify="right"] {
+  text-align: right;
+  justify-content: right;
+}
+
+mjx-container[jax="CHTML"] {
+  white-space: nowrap;
+}
+
+mjx-mo > mjx-c, mjx-mi > mjx-c, mjx-mn > mjx-c, mjx-ms > mjx-c, mjx-mtext > mjx-c {
+  clip-path: padding-box polygon(-1em -2px, calc(100% + 1em) -2px, calc(100% + 1em) calc(100% + 2px), -1em calc(100% + 2px));
+}
+
+mjx-stretchy-h {
+  clip-path: padding-box polygon(0 -2px, 100% -2px, 100% calc(100% + 2px), 0 calc(100% + 2px));
+}
+
+mjx-stretchy-v {
+  clip-path: padding-box polygon(-2px 0, calc(100% + 2px) 0, calc(100% + 2px) 100%, -2px 100%);
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > mjx-cell, mjx-row > mjx-base, mjx-row > mjx-under, mjx-row > mjx-over, mjx-row > mjx-den {
+  display: table-cell;
+}
+
+mjx-container [inline-breaks] {
+  display: inline;
+}
+
+mjx-container .mjx-selected {
+  outline: 2px solid black;
+}
+
+@media (prefers-color-scheme: dark) {
+  mjx-container .mjx-selected {
+    outline: 2px solid #C8C8C8;
+  }
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-container[has-speech="true"] {
+  position: relative;
+  cursor: default;
+}
+
+mjx-speech {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+mjx-speech:focus {
+  outline: none;
+}
+
+mjx-container a[data-mjx-href] {
+  color: LinkText;
+  cursor: pointer;
+}
+
+mjx-container a[data-mjx-href].mjx-visited {
+  color: VisitedText;
+}
+
+mjx-container > mjx-help {
+  display: none;
+  position: absolute;
+  top: -.3em;
+  right: -.5em;
+  width: .6em;
+  height: .6em;
+  cursor: pointer;
+}
+
+mjx-container[display="true"] > mjx-help {
+  position: sticky;
+  inset: -100% 0 100% 0;
+  margin: -.3em -.5em 0 -.1em;
+  right: 0;
+  top: initial;
+}
+
+mjx-help > svg {
+  stroke: black;
+  width: 100%;
+  height: 100%;
+}
+
+mjx-help > svg > circle {
+  stroke-width: 1.5px;
+  cx: 9px;
+  cy: 9px;
+  r: 9px;
+  fill: white;
+}
+
+mjx-help > svg > circle:nth-child(2) {
+  fill: var(--mjx-bg1-color);
+  r: 7px;
+}
+
+mjx-help > svg > line {
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+}
+
+mjx-help:hover > svg > circle:nth-child(2) {
+  fill: white;
+}
+
+mjx-container.mjx-explorer-active > mjx-help {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: dark) /* explorer */ {
+  mjx-help > svg {
+    stroke: #E0E0E0;
+  }
+  mjx-help > svg > circle {
+    fill: #404040;
+  }
+  mjx-help > svg > circle:nth-child(2) {
+    fill: rgba(132, 132, 255, .3);
+  }
+  mjx-help:hover > svg > circle:nth-child(2) {
+    stroke: #AAAAAA;
+      fill: #404040;
+  }
+}
+
+mjx-container[jax="CHTML"] > mjx-math.NCM-N[breakable] > * {
+  font-family: MJX-NCM-ZERO, MJX-NCM-N;
+}
+
+.NCM-N {
+  font-family: MJX-NCM-ZERO, MJX-NCM-N;
+}
+
+.NCM-B {
+  font-family: MJX-NCM-ZERO, MJX-NCM-B;
+}
+
+.NCM-I {
+  font-family: MJX-NCM-ZERO, MJX-NCM-I;
+}
+
+.NCM-BI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-BI;
+}
+
+.NCM-DS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-DS;
+}
+
+.NCM-F {
+  font-family: MJX-NCM-ZERO, MJX-NCM-F;
+}
+
+.NCM-FB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-FB;
+}
+
+.NCM-SS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SS;
+}
+
+.NCM-SSB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSB;
+}
+
+.NCM-SSI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSI;
+}
+
+.NCM-SSBI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SSBI;
+}
+
+.NCM-M {
+  font-family: MJX-NCM-ZERO, MJX-NCM-M;
+}
+
+.NCM-SO {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SO;
+}
+
+.NCM-LO {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LO;
+}
+
+.NCM-S3 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S3;
+}
+
+.NCM-S4 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S4;
+}
+
+.NCM-S5 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S5;
+}
+
+.NCM-S6 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S6;
+}
+
+.NCM-S7 {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S7;
+}
+
+.NCM-MI {
+  font-family: MJX-NCM-ZERO, MJX-NCM-MI;
+}
+
+.NCM-C {
+  font-family: MJX-NCM-ZERO, MJX-NCM-C;
+}
+
+.NCM-CB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-CB;
+}
+
+.NCM-OS {
+  font-family: MJX-NCM-ZERO, MJX-NCM-OS;
+}
+
+.NCM-OB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-OB;
+}
+
+.NCM-V {
+  font-family: MJX-NCM-ZERO, MJX-NCM-V;
+}
+
+.NCM-LT {
+  font-family: MJX-NCM-ZERO, MJX-NCM-LT;
+}
+
+.NCM-RB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-RB;
+}
+
+.NCM-EM {
+  font-family: MJX-NCM-ZERO, MJX-NCM-EM;
+}
+
+.NCM-B-a {
+  font-family: MJX-NCM-ZERO, MJX-NCM-B-a;
+}
+
+.NCM-U {
+  font-family: MJX-NCM-ZERO, MJX-NCM-U;
+}
+
+.NCM-U-a {
+  font-family: MJX-NCM-ZERO, MJX-NCM-U-a;
+}
+
+.NCM-S {
+  font-family: MJX-NCM-ZERO, MJX-NCM-S;
+}
+
+.NCM-SB {
+  font-family: MJX-NCM-ZERO, MJX-NCM-SB;
+}
+
+@font-face /* MJX-NCM-ZERO */ {
+  font-family: MJX-NCM-ZERO;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-zero.woff2") format("woff2");
+}
+
+@font-face /* MJX-BRK */ {
+  font-family: MJX-BRK;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-brk.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-N */ {
+  font-family: MJX-NCM-N;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-n.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-B */ {
+  font-family: MJX-NCM-B;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-b.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-I */ {
+  font-family: MJX-NCM-I;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-i.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-BI */ {
+  font-family: MJX-NCM-BI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-bi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-DS */ {
+  font-family: MJX-NCM-DS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ds.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-F */ {
+  font-family: MJX-NCM-F;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-f.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-FB */ {
+  font-family: MJX-NCM-FB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-fb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SS */ {
+  font-family: MJX-NCM-SS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ss.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SSB */ {
+  font-family: MJX-NCM-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SSI */ {
+  font-family: MJX-NCM-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SSBI */ {
+  font-family: MJX-NCM-SSBI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ssbi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-M */ {
+  font-family: MJX-NCM-M;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-m.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SO */ {
+  font-family: MJX-NCM-SO;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-so.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-LO */ {
+  font-family: MJX-NCM-LO;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-lo.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S3 */ {
+  font-family: MJX-NCM-S3;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s3.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S4 */ {
+  font-family: MJX-NCM-S4;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s4.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S5 */ {
+  font-family: MJX-NCM-S5;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s5.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S6 */ {
+  font-family: MJX-NCM-S6;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s6.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S7 */ {
+  font-family: MJX-NCM-S7;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s7.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-MI */ {
+  font-family: MJX-NCM-MI;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-mi.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-C */ {
+  font-family: MJX-NCM-C;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-c.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-CB */ {
+  font-family: MJX-NCM-CB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-cb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-OS */ {
+  font-family: MJX-NCM-OS;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-os.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-OB */ {
+  font-family: MJX-NCM-OB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-ob.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-V */ {
+  font-family: MJX-NCM-V;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-v.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-LT */ {
+  font-family: MJX-NCM-LT;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-lt.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-RB */ {
+  font-family: MJX-NCM-RB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-rb.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-EM */ {
+  font-family: MJX-NCM-EM;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-em.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-B-a */ {
+  font-family: MJX-NCM-B-a;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-b-a.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-U */ {
+  font-family: MJX-NCM-U;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-u.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-U-a */ {
+  font-family: MJX-NCM-U-a;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-u-a.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-S */ {
+  font-family: MJX-NCM-S;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-s.woff2") format("woff2");
+}
+
+@font-face /* MJX-NCM-SB */ {
+  font-family: MJX-NCM-SB;
+  src: url("https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.1.3/chtml/woff2/mjx-ncm-sb.woff2") format("woff2");
+}
+</style></head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="https://ojitha.github.io/">Ojitha Hewa Kumanayaka</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+          <!-- Sun: shown in dark mode so user can switch back to light -->
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon: shown in light mode so user can switch to dark -->
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <div class="nav-items">
+  <a class="nav-item" href="https://ojitha.github.io/">Home</a>
+  <a class="nav-item" href="https://ojitha.github.io/blog/">Tags</a>
+  <a class="nav-item" href="https://ojitha.github.io/notes/">Notes</a>
+  <a class="nav-item" href="https://ojitha.github.io/mindmap/">Mindmap</a>
+  <a class="nav-item" href="https://ojitha.github.io/projects/">GitHub</a>
+  <a class="nav-item" href="https://ojitha.github.io/search/">Search</a>
+  <a class="nav-item" href="https://ojitha.github.io/about/">About</a>
+</div>
+
+      </nav>
+  </div>
+
+  
+  
+  
+    <!-- MathJax Configuration -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    tags: 'ams',  // This enables equation numbering
+    tagSide: 'right',  // Position numbers on the right
+    tagIndent: '.8em',  // Indentation of equation numbers
+    autoload: {
+      color: [],
+      colorV2: ['color']
+    },
+    packages: {'[+]': ['noerrors']}
+  },
+  chtml: {
+    displayAlign: 'left',        // Left-align display equations
+    displayIndent: '2em'          // Optional: add left indentation
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process',
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    renderActions: {
+      addMenu: [0, '', '']  // Disable context menu for faster rendering
+    }    
+  },
+  loader: {
+    load: ['[tex]/noerrors']
+  }
+};
+</script>
+<script async="" src="./Ontology Evals for LLMs _ Ojitha Hewa Kumanayaka_files/tex-mml-chtml.js.download" id="MathJax-script"></script>
+  
+</header>
+<script>
+(function () {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var html = document.documentElement;
+    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('minima-theme', next);
+  });
+})();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Ontology Evals for LLMs</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-10-08T00:00:00+11:00" itemprop="datePublished">Oct 8, 2025
+      </time></p>
+  </header>
+
+  <!-- Floating TOC - Include if toc is enabled in front matter or by default --><!-- Floating Table of Contents -->
+<div id="floating-toc" class="floating-toc">
+  <div id="toc-resize-handle" class="toc-resize-handle" aria-label="Resize TOC"></div>
+  <div class="toc-header">
+    <span class="toc-title">Table of Contents</span>
+    <button id="toc-toggle" class="toc-toggle" aria-label="Toggle TOC">
+      <span class="toc-icon">−</span>
+    </button>
+  </div>
+  <nav id="toc-content" class="toc-content">
+    <!-- TOC will be generated here by JavaScript -->
+  <ul class="toc-list"><li class="toc-item toc-h2"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#1-introduction" class="toc-link">1. Introduction</a></li><li class="toc-item toc-h2"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#2-background-and-literature-review" class="toc-link">2. Background and Literature Review</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#21-ontologies-in-computer-science" class="toc-link">2.1 Ontologies in Computer Science</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#22-rdf-and-owl-as-ontology-languages" class="toc-link">2.2 RDF and OWL as Ontology Languages</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#23-ontologies-and-large-language-models" class="toc-link">2.3 Ontologies and Large Language Models</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#24-ontology-based-evaluation-frameworks" class="toc-link">2.4 Ontology-Based Evaluation Frameworks</a></li><li class="toc-item toc-h2"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#3-methodology-framework-for-ontology-based-llm-evaluation" class="toc-link">3. Methodology: Framework for Ontology-Based LLM Evaluation</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#31-ontology-parsing-and-representation" class="toc-link">3.1 Ontology Parsing and Representation</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#32-semantic-extraction-from-llm-outputs" class="toc-link">3.2 Semantic Extraction from LLM Outputs</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#33-reasoning-and-consistency-checking" class="toc-link">3.3 Reasoning and Consistency Checking</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#34-eval-metric-formulation" class="toc-link">3.4 Eval Metric Formulation</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#35-iterative-refinement-and-feedback" class="toc-link">3.5 Iterative Refinement and Feedback</a></li><li class="toc-item toc-h2"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#4-key-findings-and-illustrative-example-pizza-ontology-eval" class="toc-link">4. Key Findings and Illustrative Example: Pizza Ontology Eval</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#41-pizza-ontology-overview" class="toc-link">4.1 Pizza Ontology Overview</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#42-applying-the-framework-to-a-pizza-recipe-email" class="toc-link">4.2 Applying the Framework to a Pizza Recipe Email</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#43-benefits-and-challenges" class="toc-link">4.3 Benefits and Challenges</a></li><li class="toc-item toc-h2"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#5-discussion" class="toc-link">5. Discussion</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#51-implications-for-llm-evaluation" class="toc-link">5.1 Implications for LLM Evaluation</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#51-ontology-constructs-as-validation-targets" class="toc-link">5.1 Ontology Constructs as Validation Targets</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#52-example-validation-rules" class="toc-link">5.2 Example Validation Rules</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#53-limitations" class="toc-link">5.3 Limitations</a></li><li class="toc-item toc-h3"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#54-connections-to-broader-research" class="toc-link">5.4 Connections to Broader Research</a></li><li class="toc-item toc-h2"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#6-conclusion-and-future-work" class="toc-link">6. Conclusion and Future Work</a></li><li class="toc-item toc-h2"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#references" class="toc-link">References</a></li></ul></nav>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  generateTOC();
+  setupTOCBehavior();
+  setupTOCResize();
+});
+
+function setupTOCResize() {
+  const floatingToc = document.getElementById('floating-toc');
+  const handle = document.getElementById('toc-resize-handle');
+  if (!floatingToc || !handle) return;
+
+  const MIN_WIDTH = 200;
+  const MAX_WIDTH = 700;
+
+  // Restore previously chosen width
+  const saved = parseInt(localStorage.getItem('floatingTocWidth'), 10);
+  if (!isNaN(saved) && saved >= MIN_WIDTH && saved <= MAX_WIDTH) {
+    floatingToc.style.width = saved + 'px';
+  }
+
+  let isDragging = false;
+  let startX = 0;
+  let startWidth = 0;
+
+  function onPointerDown(e) {
+    if (floatingToc.classList.contains('collapsed')) return;
+    isDragging = true;
+    startX = e.clientX;
+    startWidth = floatingToc.getBoundingClientRect().width;
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'ew-resize';
+    e.preventDefault();
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    // Dragging left increases width (TOC is anchored to the right)
+    const delta = startX - e.clientX;
+    let newWidth = startWidth + delta;
+    if (newWidth < MIN_WIDTH) newWidth = MIN_WIDTH;
+    if (newWidth > MAX_WIDTH) newWidth = MAX_WIDTH;
+    floatingToc.style.width = newWidth + 'px';
+  }
+
+  function onPointerUp() {
+    if (!isDragging) return;
+    isDragging = false;
+    document.body.style.userSelect = '';
+    document.body.style.cursor = '';
+    const finalWidth = parseInt(floatingToc.style.width, 10);
+    if (!isNaN(finalWidth)) {
+      localStorage.setItem('floatingTocWidth', String(finalWidth));
+    }
+  }
+
+  handle.addEventListener('mousedown', onPointerDown);
+  document.addEventListener('mousemove', onPointerMove);
+  document.addEventListener('mouseup', onPointerUp);
+
+  // Touch support
+  handle.addEventListener('touchstart', function(e) {
+    if (e.touches.length !== 1) return;
+    onPointerDown(e.touches[0]);
+  }, { passive: false });
+  document.addEventListener('touchmove', function(e) {
+    if (!isDragging || e.touches.length !== 1) return;
+    onPointerMove(e.touches[0]);
+    e.preventDefault();
+  }, { passive: false });
+  document.addEventListener('touchend', onPointerUp);
+  document.addEventListener('touchcancel', onPointerUp);
+}
+
+function generateTOC() {
+  const tocContent = document.getElementById('toc-content');
+  const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+  
+  if (headings.length === 0) {
+    document.getElementById('floating-toc').style.display = 'none';
+    return;
+  }
+
+  const tocList = document.createElement('ul');
+  tocList.className = 'toc-list';
+
+  headings.forEach((heading, index) => {
+    // Create an ID for the heading if it doesn't have one
+    if (!heading.id) {
+      heading.id = 'heading-' + index;
+    }
+
+    const listItem = document.createElement('li');
+    listItem.className = 'toc-item toc-' + heading.tagName.toLowerCase();
+    
+    const link = document.createElement('a');
+    link.href = '#' + heading.id;
+    link.textContent = heading.textContent;
+    link.className = 'toc-link';
+    
+    // Smooth scroll behavior
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById(heading.id);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Update active link
+        document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+    
+    listItem.appendChild(link);
+    tocList.appendChild(listItem);
+  });
+
+  tocContent.appendChild(tocList);
+}
+
+function setupTOCBehavior() {
+  const floatingToc = document.getElementById('floating-toc');
+  const tocToggle = document.getElementById('toc-toggle');
+  const tocContent = document.getElementById('toc-content');
+  
+  if (!floatingToc || !tocToggle || !tocContent) return;
+  
+  // Toggle TOC visibility
+  const tocIcon = tocToggle.querySelector('.toc-icon');
+  let savedInlineWidth = '';
+  tocToggle.addEventListener('click', function() {
+    tocContent.classList.toggle('collapsed');
+    floatingToc.classList.toggle('collapsed');
+    const isCollapsed = floatingToc.classList.contains('collapsed');
+    if (isCollapsed) {
+      // Stash the user-resized width and clear it so the collapsed CSS wins
+      savedInlineWidth = floatingToc.style.width;
+      floatingToc.style.width = '';
+    } else if (savedInlineWidth) {
+      floatingToc.style.width = savedInlineWidth;
+    }
+    if (tocIcon) {
+      tocIcon.textContent = isCollapsed ? '+' : '−';
+    }
+  });
+
+  // Highlight current section while scrolling
+  const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+  const tocLinks = document.querySelectorAll('.toc-link');
+
+  const tocContentEl = document.getElementById('toc-content');
+  let lastActiveHref = '';
+  let userIsInteractingWithToc = false;
+  let userInteractionTimer = null;
+  if (tocContentEl) {
+    // If the user manually scrolls / interacts with the TOC, pause auto-follow briefly
+    const markInteracting = function() {
+      userIsInteractingWithToc = true;
+      clearTimeout(userInteractionTimer);
+      userInteractionTimer = setTimeout(function() {
+        userIsInteractingWithToc = false;
+      }, 1500);
+    };
+    tocContentEl.addEventListener('wheel', markInteracting, { passive: true });
+    tocContentEl.addEventListener('touchstart', markInteracting, { passive: true });
+    tocContentEl.addEventListener('mousedown', markInteracting);
+  }
+
+  function scrollActiveIntoView(activeLink) {
+    if (!tocContentEl || !activeLink || userIsInteractingWithToc) return;
+    const containerRect = tocContentEl.getBoundingClientRect();
+    const linkRect = activeLink.getBoundingClientRect();
+    const margin = 24;
+    if (linkRect.top < containerRect.top + margin) {
+      tocContentEl.scrollTop += (linkRect.top - containerRect.top) - margin;
+    } else if (linkRect.bottom > containerRect.bottom - margin) {
+      tocContentEl.scrollTop += (linkRect.bottom - containerRect.bottom) + margin;
+    }
+  }
+
+  function updateActiveLink() {
+    let current = '';
+
+    headings.forEach(heading => {
+      const rect = heading.getBoundingClientRect();
+      if (rect.top <= 100) {
+        current = heading.id;
+      }
+    });
+
+    let activeLink = null;
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+        activeLink = link;
+      }
+    });
+
+    const href = activeLink ? activeLink.getAttribute('href') : '';
+    if (href !== lastActiveHref) {
+      lastActiveHref = href;
+      scrollActiveIntoView(activeLink);
+    }
+  }
+
+  // Update active link on scroll with throttling
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateActiveLink();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial active link
+  setTimeout(updateActiveLink, 100);
+}
+</script>
+<div class="post-content e-content" itemprop="articleBody">
+    <p>My previous work on ontologies defined in RDF Structured Data mining<sup id="fnref:12" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:12" class="footnote" rel="footnote">1</a></sup> and Apache Jena<sup id="fnref:14" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:14" class="footnote" rel="footnote">2</a></sup> provide formal, structured representations of domain knowledge that can be harnessed as evaluation frameworks (Evals) for assessing outputs of LLMs. Using the well-known Pizza ontology<sup id="fnref:13" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:13" class="footnote" rel="footnote">3</a></sup> as a running example, illustrate how <strong>domain-specific ontologies</strong> can guide the evaluation of LLM-generated content such as recipe emails. The framework emphasises mapping unstructured LLM outputs into ontology-aligned structured data, applying reasoning engines to <strong>verify factual and logical coherence, and deriving quantitative and qualitative evaluation metrics</strong>.</p>
+
+<!--more-->
+
+<hr>
+
+<ul id="markdown-toc">
+  <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#1-introduction" id="markdown-toc-1-introduction">1. Introduction</a></li>
+  <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#2-background-and-literature-review" id="markdown-toc-2-background-and-literature-review">2. Background and Literature Review</a>    <ul>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#21-ontologies-in-computer-science" id="markdown-toc-21-ontologies-in-computer-science">2.1 Ontologies in Computer Science</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#22-rdf-and-owl-as-ontology-languages" id="markdown-toc-22-rdf-and-owl-as-ontology-languages">2.2 RDF and OWL as Ontology Languages</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#23-ontologies-and-large-language-models" id="markdown-toc-23-ontologies-and-large-language-models">2.3 Ontologies and Large Language Models</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#24-ontology-based-evaluation-frameworks" id="markdown-toc-24-ontology-based-evaluation-frameworks">2.4 Ontology-Based Evaluation Frameworks</a></li>
+    </ul>
+  </li>
+  <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#3-methodology-framework-for-ontology-based-llm-evaluation" id="markdown-toc-3-methodology-framework-for-ontology-based-llm-evaluation">3. Methodology: Framework for Ontology-Based LLM Evaluation</a>    <ul>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#31-ontology-parsing-and-representation" id="markdown-toc-31-ontology-parsing-and-representation">3.1 Ontology Parsing and Representation</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#32-semantic-extraction-from-llm-outputs" id="markdown-toc-32-semantic-extraction-from-llm-outputs">3.2 Semantic Extraction from LLM Outputs</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#33-reasoning-and-consistency-checking" id="markdown-toc-33-reasoning-and-consistency-checking">3.3 Reasoning and Consistency Checking</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#34-eval-metric-formulation" id="markdown-toc-34-eval-metric-formulation">3.4 Eval Metric Formulation</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#35-iterative-refinement-and-feedback" id="markdown-toc-35-iterative-refinement-and-feedback">3.5 Iterative Refinement and Feedback</a></li>
+    </ul>
+  </li>
+  <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#4-key-findings-and-illustrative-example-pizza-ontology-eval" id="markdown-toc-4-key-findings-and-illustrative-example-pizza-ontology-eval">4. Key Findings and Illustrative Example: Pizza Ontology Eval</a>    <ul>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#41-pizza-ontology-overview" id="markdown-toc-41-pizza-ontology-overview">4.1 Pizza Ontology Overview</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#42-applying-the-framework-to-a-pizza-recipe-email" id="markdown-toc-42-applying-the-framework-to-a-pizza-recipe-email">4.2 Applying the Framework to a Pizza Recipe Email</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#43-benefits-and-challenges" id="markdown-toc-43-benefits-and-challenges">4.3 Benefits and Challenges</a></li>
+    </ul>
+  </li>
+  <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#5-discussion" id="markdown-toc-5-discussion">5. Discussion</a>    <ul>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#51-implications-for-llm-evaluation" id="markdown-toc-51-implications-for-llm-evaluation">5.1 Implications for LLM Evaluation</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#51-ontology-constructs-as-validation-targets" id="markdown-toc-51-ontology-constructs-as-validation-targets">5.1 Ontology Constructs as Validation Targets</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#52-example-validation-rules" id="markdown-toc-52-example-validation-rules">5.2 Example Validation Rules</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#53-limitations" id="markdown-toc-53-limitations">5.3 Limitations</a></li>
+      <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#54-connections-to-broader-research" id="markdown-toc-54-connections-to-broader-research">5.4 Connections to Broader Research</a></li>
+    </ul>
+  </li>
+  <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#6-conclusion-and-future-work" id="markdown-toc-6-conclusion-and-future-work">6. Conclusion and Future Work</a></li>
+  <li><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#references" id="markdown-toc-references">References</a></li>
+</ul>
+<hr>
+
+<h2 id="1-introduction">1. Introduction</h2>
+
+<p>Large language models (LLMs) have demonstrated remarkable capabilities in generating coherent and contextually relevant text across diverse domains. However, evaluating the factual accuracy, domain consistency, and logical coherence of LLM outputs remains a critical challenge. Traditional evaluation metrics often rely on surface-level similarity measures or human judgment, which may not capture deeper semantic correctness or adherence to domain knowledge.</p>
+
+<p>Ontologies—formal, explicit specifications of conceptualisations—offer a promising avenue to address this challenge. Defined in languages such as the Resource Description Framework (RDF) and the Web Ontology Language (OWL), ontologies encode domain knowledge as classes, properties, and relations with formal semantics. By leveraging ontologies as structured evaluation frameworks (Evals), it becomes possible to systematically assess whether LLM-generated content aligns with domain-specific knowledge and constraints.</p>
+
+<p>That integrates ontology parsing, semantic extraction, reasoning, and metric computation. The Pizza ontology, a canonical OWL ontology modelling pizza types and ingredients, serves as an illustrative example to concretise the approach.</p>
+
+<blockquote class="yellow">
+  <p>LLMs generate text based on learned statistical patterns but may produce outputs that are semantically inconsistent or factually incorrect relative to domain knowledge. Standard evaluation metrics (e.g., BLEU, ROUGE) focus on surface similarity rather than semantic validity. Domain-specific evaluation requires grounding outputs in formal knowledge representations.</p>
+</blockquote>
+
+<h2 id="2-background-and-literature-review">2. Background and Literature Review</h2>
+
+<h3 id="21-ontologies-in-computer-science">2.1 Ontologies in Computer Science</h3>
+
+<p>Ontologies formalise domain knowledge by defining concepts (classes), their properties, and interrelations within a domain <sup id="fnref:1" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:1" class="footnote" rel="footnote">4</a></sup>. They enable shared understanding and interoperability across systems by providing explicit semantics. Ontologies are widely used in knowledge representation, the semantic web, and artificial intelligence to support reasoning and decision-making.</p>
+
+<h3 id="22-rdf-and-owl-as-ontology-languages">2.2 RDF and OWL as Ontology Languages</h3>
+
+<p>The Resource Description Framework (RDF) models information as triples (subject-predicate-object), forming directed labelled graphs <sup id="fnref:2" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:2" class="footnote" rel="footnote">5</a></sup>. RDF provides a flexible syntax for encoding metadata and domain knowledge. The Web Ontology Language (OWL) builds on RDF to offer richer expressivity, including class hierarchies, property restrictions, and logical axioms <sup id="fnref:3" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:3" class="footnote" rel="footnote">6</a></sup>. OWL ontologies enable automated reasoning about domain concepts and constraints.</p>
+
+<h3 id="23-ontologies-and-large-language-models">2.3 Ontologies and Large Language Models</h3>
+
+<p>Recent research explores integrating ontologies with LLMs to enhance knowledge grounding, alignment, and evaluation<sup id="fnref:4" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:4" class="footnote" rel="footnote">7</a></sup> in discussion<sup id="fnref:5" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:5" class="footnote" rel="footnote">8</a></sup>: Ontologies can guide LLM training, prompt engineering, and output verification by providing structured domain schemas. However, direct use of RDF/OWL ontologies as evaluation frameworks for LLM outputs remains an emerging area.</p>
+
+<h3 id="24-ontology-based-evaluation-frameworks">2.4 Ontology-Based Evaluation Frameworks</h3>
+
+<p>Ontology-driven evaluation involves mapping LLM-generated text to ontology-aligned structured data and applying reasoning to verify consistency and completeness<sup id="fnref:6" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:6" class="footnote" rel="footnote">9</a></sup>. Frameworks such as OntoTune demonstrate ontology-guided self-training and alignment of LLMs<sup id="fnref:7" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:7" class="footnote" rel="footnote">10</a></sup>. Lightweight inference rules (e.g., N3Logic) facilitate mechanised reasoning over RDF/OWL data<sup id="fnref:8" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:8" class="footnote" rel="footnote">11</a></sup>.</p>
+
+<blockquote class="yellow">
+  <p>Despite conceptual advances, practical pipelines for converting ontologies like pizza.owl into Eval scripts are nascent.</p>
+</blockquote>
+
+<hr>
+
+<h2 id="3-methodology-framework-for-ontology-based-llm-evaluation">3. Methodology: Framework for Ontology-Based LLM Evaluation</h2>
+
+<p>In this article, I propose a multi-stage framework to operationalise RDF/OWL ontologies as Eval frameworks for LLM-generated outputs.</p>
+
+<h3 id="31-ontology-parsing-and-representation">3.1 Ontology Parsing and Representation</h3>
+
+<ul>
+  <li><strong>Objective:</strong> Extract domain classes, properties, and axioms from the ontology file (e.g., pizza.owl).</li>
+  <li><strong>Tools:</strong> OWL API, Apache Jena, or RDFLib can parse OWL/RDF files and expose ontology elements programmatically.</li>
+  <li><strong>Output:</strong> Machine-readable ontology schema including class hierarchies, object/data properties, and logical constraints.</li>
+</ul>
+
+<p>The proposed framework consists of the following components:</p>
+
+<p>Convert LLM-generated pizza recipe replies from natural language into structured data identifying pizza types, toppings, ingredients, and quantities.</p>
+
+<ul>
+  <li>Use natural language processing (NLP) techniques such as named entity recognition (NER), dependency parsing, and semantic role labelling to identify pizza-related entities and relations in the LLM reply.</li>
+  <li>Map recognised entities to ontology classes (e.g., <code class="language-plaintext highlighter-rouge">MargheritaPizza</code>, <code class="language-plaintext highlighter-rouge">MozzarellaTopping</code>) using controlled vocabularies or lexical matching.</li>
+  <li>Extract relations such as <code class="language-plaintext highlighter-rouge">hasTopping</code> and <code class="language-plaintext highlighter-rouge">hasBase</code> from recipe instructions</li>
+</ul>
+
+<h3 id="32-semantic-extraction-from-llm-outputs">3.2 Semantic Extraction from LLM Outputs</h3>
+
+<ul>
+  <li><strong>Objective:</strong> Convert unstructured LLM-generated text (e.g., pizza recipe email) into structured data aligned with ontology schema.</li>
+  <li><strong>Techniques:</strong>
+    <ul>
+      <li>Named entity recognition (NER) and relation extraction tuned to ontology concepts.</li>
+      <li>Prompt engineering or template-based generation to elicit structured triples from LLMs.</li>
+      <li>Semantic parsing to RDF triples referencing ontology classes and properties.</li>
+    </ul>
+  </li>
+  <li><strong>Output:</strong> Instance data representing entities and relations extracted from text, formatted as RDF triples or OWL individuals.</li>
+</ul>
+
+<p><strong>Ontology Instance Mapping:</strong> Represent extracted entities as RDF/OWL individuals conforming to the Pizza ontology classes and properties.</p>
+
+<ul>
+  <li>Instantiate RDF individuals representing the pizza and its components.</li>
+  <li>Assign properties according to the ontology schema, e.g., linking a pizza individual to topping individuals via <code class="language-plaintext highlighter-rouge">hasTopping</code>.</li>
+  <li>Encode quantities or preparation steps as datatype properties if modelled.</li>
+</ul>
+
+<h3 id="33-reasoning-and-consistency-checking">3.3 Reasoning and Consistency Checking</h3>
+
+<ul>
+  <li><strong>Objective:</strong> Verify that extracted instance data conforms to ontology axioms and constraints.</li>
+  <li><strong>Tools:</strong> OWL reasoners such as Pellet, Hermit, or N3Logic engines.</li>
+  <li><strong>Checks:</strong>
+    <ul>
+      <li>Class membership validation (e.g., <code class="language-plaintext highlighter-rouge">ingredient</code> instances belong to <code class="language-plaintext highlighter-rouge">PizzaIngredient</code> subclasses).</li>
+      <li>Property constraint verification (e.g., <code class="language-plaintext highlighter-rouge">toppings</code> linked via the <code class="language-plaintext highlighter-rouge">hasTopping</code> property).</li>
+      <li>Logical consistency and completeness (e.g., all required components present).</li>
+    </ul>
+  </li>
+  <li><strong>Output:</strong> Reasoning results indicating consistency, inferred classifications, and detected violations.</li>
+</ul>
+
+<p><strong>Reasoning and Constraint Validation:</strong> Apply OWL reasoners and SHACL constraints to check semantic consistency, class membership, and adherence to domain restrictions.</p>
+
+<ul>
+  <li>Use OWL reasoners (e.g., HermiT, Pellet) to infer class membership and check logical consistency of the instance data.</li>
+  <li>Apply SHACL shapes derived from ontology restrictions to enforce closed-world constraints such as exact cardinalities and disallowed toppings.</li>
+  <li>Execute SPARQL queries to detect specific violations, such as the presence of meat toppings on a vegetarian pizza.</li>
+</ul>
+
+<h3 id="34-eval-metric-formulation">3.4 Eval Metric Formulation</h3>
+
+<ul>
+  <li><strong>Objective:</strong> Quantify the quality of LLM output based on ontology alignment.</li>
+  <li><strong>Metrics:</strong>
+    <ul>
+      <li><strong>Factual Coverage:</strong> Proportion of required ontology classes and properties mentioned.</li>
+      <li><strong>Relation Correctness:</strong> Accuracy of stated relations against ontology definitions.</li>
+      <li><strong>Logical Coherence:</strong> Degree of consistency and absence of contradictions per reasoning.</li>
+      <li><strong>Completeness Score:</strong> Extent to which all necessary components (e.g., crust, sauce, cheese) are included.</li>
+    </ul>
+  </li>
+  <li><strong>Output:</strong> Composite Eval scores or qualitative flags guiding assessment.</li>
+</ul>
+
+<h3 id="35-iterative-refinement-and-feedback">3.5 Iterative Refinement and Feedback</h3>
+
+<ul>
+  <li><strong>Objective:</strong> Use Eval results to improve LLM outputs via fine-tuning or prompt adjustment iteratively.</li>
+  <li><strong>Approach:</strong> Incorporate ontology-driven feedback loops as in OntoTune <sup id="fnref:7:1" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:7" class="footnote" rel="footnote">10</a></sup> to align LLM knowledge with domain ontology.</li>
+</ul>
+
+<p><strong>Eval Scoring and Reporting:</strong> Generate validation reports indicating compliance or violations, supporting automated scoring of LLM outputs.</p>
+
+<ul>
+  <li>Define Eval criteria as a set of SPARQL ASK or SELECT queries and SHACL<sup id="fnref:15" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:15" class="footnote" rel="footnote">12</a></sup> validation reports.</li>
+  <li>Automate the pipeline to process multiple LLM replies, producing pass/fail or graded scores based on compliance.</li>
+  <li>Incorporate soft constraints or probabilistic scoring to handle partial matches or uncertain entity extraction.</li>
+</ul>
+
+<hr>
+
+<h2 id="4-key-findings-and-illustrative-example-pizza-ontology-eval">4. Key Findings and Illustrative Example: Pizza Ontology Eval</h2>
+
+<h3 id="41-pizza-ontology-overview">4.1 Pizza Ontology Overview</h3>
+
+<p>The Pizza ontology<sup id="fnref:9" role="doc-noteref"><a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fn:9" class="footnote" rel="footnote">13</a></sup> models pizza types, ingredients, toppings, and preparation concepts in OWL. It defines classes such as <code class="language-plaintext highlighter-rouge">Pizza</code>, <code class="language-plaintext highlighter-rouge">PizzaBase</code>, and <code class="language-plaintext highlighter-rouge">Topping</code>, as well as properties like <code class="language-plaintext highlighter-rouge">hasTopping</code> and <code class="language-plaintext highlighter-rouge">hasBase</code>. The ontology encodes hierarchical relations and constraints (e.g., certain toppings are only valid for specific pizza types).</p>
+
+<h3 id="42-applying-the-framework-to-a-pizza-recipe-email">4.2 Applying the Framework to a Pizza Recipe Email</h3>
+
+<p><strong>Step 1: Ontology Parsing</strong></p>
+
+<ul>
+  <li>Load <code class="language-plaintext highlighter-rouge">pizza.owl</code> using OWL API.</li>
+  <li>Extract classes: <code class="language-plaintext highlighter-rouge">Pizza</code>, <code class="language-plaintext highlighter-rouge">MargheritaPizza</code>, <code class="language-plaintext highlighter-rouge">MozzarellaTopping</code>, etc.</li>
+  <li>Extract properties: <code class="language-plaintext highlighter-rouge">hasTopping</code>, <code class="language-plaintext highlighter-rouge">hasBase</code>.</li>
+</ul>
+
+<p><strong>Step 2: Semantic Extraction</strong></p>
+
+<ul>
+  <li>Input: LLM-generated email describing a pizza recipe.</li>
+  <li>Use NER and relation extraction to identify entities: “Margherita pizza”, “mozzarella cheese”, “tomato sauce”.</li>
+  <li>Map entities to ontology classes: “Margherita pizza” → <code class="language-plaintext highlighter-rouge">MargheritaPizza</code>, “mozzarella cheese” → <code class="language-plaintext highlighter-rouge">MozzarellaTopping</code>.</li>
+  <li>Extract relations: <code class="language-plaintext highlighter-rouge">hasTopping(MargheritaPizza, MozzarellaTopping)</code>.</li>
+</ul>
+
+<p><strong>Step 3: Reasoning</strong></p>
+
+<ul>
+  <li>Use Pellet reasoner to check:
+    <ul>
+      <li>Are all toppings valid for <code class="language-plaintext highlighter-rouge">MargheritaPizza</code> per ontology?</li>
+      <li>Does the recipe include required components (base, sauce, cheese)?</li>
+      <li>Is the combination logically consistent?</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Step 4: Eval Metrics</strong></p>
+
+<ul>
+  <li>Factual coverage: 90% (all required ingredients mentioned).</li>
+  <li>Relation correctness: 100% (all toppings valid).</li>
+  <li>Logical coherence: Pass (no contradictions).</li>
+  <li>Completeness: High (all preparation steps included).</li>
+</ul>
+
+<p><strong>Step 5: Feedback</strong></p>
+
+<ul>
+  <li>If missing components are detected, prompt LLM to include them in subsequent generations.</li>
+</ul>
+
+<h3 id="43-benefits-and-challenges">4.3 Benefits and Challenges</h3>
+
+<ul>
+  <li><strong>Benefits:</strong> Ontology-based Evals provide domain-aware, semantically rich evaluation beyond surface text similarity.</li>
+  <li><strong>Challenges:</strong> <em>Mapping free text to ontology instances requires sophisticated NLP</em>; reasoning can be computationally intensive; tooling integration is nontrivial.</li>
+</ul>
+
+<hr>
+
+<h2 id="5-discussion">5. Discussion</h2>
+
+<h3 id="51-implications-for-llm-evaluation">5.1 Implications for LLM Evaluation</h3>
+
+<p>Ontology-driven evaluation frameworks enable a rigorous and interpretable assessment of LLM outputs, grounded in <strong>formal domain knowledge</strong>. For example, AWS Neptune efficiently stores and navigates relationships in data, supporting both the <strong>Property Graph</strong> and <strong>Resource Description Framework</strong> (RDF) graph models. This approach can enhance trustworthiness and domain alignment, particularly in specialised fields (e.g., medicine, law, insurance, banking, culinary arts, and others).</p>
+
+<h3 id="51-ontology-constructs-as-validation-targets">5.1 Ontology Constructs as Validation Targets</h3>
+
+<p>From the Stanford Pizza ontology, key constructs include:</p>
+
+<ul>
+  <li><strong>Classes:</strong> <code class="language-plaintext highlighter-rouge">Pizza</code>, <code class="language-plaintext highlighter-rouge">VegetarianPizza</code>, <code class="language-plaintext highlighter-rouge">MargheritaPizza</code>, <code class="language-plaintext highlighter-rouge">Topping</code>, <code class="language-plaintext highlighter-rouge">MeatTopping</code>, <code class="language-plaintext highlighter-rouge">VegetableTopping</code>.</li>
+  <li><strong>Object Properties:</strong> <code class="language-plaintext highlighter-rouge">hasTopping</code>, <code class="language-plaintext highlighter-rouge">hasBase</code>, <code class="language-plaintext highlighter-rouge">hasIngredient</code>.</li>
+  <li><strong>Restrictions:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">MargheritaPizza</code> has exactly one topping: <code class="language-plaintext highlighter-rouge">Mozzarella</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">VegetarianPizza</code> excludes any <code class="language-plaintext highlighter-rouge">MeatTopping</code>.</li>
+      <li>Certain toppings only allowed on specific pizza types.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>These constructs form the basis for validation rules.</p>
+
+<h3 id="52-example-validation-rules">5.2 Example Validation Rules</h3>
+
+<p>Neptune supports both the</p>
+
+<ul>
+  <li>The Property Graph model with Apache TinkerPop Gremlin is a labelled, directed structure where both relationships (edges) and nodes (vertices) can have properties.</li>
+  <li>
+    <p>RDF model with SPARQL excels at semantic web applications and knowledge graphs, where standardised data interchange is essential.</p>
+  </li>
+  <li><strong>Rule 1:</strong> Check that a <code class="language-plaintext highlighter-rouge">MargheritaPizza</code> instance has exactly one <code class="language-plaintext highlighter-rouge">Mozzarella</code> topping.</li>
+</ul>
+
+<div class="language-sparql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ASK</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nv">?pizza</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="o">:</span><span class="ss">MargheritaPizza</span><span class="w"> </span><span class="p">.</span><span class="w">
+  </span><span class="nv">?pizza</span><span class="w"> </span><span class="o">:</span><span class="ss">hasTopping</span><span class="w"> </span><span class="nv">?topping</span><span class="w"> </span><span class="p">.</span><span class="w">
+  </span><span class="k">FILTER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nv">?topping</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="o">:</span><span class="ss">MozzarellaTopping</span><span class="w"> </span><span class="p">.</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><strong>Rule 2:</strong> Verify that a <code class="language-plaintext highlighter-rouge">VegetarianPizza</code> has no <code class="language-plaintext highlighter-rouge">MeatTopping</code>.</li>
+</ul>
+
+<div class="language-sparql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ASK</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nv">?pizza</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="o">:</span><span class="ss">VegetarianPizza</span><span class="w"> </span><span class="p">.</span><span class="w">
+  </span><span class="nv">?pizza</span><span class="w"> </span><span class="o">:</span><span class="ss">hasTopping</span><span class="w"> </span><span class="nv">?topping</span><span class="w"> </span><span class="p">.</span><span class="w">
+  </span><span class="nv">?topping</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="o">:</span><span class="ss">MeatTopping</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><strong>Rule 3:</strong> Cardinality constraint on toppings for a given pizza type, enforced via SHACL.</li>
+</ul>
+
+<h3 id="53-limitations">5.3 Limitations</h3>
+
+<ul>
+  <li>Lack of off-the-shelf tools to automate the entire pipeline from OWL ontology to Eval scripts.</li>
+  <li>Semantic extraction from natural language remains a bottleneck requiring domain-specific tuning.</li>
+  <li>Ontology completeness and correctness directly impact Eval reliability.</li>
+</ul>
+
+<h3 id="54-connections-to-broader-research">5.4 Connections to Broader Research</h3>
+
+<p>The framework aligns with ongoing research in ontology-LLM integration, knowledge graph construction, and semantic evaluation. It complements efforts in explainable AI by providing transparent, logic-based Eval criteria.</p>
+
+<hr>
+
+<h2 id="6-conclusion-and-future-work">6. Conclusion and Future Work</h2>
+
+<p>This report presents a structured framework for leveraging RDF/OWL ontologies as evaluation frameworks for LLM-generated outputs, illustrated through the Pizza ontology example. By parsing ontologies, extracting structured data from text, applying reasoning, and formulating Eval metrics, practitioners can systematically assess LLM outputs for domain consistency and factual accuracy.</p>
+
+<p>Future research should focus on developing integrated toolkits that automate ontology parsing, semantic extraction, and reasoning-based evaluation. Advances in semantic parsing and ontology alignment will further enhance the feasibility of ontology-driven LLM Evals. Extending this approach to diverse domains promises to enhance the reliability and domain awareness of LLM applications.</p>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:12" role="doc-endnote">
+      <p><a href="https://ojitha.blogspot.com/2020/08/structured-data-meaning_69.html" target="_blank">Structured data meaning</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:12" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:14" role="doc-endnote">
+      <p><a href="https://ojitha.blogspot.com/2020/08/apache-jena-to-learn-rdf-and-sparql_64.html" target="_blank">Apache Jena to learn RDF and SPARQL</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:14" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:13" role="doc-endnote">
+      <p><a href="https://ojitha.blogspot.com/2010/09/missing-manual-protege-owl-tutorial.html" target="_blank">Missing Manual: Protégé OWL Tutorial</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:13" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Ontology_(information_science)" target="_blank">Ontology (information science) - Wikipedia</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Resource_Description_Framework" target="_blank">Resource Description Framework - Wikipedia</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Web_Ontology_Language" target="_blank">Web Ontology Language - Wikipedia</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://ai.plainenglish.io/integrating-ontologies-with-large-language-models-for-decision-making-bb1c600ce5a3" target="_blank">Integrating Ontologies with Large Language Models for Decision-Making | by Anthony Alcaraz | Artificial Intelligence in Plain English</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:4" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p><a href="https://nachi-keta.medium.com/ontologies-llms-and-knowledge-graphs-a-discussion-cadeeabe1cc7" target="_blank">Ontologies, LLMs and Knowledge Graphs : A Discussion | by Rahul Sharma | Medium</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p><a href="https://www.docdigitizer.com/blog/ontologies-large-language-models-guide/" target="_blank">A Comprehensive Guide to Ontologies and Large Language Models</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:6" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p><a href="https://arxiv.org/abs/2502.05478" target="_blank">[2502.05478] OntoTune: Ontology-Driven Self-training for Aligning Large Language Models</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:7" class="reversefootnote" role="doc-backlink">↩</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:7:1" class="reversefootnote" role="doc-backlink">↩<sup>2</sup></a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p><a href="https://arxiv.org/abs/1601.02650" target="_blank">[1601.02650] Inference rules for RDF(S) and OWL in N3Logic</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:8" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:15" role="doc-endnote">
+      <p><a href="https://arxiv.org/abs/2505.09198v1" target="_blank">SHACL-DS: A SHACL extension to validate RDF dataset</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:15" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:9" role="doc-endnote">
+      <p><a href="https://protege.stanford.edu/ontologies/pizza/pizza.owl" target="_blank"> Pizza Ontology, Stanford Protégé</a>&nbsp;<a href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html#fnref:9" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><a class="u-url" href="https://ojitha.github.io/ai/ontology/2025/10/08/llm_ontology_evals.html" hidden=""></a>
+</article>
+
+
+      </div>
+    </main><link id="fa-stylesheet" rel="stylesheet" href="./Ontology Evals for LLMs _ Ojitha Hewa Kumanayaka_files/all.min.css">
+
+<footer class="site-footer h-card">
+  <data class="u-url" value="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">Ojitha Kumanayaka</li>
+          <li><a class="u-email" href="mailto:ojithak@gmail.com">ojithak@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>AWS Certified AI/ML Software Engineer from Australia.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+    <a rel="me" href="https://github.com/ojitha" target="_blank" title="GitHub">
+      <span class="grey fa-brands fa-github fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://twitter.com/ojitha" target="_blank" title="Twitter / X">
+      <span class="grey fa-brands fa-x-twitter fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://www.linkedin.com/in/ojitha" target="_blank" title="LinkedIn">
+      <span class="grey fa-brands fa-linkedin fa-lg"></span>
+    </a>
+  </li><li>
+    <a rel="me" href="https://stackoverflow.com/users/546792" target="_blank" title="Stack Overflow">
+      <span class="grey fa-brands fa-stack-overflow fa-lg"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://ojitha.github.io/feed.xml" target="_blank" title="Subscribe to syndication feed">
+      <svg class="svg-icon grey" viewBox="0 0 16 16">
+        <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+          11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+          13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+          16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"></path>
+      </svg>
+    </a>
+  </li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+
+
+
+
+</body></html>

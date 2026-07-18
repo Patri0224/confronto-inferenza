@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://arxiv.org/html/2511.08232v1 -->
+<html lang="en" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>OWLAPY: A Pythonic Framework for OWL Ontology Engineering</title>
+<!--Generated on Tue Nov 11 13:31:56 2025 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<link href="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/arxiv-html-papers-20250916.css" rel="stylesheet" type="text/css">
+<script src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/bootstrap.bundle.min.js.download"></script>
+<script src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/html2canvas.min.js.download"></script>
+<script src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/addons_new.js.download"></script>
+<script src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/feedbackOverlay.js.download"></script>
+<!--<base href="/html/2511.08232v1/">--><base href="."><link rel="stylesheet" href="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/utz6mli.css"><link rel="icon" type="image/png" href="https://static.arxiv.org/static/browse/0.3.4/images/icons/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="https://static.arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png" sizes="32x32"></head>
+<body><header class="mob_header">
+    <div class="html-header-logo">
+      <a href="https://arxiv.org/">
+        <img alt="logo" class="logomark" role="presentation" width="100" src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/arxiv-logomark-small-white.svg">
+        <span class="sr-only">Back to arXiv</span>
+      </a>
+    </div>
+
+    <!--TOC, dark mode, links-->
+    <div class="html-header-nav">
+      <!--back to abstract-->
+      
+        <a class="nav-link ar5iv-footer-button hover-effect" aria-label="Back to abstract page" href="https://arxiv.org/abs/2511.08232v1">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512" fill="#ffffff" aria-hidden="true">
+            <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z"></path>
+        </svg>
+        </a>
+      <!--dark mode-->
+      <a class="ar5iv-toggle-color-scheme" href="javascript:toggleColorScheme()" title="Toggle dark/light mode" aria-label="Color scheme: System preference. Click to switch to light mode.">
+        <label id="automatic-tog" class="toggle-icon" title="Switch to light mode" for="__palette_3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"></path></svg>
+        </label>
+        <label id="light-tog" class="toggle-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+        </label>
+        <label id="dark-tog" class="toggle-icon" title="Switch to system preference" for="__palette_2" hidden="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+        </label>
+      </a>
+      <!--nav-->
+      <button class="navbar-toggler ar5iv-footer-button" type="button" data-bs-theme="dark" data-bs-toggle="collapse" aria-expanded="false" data-bs-target=".ltx_page_main &gt;.ltx_TOC.mobile" aria-controls="navbarSupportedContent" aria-label="Toggle navigation" style="border:none; margin-right: 0em;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 448 512" aria-hidden="true" role="img" fill="#ffffff"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg>
+      </button>
+    </div>
+    </header><header class="desktop_header">
+    <div class="html-header-logo">
+      <a href="https://arxiv.org/">
+          <img alt="logo" class="logo" role="presentation" width="100" src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/arxiv-logo-one-color-white.svg">
+          <span class="sr-only">Back to arXiv</span>
+      </a>
+    </div>
+    <div class="html-header-message" role="banner">
+        <p>This is <strong>experimental HTML</strong> to improve accessibility. We invite you to report rendering errors. <span class="sr-only">Use Alt+Y to toggle on accessible reporting links and Alt+Shift+Y to toggle off.</span> Learn more <a href="https://info.arxiv.org/about/accessible_HTML.html" target="_blank">about this project</a> and <a href="https://info.arxiv.org/help/submit_latex_best_practices.html" target="_blank">help improve conversions</a>.
+        </p>
+    </div>
+    <nav class="html-header-nav">
+      <a class="ar5iv-footer-button hover-effect" href="https://info.arxiv.org/about/accessible_HTML.html" target="_blank">Why HTML?</a>
+      <a class="ar5iv-footer-button hover-effect" target="_blank" href="https://arxiv.org/html/2511.08232v1/#myForm" onclick="event.preventDefault(); var modal = document.getElementById(&#39;myForm&#39;); modal.style.display = &#39;block&#39;; bugReportState.setInitiateWay(&#39;Header&#39;);">Report Issue</a>
+      <a class="ar5iv-footer-button hover-effect" href="https://arxiv.org/abs/2511.08232v1">Back to Abstract</a>
+      <a class="ar5iv-footer-button hover-effect" href="https://arxiv.org/pdf/2511.08232v1" target="_blank">Download PDF</a>
+      <a class="ar5iv-toggle-color-scheme" href="javascript:toggleColorScheme()" title="Toggle dark/light mode" aria-label="Color scheme: System preference. Click to switch to light mode.">
+        <label id="automatic-tog" class="toggle-icon" title="Switch to light mode" for="__palette_3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"></path></svg>
+        </label>
+        <label id="light-tog" class="toggle-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+        </label>
+        <label id="dark-tog" class="toggle-icon" title="Switch to system preference" for="__palette_2" hidden="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+        </label>
+      </a>
+    </nav></header>
+
+<div class="ltx_page_main" id="main">
+<nav class="ltx_TOC active" aria-labelledby="toc_header"><h2 id="toc_header" class="sr-only">Table of Contents</h2>
+
+      <div id="listIcon" type="button" class="hide">
+          <svg width="17px" height="17px" viewBox="0 0 512 512" style="pointer-events: none;">
+          <path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"></path>
+          </svg>
+      </div>
+      <div id="arrowIcon" type="button">
+          <svg width="17px" height="17px" viewBox="0 0 448 512" style="pointer-events: none;">
+          <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path>
+          </svg>
+      </div><ol class="ltx_toclist"><li class="ltx_tocentry ltx_tocentry_section">
+    <a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#abstract" title="Abstract">
+      <span class="ltx_text ltx_ref_title">
+        <span class="ltx_tag ltx_tag_ref"></span>
+        Abstract
+      </span>
+    </a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S1" title="In OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S2" title="In OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>OWLAPY</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S3" title="In OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Related Work</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S4" title="In OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Implementation &amp; Availability</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S5" title="In OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Use Cases &amp; Complementary Libraries</span></a></li>
+</ol></nav>
+
+<div class="ltx_page_content"><div id="target-section" class="section"><a id="license-tr" href="https://info.arxiv.org/help/license/index.html#licenses-available">License: CC BY 4.0</a><div id="watermark-tr">arXiv:2511.08232v1 [cs.SE] 11 Nov 2025</div></div>
+<article class="ltx_document ltx_authors_1line" lang="en">
+<h1 class="ltx_title ltx_title_document">OWLAPY: A Pythonic Framework for OWL Ontology Engineering</h1><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">
+Alkid Baci,  Luke Friedrichs,  Caglar Demir,  Axel-Cyrille Ngonga Ngomo 
+<br class="ltx_break">Department of Computer Science 
+<br class="ltx_break">Paderborn University 
+<br class="ltx_break">Warburger Str. 100, 33098 Paderborn, Germany 
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">{alkid.baci, caglar.demir, axel.ngonga}@upb.de</span>
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">lukef@mail.uni-paderborn.de</span>
+<br class="ltx_break">
+</span></span>
+</div><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_abstract" id="abstract">
+<h6 class="ltx_title ltx_title_abstract">Abstract</h6><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<p class="ltx_p">In this paper, we introduce OWLAPY, a comprehensive Python framework for OWL ontology engineering.
+OWLAPY streamlines the creation, modification, and serialization of OWL 2 ontologies.
+It uniquely integrates native Python-based reasoners with support for external Java reasoners, offering flexibility for users.
+OWLAPY facilitates multiple implementations of core ontology components and provides robust conversion capabilities between OWL class expressions and formats such as Description Logics, Manchester Syntax, and SPARQL.
+OWLAPY allows users to define custom workflows to leverage large language models (LLMs) in ontology generation from natural language text.
+OWLAPY serves as a well tested software framework for users seeking a flexible Python library for advanced ontology engineering, including those transitioning from Java-based environments.
+It is publicly available on GitHub <span class="ltx_note ltx_role_footnote" id="footnote1"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup><span class="ltx_tag ltx_tag_note">1</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/dice-group/owlapy" title="">https://github.com/dice-group/owlapy</a></span></span></span> and on Python Package Index (PyPI) <span class="ltx_note ltx_role_footnote" id="footnote2"><sup class="ltx_note_mark">2</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">2</sup><span class="ltx_tag ltx_tag_note">2</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://pypi.org/project/owlapy/" title="">https://pypi.org/project/owlapy/</a></span></span></span>, with over 50,000 downloads at the time of writing.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+<section class="ltx_section" id="S1">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Introduction</h2><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_para ltx_noindent" id="S1.p1">
+<p class="ltx_p">The Web Ontology Language (OWL) plays a key role in modeling and representing complex domains with ontologies <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">bechhofer2009owl</span>)</cite>. It provides the ability to expressively formulate and formalize knowledge structures. Hence, OWL is at the core of technologies such as the Semantic Web <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">antoniou2004semantic</span>)</cite>, biomedical informatics <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">cimino2006practical</span>; <span class="ltx_ref ltx_missing_citation ltx_ref_self">hoehndorf2011common</span>; <span class="ltx_ref ltx_missing_citation ltx_ref_self">horridge2014webprotege</span>)</cite>, and artificial intelligence (AI) driven reason-based systems <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">trinh2024solving</span>; <span class="ltx_ref ltx_missing_citation ltx_ref_self">herron2025potential</span>)</cite>.
+Traditionally, OWL software development and OWL-based reasoning have been dominated by the Java ecosystem through libraries such as OWLAPI <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">horridge2011owl</span>)</cite>, which has become the de facto standard for manipulating OWL ontologies. However, as Python continues to gain popularity in various domains including AI, Data Science, and Machine Learning, the need for a native Python interface to OWL becomes increasingly evident <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">raschka2020machine</span>)</cite>. <span class="ltx_text ltx_font_bold">OWLAPY</span> is a Python framework that addresses this gap by providing an interface similar in a fashion akin to the Java-based OWLAPI <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">horridge2011owl</span>)</cite>.
+It allows users to programmatically create, manipulate, and reason over OWL ontologies entirely within the Python environment. By mirroring key concepts from OWLAPI, OWLAPY offers a familiar and intuitive experience for developers transitioning from Java while making ontology management accessible to Python practitioners who prefer or require a Python-native solution.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+</section>
+<section class="ltx_section" id="S2">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>OWLAPY</h2><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<figure class="ltx_figure" id="S2.F1"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_img_landscape" height="371" id="S2.F1.g1" src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/x1.png" width="660">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1: </span>OWLAPY architecture. Green rectangles show the top-level components, whereas beige rectangles show sub-components. Some components are adapted from <cite class="ltx_cite ltx_citemacro_cite"><span class="ltx_ref ltx_missing_citation ltx_ref_self">JMLR:v26:24-1113</span></cite>.</figcaption>
+</figure><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_para ltx_noindent" id="S2.p1">
+<p class="ltx_p"><a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S2.F1" title="In 2 OWLAPY ‣ OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_tag">Figure</span>˜<span class="ltx_text ltx_ref_tag">1</span></a> shows the high-level architecture of OWLAPY. The <span class="ltx_text ltx_font_bold">Ontology module</span> in OWLAPY is designed for representing and manipulating OWL ontologies within the Python ecosystem. It allows users to load ontologies from various standard serialization formats into memory. Once loaded, ontologies can be programmatically modified by adding or removing axioms, and subsequently saved back to disk in the desired format. The model offers convenient access to core components of the ontology signature, such as classes, properties, and individuals. Although still recent, OWLAPY also supports the automatic generation of ontologies from natural language text. This functionality is inspired by the approach proposed by <cite class="ltx_cite ltx_citemacro_cite"><span class="ltx_ref ltx_missing_citation ltx_ref_self">edge2024local</span></cite> in which entities and their interrelations are extracted using an LLM, and subsequently typed either from a predefined set or through LLM-generated classes. The extracted information is represented in the form of RDF triples, and the system also accommodates triples involving numeric values, thus enabling a degree of semantic richness in the generated ontologies.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+<div class="ltx_para ltx_noindent" id="S2.p2">
+<p class="ltx_p">Reasoning capabilities are provided through the <span class="ltx_text ltx_font_bold">Reasoner module</span>, which supports native close-world reasoning, embedding-based reasoning and integration with established Java-based OWL reasoners. In particular, OWLAPY introduces the concept of a SyncReasoner, which forwards reasoning tasks to high-performance DL reasoners such as HermiT <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">Glimm2014HermiT</span>)</cite>, Pellet <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">Sirin2007Pellet</span>)</cite>, etc., via the JPype <span class="ltx_note ltx_role_footnote" id="footnote3"><sup class="ltx_note_mark">3</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">3</sup><span class="ltx_tag ltx_tag_note">3</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/jpype-project/jpype" title="">https://github.com/jpype-project/jpype</a></span></span></span> bridge to the OWLAPI. These reasoners enable open-world, description logic-based inference, including tasks such as subsumption checking, consistency verification, and instance retrieval for complex class expressions.
+In addition, OWLAPY provides an embedding-based reasoner (EBR), a native Python model that leverages knowledge graph embeddings for inference, which instead of strict logical deduction, uses the model’s scoring function to approximate reasoning tasks, such as retrieving instances of class expressions.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+<div class="ltx_para ltx_noindent" id="S2.p3">
+<p class="ltx_p">The <span class="ltx_text ltx_font_bold">OWL object modeling</span> approach in OWLAPY adheres closely to the <span class="ltx_text ltx_font_italic">OWL 2 Structural Specification and Functional-Style Syntax</span> <span class="ltx_note ltx_role_footnote" id="footnote4"><sup class="ltx_note_mark">4</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">4</sup><span class="ltx_tag ltx_tag_note">4</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://www.w3.org/TR/owl2-syntax/" title="">https://www.w3.org/TR/owl2-syntax/</a></span></span></span>, allowing for a faithful representation of OWL constructs. The framework models core OWL entities—such as classes, object properties, data properties, individuals, and literals—as first-class Python objects. These entities form the building blocks for expressing complex class and property expressions, while the axioms module enables users to assert and manipulate logical statements within an ontology</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+<div class="ltx_para ltx_noindent" id="S2.p4">
+<p class="ltx_p">To facilitate readability and interoperability, OWLAPY includes a set of <span class="ltx_text ltx_font_bold">conversion utilities</span> or <span class="ltx_text ltx_font_bold">transformers</span> that translate class expressions between Description Logic (DL) syntax, Manchester syntax, and their programmatic representations. Class expressions can also be converted to SPARQL query which can be further used to query triplestores. OWLAPY has support for SWRL where parsing of string-formatted rules is also possible. Additionally, our framework introduces the <span class="ltx_text ltx_font_italic">OWLAPIMapper</span> module, which provides seamless bidirectional mapping between OWLAPI and OWLAPY object structures. This integration leverages the JPype library to enable direct interaction with Java classes, thus one can use OWLAPI directly within our framework.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+<div class="ltx_para ltx_noindent" id="S2.p5">
+<p class="ltx_p">In the code below we show a simple example where a local ontology (the ’<span class="ltx_text ltx_font_italic">father</span>’ ontology) is loaded and a new individual is added. A type is also assigned to this new individual. The updated ontology is then saved for further use. <a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S2.F2" title="In 2 OWLAPY ‣ OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_tag">Figure</span>˜<span class="ltx_text ltx_ref_tag">2</span></a> visualizes the successful execution of this code.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+<div class="ltx_para ltx_noindent" id="S2.p6">
+<div class="ltx_listing ltx_lst_language_Python ltx_lst_numbers_left ltx_lstlisting ltx_listing" style="--ltx-bg-color:#F5F8FA;">
+<div class="ltx_listing_data"><a download="" href="data:text/plain;base64,b250byA9IE9udG9sb2d5KCJwYXRoL3RvL2ZhdGhlcl9vbnRvbG9neS5vd2wiKQptYWxlID0gT1dMQ2xhc3MoImh0dHA6Ly9leGFtcGxlLmNvbS9mYXRoZXIjbWFsZSIpCmFsa2lkID0gT1dMTmFtZWRJbmRpdmlkdWFsKCJodHRwOi8vZXhhbXBsZS5jb20vZmF0aGVyI2Fsa2lkIikKb250by5hZGRfYXhpb20oT1dMQ2xhc3NBc3NlcnRpb25BeGlvbShhbGtpZCwgbWFsZSkpCm9udG8uc2F2ZShwYXRoPSJ1cGRhdGVkX2ZhdGhlcl9vbnRvbG9neS5vd2wiLCByZGZfZm9ybWF0PSJyZGZ4bWwiKQ==">⬇</a></div>
+<div class="ltx_listingline" id="lstnumberx1">
+<span class="ltx_tag ltx_tag_listingline">1</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">onto</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_font_typewriter">=</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">Ontology</span><span class="ltx_text ltx_font_typewriter">(</span><span class="ltx_text ltx_lst_string ltx_font_typewriter" style="--ltx-fg-color:#093169;">"path/to/father_ontology.owl"</span><span class="ltx_text ltx_font_typewriter">)</span>
+</div>
+<div class="ltx_listingline" id="lstnumberx2">
+<span class="ltx_tag ltx_tag_listingline">2</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">male</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_font_typewriter">=</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">OWLClass</span><span class="ltx_text ltx_font_typewriter">(</span><span class="ltx_text ltx_lst_string ltx_font_typewriter" style="--ltx-fg-color:#093169;">"http://example.com/father#male"</span><span class="ltx_text ltx_font_typewriter">)</span>
+</div>
+<div class="ltx_listingline" id="lstnumberx3">
+<span class="ltx_tag ltx_tag_listingline">3</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">alkid</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_font_typewriter">=</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">OWLNamedIndividual</span><span class="ltx_text ltx_font_typewriter">(</span><span class="ltx_text ltx_lst_string ltx_font_typewriter" style="--ltx-fg-color:#093169;">"http://example.com/father#alkid"</span><span class="ltx_text ltx_font_typewriter">)</span>
+</div>
+<div class="ltx_listingline" id="lstnumberx4">
+<span class="ltx_tag ltx_tag_listingline">4</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">onto</span><span class="ltx_text ltx_font_typewriter">.</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">add_axiom</span><span class="ltx_text ltx_font_typewriter">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">OWLClassAssertionAxiom</span><span class="ltx_text ltx_font_typewriter">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">alkid</span><span class="ltx_text ltx_font_typewriter">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">male</span><span class="ltx_text ltx_font_typewriter">))</span>
+</div>
+<div class="ltx_listingline" id="lstnumberx5">
+<span class="ltx_tag ltx_tag_listingline">5</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">onto</span><span class="ltx_text ltx_font_typewriter">.</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">save</span><span class="ltx_text ltx_font_typewriter">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">path</span><span class="ltx_text ltx_font_typewriter">=</span><span class="ltx_text ltx_lst_string ltx_font_typewriter" style="--ltx-fg-color:#093169;">"updated_father_ontology.owl"</span><span class="ltx_text ltx_font_typewriter">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter">rdf_format</span><span class="ltx_text ltx_font_typewriter">=</span><span class="ltx_text ltx_lst_string ltx_font_typewriter" style="--ltx-fg-color:#093169;">"rdfxml"</span><span class="ltx_text ltx_font_typewriter">)</span>
+</div>
+</div>
+</div>
+<figure class="ltx_figure" id="S2.F2"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_img_landscape" height="279" id="S2.F2.g1" src="./OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files/x2.png" width="495">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 2: </span>Ontology engineering example as a result of the successful execution of the code in <a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S2" title="2 OWLAPY ‣ OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_tag">Section</span>˜<span class="ltx_text ltx_ref_tag">2</span></a>. Only a portion of the ’father’ ontology is displayed. The newly added individual and the class assertion, are shown in dotted lines.</figcaption>
+</figure><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</section>
+<section class="ltx_section" id="S3">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Related Work</h2><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_para ltx_noindent" id="S3.p1">
+<p class="ltx_p">The most closely related Python library to OWLAPY is <span class="ltx_text ltx_font_bold">Owlready2</span> <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">lamy2017owlready</span>)</cite>, which is also employed within our framework. Owlready2 provides ontology-oriented programming capabilities in Python, with an emphasis on direct access to OWL entities and basic reasoning support through integration with Java-based reasoners such as HermiT and Pellet. However, unlike our library, it does not expose an API structure, which limits its suitability for applications requiring fine-grained, axiomatic manipulation of OWL ontologies and machine learning applications. Another widely used Python library in the semantic web ecosystem is <span class="ltx_text ltx_font_bold">RDFlib</span> <span class="ltx_note ltx_role_footnote" id="footnote5"><sup class="ltx_note_mark">5</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">5</sup><span class="ltx_tag ltx_tag_note">5</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/RDFLib/rdflib" title="">https://github.com/RDFLib/rdflib</a></span></span></span>, which supports general RDF graph manipulation and SPARQL querying but lacks native support for OWL constructs beyond RDF serialization, and importantly does not provide any OWL Reasoner.<span class="ltx_text ltx_font_bold">Ontospy</span> <span class="ltx_note ltx_role_footnote" id="footnote6"><sup class="ltx_note_mark">6</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">6</sup><span class="ltx_tag ltx_tag_note">6</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/lambdamusic/Ontospy" title="">https://github.com/lambdamusic/Ontospy</a></span></span></span> is primarily designed for ontology inspection and visualization, and while useful for exploration, it does not provide programmatic access at the level of expressivity and control required for OWL DL reasoning and editing.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+</section>
+<section class="ltx_section" id="S4">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">4 </span>Implementation &amp; Availability</h2><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_para ltx_noindent" id="S4.p1">
+<p class="ltx_p">The OWLAPY library is distributed as open-source software under the MIT license and is publicly available via both GitHub <span class="ltx_note ltx_role_footnote" id="footnote7"><sup class="ltx_note_mark">7</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">7</sup><span class="ltx_tag ltx_tag_note">7</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/dice-group/owlapy" title="">https://github.com/dice-group/owlapy</a></span></span></span> and PyPI <span class="ltx_note ltx_role_footnote" id="footnote8"><sup class="ltx_note_mark">8</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">8</sup><span class="ltx_tag ltx_tag_note">8</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://pypi.org/project/owlapy/" title="">https://pypi.org/project/owlapy/</a></span></span></span>. Comprehensive documentation <span class="ltx_note ltx_role_footnote" id="footnote9"><sup class="ltx_note_mark">9</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">9</sup><span class="ltx_tag ltx_tag_note">9</span><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://dice-group.github.io/owlapy/index.html" title="">https://dice-group.github.io/owlapy/index.html</a></span></span></span> is maintained and updated with each release, providing users with detailed guidance on the library’s core functionality and usage patterns. At the time of writing, OWLAPY comprises approximately 15,000 lines of code, includes 11 illustrative example scripts demonstrating key features and counts more than 50,000 downloads. The reliability of the implementation is supported by a suite of 165 unit tests developed using Python’s unittest framework. OWLAPY is designed with extensibility in mind, offering a modular architecture that facilitates the integration of new reasoning components, ontology sources, and features-such as syntax transformers.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+</section>
+<section class="ltx_section" id="S5">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">5 </span>Use Cases &amp; Complementary Libraries</h2><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_para ltx_noindent" id="S5.p1">
+<p class="ltx_p">OWLAPY serves as the foundational library for Ontolearn <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">JMLR:v26:24-1113</span>)</cite>, a framework for learning OWL class expressions over large knowledge graphs which is applied to industrial projects. OntoSample <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">Baci2023Accelerating</span>)</cite> offers multiple sampling techniques using OWLAPY to efficiently sample ontologies. Multiple works for the task of class expression learning are based on OWLAPY including here Drill <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">demir2023drill</span>)</cite>, EvoLearner <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">heindorf2022evolearner</span>)</cite> and CLIP <cite class="ltx_cite ltx_citemacro_citep">(<span class="ltx_ref ltx_missing_citation ltx_ref_self">kouagou2022learning</span>)</cite>.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+</section>
+<section class="ltx_section" id="Sx1">
+<h2 class="ltx_title ltx_title_section">Acknowledgment</h2><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+<div class="ltx_para ltx_noindent" id="Sx1.p1">
+<p class="ltx_p">This work has received funding from the European Union’s Horizon Europe research and innovation program within the project ENEXA under grant agreement No 101070305, the Lamarr Fellow Network program by the Ministry of Culture and Science of North Rhine-Westphalia (MKW NRW) within the project WHALE (LFN 1-04), the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) within project TRR 318/1 2021 – 438445824, the Ministry of Culture and Science of North Rhine-Westphalia (MKW NRW) within the project SAIL under the grant no NW21-059D and the German Federal Ministry of Research, Technology and Space (BMFTR) within the project KI-Akademie OWL under the grant no 01IS24057B.
+OWLAPY is additionally used in teaching at the Master’s and Bachelor’s level at Paderborn University, in courses taught by Prof. Axel Ngonga and TU Dresden, in courses taught by Dr. Patrick Koopmann. We also acknowledge the contributions of the following creators for their icons used in <a class="ltx_ref" href="https://arxiv.org/html/2511.08232v1#S2.F1" title="In 2 OWLAPY ‣ OWLAPY: A Pythonic Framework for OWL Ontology Engineering"><span class="ltx_text ltx_ref_tag">Figure</span>˜<span class="ltx_text ltx_ref_tag">1</span></a>: freepik and paul-j, available at <a class="ltx_ref ltx_url ltx_font_typewriter" href="https://www.flaticon.com/" title="">https://www.flaticon.com</a>.</p><button class="sr-only button" style="display: none;">Report issue for preceding element</button>
+</div>
+</section>
+</article>
+</div>
+
+</div>
+
+
+<button type="button" class="btn btn-primary hover-rp-button" id="openForm">Report Issue</button><div class="modal" id="myForm" role="dialog" aria-labelledby="modal-title"><div class="modal-dialog"><form class="modal-content" id="myFormContent" enctype="multipart/form-data"><div class="modal-header" id="modal-header"><h5 class="modal-title" id="modal-title">Report GitHub Issue</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><label for="form_title" id="modalTitle">Title:</label><input class="form-control" id="form_title" name="form_title" required="required" placeholder="Enter title"><p class="form-text" id="selectedTextModalDescription" style="display: none;">Content selection saved. Describe the issue below:</p><label for="description" id="nomralModalDescription">Description:</label><textarea class="form-control" id="description" name="description" required="required" style="height: 80px;" maxlength="500" placeholder="500 characters maximum"></textarea></div><div class="modal-footer d-flex justify-content-end"><button type="submit" class="sr-only button" id="modal-submit-sr">Submit without GitHub</button><button type="submit" class="btn btn-primary" id="modal-submit">Submit in GitHub</button></div></form></div></div><button id="small-report-button" type="button" class="btn btn-secondary btn-sm" style="background-color: rgb(179, 27, 27); position: fixed; display: none;">Report Issue for Selection</button><div class="ltx_page_footer">
+        <div class="ltx_page_logo">
+            Generated by
+            <a href="https://math.nist.gov/~BMiller/LaTeXML/" class="ltx_LaTeXML_logo">
+                <span style="letter-spacing: -0.2em; margin-right: 0.1em;">
+                    L
+                    <span style="font-size: 70%; position: relative; bottom: 2.2pt;">A</span>
+                    T
+                    <span style="position: relative; bottom: -0.4ex;">E</span>
+                </span>
+                <span class="ltx_font_smallcaps">xml</span>
+                <img alt="[LOGO]" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==">
+            </a>
+        </div></div><footer id="footer" class="ltx_document">
+        <div class="keyboard-glossary">
+            <h2>Instructions for reporting errors</h2>
+            <p>We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the methods listed below:</p>
+            <ul>
+                <li>Click the "Report Issue" button.</li>
+                <li>Open a report feedback form via keyboard, use "<strong>Ctrl + ?</strong>".</li>
+                <li>Make a text selection and click the "Report Issue for Selection" button near your cursor.</li>
+                <li class="sr-only">You can use Alt+Y to toggle on and Alt+Shift+Y to toggle off accessible reporting links at each section.</li>
+            </ul>
+            <p>Our team has already identified <a class="ltx_ref" href="https://github.com/arXiv/html_feedback/issues" target="_blank">the following issues</a>. We appreciate your time reviewing and reporting rendering errors we may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability should not be a barrier to accessing research. Thank you for your continued support in championing open access for all.</p>
+            <p>Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a <a class="ltx_ref" href="https://github.com/brucemiller/LaTeXML/wiki/Porting-LaTeX-packages-for-LaTeXML" target="_blank">list of packages that need conversion</a>, and welcome <a class="ltx_ref" href="https://github.com/brucemiller/LaTeXML/issues" target="_blank">developer contributions</a>.</p>
+        </div>
+    </footer></body></html>
