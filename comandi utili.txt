@@ -5,3 +5,14 @@ pip freeze > requirements.txt
 
 #attivare venv
 .\env\Scripts\Activate.ps1
+
+
+
+
+
+#scaricare modelli ollama
+ollama pull qwen2.5:0.5b
+ollama pull qwen2.5:1.5b
+ollama pull qwen2.5:7b
+ollama pull llama2:7b
+ollama pull llama3.1
