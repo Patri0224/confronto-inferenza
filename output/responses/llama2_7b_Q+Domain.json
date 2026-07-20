@@ -1,0 +1,70 @@
+{
+    "model": "llama2:7b",
+    "prompt_mode": "Q+Domain",
+    "timestamp": "2026-07-20 09:13:19",
+    "responses": [
+        {
+            "question": "Which pizzas are vegetarian?",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are vegetarian?\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 6.87,
+            "answer": "Vegetarian pizzas are those that do not contain any meat or animal by-products. Some examples of vegetarian pizzas include:\n\n* Margherita: a classic Neapolitan-style pizza topped with tomato sauce, mozzarella cheese, and fresh basil leaves\n* Veggie: a pizza topped with a variety of vegetables such as mushrooms, onions, bell peppers, and olives\n* Roasted vegetable: a pizza topped with roasted vegetables such as eggplant, zucchini, and red peppers\n* Mushroom and spinach: a pizza topped with saut\u00e9ed mushrooms and spinach\n\nThese are just a few examples of vegetarian pizzas. There are many other options available depending on the pizzeria or restaurant."
+        },
+        {
+            "question": "Which pizzas contain meat?",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas contain meat?\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 0.59,
+            "answer": "Meat-containing pizzas include:\n\n* Pepperoni\n* Sausage\n* Bacon\n* Ham\n* Meatballs"
+        },
+        {
+            "question": "Which pizzas contain seafood?",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas contain seafood?\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 3.6,
+            "answer": "There are several types of pizzas that contain seafood. Some popular options include:\n\n1. Margherita Extravaia: This pizza is topped with fresh mozzarella cheese, tomato sauce, and various types of seafood such as shrimp or scallops.\n2. Hawaiian Deluxe: This pizza is topped with ham or Canadian bacon, pineapple, and shrimp.\n3. Seafood Extravaganza: This pizza is topped with a variety of seafood including shrimp, scallops, and mussels, as well as mozzarella cheese and tomato sauce.\n4. White Fish Pizza: This pizza is topped with white fish such as cod or haddock, mozzarella cheese, and tomato sauce.\n5. Shrimp Scampi Pizza: This pizza is topped with shrimp, garlic, and parsley, and is often served with a side of marinara sauce for dipping."
+        },
+        {
+            "question": "Is the Margherita pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is the Margherita pizza vegetarian?\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 1.03,
+            "answer": "Yes, the Margherita pizza is vegetarian. It typically consists of a tomato sauce, mozzarella cheese, and fresh basil leaves, which are all plant-based ingredients. Therefore, it does not contain any animal products and is suitable for vegetarians."
+        },
+        {
+            "question": "Is the Giardiniera pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is the Giardiniera pizza vegetarian?\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 0.75,
+            "answer": "No, the Giardiniera pizza is not vegetarian. It contains meat (pepperoni) and dairy (mozzarella cheese), which are both non-vegetarian ingredients."
+        },
+        {
+            "question": "Is the FruttiDiMare pizza vegetarian?",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is the FruttiDiMare pizza vegetarian?\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 0.41,
+            "answer": "Risposta: S\u00ec, la FruttiDiMare pizza \u00e8 vegetariana."
+        },
+        {
+            "question": "List all the toppings used in the Margherita pizza.",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: List all the toppings used in the Margherita pizza.\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 0.53,
+            "answer": "Toppings used in the Margherita pizza:\n\n* Tomatoes\n* Mozzarella cheese\n* Fresh basil leaves"
+        },
+        {
+            "question": "List all the toppings used in the Giardiniera pizza.",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: List all the toppings used in the Giardiniera pizza.\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 0.76,
+            "answer": "Toppings used in the Giardiniera pizza:\n\n* Pepperoni\n* Sausage\n* Mushrooms\n* Onions\n* Green peppers\n* Black olives\n* Artichokes"
+        },
+        {
+            "question": "List all named pizzas.",
+            "ontology_context": null,
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: List all named pizzas.\n\nMostra i passaggi di inferenza utilizzati per arrivare alla risposta\n\nAnswer:",
+            "response_time": 1.84,
+            "answer": "Here are some named pizzas:\n\n1. Margherita\n2. Pepperoni\n3. Hawaiian\n4. Meat Lover's\n5. Veggie\n6. BBQ Chicken\n7. Four Seasons\n8. Bacon Cheeseburger\n9. Shrimp Scampi\n10. White Pizza\n\nInference: These are just a few examples of named pizzas that are commonly available in pizzerias and restaurants. There may be many more variations and regional specialties not listed here."
+        }
+    ]
+}
