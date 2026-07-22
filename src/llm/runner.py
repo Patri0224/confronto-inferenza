@@ -7,8 +7,7 @@ from time import time
 from datetime import datetime
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(
-    os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
@@ -30,9 +29,7 @@ MODELLI_LOCALI = [
 
 
 def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
-    print(
-        f"Running benchmark for model: {model_name} with prompt mode: {prompt_mode}")
-    # aggiusta il percorso del modello se è un modello locale
+    print(f"Running benchmark for model: {model_name} with prompt mode: {prompt_mode}")
     if model_name in MODELLI_LOCALI:
         api_base = "http://localhost:11434"
         model_name = f"ollama/{model_name}"
@@ -41,8 +38,7 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
 
     # carica le domande dal file JSON e inizializza il generatore di prompt
     with open(os.path.join(INPUT_PATH, "questions.json"), "r") as f:
-        questions_data = json.load(f)
-    questions = questions_data.get("questions", [])
+        questions = json.load(f)
     generator = PromptGenerator()
     # inizializza il dizionario dei risultati
     results = {
@@ -55,12 +51,12 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
     for q in questions:
         # genera il prompt per la domanda corrente
 
-        question_text = q.get("question")
+        question_text = q.get("Question")
         ontology_context = q.get("Ontology")
-        if specific_ontology != ontology_context:
-            continue
-        prompt = generator.generate_prompt(
-            question_text, ontology_context, prompt_mode)
+        if specific_ontology:
+            if not ontology_context or specific_ontology.strip().lower() != ontology_context.strip().lower():
+                continue
+        prompt = generator.generate_prompt(question_text, ontology_context, prompt_mode)
 
         # esegue domanda su modello
         start_time = time()
@@ -71,13 +67,13 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
                 temperature=0.0,
                 api_base=api_base
             )
+            time_taken = round(time() - start_time, 3)
             answer = response.choices[0].message.content.strip()
             usage = response.get("usage", {})
             prompt_tokens = usage.get("prompt_tokens", 0)
             completion_tokens = usage.get("completion_tokens", 0)
             total_tokens = usage.get("total_tokens", 0)
-            tokens_per_second = round(
-                completion_tokens / time_taken, 2) if time_taken > 0 else 0
+            tokens_per_second = round(completion_tokens / time_taken, 2) if time_taken > 0 else 0
             response_cost = response._hidden_params.get(
                 "response_cost", 0.0) if hasattr(response, "_hidden_params") else 0.0
             print(

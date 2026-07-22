@@ -1,3 +1,6 @@
+import os
+
+
 class PromptGenerator:
     def __init__(self, system_role=None, domain_constraint=None, answer_type=None):
         self.system_role = system_role or (
@@ -7,7 +10,7 @@ class PromptGenerator:
             "Focus strictly on pizza-related topics."
         )
         self.answer_type = answer_type or (
-            "Mostra i passaggi di inferenza utilizzati per arrivare alla risposta")
+            "Show the inference steps used to arrive at the answer.")
 
     def generate_prompt(self, question, ontology_context=None, mode="Q+Onto+Domain"):
         # Q, Q+Onto, Q+Domain, Q+Onto+Domain
@@ -36,12 +39,12 @@ class PromptGenerator:
         return "\n\n".join(prompt_parts)
 
     def getOntology(self, ontology_name,optional=False):
-        if (optional):
+        if optional or not ontology_name:
             return ontology_name
-        if ontology_name:
-            from owlready2 import get_ontology, onto_path
-            onto_path.append("./data/ontologies/")
-            ontology = get_ontology(f"{ontology_name}.owl").load()
-            return ontology
-        else:
-            return None
+
+        # Se in futuro vorrai caricare il file .owl dal disco come testo pulito:
+        onto_path = os.path.join("./data/ontologies/", f"{ontology_name}")
+        if os.path.exists(onto_path):
+            with open(onto_path, "r", encoding="utf-8") as f:
+                return f.read()
+        return ontology_name
