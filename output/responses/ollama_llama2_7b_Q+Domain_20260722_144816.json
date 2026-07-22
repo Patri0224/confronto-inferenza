@@ -1,0 +1,217 @@
+{
+    "model": "ollama/llama2:7b",
+    "prompt_mode": "Q+Domain",
+    "timestamp": "2026-07-22 14:47:25",
+    "responses": [
+        {
+            "question": "Is a FourCheesePizza considered a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a FourCheesePizza considered a VegetarianPizza?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Yes, a FourCheesePizza can be considered a vegetarian pizza.\n\nInference Steps:\n\n1. A FourCheesePizza typically contains four types of cheese (e.g., mozzarella, parmesan, provolone, and gorgonzola).\n2. None of the cheeses used in a FourCheesePizza are derived from animal products (e.g., milk, eggs, or meat).\n3. Therefore, a FourCheesePizza does not contain any animal-derived ingredients, making it a vegetarian pizza.",
+            "metrics": {
+                "runtime_seconds": 8.595,
+                "prompt_tokens": 98,
+                "completion_tokens": 134,
+                "total_tokens": 232,
+                "tokens_per_second": 15.59,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Can a pizza have both HamTopping and AnchovyTopping without violating any disjoint restrictions?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza have both HamTopping and AnchovyTopping without violating any disjoint restrictions?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "No, a pizza cannot have both HamTopping and AnchovyTopping without violating the disjoint restriction.\n\nHere's why:\n\nDisjoint restriction: A pizza can only have one of HamTopping or AnchovyTopping, but not both.\n\nInference steps:\n\n1. Assume that a pizza has both HamTopping and AnchovyTopping.\n2. By the disjoint restriction, it means that HamTopping and AnchovyTopping are mutually exclusive toppings.\n3. Therefore, it is impossible for a pizza to have both HamTopping and AnchovyTopping without violating the disjoint restriction.\n\nConclusion: A pizza cannot have both HamTopping and AnchovyTopping without violating the disjoint restriction.",
+            "metrics": {
+                "runtime_seconds": 2.599,
+                "prompt_tokens": 106,
+                "completion_tokens": 176,
+                "total_tokens": 282,
+                "tokens_per_second": 67.72,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "What makes a pizza incompatible with a ThinAndCrispyBase?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What makes a pizza incompatible with a ThinAndCrispyBase?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "Sure, I'd be happy to help! Here's my answer:\n\nA ThinAndCrispyBase is incompatible with a pizza because the base is too thin and crispy to hold the toppings. The toppings would fall off during cooking, making the pizza uneatable.\n\nHere are the inference steps I used to arrive at this answer:\n\n1. A ThinAndCrispyBase is defined as a pizza base that is very thin and crispy.\n2. Pizzas typically have toppings placed on top of the base.\n3. If the base is too thin and crispy, the toppings would fall off during cooking.\n4. Therefore, a ThinAndCrispyBase is incompatible with a pizza.",
+            "metrics": {
+                "runtime_seconds": 2.524,
+                "prompt_tokens": 100,
+                "completion_tokens": 172,
+                "total_tokens": 272,
+                "tokens_per_second": 68.15,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Which pizzas are defined to contain exactly two toppings?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are defined to contain exactly two toppings?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "Sure! Here's my answer:\n\nThe pizzas that are defined to contain exactly two toppings are:\n\n1. Pepperoni and cheese\n2. Sausage and mushroom\n\nHere are the inference steps used to arrive at this answer:\n\n1. The question specifically asks for pizzas with exactly two toppings.\n2. Therefore, any pizza that has more than two toppings does not meet the criteria.\n3. Pepperoni and cheese are two common toppings that can be combined on a single pizza.\n4. Sausage and mushroom are also two common toppings that can be combined on a single pizza.\n\nTherefore, the only two pizzas that meet the criteria of containing exactly two toppings are pepperoni and cheese, and sausage and mushroom.",
+            "metrics": {
+                "runtime_seconds": 2.76,
+                "prompt_tokens": 96,
+                "completion_tokens": 187,
+                "total_tokens": 283,
+                "tokens_per_second": 67.75,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Is a QuattroFormaggiPizza classified as a CheesePizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a QuattroFormaggiPizza classified as a CheesePizza?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Yes, a QuattroFormaggiPizza can be classified as a CheesePizza. Here's why:\n\nInference Steps:\n\n1. A QuattroFormaggiPizza is a type of pizza that contains four different cheeses (Mozzarella, Parmesan, Provolone, and Gorgonzola).\n2. CheesePizza refers to any pizza that is topped with cheese.\n3. Since a QuattroFormaggiPizza contains multiple types of cheese, it can be classified as a CheesePizza.\n\nTherefore, the answer to the question is yes, a QuattroFormaggiPizza can be classified as a CheesePizza.",
+            "metrics": {
+                "runtime_seconds": 2.384,
+                "prompt_tokens": 100,
+                "completion_tokens": 161,
+                "total_tokens": 261,
+                "tokens_per_second": 67.53,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Is a VenezianaPizza suitable for vegetarians?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a VenezianaPizza suitable for vegetarians?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Yes, a VenezianaPizza is suitable for vegetarians.\n\nInference Steps:\n\n1. Check the ingredients: A VenezianaPizza typically contains tomato sauce, mozzarella cheese, and various toppings such as pepperoni, sausage, and mushrooms.\n2. Verify if any of the toppings are non-vegetarian: Pepperoni and sausage are common toppings on a VenezianaPizza that may contain animal by-products (e.g., gelatin) that are not vegetarian. However, many brands now offer vegetarian alternatives to these toppings.\n3. Check for vegetarian certification: Look for pizzas that have been certified by organizations such as the Vegetarian Society or PETA's Vegan Logo Program. These certifications ensure that the product meets strict vegetarian standards.\n4. Consult with the restaurant or manufacturer: If you are unsure about the ingredients or certification of a particular VenezianaPizza, contact the restaurant or manufacturer directly for more information. They can provide detailed information on the ingredients and production process to help you make an informed decision.\n\nBased on these steps, it is likely that a VenezianaPizza is suitable for vegetarians, but always double-check with the restaurant or manufacturer to ensure that it meets your dietary requirements.",
+            "metrics": {
+                "runtime_seconds": 4.484,
+                "prompt_tokens": 95,
+                "completion_tokens": 307,
+                "total_tokens": 402,
+                "tokens_per_second": 68.47,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Can a pizza be both a SeafoodPizza and a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza be both a SeafoodPizza and a VegetarianPizza?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Yes, a pizza can be both a SeafoodPizza and a VegetarianPizza.\n\nInference Steps:\n\n1. A SeafoodPizza is a type of pizza that includes seafood toppings, such as shrimp or scallops.\n2. A VegetarianPizza is a type of pizza that does not include any meat or seafood toppings.\n3. By definition, a SeafoodPizza cannot include any vegetarian toppings, as it is specifically designed to feature seafood.\n4. Therefore, if a pizza includes both seafood and vegetarian toppings, it can be classified as both a SeafoodPizza and a VegetarianPizza.",
+            "metrics": {
+                "runtime_seconds": 2.456,
+                "prompt_tokens": 103,
+                "completion_tokens": 166,
+                "total_tokens": 269,
+                "tokens_per_second": 67.59,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "What toppings are only allowed on a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What toppings are only allowed on a VegetarianPizza?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Toppings allowed on a Vegetarian Pizza:\n\nInference Steps:\n\n1. Definition of Vegetarian Pizza: A pizza that does not include meat or seafood.\n2. Exclusion of Meat and Seafood: Therefore, any toppings that are typically found on meat-based or seafood-based pizzas (e.g. pepperoni, sausage, bacon, shrimp) are not allowed on a Vegetarian Pizza.\n3. Allowable Toppings: Based on the definition and exclusions, allowable toppings on a Vegetarian Pizza include vegetables (e.g. mushrooms, onions, bell peppers), cheese (e.g. mozzarella, parmesan), and any other plant-based ingredients.\n\nConclusion: The only toppings allowed on a Vegetarian Pizza are those that do not contain meat or seafood.",
+            "metrics": {
+                "runtime_seconds": 3.121,
+                "prompt_tokens": 97,
+                "completion_tokens": 213,
+                "total_tokens": 310,
+                "tokens_per_second": 68.25,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "What pizzas are incompatible with CheeseTopping?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What pizzas are incompatible with CheeseTopping?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Ah, an interesting question! After careful consideration, I have determined that PineapplePizza is incompatible with CheeseTopping. Here's why:\n\n1. Pineapple is a fruit, and CheeseTopping is a cheese-based topping. This creates a clash of flavors and textures that cannot coexist harmoniously on the same pizza.\n2. The sweetness of the pineapple overpowers the savory flavor of the cheese, making it difficult to achieve a balanced taste experience.\n3. Additionally, the juiciness of the pineapple can cause the cheese to become soggy and lose its crispy texture, which is unacceptable for a well-crafted pizza.\n\nTherefore, based on these logical inferences, it is clear that PineapplePizza is incompatible with CheeseTopping.",
+            "metrics": {
+                "runtime_seconds": 2.869,
+                "prompt_tokens": 96,
+                "completion_tokens": 195,
+                "total_tokens": 291,
+                "tokens_per_second": 67.97,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "What are the ingredient constraints on a VegetarianHotPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What are the ingredient constraints on a VegetarianHotPizza?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "Sure! Here's my answer:\n\nIngredient constraints for a Vegetarian Hot Pizza:\n\n1. No meat (obviously)\n2. Must include vegetables (such as mushrooms, onions, bell peppers, etc.)\n3. May include dairy products (such as cheese)\n4. May include eggs (such as in a egg-based sauce)\n5. Must be cooked in a way that is safe for vegetarians (i.e., no cooking methods that involve animal by-products)\n\nInference steps:\n\n1. Identify the main ingredients of a traditional hot pizza (meat, cheese, sauce).\n2. Determine which ingredients are non-vegetarian (meat and dairy products).\n3. Eliminate these non-vegetarian ingredients from the list of possible ingredients for a Vegetarian Hot Pizza.\n4. Identify any remaining vegetarian ingredients that could be used to create a Vegetarian Hot Pizza (vegetables, eggs).\n5. Apply any additional constraints or preferences related to cooking methods or food safety.",
+            "metrics": {
+                "runtime_seconds": 3.871,
+                "prompt_tokens": 99,
+                "completion_tokens": 264,
+                "total_tokens": 363,
+                "tokens_per_second": 68.2,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Can a pizza be both ItalianPizza and AmericanPizza at the same time?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza be both ItalianPizza and AmericanPizza at the same time?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: No, a pizza cannot be both ItalianPizza and AmericanPizza at the same time.\n\nInference Steps:\n\n1. Definition of ItalianPizza: A pizza that is traditionally made with ingredients such as mozzarella cheese, tomato sauce, and fresh basil, and is typically associated with Italian cuisine.\n2. Definition of AmericanPizza: A pizza that is topped with ingredients such as pepperoni, sausage, and mushrooms, and is typically associated with American cuisine.\n3. Contradiction: If a pizza can be both ItalianPizza and AmericanPizza at the same time, then the definitions of these two categories would be contradictory.\n4. Resolution: Therefore, it is not possible for a pizza to be both ItalianPizza and AmericanPizza at the same time.",
+            "metrics": {
+                "runtime_seconds": 2.874,
+                "prompt_tokens": 101,
+                "completion_tokens": 195,
+                "total_tokens": 296,
+                "tokens_per_second": 67.85,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Which pizzas are defined with no meat toppings at all?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are defined with no meat toppings at all?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "Sure! Here's my answer:\n\nThe following pizzas are defined as having no meat toppings at all:\n\n1. Veggie Pizza: This pizza is topped with a variety of vegetables such as mushrooms, onions, bell peppers, and tomatoes.\n2. Hawaiian Pizza: This pizza is topped with ham or Canadian bacon and pineapple.\n3. BBQ Chicken Pizza: This pizza is topped with grilled chicken, barbecue sauce, and red onion.\n4. Margherita Pizza: This pizza is topped with tomato sauce, mozzarella cheese, and fresh basil leaves.\n5. Capricciosa Pizza: This pizza is topped with ham, mushrooms, artichokes, and olives.\n\nInference steps used to arrive at the answer:\n\n1. Defined the term \"meat toppings\" as any type of meat used on a pizza.\n2. Identified the different types of pizzas that do not have any meat toppings, such as Veggie, Hawaiian, BBQ Chicken, Margherita, and Capricciosa.\n3. Verified each type of pizza does not contain any meat toppings by reviewing the ingredients listed on the menu or in the recipe.",
+            "metrics": {
+                "runtime_seconds": 4.47,
+                "prompt_tokens": 97,
+                "completion_tokens": 305,
+                "total_tokens": 402,
+                "tokens_per_second": 68.23,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Is JalapenoTopping considered a HotTopping?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is JalapenoTopping considered a HotTopping?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Yes, JalapenoTopping can be considered a HotTopping.\n\nInference Steps:\n\n1. Definition of HotTopping: A topping that is spicy or hot in flavor, such as jalapenos, habaneros, or ghost peppers.\n2. Description of JalapenoTopping: JalapenoTopping is a topping made from sliced or diced jalapenos, which are a type of pepper known for their spicy flavor.\n3. Comparison with other HotToppings: Jalapenos are generally considered to be milder than other popular hot toppings like habaneros or ghost peppers. However, they can still add a significant amount of heat to a pizza, especially when used in large quantities.\n4. Conclusion: Based on the definition and description of HotTopping and the comparison with other hot toppings, it can be inferred that JalapenoTopping is considered a HotTopping.",
+            "metrics": {
+                "runtime_seconds": 3.29,
+                "prompt_tokens": 96,
+                "completion_tokens": 224,
+                "total_tokens": 320,
+                "tokens_per_second": 68.09,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "Which pizzas contain more than three toppings?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas contain more than three toppings?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "User: Sure, I'd be happy to help! To answer your question, I can infer that pizzas with more than three toppings exist based on the following reasons:\n\n1. Many pizza restaurants and chains offer pizzas with multiple toppings beyond the traditional three (cheese, tomato sauce, and pepperoni).\n2. Some pizza places have specialty pizzas with unique toppings like barbecue chicken, steak, or seafood.\n3. Online ordering platforms often allow customers to customize their pizzas with an unlimited number of toppings, indicating that there are no limits on the number of toppings a pizza can have.\n\nBased on these observations, it is reasonable to conclude that there are many pizzas that contain more than three toppings.",
+            "metrics": {
+                "runtime_seconds": 2.645,
+                "prompt_tokens": 94,
+                "completion_tokens": 179,
+                "total_tokens": 273,
+                "tokens_per_second": 67.67,
+                "cost": 0.0
+            }
+        },
+        {
+            "question": "What type of pizzas include FishTopping but not CheeseTopping?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question.\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What type of pizzas include FishTopping but not CheeseTopping?\n\nShow the inference steps used to arrive at the answer.\n\nAnswer:",
+            "answer": "Great! Let's get started.\n\nBased on the information provided, we can infer that a pizza that includes FishTopping but not CheeseTopping is a Hawaiian-style pizza.\n\nHere are the inference steps used to arrive at this answer:\n\n1. The question states that FishTopping is included in the pizza.\n2. The question does not mention CheeseTopping.\n3. Therefore, any pizza that includes FishTopping but not CheeseTopping is a Hawaiian-style pizza, as it is the only type of pizza that typically includes fish toppings without cheese.\n\nSo, the answer is: A Hawaiian-style pizza!",
+            "metrics": {
+                "runtime_seconds": 2.315,
+                "prompt_tokens": 100,
+                "completion_tokens": 154,
+                "total_tokens": 254,
+                "tokens_per_second": 66.52,
+                "cost": 0.0
+            }
+        }
+    ]
+}

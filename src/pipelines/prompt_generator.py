@@ -12,11 +12,12 @@ class PromptGenerator:
         self.answer_type = answer_type or (
             "Show the inference steps used to arrive at the answer.")
 
-    def generate_prompt(self, question, ontology_context=None, mode="Q+Onto+Domain"):
+    def generate_prompt(self, question, sparql=None, ontology_context=None, mode="Q+Onto+Domain"):
         # Q, Q+Onto, Q+Domain, Q+Onto+Domain
 
         prompt_parts = []
-        ontology_context = self.getOntology(ontology_context, optional=True) if ontology_context else None
+        ontology_context = self.getOntology(
+            ontology_context, optional=True) if ontology_context else None
         if "Onto" in mode:
             prompt_parts.append(self.system_role)
             if ontology_context:
@@ -33,12 +34,14 @@ class PromptGenerator:
 
         prompt_parts.append("Avoid extra explanation or unrelated details")
         prompt_parts.append(f"Question: {question}")
+        if "Onto" in mode:
+            prompt_parts.append(f"SPARQL query: {sparql}")
         prompt_parts.append(self.answer_type)
         prompt_parts.append("Answer:")
 
         return "\n\n".join(prompt_parts)
 
-    def getOntology(self, ontology_name,optional=False):
+    def getOntology(self, ontology_name, optional=False):
         if optional or not ontology_name:
             return ontology_name
 

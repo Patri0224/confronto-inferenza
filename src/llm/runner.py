@@ -56,7 +56,8 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
         if specific_ontology:
             if not ontology_context or specific_ontology.strip().lower() != ontology_context.strip().lower():
                 continue
-        prompt = generator.generate_prompt(question_text, ontology_context, prompt_mode)
+        sparql_query = q.get("SPARQL")
+        prompt = generator.generate_prompt(question_text, sparql_query, ontology_context, prompt_mode)
 
         # esegue domanda su modello
         start_time = time()
