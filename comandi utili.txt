@@ -9,7 +9,11 @@ pip freeze > requirements.txt
 #attivare files
 python -m src.llm.runner
 
-
+altre ontologie per vedere come il meccanismo scala
+controllo quantità statement / connetività / denso o sparso
+- 1000 pizza.owl
+- 10000
+- 100000
 
 #scaricare modelli ollama
 ollama pull qwen2.5:0.5b
@@ -17,3 +21,21 @@ ollama pull qwen2.5:1.5b
 ollama pull qwen2.5:7b
 ollama pull llama2:7b
 ollama pull llama3.1
+
+qwen3.5
+qwen4
+gptoss20b
+granit4.1
+
+gptoss120 as judge* se accesso a modelli esterni
+
+simile a rag per caricare ontologie
+embedding per triple / chunk 
+
+
+
+
+tempo di runtime / token utilizzati / altri metriche 
+confronto dei risultati
+- confronto di sottografi (overlap di nodi/archi)
+- metriche di similarità: lib:sentence-trasformer, blue-similarity?, 
