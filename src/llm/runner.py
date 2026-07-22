@@ -90,6 +90,7 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
             print(f"Errore: {e}")
         # salva risposta
         results["responses"].append({
+            "QID": q.get("QID"),
             "question": question_text,
             "ontology_context": ontology_context,
             "prompt": prompt,
@@ -104,7 +105,7 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
                 "cost": response_cost
             }
         })
-        print(results["responses"][-1])
+        print(results["responses"][-1].get("QID"), results["responses"][-1].get("metrics"))
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     safe_model_name = model_name.replace(':', '_').replace('/', '_')
     name_file_output = f"{safe_model_name}_{prompt_mode}_{timestamp}.json"
