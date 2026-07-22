@@ -27,6 +27,9 @@ qwen4
 gptoss20b
 granit4.1
 
+usa litellm per interfaccia comune per modelli
+
+
 gptoss120 as judge* se accesso a modelli esterni
 
 simile a rag per caricare ontologie
@@ -39,3 +42,19 @@ tempo di runtime / token utilizzati / altri metriche
 confronto dei risultati
 - confronto di sottografi (overlap di nodi/archi)
 - metriche di similarità: lib:sentence-trasformer, blue-similarity?, 
+
+
+
+
+
+
+
+
+
+
+tesi
+-intro
+-stato dell'arte
+-metodo: algoritmi 
+-risultati: tutti i plot possibili + discussione
+-conclusione
