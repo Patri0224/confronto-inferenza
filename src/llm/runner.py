@@ -94,6 +94,8 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
             "question": question_text,
             "ontology_context": ontology_context,
             "prompt": prompt,
+            "SPARQL": sparql_query,
+            "FC_Ans": q.get("FC_Ans"),
             "answer": answer,
             # "correct_answer": q.get("correct_answer"),
             "metrics": {
@@ -116,4 +118,7 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
 
 if __name__ == "__main__":
     print(BASE_DIR)
+    benchmark(model_name="gpt-oss:20b", prompt_mode="Q+Domain", specific_ontology="pizza.owl")
+    benchmark(model_name="qwen3.5:9b", prompt_mode="Q+Domain", specific_ontology="pizza.owl")
     benchmark(model_name="llama2:7b", prompt_mode="Q+Domain", specific_ontology="pizza.owl")
+    

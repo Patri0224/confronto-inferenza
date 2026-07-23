@@ -4,104 +4,119 @@
         "Ontology": "pizza.owl",
         "Question": "Is a FourCheesePizza considered a VegetarianPizza?",
         "Category": "SUB",
-        "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:FourCheesePizza rdfs:subClassOf pizza:VegetarianPizza .\n}\n"
+        "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:FourCheesePizza rdfs:subClassOf pizza:VegetarianPizza .\n}\n",
+        "FC_Ans": "Yes"
     },
     {
         "QID": 2,
         "Ontology": "pizza.owl",
         "Question": "Can a pizza have both HamTopping and AnchovyTopping without violating any disjoint restrictions?",
         "Category": "DISJ",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:HamTopping owl:disjointWith pizza:AnchovyTopping .\n}\n"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:HamTopping owl:disjointWith pizza:AnchovyTopping .\n}\n",
+        "FC_Ans": "Yes"
     },
     {
         "QID": 3,
         "Ontology": "pizza.owl",
         "Question": "What makes a pizza incompatible with a ThinAndCrispyBase?",
         "Category": "DISJ",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith [ pizza:hasBase pizza:ThinAndCrispyBase ] .\n}\n"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith [ pizza:hasBase pizza:ThinAndCrispyBase ] .\n}\n",
+        "FC_Ans": "Having only Deep Pan Base as pizza base"
     },
     {
         "QID": 4,
         "Ontology": "pizza.owl",
         "Question": "Which pizzas are defined to contain exactly two toppings?",
         "Category": "CARD",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza rdfs:subClassOf [\n    owl:onProperty pizza:hasTopping ;\n    owl:cardinality 2\n  ] .\n}\n"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza rdfs:subClassOf [\n    owl:onProperty pizza:hasTopping ;\n    owl:cardinality 2\n  ] .\n}\n",
+        "FC_Ans": "Margherita, Quattro Formaggi"
     },
     {
         "QID": 5,
         "Ontology": "pizza.owl",
         "Question": "Is a QuattroFormaggiPizza classified as a CheesePizza?",
         "Category": "SUB",
-        "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:QuattroFormaggiPizza rdfs:subClassOf pizza:CheesePizza .\n}"
+        "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:QuattroFormaggiPizza rdfs:subClassOf pizza:CheesePizza .\n}",
+        "FC_Ans": "Yes"
     },
     {
         "QID": 6,
         "Ontology": "pizza.owl",
         "Question": "Is a VenezianaPizza suitable for vegetarians?",
         "Category": "SUB",
-        "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:VenezianaPizza rdfs:subClassOf pizza:VegetarianPizza .\n}"
+        "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:VenezianaPizza rdfs:subClassOf pizza:VegetarianPizza .\n}",
+        "FC_Ans": "Yes"
     },
     {
         "QID": 7,
         "Ontology": "pizza.owl",
         "Question": "Can a pizza be both a SeafoodPizza and a VegetarianPizza?",
         "Category": "DISJ",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:SeafoodPizza owl:disjointWith pizza:VegetarianPizza .\n}"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:SeafoodPizza owl:disjointWith pizza:VegetarianPizza .\n}",
+        "FC_Ans": "No"
     },
     {
         "QID": 8,
         "Ontology": "pizza.owl",
         "Question": "What toppings are only allowed on a VegetarianPizza?",
         "Category": "DISJ",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?topping WHERE {\n  ?topping owl:disjointWith ?meat .\n  ?meat rdfs:subClassOf pizza:MeatTopping .\n}"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?topping WHERE {\n  ?topping owl:disjointWith ?meat .\n  ?meat rdfs:subClassOf pizza:MeatTopping .\n}",
+        "FC_Ans": "None"
     },
     {
         "QID": 9,
         "Ontology": "pizza.owl",
         "Question": "What pizzas are incompatible with CheeseTopping?",
         "Category": "DISJ",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith ?class .\n  ?class rdfs:subClassOf [ owl:onProperty pizza:hasTopping ; owl:hasValue pizza:CheeseTopping ] .\n}\n"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith ?class .\n  ?class rdfs:subClassOf [ owl:onProperty pizza:hasTopping ; owl:hasValue pizza:CheeseTopping ] .\n}\n",
+        "FC_Ans": "Frutti di mare"
     },
     {
         "QID": 10,
         "Ontology": "pizza.owl",
-        "Question": "What are the ingredient constraints on a VegetarianHotPizza?",
+        "Question": "Which pizzas are classified as having spicy toppings only?",
         "Category": "LOGIC",
-        "SPARQL": "PREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\n\nSELECT ?restriction WHERE {\n  pizza:VegetarianHotPizza owl:equivalentClass ?restriction .\n}\n"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:intersectionOf (\n            pizza:SpicyTopping\n          )\n        ]\n      ]\n    )\n  ] .\n}",
+        "FC_Ans": "None"
     },
     {
         "QID": 11,
         "Ontology": "pizza.owl",
         "Question": "Can a pizza be both ItalianPizza and AmericanPizza at the same time?",
         "Category": "DISJ",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:ItalianPizza owl:disjointWith pizza:AmericanPizza .\n}\n"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:ItalianPizza owl:disjointWith pizza:AmericanPizza .\n}\n",
+        "FC_Ans": "Yes"
     },
     {
         "QID": 12,
         "Ontology": "pizza.owl",
         "Question": "Which pizzas are defined with no meat toppings at all?",
         "Category": "LOGIC",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:MeatTopping\n        ]\n      ]\n    )\n  ] .\n}\n"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:MeatTopping\n        ]\n      ]\n    )\n  ] .\n}\n",
+        "FC_Ans": "Vegetarian pizzas"
     },
     {
         "QID": 13,
         "Ontology": "pizza.owl",
-        "Question": "Is JalapenoTopping considered a HotTopping?",
+        "Question": "Which toppings are used in pizzas classified as SeafoodPizza?",
         "Category": "SUB",
-        "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:JalapenoTopping rdfs:subClassOf pizza:HotTopping .\n}\n"
+        "SPARQL": "PREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?topping WHERE {\n  ?pizza rdfs:subClassOf pizza:SeafoodPizza ;\n         pizza:hasTopping ?topping .\n}",
+        "FC_Ans": "sea food topping"
     },
     {
         "QID": 14,
         "Ontology": "pizza.owl",
         "Question": "Which pizzas contain more than three toppings?",
         "Category": "CARD",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [ owl:intersectionOf ?restrictions ] .\n  FILTER EXISTS {\n    ?pizza pizza:hasTopping ?t1 .\n    ?pizza pizza:hasTopping ?t2 .\n    ?pizza pizza:hasTopping ?t3 .\n    ?pizza pizza:hasTopping ?t4 .\n    FILTER(?t1 != ?t2 && ?t1 != ?t3 && ?t1 != ?t4 && ?t2 != ?t3 && ?t2 != ?t4 && ?t3 != ?t4)\n  }\n}"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [ owl:intersectionOf ?restrictions ] .\n  FILTER EXISTS {\n    ?pizza pizza:hasTopping ?t1 .\n    ?pizza pizza:hasTopping ?t2 .\n    ?pizza pizza:hasTopping ?t3 .\n    ?pizza pizza:hasTopping ?t4 .\n    FILTER(?t1 != ?t2 && ?t1 != ?t3 && ?t1 != ?t4 && ?t2 != ?t3 && ?t2 != ?t4 && ?t3 != ?t4)\n  }\n}",
+        "FC_Ans": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana"
     },
     {
         "QID": 15,
         "Ontology": "pizza.owl",
         "Question": "What type of pizzas include FishTopping but not CheeseTopping?",
         "Category": "LOGIC",
-        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      [ owl:onProperty pizza:hasTopping ;\n        owl:someValuesFrom pizza:FishTopping\n      ]\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:CheeseTopping\n        ]\n      ]\n    )\n  ] .\n}"
+        "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      [ owl:onProperty pizza:hasTopping ;\n        owl:someValuesFrom pizza:FishTopping\n      ]\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:CheeseTopping\n        ]\n      ]\n    )\n  ] .\n}",
+        "FC_Ans": "Frutti di mare"
     }
 ]
