@@ -7,7 +7,8 @@ from time import time
 from datetime import datetime
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
@@ -28,8 +29,9 @@ MODELLI_LOCALI = [
 ]
 
 
-def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
-    print(f"Running benchmark for model: {model_name} with prompt mode: {prompt_mode}")
+def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None, output_dir=OUTPUT_PATH):
+    print(
+        f"Running benchmark for model: {model_name} with prompt mode: {prompt_mode}")
     if model_name in MODELLI_LOCALI:
         api_base = "http://localhost:11434"
         model_name = f"ollama/{model_name}"
@@ -57,8 +59,12 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
             if not ontology_context or specific_ontology.strip().lower() != ontology_context.strip().lower():
                 continue
         sparql_query = q.get("SPARQL")
-        prompt = generator.generate_prompt(question_text, sparql_query, ontology_context, prompt_mode)
-
+        prompt = generator.generate_prompt(
+            question=question_text,
+            ontology_context=ontology_context,
+            mode=prompt_mode,
+            sparql=sparql_query
+        )
         # esegue domanda su modello
         start_time = time()
         try:
@@ -66,7 +72,8 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
                 model=model_name,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.0,
-                api_base=api_base
+                api_base=api_base,
+                max_tokens=8192
             )
             time_taken = round(time() - start_time, 3)
             answer = response.choices[0].message.content.strip()
@@ -74,11 +81,10 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
             prompt_tokens = usage.get("prompt_tokens", 0)
             completion_tokens = usage.get("completion_tokens", 0)
             total_tokens = usage.get("total_tokens", 0)
-            tokens_per_second = round(completion_tokens / time_taken, 2) if time_taken > 0 else 0
+            tokens_per_second = round(
+                completion_tokens / time_taken, 2) if time_taken > 0 else 0
             response_cost = response._hidden_params.get(
                 "response_cost", 0.0) if hasattr(response, "_hidden_params") else 0.0
-            print(
-                f"Completato in {time_taken}s | Output: {completion_tokens} tok ({tokens_per_second} tok/s)")
         except Exception as e:
             answer = f"Error: {str(e)}"
             time_taken = None
@@ -107,18 +113,11 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None):
                 "cost": response_cost
             }
         })
-        print(results["responses"][-1].get("QID"), results["responses"][-1].get("metrics"))
+        print(results["responses"][-1].get("QID"),
+              results["responses"][-1].get("metrics"))
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     safe_model_name = model_name.replace(':', '_').replace('/', '_')
     name_file_output = f"{safe_model_name}_{prompt_mode}_{timestamp}.json"
-    percorso_salvataggio = os.path.join(OUTPUT_PATH, name_file_output)
+    percorso_salvataggio = os.path.join(output_dir, name_file_output)
     with open(percorso_salvataggio, "w") as f:
         json.dump(results, f, indent=4)
-
-
-if __name__ == "__main__":
-    print(BASE_DIR)
-    benchmark(model_name="gpt-oss:20b", prompt_mode="Q+Domain", specific_ontology="pizza.owl")
-    benchmark(model_name="qwen3.5:9b", prompt_mode="Q+Domain", specific_ontology="pizza.owl")
-    benchmark(model_name="llama2:7b", prompt_mode="Q+Domain", specific_ontology="pizza.owl")
-    

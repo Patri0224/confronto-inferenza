@@ -10,14 +10,13 @@ class PromptGenerator:
             "Focus strictly on pizza-related topics."
         )
         self.answer_type = answer_type or (
-            "Show the inference steps used to arrive at the answer.")
+            "And after showing the answer, explain the inference steps used to arrive at the answer.")
 
     def generate_prompt(self, question, sparql=None, ontology_context=None, mode="Q+Onto+Domain"):
         # Q, Q+Onto, Q+Domain, Q+Onto+Domain
 
         prompt_parts = []
-        ontology_context = self.getOntology(
-            ontology_context, optional=True) if ontology_context else None
+        ontology_context = self.getOntology(ontology_context) if ontology_context else None
         if "Onto" in mode:
             prompt_parts.append(self.system_role)
             if ontology_context:
@@ -28,7 +27,7 @@ class PromptGenerator:
                     "Refer to your internal ontology knowledge when responding.")
 
         prompt_parts.append(
-            "Provide a clear and concise answer to the following question.")
+            "Provide a clear and concise answer to the following question. (yes or no, or list of results)")
         if "Domain" in mode:
             prompt_parts.append(self.domain_constraint)
 
@@ -41,11 +40,7 @@ class PromptGenerator:
 
         return "\n\n".join(prompt_parts)
 
-    def getOntology(self, ontology_name, optional=False):
-        if optional or not ontology_name:
-            return ontology_name
-
-        # Se in futuro vorrai caricare il file .owl dal disco come testo pulito:
+    def getOntology(self, ontology_name):
         onto_path = os.path.join("./data/ontologies/", f"{ontology_name}")
         if os.path.exists(onto_path):
             with open(onto_path, "r", encoding="utf-8") as f:
