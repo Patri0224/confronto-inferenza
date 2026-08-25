@@ -168,7 +168,6 @@ if __name__ == "__main__":
             "Cosine_Similarity",
             "Tokens_Per_Sec",
         ]
-        # Filtra solo le colonne che esistono effettivamente per evitare crash
         existing_cols = [
             col for col in columns_to_show if col in df_matrix.columns]
         print(df_matrix[existing_cols].head(10))
