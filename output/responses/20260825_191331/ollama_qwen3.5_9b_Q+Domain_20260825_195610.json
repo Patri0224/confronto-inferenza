@@ -1,0 +1,262 @@
+{
+    "model": "ollama/qwen3.5:9b",
+    "prompt_mode": "Q+Domain",
+    "timestamp": "2026-08-25 19:40:49",
+    "responses": [
+        {
+            "QID": 1,
+            "question": "Is a FourCheesePizza considered a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a FourCheesePizza considered a VegetarianPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:FourCheesePizza rdfs:subClassOf pizza:VegetarianPizza .\n}\n",
+            "FC_Ans": "Yes",
+            "answer": "yes\n\nInference Steps:\n1. Identify the primary ingredients of a Four Cheese Pizza (dough, sauce, and four varieties of cheese).\n2. Define the criteria for a Vegetarian Pizza (must not contain meat or animal flesh).\n3. Classify cheese as a dairy product derived from milk rather than animal flesh.\n4. Conclude that since the pizza contains no meat ingredients, it meets the definition of a Vegetarian Pizza.",
+            "metrics": {
+                "runtime_seconds": 28.091,
+                "prompt_tokens": 86,
+                "completion_tokens": 1255,
+                "total_tokens": 1341,
+                "tokens_per_second": 44.68,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 2,
+            "question": "Can a pizza have both HamTopping and AnchovyTopping without violating any disjoint restrictions?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza have both HamTopping and AnchovyTopping without violating any disjoint restrictions?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:HamTopping owl:disjointWith pizza:AnchovyTopping .\n}\n",
+            "FC_Ans": "Yes",
+            "answer": "Answer: Yes\n\nExplanation:\n1. Identify the toppings in question: HamTopping (meat) and AnchovyTopping (seafood).\n2. Evaluate standard pizza definitions and culinary conventions regarding topping combinations.\n3. Determine that no universal logical or culinary rule defines these specific toppings as mutually exclusive or disjoint.\n4. Conclude that a pizza can contain both toppings simultaneously without violating any standard restrictions.",
+            "metrics": {
+                "runtime_seconds": 66.79,
+                "prompt_tokens": 93,
+                "completion_tokens": 3115,
+                "total_tokens": 3208,
+                "tokens_per_second": 46.64,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 3,
+            "question": "What makes a pizza incompatible with a ThinAndCrispyBase?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What makes a pizza incompatible with a ThinAndCrispyBase?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith [ pizza:hasBase pizza:ThinAndCrispyBase ] .\n}\n",
+            "FC_Ans": "Having only Deep Pan Base as pizza base",
+            "answer": "Answer: None\n\nInference Steps:\n1.  **Analyze Base Versatility**: A ThinAndCrispyBase is a standard crust style designed to support various toppings without structural failure.\n2.  **Evaluate Ingredient Interactions**: Common pizza ingredients (sauce, cheese, meats, vegetables) do not inherently conflict with the physical properties of a thin and crispy base.\n3.  **Check for Restrictions**: There are no culinary rules or standard definitions that prohibit specific toppings from being used on this base type.\n4.  **Conclusion**: Since no ingredient or topping creates an inherent incompatibility, the answer is None.",
+            "metrics": {
+                "runtime_seconds": 82.941,
+                "prompt_tokens": 88,
+                "completion_tokens": 3889,
+                "total_tokens": 3977,
+                "tokens_per_second": 46.89,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 4,
+            "question": "Which pizzas are defined to contain exactly two toppings?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are defined to contain exactly two toppings?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza rdfs:subClassOf [\n    owl:onProperty pizza:hasTopping ;\n    owl:cardinality 2\n  ] .\n}\n",
+            "FC_Ans": "Margherita, Quattro Formaggi",
+            "answer": "Answer: None\n\nInference Steps:\n1. Analyzed general culinary standards and definitions regarding pizza composition.\n2. Determined that topping counts vary by establishment, region, and customer preference without a universal rule.\n3. Verified that no specific pizza variety is universally defined by the constraint of containing exactly two toppings.\n4. Concluded that there are no pizzas meeting this specific definition in standard culinary knowledge.",
+            "metrics": {
+                "runtime_seconds": 39.411,
+                "prompt_tokens": 84,
+                "completion_tokens": 1802,
+                "total_tokens": 1886,
+                "tokens_per_second": 45.72,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 5,
+            "question": "Is a QuattroFormaggiPizza classified as a CheesePizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a QuattroFormaggiPizza classified as a CheesePizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:QuattroFormaggiPizza rdfs:subClassOf pizza:CheesePizza .\n}",
+            "FC_Ans": "Yes",
+            "answer": "Answer: Yes\n\nInference Steps:\n1. A Quattro Formaggi Pizza is defined by using four varieties of cheese as its primary toppings.\n2. A Cheese Pizza is categorized as any pizza where cheese is the dominant topping, excluding other main ingredients like meat or vegetables.\n3. Since a Quattro Formaggi Pizza consists entirely of cheese toppings, it satisfies the definition and classification of a Cheese Pizza.",
+            "metrics": {
+                "runtime_seconds": 24.83,
+                "prompt_tokens": 87,
+                "completion_tokens": 1098,
+                "total_tokens": 1185,
+                "tokens_per_second": 44.22,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 6,
+            "question": "Is a VenezianaPizza suitable for vegetarians?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a VenezianaPizza suitable for vegetarians?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:VenezianaPizza rdfs:subClassOf pizza:VegetarianPizza .\n}",
+            "FC_Ans": "Yes",
+            "answer": "Answer: No\n\nInference Steps:\n1. Identify the traditional ingredients of a standard Pizza Veneziana, which typically include anchovies or ham.\n2. Determine that anchovies are fish and ham is meat, both of which are animal-derived products.\n3. Conclude that because these standard ingredients are non-vegetarian, the pizza is generally not suitable for vegetarians unless explicitly modified by a specific pizzeria.",
+            "metrics": {
+                "runtime_seconds": 63.325,
+                "prompt_tokens": 84,
+                "completion_tokens": 2952,
+                "total_tokens": 3036,
+                "tokens_per_second": 46.62,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 7,
+            "question": "Can a pizza be both a SeafoodPizza and a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza be both a SeafoodPizza and a VegetarianPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:SeafoodPizza owl:disjointWith pizza:VegetarianPizza .\n}",
+            "FC_Ans": "No",
+            "answer": "No.\n\n**Inference Steps:**\n1.  **Definition of VegetarianPizza:** A pizza classified as Vegetarian must not contain any animal flesh, including fish or shellfish.\n2.  **Definition of SeafoodPizza:** A pizza classified as SeafoodPizza must contain seafood ingredients such as fish or shellfish.\n3.  **Conflict Analysis:** Since seafood constitutes animal flesh, its presence violates the definition required for a VegetarianPizza.\n4.  **Conclusion:** Therefore, a single pizza cannot simultaneously satisfy the ingredient requirements for both categories.",
+            "metrics": {
+                "runtime_seconds": 30.389,
+                "prompt_tokens": 89,
+                "completion_tokens": 1367,
+                "total_tokens": 1456,
+                "tokens_per_second": 44.98,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 8,
+            "question": "What toppings are only allowed on a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What toppings are only allowed on a VegetarianPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?topping WHERE {\n  ?topping owl:disjointWith ?meat .\n  ?meat rdfs:subClassOf pizza:MeatTopping .\n}",
+            "FC_Ans": "None",
+            "answer": "Answer: None\n\nInference Steps:\n1. Define a vegetarian pizza as one containing no meat or animal flesh.\n2. Define a non-vegetarian pizza as one containing meat, which also permits plant-based toppings.\n3. Observe that plant-based toppings (e.g., mushrooms, peppers, onions) are allowed on both vegetarian and non-vegetarian pizzas.\n4. Conclude that there is no topping restricted exclusively to vegetarian pizzas; the restriction applies only to meat-containing ingredients.",
+            "metrics": {
+                "runtime_seconds": 46.537,
+                "prompt_tokens": 85,
+                "completion_tokens": 2146,
+                "total_tokens": 2231,
+                "tokens_per_second": 46.11,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 9,
+            "question": "What pizzas are incompatible with CheeseTopping?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What pizzas are incompatible with CheeseTopping?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith ?class .\n  ?class rdfs:subClassOf [ owl:onProperty pizza:hasTopping ; owl:hasValue pizza:CheeseTopping ] .\n}\n",
+            "FC_Ans": "Frutti di mare",
+            "answer": "Answer: No pizzas\n\nInference steps:\n1. Analyzed the question regarding compatibility between pizza types and cheese toppings.\n2. Reviewed standard culinary knowledge about common pizza varieties (e.g., Margherita, Pepperoni, Veggie).\n3. Determined that cheese is a fundamental and widely accepted topping for almost all pizza styles.\n4. Concluded that there are no standard pizza types inherently incompatible with cheese toppings in general practice.",
+            "metrics": {
+                "runtime_seconds": 89.621,
+                "prompt_tokens": 83,
+                "completion_tokens": 4209,
+                "total_tokens": 4292,
+                "tokens_per_second": 46.96,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 10,
+            "question": "Which pizzas are classified as having spicy toppings only?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are classified as having spicy toppings only?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:intersectionOf (\n            pizza:SpicyTopping\n          )\n        ]\n      ]\n    )\n  ] .\n}",
+            "FC_Ans": "None",
+            "answer": "Answer: None\n\nInference Steps:\n1. Analyzed the question requesting a list of pizzas with exclusively spicy toppings.\n2. Recognized that there is no universal culinary standard or classification for pizzas containing only spicy toppings.\n3. Noted that without a specific menu or dataset provided, no definitive list can be generated.\n4. Concluded that generally, no pizzas fit this specific classification criteria.",
+            "metrics": {
+                "runtime_seconds": 35.126,
+                "prompt_tokens": 84,
+                "completion_tokens": 1591,
+                "total_tokens": 1675,
+                "tokens_per_second": 45.29,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 11,
+            "question": "Can a pizza be both ItalianPizza and AmericanPizza at the same time?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza be both ItalianPizza and AmericanPizza at the same time?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:ItalianPizza owl:disjointWith pizza:AmericanPizza .\n}\n",
+            "FC_Ans": "Yes",
+            "answer": "Yes\n\n**Inference Steps:**\n1.  **Define Categories:** Identify that \"Italian Pizza\" and \"American Pizza\" refer to culinary styles, origins, or adaptations rather than mutually exclusive physical objects.\n2.  **Analyze Overlap:** Recognize that pizza styles often blend (e.g., Italian ingredients prepared in an American context or hybrid toppings).\n3.  **Determine Possibility:** Conclude that since a single pizza can possess attributes of both traditions simultaneously, it can be classified as both.",
+            "metrics": {
+                "runtime_seconds": 33.675,
+                "prompt_tokens": 89,
+                "completion_tokens": 1525,
+                "total_tokens": 1614,
+                "tokens_per_second": 45.29,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 12,
+            "question": "Which pizzas are defined with no meat toppings at all?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are defined with no meat toppings at all?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:MeatTopping\n        ]\n      ]\n    )\n  ] .\n}\n",
+            "FC_Ans": "Vegetarian pizzas",
+            "answer": "Margherita, Cheese, and Vegetable pizzas.\n\nInference Steps:\n1. Analyzed the query for the specific constraint of having no meat toppings.\n2. Consulted general culinary knowledge regarding standard pizza classifications.\n3. Identified traditional varieties that are defined or commonly prepared without meat ingredients.",
+            "metrics": {
+                "runtime_seconds": 84.981,
+                "prompt_tokens": 85,
+                "completion_tokens": 3990,
+                "total_tokens": 4075,
+                "tokens_per_second": 46.95,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 13,
+            "question": "Which toppings are used in pizzas classified as SeafoodPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which toppings are used in pizzas classified as SeafoodPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?topping WHERE {\n  ?pizza rdfs:subClassOf pizza:SeafoodPizza ;\n         pizza:hasTopping ?topping .\n}",
+            "FC_Ans": "sea food topping",
+            "answer": "Answer: Shrimp, crab, lobster, clams, mussels, squid, calamari, scallops\n\nInference Steps:\n1. Identified the classification \"SeafoodPizza\" as a category defined by the inclusion of marine-based ingredients rather than land animals or vegetables.\n2. Consulted general culinary knowledge regarding standard pizza toppings that fall under the seafood category.\n3. Filtered out non-seafood items to ensure the list strictly adheres to the \"Seafood\" classification constraint.\n4. Compiled the most common and recognizable seafood toppings typically found on pizzas within this category.",
+            "metrics": {
+                "runtime_seconds": 49.665,
+                "prompt_tokens": 86,
+                "completion_tokens": 2296,
+                "total_tokens": 2382,
+                "tokens_per_second": 46.23,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 14,
+            "question": "Which pizzas contain more than three toppings?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas contain more than three toppings?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [ owl:intersectionOf ?restrictions ] .\n  FILTER EXISTS {\n    ?pizza pizza:hasTopping ?t1 .\n    ?pizza pizza:hasTopping ?t2 .\n    ?pizza pizza:hasTopping ?t3 .\n    ?pizza pizza:hasTopping ?t4 .\n    FILTER(?t1 != ?t2 && ?t1 != ?t3 && ?t1 != ?t4 && ?t2 != ?t3 && ?t2 != ?t4 && ?t3 != ?t4)\n  }\n}",
+            "FC_Ans": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+            "answer": "",
+            "metrics": {
+                "runtime_seconds": 171.808,
+                "prompt_tokens": 82,
+                "completion_tokens": 8110,
+                "total_tokens": 8192,
+                "tokens_per_second": 47.2,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 15,
+            "question": "What type of pizzas include FishTopping but not CheeseTopping?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What type of pizzas include FishTopping but not CheeseTopping?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      [ owl:onProperty pizza:hasTopping ;\n        owl:someValuesFrom pizza:FishTopping\n      ]\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:CheeseTopping\n        ]\n      ]\n    )\n  ] .\n}",
+            "FC_Ans": "Frutti di mare",
+            "answer": "Answer: None\n\nInference Steps:\n1.  **Identify Criteria:** The question asks for pizza types that contain FishTopping but explicitly exclude CheeseTopping.\n2.  **Review Standard Pizza Types:** Common pizza varieties with fish (e.g., Fish Pizza, Mediterranean Pizza) are analyzed.\n3.  **Verify Toppings:** In standard culinary definitions and commercial offerings, pizzas featuring fish almost universally include cheese as a primary topping or layer.\n4.  **Evaluate Exceptions:** Variations like \"White Pizza\" typically still contain cheese; cheeseless flatbreads with fish are not classified as standard pizza types.\n5.  **Conclusion:** No recognized standard pizza type satisfies the condition of having fish toppings while lacking cheese toppings.",
+            "metrics": {
+                "runtime_seconds": 73.399,
+                "prompt_tokens": 88,
+                "completion_tokens": 3432,
+                "total_tokens": 3520,
+                "tokens_per_second": 46.76,
+                "cost": 0.0
+            }
+        }
+    ]
+}

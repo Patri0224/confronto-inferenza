@@ -1,0 +1,262 @@
+{
+    "model": "ollama/qwen2.5:0.5b",
+    "prompt_mode": "Q+Domain",
+    "timestamp": "2026-08-25 19:13:47",
+    "responses": [
+        {
+            "QID": 1,
+            "question": "Is a FourCheesePizza considered a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a FourCheesePizza considered a VegetarianPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:FourCheesePizza rdfs:subClassOf pizza:VegetarianPizza .\n}\n",
+            "FC_Ans": "Yes",
+            "answer": "Yes, a FourCheesePizza is considered a VegetarianPizza. The FourCheesePizza is a type of pizza that typically features a cheese layer, a tomato sauce layer, and a cheese layer. It is not a vegetarian pizza because it does not contain any meat or meat products. The inference steps used to arrive at this answer are:\n\n1. **Identify the type of pizza**: The FourCheesePizza is a type of pizza.\n2. **Determine the characteristics of the pizza**: It features a cheese layer, a tomato sauce layer, and a cheese layer.\n3. **Identify the definition of a vegetarian pizza**: A vegetarian pizza is a type of pizza that does not contain any meat or meat products.\n4. **Conclude the answer**: Since the FourCheesePizza does not contain any meat or meat products, it is not a vegetarian pizza.\n\nThe inference steps used to arrive at the answer are:\n- Identify the type of pizza.\n- Determine the characteristics of the pizza.\n- Identify the definition of a vegetarian pizza.\n- Conclude the answer.",
+            "metrics": {
+                "runtime_seconds": 0.827,
+                "prompt_tokens": 100,
+                "completion_tokens": 219,
+                "total_tokens": 319,
+                "tokens_per_second": 264.81,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 2,
+            "question": "Can a pizza have both HamTopping and AnchovyTopping without violating any disjoint restrictions?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza have both HamTopping and AnchovyTopping without violating any disjoint restrictions?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:HamTopping owl:disjointWith pizza:AnchovyTopping .\n}\n",
+            "FC_Ans": "Yes",
+            "answer": "Yes.\n\nThe answer is that a pizza can have both the HamTopping and the AnchovyTopping without violating any disjoint restrictions. This is because the HamTopping and the AnchovyTopping are two distinct toppings that can be placed on a pizza without any restrictions. Therefore, it is possible for a pizza to have both toppings without any conflicts.",
+            "metrics": {
+                "runtime_seconds": 0.287,
+                "prompt_tokens": 107,
+                "completion_tokens": 72,
+                "total_tokens": 179,
+                "tokens_per_second": 250.87,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 3,
+            "question": "What makes a pizza incompatible with a ThinAndCrispyBase?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What makes a pizza incompatible with a ThinAndCrispyBase?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith [ pizza:hasBase pizza:ThinAndCrispyBase ] .\n}\n",
+            "FC_Ans": "Having only Deep Pan Base as pizza base",
+            "answer": "No.\n\nThe answer to the question \"What makes a pizza incompatible with a ThinAndCrispyBase?\" is that a pizza made with a ThinAndCrispyBase is incompatible with a pizza made with a PizzaBase. This is because the ingredients and techniques used in one type of pizza are not compatible with those in another type of pizza.\n\nThe inference steps used to arrive at this answer are:\n\n1. **Identify the types of pizzas**: First, we need to understand that there are two types of pizzas: a ThinAndCrispyBase and a PizzaBase.\n\n2. **Understand the ingredients and techniques**: Next, we need to know the specific ingredients and techniques used in each type of pizza. For example, a ThinAndCrispyBase typically uses a combination of cheese, sauce, and toppings, while a PizzaBase typically uses a base of flour, yeast, and water.\n\n3. **Compare the ingredients and techniques**: By comparing the ingredients and techniques of the two types of pizzas, we can see that they are incompatible with each other. For example, a ThinAndCrispyBase uses cheese and sauce, while a PizzaBase uses flour and yeast.\n\n4. **Determine the reason for incompatibility**: The reason for the incompatibility is that the ingredients and techniques used in one type of pizza are not compatible with those in another type of pizza. For example, the cheese and sauce used in a ThinAndCrispyBase are not compatible with the flour and yeast used in a PizzaBase.\n\nIn summary, the answer to the question is that a pizza made with a ThinAndCrispyBase is incompatible with a pizza made with a PizzaBase because the ingredients and techniques used in one type of pizza are not compatible with those in another type of pizza.",
+            "metrics": {
+                "runtime_seconds": 1.353,
+                "prompt_tokens": 102,
+                "completion_tokens": 366,
+                "total_tokens": 468,
+                "tokens_per_second": 270.51,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 4,
+            "question": "Which pizzas are defined to contain exactly two toppings?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are defined to contain exactly two toppings?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza rdfs:subClassOf [\n    owl:onProperty pizza:hasTopping ;\n    owl:cardinality 2\n  ] .\n}\n",
+            "FC_Ans": "Margherita, Quattro Formaggi",
+            "answer": "Yes.\n\nThe answer is that the pizzas defined to contain exactly two toppings are those that have exactly two toppings on each pizza. To arrive at this answer, we can follow these inference steps:\n\n1. **Definition of Two Toppings**: A pizza is defined as a flat, round dish that is cut into slices, and each slice is cut into smaller pieces. Each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces.\n\n2. **Definition of Two Toppings**: A pizza is defined as a flat, round dish that is cut into slices, and each slice is cut into smaller pieces. Each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces. Therefore, a pizza is defined as a flat, round dish that is cut into slices, and each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces.\n\n3. **Definition of Exactly Two Toppings**: A pizza is defined as a flat, round dish that is cut into slices, and each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces. Since a pizza is defined as a flat, round dish that is cut into slices, each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces, a pizza is defined as a flat, round dish that is cut into slices, and each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces.\n\n4. **Conclusion**: Therefore, the pizzas defined to contain exactly two toppings are those that are flat, round dishes that are cut into slices, and each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces.\n\nInference steps used: We used the definition of a pizza and the definition of two toppings to conclude that a pizza is defined to contain exactly two toppings. We then used the definition of a flat, round dish and the definition of two toppings to conclude that a flat, round dish that is cut into slices, and each slice is cut into smaller pieces, and each of these smaller pieces is cut into even smaller pieces is a pizza.",
+            "metrics": {
+                "runtime_seconds": 1.643,
+                "prompt_tokens": 98,
+                "completion_tokens": 454,
+                "total_tokens": 552,
+                "tokens_per_second": 276.32,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 5,
+            "question": "Is a QuattroFormaggiPizza classified as a CheesePizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a QuattroFormaggiPizza classified as a CheesePizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:QuattroFormaggiPizza rdfs:subClassOf pizza:CheesePizza .\n}",
+            "FC_Ans": "Yes",
+            "answer": "Yes.\n\nThe QuattroFormaggiPizza is not classified as a CheesePizza. It is a type of pizza that is made with a variety of cheeses, such as mozzarella, parmesan, and Parmesan. The QuattroFormaggiPizza is a variation of a traditional pizza that is made with a variety of toppings, including cheese, vegetables, and other ingredients.",
+            "metrics": {
+                "runtime_seconds": 0.296,
+                "prompt_tokens": 101,
+                "completion_tokens": 76,
+                "total_tokens": 177,
+                "tokens_per_second": 256.76,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 6,
+            "question": "Is a VenezianaPizza suitable for vegetarians?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Is a VenezianaPizza suitable for vegetarians?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:VenezianaPizza rdfs:subClassOf pizza:VegetarianPizza .\n}",
+            "FC_Ans": "Yes",
+            "answer": "Yes, a Veneziana Pizza is suitable for vegetarians. The answer is that a Veneziana Pizza is suitable for vegetarians. The inference steps used to arrive at this answer are:\n\n1. **Identify the type of pizza**: A Veneziana Pizza is a type of pizza that originated in Venice, Italy. It is known for its soft, flaky crust and a variety of toppings.\n\n2. **Consider the ingredients**: Vegetarian pizza typically includes a variety of vegetables, such as mushrooms, onions, peppers, and olives, among others.\n\n3. **Evaluate the toppings**: Vegetarian pizza often features a variety of toppings, including cheese, olives, and various types of vegetables.\n\n4. **Compare with other options**: While some other types of pizza, such as a Margherita Pizza, may have a vegetarian version, the Veneziana Pizza is specifically designed for vegetarians.\n\n5. **Conclusion**: Based on the above points, a Veneziana Pizza is suitable for vegetarians because it is a vegetarian pizza that includes a variety of toppings and ingredients that are suitable for vegetarians.\n\nThis answer is clear, concise, and directly addresses the question about the suitability of a Veneziana Pizza for vegetarians.",
+            "metrics": {
+                "runtime_seconds": 0.892,
+                "prompt_tokens": 98,
+                "completion_tokens": 246,
+                "total_tokens": 344,
+                "tokens_per_second": 275.78,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 7,
+            "question": "Can a pizza be both a SeafoodPizza and a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza be both a SeafoodPizza and a VegetarianPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:SeafoodPizza owl:disjointWith pizza:VegetarianPizza .\n}",
+            "FC_Ans": "No",
+            "answer": "No, a pizza can be both a SeafoodPizza and a VegetarianPizza. This is because a SeafoodPizza is a type of pizza that is made with seafood toppings, and a VegetarianPizza is a type of pizza that is made with vegetables toppings. Therefore, a pizza can be both a SeafoodPizza and a VegetarianPizza. The inference steps used to arrive at this answer are:\n\n1. Identify the key characteristics of a SeafoodPizza: it is made with seafood toppings.\n2. Identify the key characteristics of a VegetarianPizza: it is made with vegetables toppings.\n3. Compare the characteristics: a SeafoodPizza is made with seafood toppings, and a VegetarianPizza is made with vegetables toppings.\n4. Conclude that a pizza can be both a SeafoodPizza and a VegetarianPizza because they both have the same key characteristics.",
+            "metrics": {
+                "runtime_seconds": 0.64,
+                "prompt_tokens": 103,
+                "completion_tokens": 175,
+                "total_tokens": 278,
+                "tokens_per_second": 273.44,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 8,
+            "question": "What toppings are only allowed on a VegetarianPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What toppings are only allowed on a VegetarianPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?topping WHERE {\n  ?topping owl:disjointWith ?meat .\n  ?meat rdfs:subClassOf pizza:MeatTopping .\n}",
+            "FC_Ans": "None",
+            "answer": "No.\n\nThe answer is that only the toppings allowed on a VegetarianPizza are the following: no toppings. The inference steps used to arrive at this answer are:\n\n1. The question asks about toppings only allowed on a VegetarianPizza.\n2. The answer is that only the toppings allowed on a VegetarianPizza are the following: no toppings.\n3. The inference steps are:\n   - Identify the specific toppings allowed on a VegetarianPizza.\n   - Determine that only these toppings are allowed.\n   - Conclude that the answer is that only the toppings allowed on a VegetarianPizza are the following: no toppings.",
+            "metrics": {
+                "runtime_seconds": 0.464,
+                "prompt_tokens": 99,
+                "completion_tokens": 126,
+                "total_tokens": 225,
+                "tokens_per_second": 271.55,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 9,
+            "question": "What pizzas are incompatible with CheeseTopping?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What pizzas are incompatible with CheeseTopping?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith ?class .\n  ?class rdfs:subClassOf [ owl:onProperty pizza:hasTopping ; owl:hasValue pizza:CheeseTopping ] .\n}\n",
+            "FC_Ans": "Frutti di mare",
+            "answer": "No, I can't provide a clear and concise answer to the question \"What pizzas are incompatible with CheeseTopping? \" as the question is not specific enough. However, I can provide a general answer and then explain the inference steps used to arrive at the answer.\n\n### General Answer:\nPizzas that are incompatible with CheeseTopping are those that do not contain cheese. Some examples of such pizzas include:\n\n1. **Pepperoni Pizza**: This pizza typically contains pepperoni, which is a type of cheese.\n2. **Margherita Pizza**: This pizza contains tomatoes, which are not considered cheese.\n3. **Pepperoni Margherita Pizza**: This is a variation of the Pepperoni Pizza where the cheese is added to the tomato sauce.\n4. **Cheese Pizza**: This pizza contains cheese, which is a type of cheese.\n5. **Cheese Pizza with Tomato Sauce**: This is a variation of the Cheese Pizza where the tomato sauce is added to the cheese.\n\n### Inference Steps:\n1. **Identify the Components**: First, we need to identify the components of a pizza. A pizza typically consists of a base (like a crust), toppings, and cheese.\n2. **Determine the Type of Cheese**: CheeseTopping is a type of cheese that is typically used in pizza toppings. We need to determine which types of cheese are commonly used in pizza toppings.\n3. **Compare the Toppings**: Next, we need to compare the toppings on a pizza with the type of cheese used. We can do this by looking at the ingredients on the pizza and comparing them to the ingredients on the cheese.\n4. **Identify Incompatible Toppings**: Finally, we can identify which toppings are incompatible with the type of cheese used in a pizza. We can do this by comparing the ingredients on the pizza with the ingredients on the cheese and identifying any ingredients that are not compatible.\n\n### Example:\n- **Pepperoni Pizza**: This pizza typically contains pepperoni, which is a type of cheese.\n- **Cheese Pizza with Tomato Sauce**: This is a variation of the Cheese Pizza where the tomato sauce is added to the cheese.\n\nIn this example, we can see that Pepperoni Pizza and Cheese Pizza with Tomato Sauce are incompatible with CheeseTopping because they do not contain cheese.",
+            "metrics": {
+                "runtime_seconds": 1.684,
+                "prompt_tokens": 97,
+                "completion_tokens": 470,
+                "total_tokens": 567,
+                "tokens_per_second": 279.1,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 10,
+            "question": "Which pizzas are classified as having spicy toppings only?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are classified as having spicy toppings only?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:intersectionOf (\n            pizza:SpicyTopping\n          )\n        ]\n      ]\n    )\n  ] .\n}",
+            "FC_Ans": "None",
+            "answer": "Yes.\n\nThe answer is that there are no pizzas that are classified as having only spicy toppings. Spicy toppings are typically found on pizzas with a higher level of heat, such as those with pepperoni, mushrooms, or other spicy toppings. These pizzas are often referred to as \"spicy\" or \"hot\" pizzas.\n\nTo arrive at this answer, we can use the following inference steps:\n\n1. Identify the type of pizza: A pizza is a type of food that is typically made with a base and topped with various toppings.\n\n2. Understand the definition of spicy toppings: Spicy toppings are typically found on pizzas with a higher level of heat, such as those with pepperoni, mushrooms, or other spicy toppings.\n\n3. Recognize that there are no pizzas that are entirely or primarily made with spicy toppings: Spicy toppings are not a standard ingredient in pizza, and there are no pizzas that are entirely or primarily made with spicy toppings.\n\n4. Conclude that there are no pizzas that are classified as having only spicy toppings: Since there are no pizzas that are entirely or primarily made with spicy toppings, we can conclude that there are no pizzas that are classified as having only spicy toppings.\n\nIn summary, the answer is that there are no pizzas that are classified as having only spicy toppings.",
+            "metrics": {
+                "runtime_seconds": 0.955,
+                "prompt_tokens": 98,
+                "completion_tokens": 261,
+                "total_tokens": 359,
+                "tokens_per_second": 273.3,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 11,
+            "question": "Can a pizza be both ItalianPizza and AmericanPizza at the same time?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Can a pizza be both ItalianPizza and AmericanPizza at the same time?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nASK {\n  pizza:ItalianPizza owl:disjointWith pizza:AmericanPizza .\n}\n",
+            "FC_Ans": "Yes",
+            "answer": "No.\n\nThe answer is no. A pizza cannot be both ItalianPizza and AmericanPizza at the same time. This is because ItalianPizza and AmericanPizza are two distinct types of pizzas, each with its own specific ingredients and characteristics. While ItalianPizza typically includes ingredients like tomatoes, basil, and mozzarella, AmericanPizza often includes ingredients like cheese, onions, and peppers. Therefore, a pizza cannot be both ItalianPizza and AmericanPizza simultaneously.",
+            "metrics": {
+                "runtime_seconds": 0.342,
+                "prompt_tokens": 103,
+                "completion_tokens": 89,
+                "total_tokens": 192,
+                "tokens_per_second": 260.23,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 12,
+            "question": "Which pizzas are defined with no meat toppings at all?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas are defined with no meat toppings at all?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:MeatTopping\n        ]\n      ]\n    )\n  ] .\n}\n",
+            "FC_Ans": "Vegetarian pizzas",
+            "answer": "Yes.\n\nThe answer is that there are no pizzas that are defined with no meat toppings at all. This is because the question is asking for a specific type of pizza that does not contain any meat toppings. However, the answer is not a single pizza but a list of examples. Here are the examples of pizzas that do not contain any meat toppings:\n\n1. Margherita Pizza\n2. Margherita Pizza with Tomato Sauce\n3. Margherita Pizza with Fresh Tomatoes\n4. Margherita Pizza with Fresh Tomatoes and Olive Oil\n5. Margherita Pizza with Fresh Tomatoes, Olive Oil, and Garlic\n\nThe inference steps used to arrive at the answer are:\n\n1. Identify the type of pizza: The question is asking for a pizza that does not contain any meat toppings.\n2. List the examples: The answer is a list of specific examples of pizzas that do not contain any meat toppings.\n3. Compare the examples: The answer is not a single pizza but a list of examples, which is a logical conclusion based on the definition of the question.",
+            "metrics": {
+                "runtime_seconds": 0.798,
+                "prompt_tokens": 99,
+                "completion_tokens": 220,
+                "total_tokens": 319,
+                "tokens_per_second": 275.69,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 13,
+            "question": "Which toppings are used in pizzas classified as SeafoodPizza?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which toppings are used in pizzas classified as SeafoodPizza?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?topping WHERE {\n  ?pizza rdfs:subClassOf pizza:SeafoodPizza ;\n         pizza:hasTopping ?topping .\n}",
+            "FC_Ans": "sea food topping",
+            "answer": "Yes.\n\nThe toppings used in SeafoodPizza are typically those that are not commonly found in pizza. These include:\n\n1. Mushrooms\n2. Onions\n3. Bell peppers\n4. Mushrooms\n5. Mushrooms\n6. Mushrooms\n7. Mushrooms\n8. Mushrooms\n9. Mushrooms\n10. Mushrooms\n11. Mushrooms\n12. Mushrooms\n13. Mushrooms\n14. Mushrooms\n15. Mushrooms\n16. Mushrooms\n17. Mushrooms\n18. Mushrooms\n19. Mushrooms\n20. Mushrooms\n21. Mushrooms\n22. Mushrooms\n23. Mushrooms\n24. Mushrooms\n25. Mushrooms\n26. Mushrooms\n27. Mushrooms\n28. Mushrooms\n29. Mushrooms\n30. Mushrooms\n31. Mushrooms\n32. Mushrooms\n33. Mushrooms\n34. Mushrooms\n35. Mushrooms\n36. Mushrooms\n37. Mushrooms\n38. Mushrooms\n39. Mushrooms\n40. Mushrooms\n41. Mushrooms\n42. Mushrooms\n43. Mushrooms\n44. Mushrooms\n45. Mushrooms\n46. Mushrooms\n47. Mushrooms\n48. Mushrooms\n49. Mushrooms\n50. Mushrooms\n51. Mushrooms\n52. Mushrooms\n53. Mushrooms\n54. Mushrooms\n55. Mushrooms\n56. Mushrooms\n57. Mushrooms\n58. Mushrooms\n59. Mushrooms\n60. Mushrooms\n61. Mushrooms\n62. Mushrooms\n63. Mushrooms\n64. Mushrooms\n65. Mushrooms\n66. Mushrooms\n67. Mushrooms\n68. Mushrooms\n69. Mushrooms\n70. Mushrooms\n71. Mushrooms\n72. Mushrooms\n73. Mushrooms\n74. Mushrooms\n75. Mushrooms\n76. Mushrooms\n77. Mushrooms\n78. Mushrooms\n79. Mushrooms\n80. Mushrooms\n81. Mushrooms\n82. Mushrooms\n83. Mushrooms\n84. Mushrooms\n85. Mushrooms\n86. Mushrooms\n87. Mushrooms\n88. Mushrooms\n89. Mushrooms\n90. Mushrooms\n91. Mushrooms\n92. Mushrooms\n93. Mushrooms\n94. Mushrooms\n95. Mushrooms\n96. Mushrooms\n97. Mushrooms\n98. Mushrooms\n99. Mushrooms\n100. Mushrooms\n101. Mushrooms\n102. Mushrooms\n103. Mushrooms\n104. Mushrooms\n105. Mushrooms\n106. Mushrooms\n107. Mushrooms\n108. Mushrooms\n109. Mushrooms\n110. Mushrooms\n111. Mushrooms\n112. Mushrooms\n113. Mushrooms\n114. Mushrooms\n115. Mushrooms\n116. Mushrooms\n117. Mushrooms\n118. Mushrooms\n119. Mushrooms\n120. Mushrooms\n121. Mushrooms\n122. Mushrooms\n123. Mushrooms\n124. Mushrooms\n125. Mushrooms\n126. Mushrooms\n127. Mushrooms\n128. Mushrooms\n129. Mushrooms\n130. Mushrooms\n131. Mushrooms\n132. Mushrooms\n133. Mushrooms\n134. Mushrooms\n135. Mushrooms\n136. Mushrooms\n137. Mushrooms\n138. Mushrooms\n139. Mushrooms\n140. Mushrooms\n141. Mushrooms\n142. Mushrooms\n143. Mushrooms\n144. Mushrooms\n145. Mushrooms\n146. Mushrooms\n147. Mushrooms\n148. Mushrooms\n149. Mushrooms\n150. Mushrooms\n151. Mushrooms\n152. Mushrooms\n153. Mushrooms\n154. Mushrooms\n155. Mushrooms\n156. Mushrooms\n157. Mushrooms\n158. Mushrooms\n159. Mushrooms\n160. Mushrooms\n161. Mushrooms\n162. Mushrooms\n163. Mushrooms\n164. Mushrooms\n165. Mushrooms\n166. Mushrooms\n167. Mushrooms\n168. Mushrooms\n169. Mushrooms\n170. Mushrooms\n171. Mushrooms\n172. Mushrooms\n173. Mushrooms\n174. Mushrooms\n175. Mushrooms\n176. Mushrooms\n177. Mushrooms\n178. Mushrooms\n179. Mushrooms\n180. Mushrooms\n181. Mushrooms\n182. Mushrooms\n183. Mushrooms\n184. Mushrooms\n185. Mushrooms\n186. Mushrooms\n187. Mushrooms\n188. Mushrooms\n189. Mushrooms\n190. Mushrooms\n191. Mushrooms\n192. Mushrooms\n193. Mushrooms\n194. Mushrooms\n195. Mushrooms\n196. Mushrooms\n197. Mushrooms\n198. Mushrooms\n199. Mushrooms\n200. Mushrooms\n201. Mushrooms\n202. Mushrooms\n203. Mushrooms\n204. Mushrooms\n205. Mushrooms\n206. Mushrooms\n207. Mushrooms\n208. Mushrooms\n209. Mushrooms\n210. Mushrooms\n211. Mushrooms\n212. Mushrooms\n213. Mushrooms\n214. Mushrooms\n215. Mushrooms\n216. Mushrooms\n217. Mushrooms\n218. Mushrooms\n219. Mushrooms\n220. Mushrooms\n221. Mushrooms\n222. Mushrooms\n223. Mushrooms\n224. Mushrooms\n225. Mushrooms\n226. Mushrooms\n227. Mushrooms\n228. Mushrooms\n229. Mushrooms\n230. Mushrooms\n231. Mushrooms\n232. Mushrooms\n233. Mushrooms\n234. Mushrooms\n235. Mushrooms\n236. Mushrooms\n237. Mushrooms\n238. Mushrooms\n239. Mushrooms\n240. Mushrooms\n241. Mushrooms\n242. Mushrooms\n243. Mushrooms\n244. Mushrooms\n245. Mushrooms\n246. Mushrooms\n247. Mushrooms\n248. Mushrooms\n249. Mushrooms\n250. Mushrooms\n251. Mushrooms\n252. Mushrooms\n253. Mushrooms\n254. Mushrooms\n255. Mushrooms\n256. Mushrooms\n257. Mushrooms\n258. Mushrooms\n259. Mushrooms\n260. Mushrooms\n261. Mushrooms\n262. Mushrooms\n263. Mushrooms\n264. Mushrooms\n265. Mushrooms\n266. Mushrooms\n267. Mushrooms\n268. Mushrooms\n269. Mushrooms\n270. Mushrooms\n271. Mushrooms\n272. Mushrooms\n273. Mushrooms\n274. Mushrooms\n275. Mushrooms\n276. Mushrooms\n277. Mushrooms\n278. Mushrooms\n279. Mushrooms\n280. Mushrooms\n281. Mushrooms\n282. Mushrooms\n283. Mushrooms\n284. Mushrooms\n285. Mushrooms\n286. Mushrooms\n287. Mushrooms\n288. Mushrooms\n289. Mushrooms\n290. Mushrooms\n291. Mushrooms\n292. Mushrooms\n293. Mushrooms\n294. Mushrooms\n295. Mushrooms\n296. Mushrooms\n297. Mushrooms\n298. Mushrooms\n299. Mushrooms\n299. Mushrooms\n300. Mushrooms\n301. Mushrooms\n302. Mushrooms\n303. Mushrooms\n304. Mushrooms\n305. Mushrooms\n306. Mushrooms\n307. Mushrooms\n308. Mushrooms\n309. Mushrooms\n310. Mushrooms\n311. Mushrooms\n312. Mushrooms\n313. Mushrooms\n314. Mushrooms\n315. Mushrooms\n316. Mushrooms\n317. Mushrooms\n318. Mushrooms\n319. Mushrooms\n320. Mushrooms\n321. Mushrooms\n322. Mushrooms\n323. Mushrooms\n324. Mushrooms\n325. Mushrooms\n326. Mushrooms\n327. Mushrooms\n328. Mushrooms\n329. Mushrooms\n330. Mushrooms\n331. Mushrooms\n332. Mushrooms\n333. Mushrooms\n334. Mushrooms\n335. Mushrooms\n336. Mushrooms\n337. Mushrooms\n338. Mushrooms\n339. Mushrooms\n340. Mushrooms\n341. Mushrooms\n342. Mushrooms\n343. Mushrooms\n344. Mushrooms\n345. Mushrooms\n346. Mushrooms\n347. Mushrooms\n348. Mushrooms\n349. Mushrooms\n350. Mushrooms\n351. Mushrooms\n352. Mushrooms\n353. Mushrooms\n354. Mushrooms\n355. Mushrooms\n356. Mushrooms\n357. Mushrooms\n358. Mushrooms\n359. Mushrooms\n360. Mushrooms\n361. Mushrooms\n362. Mushrooms\n363. Mushrooms\n364. Mushrooms\n365. Mushrooms\n366. Mushrooms\n367. Mushrooms\n368. Mushrooms\n369. Mushrooms\n370. Mushrooms\n371. Mushrooms\n372. Mushrooms\n373. Mushrooms\n374. Mushrooms\n375. Mushrooms\n376. Mushrooms\n377. Mushrooms\n378. Mushrooms\n379. Mushrooms\n380. Mushrooms\n381. Mushrooms\n382. Mushrooms\n383. Mushrooms\n384. Mushrooms\n385. Mushrooms\n386. Mushrooms\n387. Mushrooms\n388. Mushrooms\n389. Mushrooms\n390. Mushrooms\n391. Mushrooms\n392. Mushrooms\n393. Mushrooms\n394. Mushrooms\n395. Mushrooms\n396. Mushrooms\n397. Mushrooms\n398. Mushrooms\n399. Mushrooms\n400. Mushrooms\n401. Mushrooms\n402. Mushrooms\n403. Mushrooms\n404. Mushrooms\n405. Mushrooms\n406. Mushrooms\n407. Mushrooms\n408. Mushrooms\n409. Mushrooms\n410. Mushrooms\n411. Mushrooms\n412. Mushrooms\n413. Mushrooms\n414. Mushrooms\n415. Mushrooms\n416. Mushrooms\n417. Mushrooms\n418. Mushrooms\n419. Mushrooms\n420. Mushrooms\n421. Mushrooms\n422. Mushrooms\n423. Mushrooms\n424. Mushrooms\n425. Mushrooms\n426. Mushrooms\n427. Mushrooms\n428. Mushrooms\n429. Mushrooms\n430. Mushrooms\n431. Mushrooms\n432. Mushrooms\n433. Mushrooms\n434. Mushrooms\n435. Mushrooms\n436. Mushrooms\n437. Mushrooms\n438. Mushrooms\n439. Mushrooms\n440. Mushrooms\n441. Mushrooms\n442. Mushrooms\n443. Mushrooms\n444. Mushrooms\n445. Mushrooms\n446. Mushrooms\n447. Mushrooms\n448. Mushrooms\n449. Mushrooms\n450. Mushrooms\n451. Mushrooms\n452. Mushrooms\n453. Mushrooms\n454. Mushrooms\n455. Mushrooms\n456. Mushrooms\n457. Mushrooms\n458. Mushrooms\n459. Mushrooms\n460. Mushrooms\n461. Mushrooms\n462. Mushrooms\n463. Mushrooms\n464. Mushrooms\n465. Mushrooms\n466. Mushrooms\n467. Mushrooms\n468. Mushrooms\n469. Mushrooms\n470. Mushrooms\n471. Mushrooms\n472. Mushrooms\n473. Mushrooms\n474. Mushrooms\n475. Mushrooms\n476. Mushrooms\n477. Mushrooms\n478. Mushrooms\n479. Mushrooms\n480. Mushrooms\n481. Mushrooms\n482. Mushrooms\n483. Mushrooms\n484. Mushrooms\n485. Mushrooms\n486. Mushrooms\n487. Mushrooms\n488. Mushrooms\n489. Mushrooms\n490. Mushrooms\n491. Mushrooms\n492. Mushrooms\n493. Mushrooms\n494. Mushrooms\n495. Mushrooms\n496. Mushrooms\n497. Mushrooms\n498. Mushrooms\n499. Mushrooms\n500. Mushrooms\n501. Mushrooms\n502. Mushrooms\n503. Mushrooms\n504. Mushrooms\n505. Mushrooms\n506. Mushrooms\n507. Mushrooms\n508. Mushrooms\n509. Mushrooms\n510. Mushrooms\n511. Mushrooms\n512. Mushrooms\n513. Mushrooms\n514. Mushrooms\n515. Mushrooms\n516. Mushrooms\n517. Mushrooms\n518. Mushrooms\n519. Mushrooms\n520. Mushrooms\n521. Mushrooms\n522. Mushrooms\n523. Mushrooms\n524. Mushrooms\n525. Mushrooms\n526. Mushrooms\n527. Mushrooms\n528. Mushrooms\n529. Mushrooms\n530. Mushrooms\n531. Mushrooms\n532. Mushrooms\n533. Mushrooms\n534. Mushrooms\n535. Mushrooms\n536. Mushrooms\n537. Mushrooms\n538. Mushrooms\n539. Mushrooms\n540. Mushrooms\n541. Mushrooms\n542. Mushrooms\n543. Mushrooms\n544. Mushrooms\n545. Mushrooms\n546. Mushrooms\n547. Mushrooms\n548. Mushrooms\n549. Mushrooms\n550. Mushrooms\n551. Mushrooms\n552. Mushrooms\n553. Mushrooms\n554. Mushrooms\n555. Mushrooms\n556. Mushrooms\n557. Mushrooms\n558. Mushrooms\n559. Mushrooms\n560. Mushrooms\n561. Mushrooms\n562. Mushrooms\n563. Mushrooms\n564. Mushrooms\n565. Mushrooms\n566. Mushrooms\n567. Mushrooms\n568. Mushrooms\n569. Mushrooms\n570. Mushrooms\n571. Mushrooms\n572. Mushrooms\n573. Mushrooms\n574. Mushrooms\n575. Mushrooms\n576. Mushrooms\n577. Mushrooms\n578. Mushrooms\n579. Mushrooms\n580. Mushrooms\n581. Mushrooms\n582. Mushrooms\n583. Mushrooms\n584. Mushrooms\n585. Mushrooms\n586. Mushrooms\n587. Mushrooms\n588. Mushrooms\n589. Mushrooms\n590. Mushrooms\n591. Mushrooms\n592. Mushrooms\n593. Mushrooms\n594. Mushrooms\n595. Mushrooms\n596. Mushrooms\n597. Mushrooms\n598. Mushrooms\n599. Mushrooms\n600. Mushrooms\n601. Mushrooms\n602. Mushrooms\n603. Mushrooms\n604. Mushrooms\n605. Mushrooms\n606. Mushrooms\n607. Mushrooms\n608. Mushrooms\n609. Mushrooms\n610. Mushrooms\n611. Mushrooms\n612. Mushrooms\n613. Mushrooms\n614. Mushrooms\n615. Mushrooms\n616. Mushrooms\n617. Mushrooms\n618. Mushrooms\n619. Mushrooms\n620. Mushrooms\n621. Mushrooms\n622. Mushrooms\n623. Mushrooms\n624. Mushrooms\n625. Mushrooms\n626. Mushrooms\n627. Mushrooms\n628. Mushrooms\n629. Mushrooms\n630. Mushrooms\n631. Mushrooms\n632. Mushrooms\n633. Mushrooms\n634. Mushrooms\n635. Mushrooms\n636. Mushrooms\n637. Mushrooms\n638. Mushrooms\n639. Mushrooms\n640. Mushrooms\n641. Mushrooms\n642. Mushrooms\n643. Mushrooms\n644. Mushrooms\n645. Mushrooms\n646. Mushrooms\n647. Mushrooms\n648. Mushrooms\n649. Mushrooms\n650. Mushrooms\n651. Mushrooms\n652. Mushrooms\n653. Mushrooms\n654. Mushrooms\n655. Mushrooms\n656. Mushrooms\n657. Mushrooms\n658. Mushrooms\n659. Mushrooms\n660. Mushrooms\n661. Mushrooms\n662. Mushrooms\n663. Mushrooms\n664. Mushrooms\n665. Mushrooms\n666. Mushrooms\n667. Mushrooms\n668. Mushrooms\n669. Mushrooms\n670. Mushrooms\n671. Mushrooms\n672. Mushrooms\n673. Mushrooms\n674. Mushrooms\n675. Mushrooms\n676. Mushrooms\n677. Mushrooms\n678. Mushrooms\n679. Mushrooms\n680. Mushrooms\n681. Mushrooms\n682. Mushrooms\n683. Mushrooms\n684. Mushrooms\n685. Mushrooms\n686. Mushrooms\n687. Mushrooms\n688. Mushrooms\n689. Mushrooms\n690. Mushrooms\n691. Mushrooms\n692. Mushrooms\n693. Mushrooms\n694. Mushrooms\n695. Mushrooms\n696. Mushrooms\n697. Mushrooms\n698. Mushrooms\n699. Mushrooms\n700. Mushrooms\n701. Mushrooms\n702. Mushrooms\n703. Mushrooms\n704. Mushrooms\n705. Mushrooms\n706. Mushrooms\n707. Mushrooms\n708. Mushrooms\n709. Mushrooms\n710. Mushrooms\n711. Mushrooms\n712. Mushrooms\n713. Mushrooms\n714. Mushrooms\n715. Mushrooms\n716. Mushrooms\n717. Mushrooms\n718. Mushrooms\n719. Mushrooms\n720. Mushrooms\n721. Mushrooms\n722. Mushrooms\n723. Mushrooms\n724. Mushrooms\n725. Mushrooms\n726. Mushrooms\n727. Mushrooms\n728. Mushrooms\n729. Mushrooms\n730. Mushrooms\n731. Mushrooms\n732. Mushrooms\n733. Mushrooms\n734. Mushrooms\n735. Mushrooms\n736. Mushrooms\n737. Mushrooms\n738. Mushrooms\n739. Mushrooms\n740. Mushrooms\n741. Mushrooms\n742. Mushrooms\n743. Mushrooms\n744. Mushrooms\n745. Mushrooms\n746. Mushrooms\n747. Mushrooms\n748. Mushrooms\n749. Mushrooms\n750. Mushrooms\n751. Mushrooms\n752. Mushrooms\n753. Mushrooms\n754. Mushrooms\n755. Mushrooms\n756. Mushrooms\n757. Mushrooms\n758. Mushrooms\n759. Mushrooms\n760. Mushrooms\n761. Mushrooms\n762. Mushrooms\n763. Mushrooms\n764. Mushrooms\n765. Mushrooms\n766. Mushrooms\n767. Mushrooms\n768. Mushrooms\n769. Mushrooms\n770. Mushrooms\n771. Mushrooms\n772. Mushrooms\n773. Mushrooms\n774. Mushrooms\n775. Mushrooms\n776. Mushrooms\n777. Mushrooms\n778. Mushrooms\n779. Mushrooms\n780. Mushrooms\n781. Mushrooms\n782. Mushrooms\n783. Mushrooms\n784. Mushrooms\n785. Mushrooms\n786. Mushrooms\n787. Mushrooms\n788. Mushrooms\n789. Mushrooms\n790. Mushrooms\n791. Mushrooms\n792. Mushrooms\n793. Mushrooms\n794. Mushrooms\n795. Mushrooms\n796. Mushrooms\n797. Mushrooms\n798. Mushrooms\n799. Mushrooms\n800. Mushrooms\n801. Mushrooms\n802. Mushrooms\n803. Mushrooms\n804. Mushrooms\n805. Mushrooms\n806. Mushrooms\n807. Mushrooms\n808. Mushrooms\n809. Mushrooms\n810. Mushrooms\n811. Mushrooms\n812. Mushrooms\n813. Mushrooms\n814. Mushrooms\n815. Mushrooms\n816. Mushrooms\n817. Mushrooms\n818. Mushrooms\n819. Mushrooms\n820. Mushrooms\n821. Mushrooms\n822. Mushrooms\n823. Mushrooms\n824. Mushrooms\n825. Mushrooms\n826. Mushrooms\n827. Mushrooms\n828. Mushrooms\n829. Mushrooms\n830. Mushrooms\n831. Mushrooms\n832. Mushrooms\n833. Mushrooms\n834. Mushrooms\n835. Mushrooms\n836. Mushrooms\n837. Mushrooms\n838. Mushrooms\n839. Mushrooms\n840. Mushrooms\n841. Mushrooms\n842. Mushrooms\n843. Mushrooms\n844. Mushrooms\n845. Mushrooms\n846. Mushrooms\n847. Mushrooms\n848. Mushrooms\n849. Mushrooms\n850. Mushrooms\n851. Mushrooms\n852. Mushrooms\n853. Mushrooms\n854. Mushrooms\n855. Mushrooms\n856. Mushrooms\n857. Mushrooms\n858. Mushrooms\n859. Mushrooms\n860. Mushrooms\n861. Mushrooms\n862. Mushrooms\n863. Mushrooms\n864. Mushrooms\n865. Mushrooms\n866. Mushrooms\n867. Mushrooms\n868. Mushrooms\n869. Mushrooms\n870. Mushrooms\n871. Mushrooms\n872. Mushrooms\n873. Mushrooms\n874. Mushrooms\n875. Mushrooms\n876. Mushrooms\n877. Mushrooms\n878. Mushrooms\n879. Mushrooms\n880. Mushrooms\n881. Mushrooms\n882. Mushrooms\n883. Mushrooms\n884. Mushrooms\n885. Mushrooms\n886. Mushrooms\n887. Mushrooms\n888. Mushrooms\n889. Mushrooms\n890. Mushrooms\n891. Mushrooms\n892. Mushrooms\n893. Mushrooms\n894. Mushrooms\n895. Mushrooms\n896. Mushrooms\n897. Mushrooms\n898. Mushrooms\n899. Mushrooms\n900. Mushrooms\n901. Mushrooms\n902. Mushrooms\n903. Mushrooms\n904. Mushrooms\n905. Mushrooms\n906. Mushrooms\n907. Mushrooms\n908. Mushrooms\n909. Mushrooms\n910. Mushrooms\n911. Mushrooms\n912. Mushrooms\n913. Mushrooms\n914. Mushrooms\n915. Mushrooms\n916. Mushrooms\n917. Mushrooms\n918. Mushrooms\n919. Mushrooms\n920. Mushrooms\n921. Mushrooms\n922. Mushrooms\n923. Mushrooms\n924. Mushrooms\n925. Mushrooms\n926. Mushrooms\n927. Mushrooms\n928. Mushrooms\n929. Mushrooms\n930. Mushrooms\n931. Mushrooms\n932. Mushrooms\n933. Mushrooms\n934. Mushrooms\n935. Mushrooms\n936. Mushrooms\n937. Mushrooms\n938. Mushrooms\n939. Mushrooms\n940. Mushrooms\n941. Mushrooms\n942. Mushrooms\n943. Mushrooms\n944. Mushrooms\n945. Mushrooms\n946. Mushrooms\n947. Mushrooms\n948. Mushrooms\n949. Mushrooms\n950. Mushrooms\n951. Mushrooms\n952. Mushrooms\n953. Mushrooms\n954. Mushrooms\n955. Mushrooms\n956. Mushrooms\n957. Mushrooms\n958. Mushrooms\n959. Mushrooms\n960. Mushrooms\n961. Mushrooms\n962. Mushrooms\n963. Mushrooms\n964. Mushrooms\n965. Mushrooms\n966. Mushrooms\n967. Mushrooms\n968. Mushrooms\n969. Mushrooms\n970. Mushrooms\n971. Mushrooms\n972. Mushrooms\n973. Mushrooms\n974. Mushrooms\n975. Mushrooms\n976. Mushrooms\n977. Mushrooms\n978. Mushrooms\n979. Mushrooms\n980. Mushrooms\n981. Mushrooms\n982. Mushrooms\n983. Mushrooms\n984. Mushrooms\n985. Mushrooms\n986. Mushrooms\n987. Mushrooms\n988. Mushrooms\n989. Mushrooms\n990. Mushrooms\n991. Mushrooms\n992. Mushrooms\n993. Mushrooms\n994. Mushrooms\n995. Mushrooms\n996. Mushrooms\n997. Mushrooms\n998. Mushrooms\n999. Mushrooms\n1000. Mushrooms\n1001. Mushrooms\n1002. Mushrooms\n1003. Mushrooms\n1004. Mushrooms\n1005. Mushrooms\n1006. Mushrooms\n1007. Mushrooms\n1008. Mushrooms\n1009. Mushrooms\n1010. Mushrooms\n1011. Mushrooms\n1012. Mushrooms\n1013. Mushrooms\n1014. Mushrooms\n1015. Mushrooms\n1016. Mushrooms\n1017. Mushrooms\n1018. Mushrooms\n1019. Mushrooms\n1020. Mushrooms\n1021. Mushrooms\n1022. Mushrooms\n1023. Mushrooms\n1024. Mushrooms\n1025. Mushrooms\n1026. Mushrooms\n1027. Mushrooms\n1028. Mushrooms\n1029. Mushrooms\n1030. Mushrooms\n1031. Mushrooms\n1032. Mushrooms\n1033. Mushrooms\n1034. Mushrooms\n1035. Mushrooms\n1036. Mushrooms\n1037. Mushrooms\n1038. Mushrooms\n1039. Mushrooms\n1040. Mushrooms\n1041. Mushrooms\n1042. Mushrooms\n1043. Mushrooms\n1044. Mushrooms\n1045. Mushrooms\n1046. Mushrooms\n1047. Mushrooms\n1048. Mushrooms\n1049. Mushrooms\n1050. Mushrooms\n1051. Mushrooms\n1052. Mushrooms\n1053. Mushrooms\n1054. Mushrooms\n1055. Mushrooms\n1056. Mushrooms\n1057. Mushrooms\n1058. Mushrooms\n1059. Mushrooms\n1060. Mushrooms\n1061. Mushrooms\n1062. Mushrooms\n1063. Mushrooms\n1064. Mushrooms\n1065. Mushrooms\n1066. Mushrooms\n1067. Mushrooms\n1068. Mushrooms\n1069. Mushrooms\n1070. Mushrooms\n1071. Mushrooms\n1072. Mushrooms\n1073. Mushrooms\n1074. Mushrooms\n1075. Mushrooms\n1076. Mushrooms\n1077. Mushrooms\n1078. Mushrooms\n1079. Mushrooms\n1080. Mushrooms\n1081. Mushrooms\n1082. Mushrooms\n1083. Mushrooms\n1084. Mushrooms\n1085. Mushrooms\n1086. Mushrooms\n1087. Mushrooms\n1088. Mushrooms\n1089. Mushrooms\n1090. Mushrooms\n1091. Mushrooms\n1092. Mushrooms\n1093. Mushrooms\n1094. Mushrooms\n1095. Mushrooms\n1096. Mushrooms\n1097. Mushrooms\n1098. Mushrooms\n1099. Mushrooms\n1100. Mushrooms\n1101. Mushrooms\n1102. Mushrooms\n1103. Mushrooms\n1104. Mushrooms\n1105. Mushrooms\n1106. Mushrooms\n1107. Mushrooms\n1108. Mushrooms\n1109. Mushrooms\n1110. Mushrooms\n1111. Mushrooms\n1112. Mushrooms\n1113. Mushrooms\n1114. Mushrooms\n1115. Mushrooms\n1116. Mushrooms\n1117. Mushrooms\n1118. Mushrooms\n1119. Mushrooms\n1120. Mushrooms\n1121. Mushrooms\n1122. Mushrooms\n1123. Mushrooms\n1124. Mushrooms\n1125. Mushrooms\n1126. Mushrooms\n1127. Mushrooms\n1128. Mushrooms\n1129. Mushrooms\n1130. Mushrooms\n1131. Mushrooms\n1132. Mushrooms\n1133. Mushrooms\n1134. Mushrooms\n1135. Mushrooms\n1136. Mushrooms\n1137. Mushrooms\n1138. Mushrooms\n1139. Mushrooms\n1140. Mushrooms\n1141. Mushrooms\n1142. Mushrooms\n1143. Mushrooms\n1144. Mushrooms\n1145. Mushrooms\n1146. Mushrooms\n1147. Mushrooms\n1148. Mushrooms\n1149. Mushrooms\n1150. Mushrooms\n1151. Mushrooms\n1152. Mushrooms\n1153. Mushrooms\n1154. Mushrooms\n1155. Mushrooms\n1156. Mushrooms\n1157. Mushrooms\n1158. Mushrooms\n1159.",
+            "metrics": {
+                "runtime_seconds": 30.415,
+                "prompt_tokens": 100,
+                "completion_tokens": 8192,
+                "total_tokens": 8292,
+                "tokens_per_second": 269.34,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 14,
+            "question": "Which pizzas contain more than three toppings?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: Which pizzas contain more than three toppings?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [ owl:intersectionOf ?restrictions ] .\n  FILTER EXISTS {\n    ?pizza pizza:hasTopping ?t1 .\n    ?pizza pizza:hasTopping ?t2 .\n    ?pizza pizza:hasTopping ?t3 .\n    ?pizza pizza:hasTopping ?t4 .\n    FILTER(?t1 != ?t2 && ?t1 != ?t3 && ?t1 != ?t4 && ?t2 != ?t3 && ?t2 != ?t4 && ?t3 != ?t4)\n  }\n}",
+            "FC_Ans": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+            "answer": "Yes.\n\nThe answer is that the pizza with the most toppings is the Margherita pizza, which contains 3 toppings. The inference steps used to arrive at this answer are:\n\n1. We know that the Margherita pizza is the only pizza with more than three toppings.\n2. We can eliminate other pizzas with more than three toppings, such as the Pepperoni pizza, which has 4 toppings.\n3. Therefore, the Margherita pizza is the only pizza with more than three toppings.\n\nThe inference steps used to arrive at the answer are:\n1. Identify the pizza with the most toppings.\n2. Eliminate other pizzas with more than three toppings.\n3. Conclude that the pizza with the most toppings is the one with more than three toppings.",
+            "metrics": {
+                "runtime_seconds": 2.629,
+                "prompt_tokens": 96,
+                "completion_tokens": 155,
+                "total_tokens": 251,
+                "tokens_per_second": 58.96,
+                "cost": 0.0
+            }
+        },
+        {
+            "QID": 15,
+            "question": "What type of pizzas include FishTopping but not CheeseTopping?",
+            "ontology_context": "pizza.owl",
+            "prompt": "Provide a clear and concise answer to the following question. (yes or no, or list of results)\n\nFocus strictly on pizza-related topics.\n\nAvoid extra explanation or unrelated details\n\nQuestion: What type of pizzas include FishTopping but not CheeseTopping?\n\nAnd after showing the answer, explain the inference steps used to arrive at the answer.\n\nAnswer:",
+            "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      [ owl:onProperty pizza:hasTopping ;\n        owl:someValuesFrom pizza:FishTopping\n      ]\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:CheeseTopping\n        ]\n      ]\n    )\n  ] .\n}",
+            "FC_Ans": "Frutti di mare",
+            "answer": "Yes.\n\nThe type of pizza that includes FishTopping but not CheeseTopping is a Margherita pizza. The inference steps used to arrive at this answer are:\n\n1. Identify the key ingredients: FishTopping and CheeseTopping.\n2. Determine the pizza type: Margherita pizza.\n3. Check the ingredients: The Margherita pizza does not include FishTopping but does include CheeseTopping.\n4. Conclude: The Margherita pizza is the only pizza that meets the criteria of including FishTopping but not CheeseTopping.\n\nThe inference steps are:\n1. Identify the key ingredients.\n2. Determine the pizza type.\n3. Check the ingredients.\n4. Conclude: The pizza meets the criteria.",
+            "metrics": {
+                "runtime_seconds": 0.566,
+                "prompt_tokens": 102,
+                "completion_tokens": 151,
+                "total_tokens": 253,
+                "tokens_per_second": 266.78,
+                "cost": 0.0
+            }
+        }
+    ]
+}
