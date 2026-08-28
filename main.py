@@ -27,7 +27,7 @@ MODELLI_LOCALI = [
 ]
 
 PROMPT_MODES = ["Q", "Q+Domain", "Q+Onto+Domain"]
-ONTOLOGY_NAME = "pizza.owl"
+ONTOLOGY_NAME =  "pizza.owl"
 
 RESPONSES_DIR = os.path.join(BASE_DIR, "output", "responses")
 COMPARISONS_DIR = os.path.join(BASE_DIR, "output", "comparisons")
@@ -93,21 +93,25 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
 
         for resp in responses:
             qid = resp.get("QID") or resp.get("qid")
+            onto=resp.get("ontology_context")
             question = resp.get("question")
+            sparql = resp.get("SPARQL")
             llm_answer = resp.get("answer", "")
             fc_ans = resp.get("FC_Ans") or resp.get("ground_truth", "")
             metrics = resp.get("metrics", {})
 
-            # Calcolo metriche testuali con l'evaluator
+            is_ask = "ASK" in sparql.upper() if sparql else False
+
             eval_metrics = evaluator.compute_metrics(
                 llm_answer_text=llm_answer,
                 ground_truth_text=fc_ans if fc_ans else "N/A",
-                true_boolean_ans=fc_ans,
+                true_boolean_ans=fc_ans if is_ask else None
             )
 
             # Costruzione riga dell'array bidimensionale
             row = {
                 "QID": qid,
+                "Ontology": onto,
                 "Model": model_name,
                 "Prompt_Mode": prompt_mode,
                 "Question": question,
@@ -138,9 +142,9 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
     # df.to_csv(csv_output_path, index=False, encoding="utf-8-sig")
 
     print(
-        f"\n✅ Valutazione completata con successo!\n"
-        f"➡️ Matrice JSON salvata in: {json_output_path}\n"
-        # f"➡️ Tabella CSV salvata in: {csv_output_path}"
+        f"\nValutazione completata con successo!\n"
+        f"Matrice JSON salvata in: {json_output_path}\n"
+        # f"Tabella CSV salvata in: {csv_output_path}"
     )
 
     return df
@@ -172,4 +176,4 @@ if __name__ == "__main__":
             col for col in columns_to_show if col in df_matrix.columns]
         print(df_matrix[existing_cols].head(10))
     else:
-        print("⚠️ Attenzione: Il DataFrame è vuoto! Nessun file di risposta valido è stato trovato in output/responses/.")
+        print("Attenzione: Il DataFrame è vuoto! Nessun file di risposta valido è stato trovato in output/responses/.")

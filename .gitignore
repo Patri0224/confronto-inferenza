@@ -17,6 +17,9 @@ ENV/
 Protege-5.6.9
 
 
+#output
+output/responses
+
 #materiale di studio
 materiale/ontologyRAG-main
 materiale/Ontology Evals for LLMs _ Ojitha Hewa Kumanayaka_files

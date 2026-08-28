@@ -16,7 +16,8 @@ class PromptGenerator:
         # Q, Q+Onto, Q+Domain, Q+Onto+Domain
 
         prompt_parts = []
-        ontology_context = self.getOntology(ontology_context) if ontology_context else None
+        ontology_context = self.getOntology(
+            ontology_context) if ontology_context else None
         if "Onto" in mode:
             prompt_parts.append(self.system_role)
             if ontology_context:
@@ -35,7 +36,7 @@ class PromptGenerator:
         prompt_parts.append(f"Question: {question}")
         if "Onto" in mode:
             prompt_parts.append(f"SPARQL query: {sparql}")
-        prompt_parts.append(self.answer_type)
+        # prompt_parts.append(self.answer_type)
         prompt_parts.append("Answer:")
 
         return "\n\n".join(prompt_parts)
