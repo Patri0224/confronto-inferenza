@@ -18,17 +18,16 @@ class LLMEvaluator:
         explanation_part = parts[1].strip() if len(parts) > 1 else ""
 
         is_ask = "ASK" in sparql_query.upper() if sparql_query else "SELECT"
-
+        ref_text = ground_truth_text if ground_truth_text else fc_answer
+        text_to_compare = explanation_part if explanation_part else llm_answer_text
         # 1. Similarity con Sentence Transformers
-        emb_gt = self.encoder.encode(ground_truth_text, convert_to_tensor=True)
-        emb_llm = self.encoder.encode(
-            explanation_part if explanation_part else llm_answer_text, convert_to_tensor=True)
+        emb_gt = self.encoder.encode(ref_text, convert_to_tensor=True)
+        emb_llm = self.encoder.encode(text_to_compare, convert_to_tensor=True)
         cosine_sim = float(util.cos_sim(emb_gt, emb_llm).item())
 
         # 2. BLEU Score con Hugging Face evaluate
-        predictions = [
-            explanation_part if explanation_part else llm_answer_text]
-        references = [[ground_truth_text.strip()]]
+        predictions = [text_to_compare]  # BLEU richiede una lista di predizioni
+        references = [[ref_text]]  # BLEU richiede una lista di liste per le referenze
 
         try:
             bleu_result = self.bleu_metric.compute(

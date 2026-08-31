@@ -99,13 +99,12 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
             llm_answer = resp.get("answer", "")
             fc_ans = resp.get("FC_Ans") or resp.get("ground_truth", "")
             metrics = resp.get("metrics", {})
-            ground_truth_text = None
 
             eval_metrics = evaluator.compute_metrics(
                 llm_answer_text=llm_answer,
                 fc_answer=fc_ans if fc_ans else "N/A",
                 sparql_query=sparql if sparql else "N/A",
-                ground_truth_text=ground_truth_text if ground_truth_text else "N/A"
+                ground_truth_text=None
             )
 
             # Costruzione riga dell'array bidimensionale
