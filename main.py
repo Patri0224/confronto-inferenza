@@ -41,6 +41,9 @@ def run_all_benchmarks(op, output_dir=RESPONSES_DIR):
     models_to_run = MODELLI_LOCALI
     if op == 1:
         models_to_run = ["qwen2.5:0.5b", "llama2:7b"]
+    if op == 2:
+        models_to_run = ["qwen2.5:1.5b", "llama3.1",
+                         "granite4.1:8b", "gpt-oss:20b"]
 
     for model in models_to_run:
         print(f"\nModello Corrente: {model}")
@@ -157,7 +160,7 @@ if __name__ == "__main__":
     output_dir = os.path.join(BASE_DIR, "output", "responses", timestamp)
     os.makedirs(output_dir, exist_ok=True)
     run_all_benchmarks(op=0, output_dir=output_dir)
-
+    #output_dir = os.path.join(BASE_DIR, "output", "responses","20260831_113831")
     df_matrix = evaluate_and_generate_matrix(
         responses_dir=output_dir, comparisons_dir=COMPARISONS_DIR, timestamp=timestamp)
 

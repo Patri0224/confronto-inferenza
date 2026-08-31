@@ -48,7 +48,7 @@ class LLMEvaluator:
                 exact_match = 1.0 if (
                     "no" in short_lower and "yes" not in short_lower) else 0.0
         else:
-            gt_items = {item.strip().lower() for item in ground_truth_text.replace(
+            gt_items = {item.strip().lower() for item in fc_answer.replace(
                 ";", ",").split(",") if item.strip()}
             llm_items = {item.strip().lower() for item in short_part.replace(
                 ";", ",").split(",") if item.strip()}

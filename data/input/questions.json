@@ -21,7 +21,7 @@
         "Question": "What makes a pizza incompatible with a ThinAndCrispyBase?",
         "Category": "DISJ",
         "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:disjointWith [ pizza:hasBase pizza:ThinAndCrispyBase ] .\n}\n",
-        "FC_Ans": "Having only Deep Pan Base as pizza base"
+        "FC_Ans": "Deep Pan Base"
     },
     {
         "QID": 4,

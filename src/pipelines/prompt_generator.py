@@ -32,7 +32,7 @@ class PromptGenerator:
                     "Refer to your internal ontology knowledge when responding.")
 
         prompt_parts.append(
-            "Provide a clear and concise answer to the following question. (yes or no, or list of results)")
+            "Provide a clear and concise answer to the following question.")
         if "Domain" in mode:
             prompt_parts.append(self.domain_constraint)
 
