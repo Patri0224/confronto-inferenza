@@ -11,15 +11,23 @@ class LLMEvaluator:
         # Carica la metrica BLEU di Hugging Face (equivalente robusto a sacrebleu/nltk)
         self.bleu_metric = evaluate.load("bleu")
 
-    def compute_metrics(self, llm_answer_text, ground_truth_text, true_boolean_ans=None):
+    def compute_metrics(self, llm_answer_text, fc_answer, sparql_query, ground_truth_text=None):
+        parts = llm_answer_text.split("---")
+        short_part = parts[0].strip() if len(
+            parts) > 0 else llm_answer_text.strip()
+        explanation_part = parts[1].strip() if len(parts) > 1 else ""
+
+        is_ask = "ASK" in sparql_query.upper() if sparql_query else "SELECT"
+
         # 1. Similarity con Sentence Transformers
         emb_gt = self.encoder.encode(ground_truth_text, convert_to_tensor=True)
-        emb_llm = self.encoder.encode(llm_answer_text, convert_to_tensor=True)
+        emb_llm = self.encoder.encode(
+            explanation_part if explanation_part else llm_answer_text, convert_to_tensor=True)
         cosine_sim = float(util.cos_sim(emb_gt, emb_llm).item())
 
         # 2. BLEU Score con Hugging Face evaluate
-        # La metrica vuole una lista di predizioni (stringhe) e una lista di liste di reference
-        predictions = [llm_answer_text.strip()]
+        predictions = [
+            explanation_part if explanation_part else llm_answer_text]
         references = [[ground_truth_text.strip()]]
 
         try:
@@ -31,14 +39,29 @@ class LLMEvaluator:
             print("Warning: BLEU computation failed, setting BLEU score to 0.0")
 
         # 3. Exact Match su Booleani (se presente la risposta formale)
-        exact_match = 0.0
-        if true_boolean_ans is not None:
-            llm_text_clean = llm_answer_text.lower()
-            if true_boolean_ans == "Yes":
+        short_lower = short_part.lower()
+        if is_ask:
+            target_ans = fc_answer.strip().lower()
+            if target_ans == "yes":
                 exact_match = 1.0 if (
-                    "yes" in llm_text_clean and "no" not in llm_text_clean) else 0.0
-            elif true_boolean_ans == "No":
-                exact_match = 1.0 if ("no" in llm_text_clean) else 0.0
+                    "yes" in short_lower and "no" not in short_lower) else 0.0
+            elif target_ans == "no":
+                exact_match = 1.0 if (
+                    "no" in short_lower and "yes" not in short_lower) else 0.0
+        else:
+            gt_items = {item.strip().lower() for item in ground_truth_text.replace(
+                ";", ",").split(",") if item.strip()}
+            llm_items = {item.strip().lower() for item in short_part.replace(
+                ";", ",").split(",") if item.strip()}
+
+            n = len(gt_items)
+            if n > 0:
+                correct_hits = len(gt_items.intersection(llm_items))
+                extra_items = len(llm_items - gt_items)
+
+                # Formula: 1/n per ogni corretto, -1/(n*2) per ogni in più
+                score = (correct_hits / n) - (extra_items / (n * 2))
+                exact_match = max(0.0, min(1.0, score))
 
         return {
             "cosine_similarity": round(cosine_sim, 4),

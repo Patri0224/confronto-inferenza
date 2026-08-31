@@ -10,7 +10,11 @@ class PromptGenerator:
             "Focus strictly on pizza-related topics."
         )
         self.answer_type = answer_type or (
-            "And after showing the answer, explain the inference steps used to arrive at the answer.")
+            "Provide your response using EXACTLY this format:\n"
+            "[Short Answer: yes, no, or comma-separated list]\n"
+            "---\n"
+            "[Detailed explanation of inference steps]"
+        )
 
     def generate_prompt(self, question, sparql=None, ontology_context=None, mode="Q+Onto+Domain"):
         # Q, Q+Onto, Q+Domain, Q+Onto+Domain
@@ -36,7 +40,7 @@ class PromptGenerator:
         prompt_parts.append(f"Question: {question}")
         if "Onto" in mode:
             prompt_parts.append(f"SPARQL query: {sparql}")
-        # prompt_parts.append(self.answer_type)
+        prompt_parts.append(self.answer_type)
         prompt_parts.append("Answer:")
 
         return "\n\n".join(prompt_parts)

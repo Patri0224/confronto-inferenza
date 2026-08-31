@@ -27,7 +27,7 @@ MODELLI_LOCALI = [
 ]
 
 PROMPT_MODES = ["Q", "Q+Domain", "Q+Onto+Domain"]
-ONTOLOGY_NAME =  "pizza.owl"
+ONTOLOGY_NAME = "pizza.owl"
 
 RESPONSES_DIR = os.path.join(BASE_DIR, "output", "responses")
 COMPARISONS_DIR = os.path.join(BASE_DIR, "output", "comparisons")
@@ -93,19 +93,19 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
 
         for resp in responses:
             qid = resp.get("QID") or resp.get("qid")
-            onto=resp.get("ontology_context")
+            onto = resp.get("ontology_context")
             question = resp.get("question")
             sparql = resp.get("SPARQL")
             llm_answer = resp.get("answer", "")
             fc_ans = resp.get("FC_Ans") or resp.get("ground_truth", "")
             metrics = resp.get("metrics", {})
-
-            is_ask = "ASK" in sparql.upper() if sparql else False
+            ground_truth_text = None
 
             eval_metrics = evaluator.compute_metrics(
                 llm_answer_text=llm_answer,
-                ground_truth_text=fc_ans if fc_ans else "N/A",
-                true_boolean_ans=fc_ans if is_ask else None
+                fc_answer=fc_ans if fc_ans else "N/A",
+                sparql_query=sparql if sparql else "N/A",
+                ground_truth_text=ground_truth_text if ground_truth_text else "N/A"
             )
 
             # Costruzione riga dell'array bidimensionale
