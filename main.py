@@ -44,7 +44,8 @@ def run_all_benchmarks(op, output_dir=RESPONSES_DIR):
     if op == 2:
         models_to_run = ["qwen2.5:1.5b", "llama3.1",
                          "granite4.1:8b", "gpt-oss:20b"]
-
+    if op == 3:
+        models_to_run = MODELLI_LOCALI
     for model in models_to_run:
         print(f"\nModello Corrente: {model}")
         for mode in PROMPT_MODES:
@@ -76,7 +77,7 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
     json_files = glob.glob(os.path.join(responses_dir, "*.json"))
 
     matrix_results = []
-
+    accuracy_test_results = []
     for file_path in json_files:
         filename = os.path.basename(file_path)
 
@@ -118,6 +119,7 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
                 "Prompt_Mode": prompt_mode,
                 "Question": question,
                 "Ground_Truth_FC": fc_ans,
+                "Short_Answer": eval_metrics["short_answer"],
                 "LLM_Answer": llm_answer,
                 "Runtime_Sec": metrics.get("runtime_seconds", 0.0),
                 "Tokens_Per_Sec": metrics.get("tokens_per_second", 0.0),
@@ -126,8 +128,24 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
                 "BLEU_Score": eval_metrics["bleu_score"],
                 "Exact_Match": eval_metrics["exact_match"],
             }
-
+            row_accuracy = {
+                "QID": qid,
+                "Model": model_name,
+                "Prompt_Mode": prompt_mode,
+                "Ground_Truth_FC": fc_ans,
+                "Short_Answer": eval_metrics["short_answer"],
+                "Exact_Match": eval_metrics["exact_match"],
+            }
             matrix_results.append(row)
+            accuracy_test_results.append(row_accuracy)
+            results_list = sorted(
+                accuracy_test_results,
+                key=lambda x: (
+                    int(x["QID"]),
+                    str(x["Model"]),
+                    str(x["Prompt_Mode"])
+                )
+            )
 
     # 1. Salvataggio Matrice JSON
     json_output_path = os.path.join(
@@ -135,18 +153,17 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
     )
     with open(json_output_path, "w", encoding="utf-8") as f:
         json.dump(matrix_results, f, indent=4, ensure_ascii=False)
+    json_output_path = os.path.join(
+        comparisons_dir, f"accuracy_evaluation_{timestamp}.json"
+    )
+    with open(json_output_path, "w", encoding="utf-8") as f:
+        json.dump(accuracy_test_results, f, indent=4, ensure_ascii=False)
 
-    # 2. Salvataggio Tabella CSV (utilissima per DataFrame/Pandas/Excel)
     df = pd.DataFrame(matrix_results)
-    # csv_output_path = os.path.join(
-    #    comparisons_dir, f"matrix_evaluation_{timestamp}.csv"
-    # )
-    # df.to_csv(csv_output_path, index=False, encoding="utf-8-sig")
 
     print(
         f"\nValutazione completata con successo!\n"
-        f"Matrice JSON salvata in: {json_output_path}\n"
-        # f"Tabella CSV salvata in: {csv_output_path}"
+        f"Matrice JSON salvata in: {json_output_path}"
     )
 
     return df
@@ -157,10 +174,31 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
 # ==========================================
 if __name__ == "__main__":
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    responses_base_dir = os.path.join(BASE_DIR, "output", "responses")
     output_dir = os.path.join(BASE_DIR, "output", "responses", timestamp)
-    os.makedirs(output_dir, exist_ok=True)
-    run_all_benchmarks(op=0, output_dir=output_dir)
-    #output_dir = os.path.join(BASE_DIR, "output", "responses","20260831_113831")
+
+    rerun_option = input("Vuoi rieseguire i benchmark? (0: No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli) [default=0]: ")
+    try:
+        rerun_option = int(rerun_option)
+    except ValueError:
+        rerun_option = 0  # Default to 0 if input is invalid
+
+    if rerun_option not in [0, 1, 2, 3]:
+        rerun_option = 0  
+    
+    if rerun_option == 0:
+        subdirs = [d for d in os.listdir(responses_base_dir) if os.path.isdir(os.path.join(responses_base_dir, d))]
+        if subdirs:
+            latest_dir = sorted(subdirs)[-1]
+            output_dir = os.path.join(responses_base_dir, latest_dir)
+        else:
+            # Fallback se la cartella è vuota
+            output_dir = os.path.join(responses_base_dir, timestamp)
+            os.makedirs(output_dir, exist_ok=True)
+    elif rerun_option in [1, 2, 3]:
+        os.makedirs(output_dir, exist_ok=True)
+        run_all_benchmarks(rerun_option, output_dir=output_dir)
+
     df_matrix = evaluate_and_generate_matrix(
         responses_dir=output_dir, comparisons_dir=COMPARISONS_DIR, timestamp=timestamp)
 

@@ -93,7 +93,7 @@
         "Question": "Which pizzas are defined with no meat toppings at all?",
         "Category": "LOGIC",
         "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      pizza:Pizza\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:MeatTopping\n        ]\n      ]\n    )\n  ] .\n}\n",
-        "FC_Ans": "Vegetarian pizzas"
+        "FC_Ans": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana"
     },
     {
         "QID": 13,

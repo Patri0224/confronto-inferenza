@@ -72,8 +72,7 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None, o
                 model=model_name,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.0,
-                api_base=api_base,
-                max_tokens=32768
+                api_base=api_base
             )
             time_taken = round(time() - start_time, 3)
             answer = response.choices[0].message.content.strip()
