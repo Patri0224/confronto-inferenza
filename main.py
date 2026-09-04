@@ -8,12 +8,9 @@ from datetime import datetime
 
 import pandas as pd
 
-# Assicuriamo che BASE_DIR sia nel path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
-
-# Import dei moduli dal tuo progetto (modifica il percorso se necessario)
 
 MODELLI_LOCALI = [
     "qwen2.5:0.5b",
@@ -82,7 +79,7 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
         filename = os.path.basename(file_path)
 
         # Salta esplicitamente il file 'a' o altri file non validi
-        if filename == "a" or not filename.endswith(".json"):
+        if not filename.endswith(".json"):
             continue
 
         print(f"📖 Analisi file: {filename}")
@@ -177,7 +174,7 @@ if __name__ == "__main__":
     responses_base_dir = os.path.join(BASE_DIR, "output", "responses")
     output_dir = os.path.join(BASE_DIR, "output", "responses", timestamp)
 
-    rerun_option = input("Vuoi rieseguire i benchmark? (0: No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli) [default=0]: ")
+    rerun_option = input("Eeseguire i benchmark? [0(default): No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli]: ")
     try:
         rerun_option = int(rerun_option)
     except ValueError:
