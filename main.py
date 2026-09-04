@@ -24,7 +24,7 @@ MODELLI_LOCALI = [
 ]
 
 PROMPT_MODES = ["Q", "Q+Domain", "Q+Onto+Domain"]
-ONTOLOGY_NAME = "pizza.owl"
+ONTOLOGY_NAME = ["pizza.owl", "Rientra.rdf"]
 
 RESPONSES_DIR = os.path.join(BASE_DIR, "output", "responses")
 COMPARISONS_DIR = os.path.join(BASE_DIR, "output", "comparisons")
@@ -33,7 +33,7 @@ COMPARISONS_DIR = os.path.join(BASE_DIR, "output", "comparisons")
 # ==========================================
 # 2. FASE INFERENZA (BENCHMARK CICLICO)
 # ==========================================
-def run_all_benchmarks(op, output_dir=RESPONSES_DIR):
+def run_all_benchmarks(op, output_dir=RESPONSES_DIR, specific_ontology=ONTOLOGY_NAME[0]):
     print("--- FASE 1: AVVIO ESECUZIONE BENCHMARK ---")
     models_to_run = MODELLI_LOCALI
     if op == 1:
@@ -50,7 +50,7 @@ def run_all_benchmarks(op, output_dir=RESPONSES_DIR):
                 benchmark(
                     model_name=model,
                     prompt_mode=mode,
-                    specific_ontology=ONTOLOGY_NAME,
+                    specific_ontology=specific_ontology,
                     output_dir=output_dir
                 )
             except Exception as e:
@@ -173,18 +173,22 @@ if __name__ == "__main__":
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     responses_base_dir = os.path.join(BASE_DIR, "output", "responses")
     output_dir = os.path.join(BASE_DIR, "output", "responses", timestamp)
+    chosen_ontology = input(
+        f"Scegli l'ontologia da utilizzare [0(default): {ONTOLOGY_NAME[0]}, 1: {ONTOLOGY_NAME[1]}]: ")
+    chosen_ontology_name = ONTOLOGY_NAME[1] if chosen_ontology == "1" else ONTOLOGY_NAME[0]
 
-    rerun_option = input("Eeseguire i benchmark? [0(default): No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli]: ")
+    rerun_option = input(
+        "Eeseguire i benchmark? [0(default): No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli]: ")
     try:
         rerun_option = int(rerun_option)
     except ValueError:
-        rerun_option = 0  # Default to 0 if input is invalid
-
+        rerun_option = 0
     if rerun_option not in [0, 1, 2, 3]:
-        rerun_option = 0  
-    
+        rerun_option = 0
+
     if rerun_option == 0:
-        subdirs = [d for d in os.listdir(responses_base_dir) if os.path.isdir(os.path.join(responses_base_dir, d))]
+        subdirs = [d for d in os.listdir(responses_base_dir) if os.path.isdir(
+            os.path.join(responses_base_dir, d))]
         if subdirs:
             latest_dir = sorted(subdirs)[-1]
             output_dir = os.path.join(responses_base_dir, latest_dir)
@@ -192,9 +196,11 @@ if __name__ == "__main__":
             # Fallback se la cartella è vuota
             output_dir = os.path.join(responses_base_dir, timestamp)
             os.makedirs(output_dir, exist_ok=True)
+
     elif rerun_option in [1, 2, 3]:
         os.makedirs(output_dir, exist_ok=True)
-        run_all_benchmarks(rerun_option, output_dir=output_dir)
+        run_all_benchmarks(rerun_option, output_dir=output_dir,
+                           specific_ontology=chosen_ontology_name)
 
     df_matrix = evaluate_and_generate_matrix(
         responses_dir=output_dir, comparisons_dir=COMPARISONS_DIR, timestamp=timestamp)

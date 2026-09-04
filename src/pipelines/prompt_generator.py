@@ -17,7 +17,7 @@ class PromptGenerator:
         )
 
     def generate_prompt(self, question, sparql=None, ontology_context=None, mode="Q+Onto+Domain"):
-        # Q, Q+Onto, Q+Domain, Q+Onto+Domain
+        # Q, Q+Domain, Q+Onto+Domain
 
         prompt_parts = []
         ontology_context = self.getOntology(

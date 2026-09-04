@@ -1,0 +1,203 @@
+----
+
+**Goal:** Retrieve all occupations in the ontology.
+
+```sparql
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?job
+WHERE {
+    ?job rdf:type jl:Job .
+}
+ORDER BY ?job
+```
+
+
+**Goal:** Retrieve job title, SOC code and O\*NET description.
+
+```sparql
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job ?soc ?description
+WHERE {
+    ?job jl:SOC_Code ?soc .
+    OPTIONAL { ?job jl:ONet_short_description ?description }
+}
+ORDER BY ?soc
+```
+
+
+**Goal:** Determine the competencies associated with a profession.
+
+```sparql
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job ?skill
+WHERE {
+    ?job jl:requires ?descriptor .
+    ?descriptor jl:concerns ?skill .
+}
+ORDER BY ?job ?skill
+```
+
+
+**Goal:** Build the person's disability profile.
+
+```sparql
+PREFIX foafr: <http://www.stiima.cnr.it/FOAF-excerpt#>
+PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+
+SELECT ?person ?icfCode
+WHERE {
+    ?person hc:isInHealthCondition ?condition .
+    ?condition hc:involvesICFCode ?icfCode .
+}
+ORDER BY ?person
+```
+
+
+**Goal:** Examine the ontology's semantic bridge.
+
+```sparql
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+
+SELECT ?ability ?icf
+WHERE {
+    ?ability sk:isTranslatedWithICFCode ?icf .
+}
+ORDER BY ?ability
+```
+
+
+**Goal:** Determine occupations sensitive to a particular impairment.
+
+Example:
+
+```sparql
+PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT DISTINCT ?job
+WHERE {
+
+    ?ability sk:isTranslatedWithICFCode <http://www.stiima.cnr.it/ICF-exc-coreset#b730> .
+
+    ?descriptor jl:concerns ?ability .
+
+    ?job jl:requires ?descriptor .
+}
+```
+
+
+**Goal:** Measure occupation complexity.
+
+```sparql
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job (COUNT(DISTINCT ?skill) AS ?numSkills)
+WHERE {
+
+    ?job jl:requires ?descriptor .
+    ?descriptor jl:concerns ?skill .
+
+}
+GROUP BY ?job
+ORDER BY DESC(?numSkills)
+```
+
+**Goal:** Count how many translated job abilities are affected by the person.
+
+```sparql
+PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+
+SELECT ?person
+       (COUNT(DISTINCT ?ability) AS ?affectedAbilities)
+WHERE {
+
+    ?person hc:isInHealthCondition ?cond .
+
+    ?cond hc:involvesICFCode ?icf .
+
+    ?ability sk:isTranslatedWithICFCode ?icf .
+}
+GROUP BY ?person
+ORDER BY DESC(?affectedAbilities)
+```
+
+**Goal:** Produce a basic recommendation score.
+
+The idea:
+
+* Count required abilities
+* Count abilities potentially impacted by impairments
+* Rank jobs with fewer conflicts
+
+```sparql
+PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job
+       (COUNT(DISTINCT ?conflictAbility) AS ?numConflicts)
+WHERE {
+
+    <PERSON_URI> hc:isInHealthCondition ?cond .
+    ?cond hc:involvesICFCode ?icf .
+
+    ?conflictAbility sk:isTranslatedWithICFCode ?icf .
+
+    ?descriptor jl:concerns ?conflictAbility .
+    ?job jl:requires ?descriptor .
+}
+GROUP BY ?job
+ORDER BY ?numConflicts
+```
+
+
+**Goal:** Evaluate every person against every job.
+
+```sparql
+PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?person ?job
+
+       (COUNT(DISTINCT ?requiredAbility)
+            AS ?required)
+
+       (COUNT(DISTINCT ?conflictAbility)
+            AS ?conflicts)
+
+       (
+           100.0 *
+           (
+               COUNT(DISTINCT ?requiredAbility)
+               -
+               COUNT(DISTINCT ?conflictAbility)
+           )
+           /
+           COUNT(DISTINCT ?requiredAbility)
+           AS ?compatibility
+       )
+
+WHERE {
+
+    ?job jl:requires ?descriptor .
+    ?descriptor jl:concerns ?requiredAbility .
+
+    OPTIONAL {
+
+        ?person hc:isInHealthCondition ?cond .
+        ?cond hc:involvesICFCode ?icf .
+
+        ?conflictAbility sk:isTranslatedWithICFCode ?icf .
+
+        FILTER(?conflictAbility = ?requiredAbility)
+    }
+}
+GROUP BY ?person ?job
+ORDER BY DESC(?compatibility)

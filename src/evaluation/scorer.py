@@ -1,4 +1,3 @@
-import json
 import evaluate
 from sentence_transformers import SentenceTransformer, util
 import re
@@ -13,7 +12,7 @@ SYNONYM_MAPPINGS = {
 
     # Per QID 9 e 15 (Frutti di mare / Seafood)
     "frutti di mare": [
-        "fruttidimare", "seafood", "frutti di mare", "fruttidimarepizza","FishPizza"
+        "fruttidimare", "seafood", "frutti di mare", "fruttidimarepizza", "FishPizza"
     ],
 
     # Per QID 3 (Basi incompatibili)
@@ -47,10 +46,14 @@ class LLMEvaluator:
         if not llm_answer_text:
             return "", ""
 
-        parts = re.split(r'\-{3,}', llm_answer_text)
-        raw_short = parts[0].strip() if len(
-            parts) > 0 else llm_answer_text.strip()
-        explanation_part = parts[1].strip() if len(parts) > 1 else ""
+        if re.search(r'\-{3,}', llm_answer_text):
+            parts = re.split(r'\-{3,}', llm_answer_text, 1)
+            raw_short = parts[0].strip()
+            explanation_part = parts[1].strip() if len(parts) > 1 else ""
+        else:
+            lines = llm_answer_text.strip().split("\n", 1)
+            raw_short = lines[0].strip()
+            explanation_part = lines[1].strip() if len(lines) > 1 else ""
 
         cleaned_short = re.sub(
             r'^(?:\[)?\s*(?:short\s*answer|answer)\s*[:\]\-]*\s*', '', raw_short, flags=re.IGNORECASE).strip()
@@ -91,7 +94,7 @@ class LLMEvaluator:
             bleu = float('nan')
             print("Warning: BLEU computation failed, setting BLEU score to 0.0")
 
-        # 3. Exact Match su Booleani (se presente la risposta formale)
+        # 3. Exact Match (accuracy) su short_answer
         exact_match = 0.0
         short_lower = short_part.lower()
         fc_lower = fc_answer.strip().lower()

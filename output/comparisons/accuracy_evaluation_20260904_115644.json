@@ -1,0 +1,2882 @@
+[
+    {
+        "QID": 1,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "wet toppings, high moisture, heavy toppings, sauce overload, extra cheese",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "Margherita, Pepperoni",
+        "Exact_Match": 0.25
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Margherita, Veggie, Four Cheese, White, Pesto, Marinara, Caprese, Mushroom, Spinach, Pineapple",
+        "Exact_Match": 0.010000000000000009
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "shrimp, clams, mussels, anchovies, calamari",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "Meat Lovers, Supreme, BBQ Chicken, Hawaiian Deluxe, Veggie Deluxe",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "Fish pizza, Seafood pizza",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Giardiniera, Margherita, Mushroom, Napoletana, QuattroFormaggi, Veneziana",
+        "Exact_Match": 0.38
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "AnchoviesTopping, MixedSeafoodTopping, PrawnsTopping, ArtichokeTopping, AsparagusTopping, CaperTopping, GarlicTopping, LeekTopping, MushroomTopping, OliveTopping, OnionTopping, PepperTopping, PetitPoisTopping, RocketTopping, SpinachTopping, TomatoTopping",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "American, AmericanHot, Cajun, Capricciosa, Caprina, Fiorentina, FourSeasons, FruttiDiMare, Giardiniera, LaReine, Margherita, Mushroom, Napoletana, Parmense, PolloAdAstra, PrinceCarlo, QuattroFormaggi, Rosa, Siciliana, SloppyGiuseppe, Soho, UnclosedPizza, Veneziana",
+        "Exact_Match": 0.6775
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "FruttiDiMare",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "thick crust, heavy toppings, high moisture sauce, extra cheese, deep‑dish style, stuffed crust",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "Margherita, Pepperoni, Hawaiian",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "Mushrooms, Onions, BellPeppers, Olives, Spinach, Artichokes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "Shrimp, Clams, Mussels, Anchovy, Calamari, Fish",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "comma-separated list",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no, cheese, vegetables",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "Pepperoni, Jalapeño, Sausage, Buffalo Chicken, Thai Basil, Ghost Pepper",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Margherita, Veggie, Garden, White",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "shrimp, clams, scallops, lobster, crab, anchovies, oysters, mussels, squid, octopus",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "comma-separated list",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "FishTopping",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "Margherita, Veneziana",
+        "Exact_Match": 0.25
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "TomatoTopping, CaperTopping, MozzarellaTopping, OliveTopping, OnionTopping, PineKernels, SultanaTopping",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "Margherita, Veneziana",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Margherita, Capricciosa, FourSeasons, Fiorentina, Giardiniera, LaReine, Siciliana, Veneziana",
+        "Exact_Match": 0.25
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "AnchoviesTopping, MixedSeafoodTopping, PrawnsTopping",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "Margherita, FourSeasons, QuattroFormaggi, Veneziana",
+        "Exact_Match": 0.0425
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "comma-separated list",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "vegetables, cheese, olives, mushrooms, onions, peppers, spinach, tomatoes, pineapple, basil, garlic, feta, artichokes, zucchini, eggplant, bell peppers, jalapeños, cilantro, pesto, roasted red peppers, sun-dried tomatoes, goat cheese, arugula, caramelized onions, roasted garlic, spinach, roasted vegetables, pesto, roasted red peppers, sun-dried tomatoes, goat cheese, arugula, caramelized onions, roasted garlic, spinach, roasted vegetables",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Margherita, Veggie, Garden, Cheese",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "shrimp, clams, scallops, bacon, oregano, garlic",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "comma-separated list",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "comma-separated list",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "yes, pepperoni and mushroom.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "yes, pepperoni, habanero, ghost pepper",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "yes, Pepperoni, Margherita",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "Seafood pizzas typically include toppings such as shrimp, scallops, mussels, and clams.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "yes, pepperoni and mushroom.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "yes, no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "Seafood toppings.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/llama2:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "FishTopping, SeafoodTopping",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "high sauce content, thick crust toppings",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "Margherita, Hawaiian",
+        "Exact_Match": 0.25
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "Vegetables, Fruits, Cheese, Herbs, Mushrooms, Olives, Artichokes, Roasted Red Peppers, Pineapple,",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "Pineapple, Anchovy, Artichoke",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "Pepperoni, Jalapeno, Sausage, Meat Lover's",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Vegetarian, Vegan",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "Shrimp, Calamari, Anchovies, Mussels, Crab, Scallops",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "yes, no, or comma-separated list",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "Fish pizzas, Anchovy pizzas",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "yes, no, or comma-separated list]\nVeneziana, American, AmericanHot, Cajun, Capricciosa, Caprina, Fiorentina, FourSeasons, FruttiDiMare, Giardiniera, LaReine, Margherita, Mushroom, Napoletana, Parmense, PolloAdAstra, PrinceCarlo, QuattroFormaggi, Rosa, Siciliana, SloppyGiuseppe, Soho, UnclosedPizza",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "FourSeasons, QuattroFormaggi, Rosa, Siciliana",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "ArtichokeTopping, AsparagusTopping, CaperTopping, GarlicTopping, LeekTopping, MushroomTopping, OliveTopping, OnionTopping, PepperTopping, PetitPoisTopping, RocketTopping, SpinachTopping, TomatoTopping",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "FourSeasons, Margherita, Napoletana, Siciliana, SloppyGiuseppe, Soho, UnclosedPizza, Veneziana",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Capricciosa, Fiorentina, FourSeasons, FruttiDiMare, Giardiniera, LaReine, Margherita, Napoletana, Parmense, Rosa, Siciliana, Soho, UnclosedPizza, Veneziana",
+        "Exact_Match": 0.41000000000000003
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "AnchoviesTopping, MixedSeafoodTopping, PrawnsTopping",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "QuattroFormaggi, SloppyGiuseppe",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "thick crust",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "Margherita, Hawaiian",
+        "Exact_Match": 0.25
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "Mushrooms, Onions, Bell Peppers, Olives, Tomatoes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no, no, no, no, no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "Pepperoni, Sausage, Meat Lover's",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Vegetarian, Vegan",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "Shrimp, Calamari, Anchovies",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "Pepperoni, Sausage, Hawaiian, Meat Lover's",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "FishTopping,PineappleTopping",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "yes",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:0.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no,",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no,",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no,",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no,",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "No",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "No",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no meat, no cheese derived from meat",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Veggie, Vegetarian",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "Shrimp, Mussel, Clam, Scallop",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "ThinAndCrispyBase",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "ArtichokeTopping, AsparagusTopping, CaperTopping, GarlicTopping, LeekTopping, MushroomTopping, OliveTopping, OnionTopping, PepperTopping, PetitPoisTopping, RocketTopping, SpinachTopping, TomatoTopping",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "Margherita, Parmense",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Margherita, Siciliana",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "AnchoviesTopping, MixedSeafoodTopping, PrawnsTopping",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "Capricciosa, Fiorentina, QuattroFormaggi",
+        "Exact_Match": 0.0975
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "No",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "No",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no meat, no cheese derived from non-vegetarian animals",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Veggie, Vegetarian",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "Shrimp, Mussel, Clam, Scallop",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen2.5:7b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "Margherita, Marinara, Vegetarian",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "shrimp, crab, lobster, clams, mussels, squid, calamari, scallops",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 1,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 2,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 3,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Deep Pan Base",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 4,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Margherita, Quattro Formaggi",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 5,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 6,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 7,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "No",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 8,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 9,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 10,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "None",
+        "Short_Answer": "no",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 11,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Yes",
+        "Short_Answer": "yes",
+        "Exact_Match": 1.0
+    },
+    {
+        "QID": 12,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Caprina, Fiorentina, Giardiniera, Margerita, Mushroom, PrinceCarlo, QuattroFormaggi, Rosa, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 13,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "sea food topping",
+        "Short_Answer": "shrimp, crab, lobster, clams, mussels, squid",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 14,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "American Hot, Four Seasons, Frutti Di Mare, La Reine, Pollo Ad Astra, Prince Carlo, Sloppy Giuseppe, American, Cajun, Capricciosa, Caprina, Fiorentina, Giardiniera, Mushroom, Napoletana, Parmense, Rosa, Siciliana, Soho, Veneziana",
+        "Short_Answer": "no",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 15,
+        "Model": "ollama/qwen3.5:9b",
+        "Prompt_Mode": "Q",
+        "Ground_Truth_FC": "Frutti di mare",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    }
+]
