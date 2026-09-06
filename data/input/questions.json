@@ -118,5 +118,85 @@
         "Category": "LOGIC",
         "SPARQL": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>\n\nSELECT ?pizza WHERE {\n  ?pizza owl:equivalentClass [\n    owl:intersectionOf (\n      [ owl:onProperty pizza:hasTopping ;\n        owl:someValuesFrom pizza:FishTopping\n      ]\n      [ owl:onProperty pizza:hasTopping ;\n        owl:allValuesFrom [\n          owl:complementOf pizza:CheeseTopping\n        ]\n      ]\n    )\n  ] .\n}",
         "FC_Ans": "Frutti di mare"
+    },
+    {
+        "QID": 16,
+        "Ontology": "Rientra.rdf",
+        "Question": "Retrieve all occupations in the ontology",
+        "Category": "",
+        "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#\n\nSELECT ?jobClass\nWHERE {\n?jobClass rdfs:subClassOf* jl:Job .\n}\nORDER BY ?jobClass",
+        "FC_Ans": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors"
+    },
+    {
+        "QID": 17,
+        "Ontology": "Rientra.rdf",
+        "Question": "Retrieve every job title with the associated SOC code and ONET description",
+        "Category": "",
+        "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job ?soc ?description\nWHERE {\n?job jl:SOC_Code ?soc .\nOPTIONAL { ?job jl:ONet_short_description ?description }\n}\nORDER BY ?soc",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 18,
+        "Ontology": "Rientra.rdf",
+        "Question": "Determine the competencies associated with a profession",
+        "Category": "",
+        "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job ?skill\nWHERE {\n?job jl:requires ?descriptor .\n?descriptor jl:concerns ?skill .\n}\nORDER BY ?job ?skill",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 19,
+        "Ontology": "Rientra.rdf",
+        "Question": "Build every person's disability profile",
+        "Category": "",
+        "SPARQL": "PREFIX foafr: <http://www.stiima.cnr.it/FOAF-excerpt#>\nPREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nSELECT ?person ?icfCode\nWHERE {\n?person hc:isInHealthCondition ?condition .\n?condition hc:isDescribedBy ?descriptor .\n ?descriptor hc:involvesICFCode ?icfCode .\n}\nORDER BY ?person",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 20,
+        "Ontology": "Rientra.rdf",
+        "Question": "Examine the ontology's semantic bridge",
+        "Category": "",
+        "SPARQL": "PREFIX sk: <http://www.stiima.cnr.it/SkAb#>\n\nSELECT ?ability ?icf\nWHERE {\n?ability sk:isTranslatedWithICFCode ?icf .\n}\nORDER BY ?ability",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 21,
+        "Ontology": "Rientra.rdf",
+        "Question": "Determine occupations sensitive to a particular impairment (b730)",
+        "Category": "",
+        "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\nPREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT DISTINCT ?job\nWHERE {\n\n?ability sk:isTranslatedWithICFCode <http://www.stiima.cnr.it/ICF-exc-coreset#b760> .\n\n?descriptor jl:concerns ?ability .\n\n?job jl:requires ?descriptor .\n}",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 22,
+        "Ontology": "Rientra.rdf",
+        "Question": "Measure occupation complexity",
+        "Category": "",
+        "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job (COUNT(DISTINCT ?skill) AS ?numSkills)\nWHERE {\n\n?job jl:requires ?descriptor .\n\n?descriptor jl:concerns ?skill .\n\n}\nGROUP BY ?job\nORDER BY DESC(?numSkills)",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 23,
+        "Ontology": "Rientra.rdf",
+        "Question": "Count how many translated job abilities are affected by the person",
+        "Category": "",
+        "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\n\nSELECT ?person\n(COUNT(DISTINCT ?ability) AS ?affectedAbilities)\n\nWHERE {\n\n?person hc:isInHealthCondition ?condition .\n    ?condition hc:isDescribedBy ?descriptor .\n    ?descriptor hc:involvesICFCode ?icf .\n\n?ability sk:isTranslatedWithICFCode ?icf .\n}\nGROUP BY ?person\nORDER BY DESC(?affectedAbilities)",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 24,
+        "Ontology": "Rientra.rdf",
+        "Question": "Produce a basic recommendation score",
+        "Category": "",
+        "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\nPREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job\n(COUNT(DISTINCT ?conflictAbility) AS ?numConflicts)\nWHERE {\n\n<PERSON_URI> hc:isInHealthCondition ?cond .\n    ?cond hc:isDescribedBy ?descriptor1 .\n    ?descriptor1 hc:involvesICFCode ?icf .\n\n?conflictAbility sk:isTranslatedWithICFCode ?icf .\n\n?descriptor jl:concerns ?conflictAbility .\n?job jl:requires ?descriptor .\n}\nGROUP BY ?job\nORDER BY ?numConflicts",
+        "FC_Ans": ""
+    },
+    {
+        "QID": 25,
+        "Ontology": "Rientra.rdftemp perchè non va la query",
+        "Question": "Evaluate every person against every job\n\nThe idea:\n* Count required abilities\n* Count abilities potentially impacted by impairments\n* Rank jobs with fewer conflicts",
+        "Category": "",
+        "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\nPREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?person ?job\n\n(COUNT(DISTINCT ?requiredAbility)\nAS ?required)\n\n(COUNT(DISTINCT ?conflictAbility)\nAS ?conflicts)\n\n(\n100.0 *\n(\nCOUNT(DISTINCT ?requiredAbility)\n-\nCOUNT(DISTINCT ?conflictAbility)\n)\n/\nCOUNT(DISTINCT ?requiredAbility)\nAS ?compatibility\n)\nWHERE {\n\n?job jl:requires ?descriptor .\n?descriptor jl:concerns ?requiredAbility .\nOPTIONAL {\n\n?person hc:isInHealthCondition ?cond .\n?cond hc:involvesICFCode ?icf .\n\n?conflictAbility sk:isTranslatedWithICFCode ?icf .\n\nFILTER(?conflictAbility = ?requiredAbility)\n}\n}\nGROUP BY ?person ?job\nORDER BY DESC(?compatibility)",
+        "FC_Ans": ""
     }
 ]

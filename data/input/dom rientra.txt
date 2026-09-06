@@ -1,19 +1,19 @@
 ----
-
+1
 **Goal:** Retrieve all occupations in the ontology.
 
 ```sparql
 PREFIX jl: <http://www.stiima.cnr.it/JobList#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?job
+SELECT ?jobClass
 WHERE {
-    ?job rdf:type jl:Job .
+    ?jobClass rdfs:subClassOf* jl:Job .
 }
-ORDER BY ?job
+ORDER BY ?jobClass
 ```
 
-
+2
 **Goal:** Retrieve job title, SOC code and O\*NET description.
 
 ```sparql
@@ -27,7 +27,7 @@ WHERE {
 ORDER BY ?soc
 ```
 
-
+3
 **Goal:** Determine the competencies associated with a profession.
 
 ```sparql
@@ -41,7 +41,7 @@ WHERE {
 ORDER BY ?job ?skill
 ```
 
-
+4
 **Goal:** Build the person's disability profile.
 
 ```sparql
@@ -51,12 +51,13 @@ PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
 SELECT ?person ?icfCode
 WHERE {
     ?person hc:isInHealthCondition ?condition .
-    ?condition hc:involvesICFCode ?icfCode .
+    ?condition hc:isDescribedBy ?descriptor .
+    ?descriptor hc:involvesICFCode ?icfCode .
 }
 ORDER BY ?person
 ```
 
-
+5
 **Goal:** Examine the ontology's semantic bridge.
 
 ```sparql
@@ -69,7 +70,7 @@ WHERE {
 ORDER BY ?ability
 ```
 
-
+6
 **Goal:** Determine occupations sensitive to a particular impairment.
 
 Example:
@@ -82,7 +83,7 @@ PREFIX jl: <http://www.stiima.cnr.it/JobList#>
 SELECT DISTINCT ?job
 WHERE {
 
-    ?ability sk:isTranslatedWithICFCode <http://www.stiima.cnr.it/ICF-exc-coreset#b730> .
+    ?ability sk:isTranslatedWithICFCode <http://www.stiima.cnr.it/ICF-exc-coreset#b760> .
 
     ?descriptor jl:concerns ?ability .
 
@@ -90,7 +91,7 @@ WHERE {
 }
 ```
 
-
+7
 **Goal:** Measure occupation complexity.
 
 ```sparql
@@ -106,7 +107,7 @@ WHERE {
 GROUP BY ?job
 ORDER BY DESC(?numSkills)
 ```
-
+8
 **Goal:** Count how many translated job abilities are affected by the person.
 
 ```sparql
@@ -117,16 +118,16 @@ SELECT ?person
        (COUNT(DISTINCT ?ability) AS ?affectedAbilities)
 WHERE {
 
-    ?person hc:isInHealthCondition ?cond .
-
-    ?cond hc:involvesICFCode ?icf .
+    ?person hc:isInHealthCondition ?condition .
+    ?condition hc:isDescribedBy ?descriptor .
+    ?descriptor hc:involvesICFCode ?icf .
 
     ?ability sk:isTranslatedWithICFCode ?icf .
 }
 GROUP BY ?person
 ORDER BY DESC(?affectedAbilities)
 ```
-
+9
 **Goal:** Produce a basic recommendation score.
 
 The idea:
@@ -145,7 +146,8 @@ SELECT ?job
 WHERE {
 
     <PERSON_URI> hc:isInHealthCondition ?cond .
-    ?cond hc:involvesICFCode ?icf .
+    ?cond hc:isDescribedBy ?descriptor1 .
+    ?descriptor1 hc:involvesICFCode ?icf .
 
     ?conflictAbility sk:isTranslatedWithICFCode ?icf .
 
@@ -157,6 +159,11 @@ ORDER BY ?numConflicts
 ```
 
 
+
+
+
+da farereeeee
+10
 **Goal:** Evaluate every person against every job.
 
 ```sparql
@@ -192,7 +199,8 @@ WHERE {
     OPTIONAL {
 
         ?person hc:isInHealthCondition ?cond .
-        ?cond hc:involvesICFCode ?icf .
+        ?cond hc:isDescribedBy ?descriptor1 .
+        ?descriptor1 hc:involvesICFCode ?icf .
 
         ?conflictAbility sk:isTranslatedWithICFCode ?icf .
 
