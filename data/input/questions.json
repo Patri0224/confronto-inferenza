@@ -122,7 +122,7 @@
     {
         "QID": 16,
         "Ontology": "Rientra.rdf",
-        "Question": "Retrieve all occupations in the ontology",
+        "Question": "Retrieve all occupations (job classes) in the ontology",
         "Category": "",
         "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#\n\nSELECT ?jobClass\nWHERE {\n?jobClass rdfs:subClassOf* jl:Job .\n}\nORDER BY ?jobClass",
         "FC_Ans": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors"
@@ -138,7 +138,7 @@
     {
         "QID": 18,
         "Ontology": "Rientra.rdf",
-        "Question": "Determine the competencies associated with a profession",
+        "Question": "Determine every skill associated with a profession, and the job title that requires it (through the descriptor)",
         "Category": "",
         "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job ?skill\nWHERE {\n?job jl:requires ?descriptor .\n?descriptor jl:concerns ?skill .\n}\nORDER BY ?job ?skill",
         "FC_Ans": ""

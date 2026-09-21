@@ -1,0 +1,290 @@
+[
+    {
+        "QID": 16,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "ICF-1, ICF-2, ICF-3, ICF-4, ICF-5, ICF-6, ICF-7, ICF-8, ICF-9, ICF-10, ICF-11, ICF-12, ICF-13, ICF-14, ICF-15, ICF-16, ICF-17, ICF-18, ICF-19, ICF-20, ICF-21, ICF-22, ICF-23, ICF-24, ICF-25, ICF-26, ICF-27, ICF-28, ICF-29, ICF-30, ICF-31, ICF-32, ICF-33, ICF-34, ICF-35, ICF-36, ICF-37, ICF-38, ICF-39, ICF-40, ICF-41, ICF-42, ICF-43, ICF-44, ICF-45, ICF-46, ICF-47, ICF-48, ICF-49, ICF-50, ICF-51, ICF-52, ICF-53, ICF-54, ICF-55, ICF-56, ICF-57, ICF-58, ICF-59, ICF-60, ICF-61, ICF-62, ICF-63, ICF-64, ICF-65, ICF-66, ICF-67, ICF-68, ICF-69, ICF-70, ICF-71, ICF-72, ICF-73, ICF-74, ICF-75, ICF-76, ICF-77, ICF-78, ICF-79, ICF-80, ICF-81, ICF-82",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Billing_cost_and_rate_clerks, JobL:Bookkeping_accounting_and_auditing_clerks, JobL:Cabinet_makers_and_bench_carpenters, JobL:Construction_laborers, JobL:File_clerks, JobL:Gem_and_diamond_workers, JobL:Insurance_claims_clerks, JobL:Insurance_policy_processing_clerks, JobL:Landscaping_and_Groundskeeping_Workers, JobL:Postal_service_clerks, JobL:Receptionist_and_information_clerks, JobL:Travel_guides, JobL:Word_Processors_and_Typists",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Cabinet_makers_and_bench_carpenters, Construction_laborers, File_clerks, Gem_and_diamond_workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist_and_information_clerks, Travel_guides, Word_Processors_and_Typists",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 16,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "JobL:Job",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, Rien2:selectedJob, Rien3:HC_Descriptor, Rien3:Health_Condition, Rien3:BFqual, Rien3:AP1qual, JobL:Job_Descriptor, JobL:requires, JobL:concerns, JobD:isVeryImportantFor, JobD:isImportantFor, JobD:isSomewhatImportantFor, JobD:isLessImportantFor, SkAb:Abilities, SkAb:Skills, FOAF:Person, ICF-:ICF, ICF-:Activities_and_participation, ICF-:Body_functions, ICF-:Body_structures, Rien:hasSpecificCriticality, Rien:isEvaluatedForJob, Rien:matchedJob, Rien3:isDescribedBy, Rien3:isInHealthCondition, Rien3:involvesICFCode, Rien3:BFqual, Rien3:AP1qual, Rien2:selectedJob, Rien2:isSelected, Rien2:isTranslatedWithICFCode, Rien2:isLessImportantFor, Rien2:isSomewhatImportantFor, Rien2:isImportantFor, Rien2:isVeryImportantFor, JobL:hasScore, JobL:isTranslatedWithICFCode, JobL:concerns, JobL:requires, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL:isVeryImportantFor, JobL:isImportantFor, JobL:isLessImportantFor, JobL:isSomewhatImportantFor, JobL:isImportantFor, JobL",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, SkAb:Skills",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "FOAF:Person, Rien3:HC_Descriptor, Rien3:ICF_Code",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "SkAb:Abilities, SkAb:Skills, ICF-:ICF",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor, SkAb:Abilities, SkAb:Skills",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "SkAb:isTranslatedWithICFCode, Rien3:involvesICFCode, Rien3:isDescribedBy, ICF-:ICF, FOAF:Person",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor, SkAb:Abilities, SkAb:Skills, ICF-:ICF, Rien3:HC_Descriptor, Rien3:Health_Condition, Rien2:selectedJob, Rien:hasSpecificCriticality, JobD:isImportantFor, JobD:isLessImportantFor, JobD:isSomewhatImportantFor, Rien2:selectedJob, Rien:isEvaluatedForJob, JobL:concerns, JobL:requires, Rien3:involvesICFCode, Rien3:isDescribedBy, Rien3:isInHealthCondition, Rien3:BFqual, Rien3:AP1qual",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 16,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor, JobL:Billing_cost_and_rate_clerks, JobL:Bookkeping_accounting_and_auditing_clerks, JobL:Cabinet_makers_and_bench_carpenters, JobL:Construction_laborers, JobL:File_clerks, JobL:Gem_and_diamond_workers, JobL:Insurance_claims_clerks, JobL:Insurance_policy_processing_clerks, JobL:Landscaping_and_Groundskeeping_Workers, JobL:Postal_service_clerks, JobL:Receptionist_and_information_clerks, JobL:Travel_guides, JobL:Word_Processors_and_Typists",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor, JobL:Billing_cost_and_rate_clerks, JobL:Bookkeping_accounting_and_auditing_clerks, JobL:Cabinet_makers_and_bench_carpenters, JobL:Construction_laborers, JobL:File_clerks, JobL:Gem_and_diamond_workers, JobL:Insurance_claims_clerks, JobL:Insurance_policy_processing_clerks, JobL:Landscaping_and_Groundskeeping_Workers, JobL:Postal_service_clerks, JobL:Receptionist_and_information_clerks, JobL:Travel_guides, JobL:Word_Processors_and_Typists",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job_Descriptor, SkAb:Abilities, SkAb:Skills",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "ICF-:ICF, Rien3:HC_Descriptor, Rien3:Health_Condition, FOAF:Person, JobL:Job, JobL:Job_Descriptor, JobD:isImportantFor, Rien2:selectedJob, Rien:isEvaluatedForJob, JobL:concerns, SkAb:isTranslatedWithICFCode, Rien3:isDescribedBy, Rien3:involvesICFCode, Rien2:isSelected, Rien3:BFqual, JobD:isSomewhatImportantFor, JobD:isLessImportantFor, JobL:hasScore, JobL:requires",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "SkAb:Abilities, SkAb:Skills, ICF-:ICF",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "b730, JobL:concerns, JobL:requires, JobL:Job_Descriptor, JobL:Job, SkAb:isTranslatedWithICFCode, ICF-:ICF",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor, SkAb:Abilities, SkAb:Skills",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "ICF-:ICF, Rien3:HC_Descriptor, Rien3:Health_Condition, SkAb:Abilities, SkAb:Skills, FOAF:Person, JobL:Job, JobL:Job_Descriptor, JobD:isImportantFor, JobD:isSomewhatImportantFor, JobD:isLessImportantFor, JobD:isVeryImportantFor, JobL:concerns, JobL:requires, JobL:hasScore, Rien:isEvaluatedForJob, Rien:isSelected, Rien:hasSpecificCriticality, Rien3:isDescribedBy, Rien3:involvesICFCode, Rien3:isInHealthCondition, Rien3:AP1qual, Rien3:BFqual, Rien2:selectedJob, Rien2:isSelected",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor, SkAb:Abilities, SkAb:Skills, Rien3:Health_Condition, Rien3:HC_Descriptor, FOAF:Person, JobL:concerns, JobL:requires, JobD:isImportantFor, JobD:isSomewhatImportantFor, JobD:isLessImportantFor, JobD:isVeryImportantFor",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 16,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "Job, SOC, description",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Construction_laborers, JobL:Landscaping_and_Groundskeeping_Workers, JobL:Receptionist_and_information_clerks, JobL:Word_Processors_and_Typists",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "FOAF:Person, Rien3:HC_Descriptor, Rien3:involvesICFCode, Rien3:isDescribedBy, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual, Rien3:BFqual, Rien3:AP1qual",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "SkAb:Abilities,RDF:about",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "FOAF:Person",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "FOAF:Person, SkAb:Abilities",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "Q+Onto+Domain",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "JobL:Job, JobL:Job_Descriptor",
+        "Exact_Match": 0.0
+    }
+]

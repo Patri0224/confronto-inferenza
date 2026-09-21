@@ -24,7 +24,7 @@ MODELLI_LOCALI = [
 ]
 
 PROMPT_MODES = ["Q", "Q+Domain", "Q+Onto+Domain"]
-ONTOLOGY_NAME = ["pizza.owl", "Rientra.rdf"]
+ONTOLOGY_NAME = ["pizza.owl", "Rientra.rdf", "Rientra.ttl"]
 
 RESPONSES_DIR = os.path.join(BASE_DIR, "output", "responses")
 COMPARISONS_DIR = os.path.join(BASE_DIR, "output", "comparisons")
@@ -43,9 +43,15 @@ def run_all_benchmarks(op, output_dir=RESPONSES_DIR, specific_ontology=ONTOLOGY_
                          "granite4.1:8b", "gpt-oss:20b"]
     if op == 3:
         models_to_run = MODELLI_LOCALI
+
+    if specific_ontology == "Rientra.rdf" or specific_ontology == "Rientra.ttl":
+        prompt_modes = ["Q+Onto+Domain"]#il modello rientra è troppo specifico quindi non ha senso fare Q o Q+Domain
+    else:
+        prompt_modes = PROMPT_MODES
+
     for model in models_to_run:
         print(f"\nModello Corrente: {model}")
-        for mode in PROMPT_MODES:
+        for mode in prompt_modes:
             try:
                 benchmark(
                     model_name=model,
@@ -174,8 +180,8 @@ if __name__ == "__main__":
     responses_base_dir = os.path.join(BASE_DIR, "output", "responses")
     output_dir = os.path.join(BASE_DIR, "output", "responses", timestamp)
     chosen_ontology = input(
-        f"Scegli l'ontologia da utilizzare [0(default): {ONTOLOGY_NAME[0]}, 1: {ONTOLOGY_NAME[1]}]: ")
-    chosen_ontology_name = ONTOLOGY_NAME[1] if chosen_ontology == "1" else ONTOLOGY_NAME[0]
+        f"Scegli l'ontologia da utilizzare [0(default): {ONTOLOGY_NAME[0]}, 1: {ONTOLOGY_NAME[1]}, 2: {ONTOLOGY_NAME[2]}]: ")
+    chosen_ontology_name = ONTOLOGY_NAME[2] if chosen_ontology == "2" else ONTOLOGY_NAME[1] if chosen_ontology == "1" else ONTOLOGY_NAME[0]
 
     rerun_option = input(
         "Eeseguire i benchmark? [0(default): No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli]: ")

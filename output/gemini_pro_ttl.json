@@ -1,0 +1,104 @@
+[{
+    "starting prompt": "
+You are a specialized model for answering questions using ontology-based knowledge.
+Refer to the Rientra.ttl Ontology when responding to questions.
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+Avoid extra explanation or unrelated details."
+},
+{
+    "QID": 16,
+    "Ontology": "Rientra.rdf",
+    "Question": "Retrieve all occupations (job classes) in the ontology",
+    "Category": "",
+    "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#\n\nSELECT ?jobClass\nWHERE {\n?jobClass rdfs:subClassOf* jl:Job .\n}\nORDER BY ?jobClass",
+    "FC_Ans": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+    "Ans": "Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors"
+13/36
+},
+{
+    "QID": 17,
+    "Ontology": "Rientra.rdf",
+    "Question": "Retrieve every job title with the associated SOC code and ONET description",
+    "Category": "",
+    "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job ?soc ?description\nWHERE {\n?job jl:SOC_Code ?soc .\nOPTIONAL { ?job jl:ONet_short_description ?description }\n}\nORDER BY ?soc",
+    "FC_Ans": "",
+    "Ans": "Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors"
+},
+{
+    "QID": 18,
+    "Ontology": "Rientra.rdf",
+    "Question": "Determine every skill associated with a profession, and the job title that requires it (through the descriptor)",
+    "Category": "",
+    "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job ?skill\nWHERE {\n?job jl:requires ?descriptor .\n?descriptor jl:concerns ?skill .\n}\nORDER BY ?job ?skill",
+    "FC_Ans": "",
+    "Ans": "ActiveLearning, ActiveListening, ArmHandSteadiness, AuditoryAttention, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, CategoryFlexibility, ComplexProblemSolving, Construction_laborer, ControlPrecision, Coordination, CriticalThinking, DeductiveReasoning, DepthPerception, DynamicFlexibilty, DynamicStrenght, Dynamic_Flexibility, Equipment_Maintenance, Equipment_Selection, ExplosiveStrenght, ExtentFlexibility, FarVision, FileClerk, FingerDexterity, FlexibilityOfClosure, FluencyOfIdeas, GemWorker, GlareSensitivity, GrossBodyCoordination, GrossBodyEquilibrium, HearingSensitivity, InductiveReasoning, InformationOrdering, Installation, Instructing, Insurance_claims_clerks, Insurance_policy_processing_clerks, JudgmentAndDecisionMaking, Landscaping_and_Groundskeeping_Workers, LearningStrategies, ManFinancialResources, ManMaterialResources, ManPersonnelResources, Management_of_Financial_Resources, Management_of_Material_Resources, Management_of_Personnel_Resources, ManualDexterity, MathematicalReasoning, Mathematics, Memorization, Monitoring, MultilimbCoordination, NearVision, Negotiation, NightVision, NumberFacility, Operation_Analysis, Operation_Monitoring, Operation_and_Control, OralComprehension, OralExpression, Originality, PerceptualSpeed, PeripheralVision, Persuasion, Postal_service_clerks, ProblemSensitivity, Programming, Quality_Control_Analysis, RateControl, ReactionTime, ReadingComprehension, Receptionist, Repairing, ResponseOrientation, Science, SelectiveAttention, ServiceOrientation, SocialPerceptiveness, Social_Perceptiveness, SoundLocalization, SpatialOrientation, Speaking, SpeechClarity, SpeechRecognition, SpeedOfClosure, SpeedOfLimbMovement, Stamina, StaticStrenght, SystemAnalysis, SystemEvaluation, Technology_Design, TimeManagement, TimeSharing, Travel_guide, Troubleshooting, TrunkStrenght, VisualColorDiscrimination, Visualization, WordProcessors, WristFingerSpeed, Writing, WrittenComprehension, WrittenExpression."
+},
+{
+    "QID": 19,
+    "Ontology": "Rientra.rdf",
+    "Question": "Build every person's disability profile",
+    "Category": "",
+    "SPARQL": "PREFIX foafr: <http://www.stiima.cnr.it/FOAF-excerpt#>\nPREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nSELECT ?person ?icfCode\nWHERE {\n?person hc:isInHealthCondition ?condition .\n?condition hc:isDescribedBy ?descriptor .\n ?descriptor hc:involvesICFCode ?icfCode .\n}\nORDER BY ?person",
+    "FC_Ans": "",
+    "Ans": "1801, b1142, b1408, b1478, b1561, b16701, b16710, b16711, b21020, b21023, b215, b2300, b255, b260, b2700, b2701, b2702, b2703, b28011, b28012, b28013, b28015, b28016, b2803, b2804, b410, b415, b420, b435, b440, b445, b510, b525, b530, b550, b555, b610, b6200, b6201, b6202, b640, b660, b670, b7100, b7101, b7102, b720, b7300, b7301, b7304, b7308, b7600, b7601, b7611, b780, b789, b820, b830, b840, b860, d110, d115, d140, d329, d3503, d3504, d3550, d3551, d398, d4103, d420, d4400, d4401, d4403, d4408, d4450, d4451, d4452, d4453, d4454, d4455, d4600, d4601, d4602, d470, d520, d5300, d5301, d5302, d550, d560, d610, d620, d630, d640, d650, d660, d730, d760, d770, d810, d820, d825, d830, d840, d845, d850, d855, d860, d870, d910, d920, d930, d940, d950, ElenaConti, FrancaNeri, GinoRossi, GiuseppeFerrari, HC1, HCElenaConti, HCFrancaNeri, HCGiuseppeFerrari, HCLucaMartini, HCMarioBianchi, HCPaoloBianchi, HCSandraVerdi, LucaMartini, MarioBianchi, PaoloBianchi, s110, s12000, s12001, s12002, s12003, s1201, s240, s250, s260, s410, s430, s610, s7302, s740, s7500, s7501, s7502, s760, s770, s8102, s8103, s8104, s8105, s830, SandraVerdi"
+},
+{
+    "QID": 20,
+    "Ontology": "Rientra.rdf",
+    "Question": "Examine the ontology's semantic bridge",
+    "Category": "",
+    "SPARQL": "PREFIX sk: <http://www.stiima.cnr.it/SkAb#>\n\nSELECT ?ability ?icf\nWHERE {\n?ability sk:isTranslatedWithICFCode ?icf .\n}\nORDER BY ?ability",
+    "FC_Ans": "",
+    "Ans": "1801, Abilities, ActiveLearning, ActiveListening, ArmHandSteadiness, AuditoryAttention, CategoryFlexibility, ComplexProblemSolving, ControlPrecision, Coordination, CriticalThinking, DeductiveReasoning, DepthPerception, DynamicFlexibilty, DynamicStrenght, Dynamic_Flexibility, Equipment_Maintenance, Equipment_Selection, ExplosiveStrenght, ExtentFlexibility, FarVision, FingerDexterity, FlexibilityOfClosure, FluencyOfIdeas, GlareSensitivity, GrossBodyCoordination, GrossBodyEquilibrium, HearingSensitivity, InductiveReasoning, InformationOrdering, Installation, Instructing, JudgmentAndDecisionMaking, LearningStrategies, ManFinancialResources, ManMaterialResources, ManPersonnelResources, Management_of_Financial_Resources, Management_of_Material_Resources, Management_of_Personnel_Resources, ManualDexterity, MathematicalReasoning, Mathematics, Memorization, Monitoring, MultilimbCoordination, NearVision, Negotiation, NightVision, NumberFacility, Operation_Analysis, Operation_Monitoring, Operation_and_Control, OralComprehension, OralExpression, Originality, PerceptualSpeed, PeripheralVision, Persuasion, ProblemSensitivity, Programming, Quality_Control_Analysis, RateControl, ReactionTime, ReadingComprehension, Repairing, ResponseOrientation, Science, SelectiveAttention, ServiceOrientation, Skills, SocialPerceptiveness, Social_Perceptiveness, SoundLocalization, SpatialOrientation, Speaking, SpeechClarity, SpeechRecognition, SpeedOfClosure, SpeedOfLimbMovement, Stamina, StaticStrenght, SystemAnalysis, SystemEvaluation, Technology_Design, TimeManagement, TimeSharing, Troubleshooting, TrunkStrenght, VisualColorDiscrimination, Visualization, WristFingerSpeed, Writing, WrittenComprehension, WrittenExpression, b114, b1142, b140, b1408, b147, b1478, b156, b1561, b1670, b16701, b1671, b16710, b16711, b180, b210, b2102, b21020, b21023, b215, b230, b2300, b235, b255, b260, b270, b2700, b2701, b2702, b2703, b280, b2801, b28011, b28012, b28013, b28015, b28016, b2803, b2804, b410, b415, b420, b430, b435, b440, b445, b450, b455, b510, b515, b520, b525, b530, b535, b540, b545, b550, b555, b610, b620, b6200, b6201, b6202, b630, b640, b650, b660, b670, b710, b7100, b7101, b7102, b720, b730, b7300, b7301, b7304, b7308, b760, b7600, b7601, b761, b7611, b780, b789, b810, b820, b830, b840, b860, d110, d115, d140, d329, d350, d3503, d3504, d355, d3550, d3551, d398, d410, d4103, d420, d440, d4400, d4401, d4403, d4408, d445, d4450, d4451, d4452, d4453, d4454, d4455, d460, d4600, d4601, d4602, d465, d470, d475, d480, d510, d520, d530, d5300, d5301, d5302, d550, d560, d610, d620, d630, d640, d650, d660, d730, d760, d770, d810, d820, d825, d830, d840, d845, d850, d855, d860, d870, d910, d920, d930, d940, d950, s110, s120, s1200, s12000, s12001, s12002, s12003, s1201, s240, s250, s260, s410, s430, s610, s730, s7302, s740, s750, s7500, s7501, s7502, s760, s770, s810, s8102, s8103, s8104, s8105, s830"
+},
+{
+    "QID": 21,
+    "Ontology": "Rientra.rdf",
+    "Question": "Determine occupations sensitive to a particular impairment (b730)",
+    "Category": "",
+    "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\nPREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT DISTINCT ?job\nWHERE {\n\n?ability sk:isTranslatedWithICFCode <http://www.stiima.cnr.it/ICF-exc-coreset#b760> .\n\n?descriptor jl:concerns ?ability .\n\n?job jl:requires ?descriptor .\n}",
+    "FC_Ans": "",
+    "Ans": "Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors"
+},
+{
+    "QID": 22,
+    "Ontology": "Rientra.rdf",
+    "Question": "Measure occupation complexity",
+    "Category": "",
+    "SPARQL": "PREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job (COUNT(DISTINCT ?skill) AS ?numSkills)\nWHERE {\n\n?job jl:requires ?descriptor .\n\n?descriptor jl:concerns ?skill .\n\n}\nGROUP BY ?job\nORDER BY DESC(?numSkills)",
+    "FC_Ans": "",
+    "Ans": "Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors"
+},
+{
+    "QID": 23,
+    "Ontology": "Rientra.rdf",
+    "Question": "Count how many translated job abilities are affected by the person",
+    "Category": "",
+    "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\n\nSELECT ?person\n(COUNT(DISTINCT ?ability) AS ?affectedAbilities)\n\nWHERE {\n\n?person hc:isInHealthCondition ?condition .\n    ?condition hc:isDescribedBy ?descriptor .\n    ?descriptor hc:involvesICFCode ?icf .\n\n?ability sk:isTranslatedWithICFCode ?icf .\n}\nGROUP BY ?person\nORDER BY DESC(?affectedAbilities)",
+    "FC_Ans": "",
+    "Ans": "ElenaConti, FrancaNeri, GinoRossi, GiuseppeFerrari, LucaMartini, MarioBianchi, PaoloBianchi, SandraVerdi"
+},
+{
+    "QID": 24,
+    "Ontology": "Rientra.rdf",
+    "Question": "Produce a basic recommendation score",
+    "Category": "",
+    "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\nPREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?job\n(COUNT(DISTINCT ?conflictAbility) AS ?numConflicts)\nWHERE {\n\n<PERSON_URI> hc:isInHealthCondition ?cond .\n    ?cond hc:isDescribedBy ?descriptor1 .\n    ?descriptor1 hc:involvesICFCode ?icf .\n\n?conflictAbility sk:isTranslatedWithICFCode ?icf .\n\n?descriptor jl:concerns ?conflictAbility .\n?job jl:requires ?descriptor .\n}\nGROUP BY ?job\nORDER BY ?numConflicts",
+    "FC_Ans": "",
+    "Ans": "Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors"
+},
+{
+    "QID": 25,
+    "Ontology": "Rientra.rdftemp perchè non va la query",
+    "Question": "Evaluate every person against every job\n\nThe idea:\n* Count required abilities\n* Count abilities potentially impacted by impairments\n* Rank jobs with fewer conflicts",
+    "Category": "",
+    "SPARQL": "PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>\nPREFIX sk: <http://www.stiima.cnr.it/SkAb#>\nPREFIX jl: <http://www.stiima.cnr.it/JobList#>\n\nSELECT ?person ?job\n\n(COUNT(DISTINCT ?requiredAbility)\nAS ?required)\n\n(COUNT(DISTINCT ?conflictAbility)\nAS ?conflicts)\n\n(\n100.0 *\n(\nCOUNT(DISTINCT ?requiredAbility)\n-\nCOUNT(DISTINCT ?conflictAbility)\n)\n/\nCOUNT(DISTINCT ?requiredAbility)\nAS ?compatibility\n)\nWHERE {\n\n?job jl:requires ?descriptor .\n?descriptor jl:concerns ?requiredAbility .\nOPTIONAL {\n\n?person hc:isInHealthCondition ?cond .\n?cond hc:involvesICFCode ?icf .\n\n?conflictAbility sk:isTranslatedWithICFCode ?icf .\n\nFILTER(?conflictAbility = ?requiredAbility)\n}\n}\nGROUP BY ?person ?job\nORDER BY DESC(?compatibility)",
+    "FC_Ans": "",
+    "Ans": "Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, ElenaConti, FileClerk, FrancaNeri, GemWorker, GinoRossi, GiuseppeFerrari, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, LucaMartini, MarioBianchi, PaoloBianchi, Postal_service_clerks, Receptionist, SandraVerdi, Travel_guide, WordProcessors"
+}]

@@ -52,14 +52,17 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None, o
 
     for q in questions:
         # genera il prompt per la domanda corrente
+        
 
         question_text = q.get("Question")
         ontology_context = q.get("Ontology")
+        if specific_ontology == "Rientra.ttl" and ontology_context == "Rientra.rdf":
+            ontology_context = "Rientra.ttl"  # Forza l'ontologia a Rientra.ttl per il confronto
         if specific_ontology:
             if not ontology_context or specific_ontology.strip().lower() != ontology_context.strip().lower():
                 continue
         sparql_query = q.get("SPARQL")
-        prompt = generator.generate_prompt(
+        system_prompt, user_prompt = generator.generate_prompt(
             question=question_text,
             ontology_context=ontology_context,
             mode=prompt_mode,
@@ -67,12 +70,25 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None, o
         )
         # esegue domanda su modello
         start_time = time()
+        
         try:
             response = litellm.completion(
                 model=model_name,
-                messages=[{"role": "user", "content": prompt}],
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
                 temperature=0.0,
-                api_base=api_base
+                api_base=api_base,
+                # Parametri specifici passati direttamente al motore Ollama
+                extra_body={
+                    "options": {
+                        "num_ctx": 24576,      # Finestra di contesto estesa per contenere l'ontologia
+                        "num_predict": 2048,    # Budget per la generazione dell'inferenza
+                        "temperature": 0.0,
+                        "repeat_penalty": 1.0,
+                    }
+                }
             )
             time_taken = round(time() - start_time, 3)
             answer = response.choices[0].message.content.strip()
@@ -98,7 +114,8 @@ def benchmark(model_name, prompt_mode="Q+Onto+Domain", specific_ontology=None, o
             "QID": q.get("QID"),
             "question": question_text,
             "ontology_context": ontology_context,
-            "prompt": prompt,
+            "system_prompt": system_prompt,
+            "user_prompt": user_prompt,
             "SPARQL": sparql_query,
             "FC_Ans": q.get("FC_Ans"),
             "answer": answer,
