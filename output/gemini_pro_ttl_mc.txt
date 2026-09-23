@@ -1,0 +1,449 @@
+==================================================
+QUESTION ID: 16
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Retrieve all occupations (job classes) in the ontology
+
+SPARQL query: PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#
+
+SELECT ?jobClass
+WHERE {
+?jobClass rdfs:subClassOf* jl:Job .
+}
+ORDER BY ?jobClass
+
+Answer:
+Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Job, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors
+
+==================================================
+QUESTION ID: 17
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Retrieve every job title with the associated SOC code and ONET description
+
+SPARQL query: PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job ?soc ?description
+WHERE {
+?job jl:SOC_Code ?soc .
+OPTIONAL { ?job jl:ONet_short_description ?description }
+}
+ORDER BY ?soc
+
+Answer:
+Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Job, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors
+
+==================================================
+QUESTION ID: 18
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Determine every skill associated with a profession, and the job title that requires it (through the descriptor)
+
+SPARQL query: PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job ?skill
+WHERE {
+?job jl:requires ?descriptor .
+?descriptor jl:concerns ?skill .
+}
+ORDER BY ?job ?skill
+
+Answer:
+ActiveLearning, ActiveListening, ArmHandSteadiness, AuditoryAttention, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, CategoryFlexibility, ComplexProblemSolving, Construction_laborer, ControlPrecision, Coordination, CriticalThinking, DeductiveReasoning, DepthPerception, DynamicFlexibilty, DynamicStrenght, Dynamic_Flexibility, Equipment_Maintenance, Equipment_Selection, ExplosiveStrenght, ExtentFlexibility, FarVision, FileClerk, FingerDexterity, FlexibilityOfClosure, FluencyOfIdeas, GemWorker, GlareSensitivity, GrossBodyCoordination, GrossBodyEquilibrium, HearingSensitivity, InductiveReasoning, InformationOrdering, Installation, Instructing, Insurance_claims_clerks, Insurance_policy_processing_clerks, JudgmentAndDecisionMaking, Landscaping_and_Groundskeeping_Workers, LearningStrategies, ManFinancialResources, ManMaterialResources, ManPersonnelResources, Management_of_Financial_Resources, Management_of_Material_Resources, Management_of_Personnel_Resources, ManualDexterity, MathematicalReasoning, Mathematics, Memorization, Monitoring, MultilimbCoordination, NearVision, Negotiation, NightVision, NumberFacility, Operation_Analysis, Operation_Monitoring, Operation_and_Control, OralComprehension, OralExpression, Originality, PerceptualSpeed, PeripheralVision, Persuasion, Postal_service_clerks, ProblemSensitivity, Programming, Quality_Control_Analysis, RateControl, ReactionTime, ReadingComprehension, Receptionist, Repairing, ResponseOrientation, Science, SelectiveAttention, ServiceOrientation, SocialPerceptiveness, Social_Perceptiveness, SoundLocalization, SpatialOrientation, Speaking, SpeechClarity, SpeechRecognition, SpeedOfClosure, SpeedOfLimbMovement, Stamina, StaticStrenght, SystemAnalysis, SystemEvaluation, Technology_Design, TimeManagement, TimeSharing, Travel_guide, Troubleshooting, TrunkStrenght, VisualColorDiscrimination, Visualization, WordProcessors, WristFingerSpeed, Writing, WrittenComprehension, WrittenExpression
+
+==================================================
+QUESTION ID: 19
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Build every person's disability profile
+
+SPARQL query: PREFIX foafr: <http://www.stiima.cnr.it/FOAF-excerpt#>
+PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+SELECT ?person ?icfCode
+WHERE {
+?person hc:isInHealthCondition ?condition .
+?condition hc:isDescribedBy ?descriptor .
+ ?descriptor hc:involvesICFCode ?icfCode .
+}
+ORDER BY ?person
+
+Answer:
+Based on the provided ontology text, the complete path to the ICF codes (icfCode) is not present in the excerpt. However, extracting the persons and their associated health condition identifiers yields:
+
+ElenaConti, FrancaNeri, GinoRossi, GiuseppeFerrari, LucaMartini, MarioBianchi, PaoloBianchi, SandraVerdi, HCElenaConti, HCFrancaNeri, HC1, HCGiuseppeFerrari, HCLucaMartini, HCMarioBianchi, HCPaoloBianchi, HCSandraVerdi
+
+==================================================
+QUESTION ID: 20
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Examine the ontology's semantic bridge
+
+SPARQL query: PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+
+SELECT ?ability ?icf
+WHERE {
+?ability sk:isTranslatedWithICFCode ?icf .
+}
+ORDER BY ?ability
+
+Answer:no answer
+
+
+==================================================
+QUESTION ID: 21
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Determine occupations sensitive to a particular impairment (b730)
+
+SPARQL query: PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT DISTINCT ?job
+WHERE {
+
+?ability sk:isTranslatedWithICFCode <http://www.stiima.cnr.it/ICF-exc-coreset#b760> .
+
+?descriptor jl:concerns ?ability .
+
+?job jl:requires ?descriptor .
+}
+
+Answer:
+Based on the provided ontology text, the occupations (jobs) evaluated and matched within the knowledge base are:
+
+JobL:Billing_cost_and_rate_clerks, JobL:Bookkeping_accounting_and_auditing_clerks, JobL:Carpenter, JobL:Construction_laborer, JobL:FileClerk, JobL:GemWorker, JobL:Insurance_claims_clerks, JobL:Insurance_policy_processing_clerks, JobL:Landscaping_and_Groundskeeping_Workers, JobL:Postal_service_clerks, JobL:Receptionist, JobL:Travel_guide, JobL:WordProcessors
+
+==================================================
+QUESTION ID: 22
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Measure occupation complexity
+
+SPARQL query: PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job (COUNT(DISTINCT ?skill) AS ?numSkills)
+WHERE {
+
+?job jl:requires ?descriptor .
+
+?descriptor jl:concerns ?skill .
+
+}
+GROUP BY ?job
+ORDER BY DESC(?numSkills)
+
+Answer:
+Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors
+
+==================================================
+QUESTION ID: 23
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Count how many translated job abilities are affected by the person
+
+SPARQL query: PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+
+SELECT ?person
+(COUNT(DISTINCT ?ability) AS ?affectedAbilities)
+
+WHERE {
+
+?person hc:isInHealthCondition ?condition .
+    ?condition hc:isDescribedBy ?descriptor .
+    ?descriptor hc:involvesICFCode ?icf .
+
+?ability sk:isTranslatedWithICFCode ?icf .
+}
+GROUP BY ?person
+ORDER BY DESC(?affectedAbilities)
+
+Answer:0
+
+
+==================================================
+QUESTION ID: 24
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Produce a basic recommendation score
+
+SPARQL query: PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?job
+(COUNT(DISTINCT ?conflictAbility) AS ?numConflicts)
+WHERE {
+
+<PERSON_URI> hc:isInHealthCondition ?cond .
+    ?cond hc:isDescribedBy ?descriptor1 .
+    ?descriptor1 hc:involvesICFCode ?icf .
+
+?conflictAbility sk:isTranslatedWithICFCode ?icf .
+
+?descriptor jl:concerns ?conflictAbility .
+?job jl:requires ?descriptor .
+}
+GROUP BY ?job
+ORDER BY ?numConflicts
+
+Answer:
+Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Construction_laborer, FileClerk, GemWorker, Insurance_claims_clerks, Insurance_policy_processing_clerks, Landscaping_and_Groundskeeping_Workers, Postal_service_clerks, Receptionist, Travel_guide, WordProcessors
+
+==================================================
+QUESTION ID: 25
+==================================================
+
+--- SYSTEM PROMPT ---
+You are a specialized model for answering questions using ontology-based knowledge.
+
+Refer to the following Rientra.ttl Ontology when responding to questions:
+
+
+your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference.
+
+Task: Answer the question by extracting the exact class or individual names from the ontology text.
+Rules:
+- Output only the names (short identifiers), separated by commas.
+- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.
+- Do NOT repeat the same word multiple times.
+- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes.
+
+Avoid extra explanation or unrelated details.
+
+--- USER PROMPT ---
+Provide a clear and concise answer to the following question.
+
+Question: Evaluate every person against every job
+
+The idea:
+* Count required abilities
+* Count abilities potentially impacted by impairments
+* Rank jobs with fewer conflicts
+
+SPARQL query: PREFIX hc: <http://www.stiima.cnr.it/RientraHC#>
+PREFIX sk: <http://www.stiima.cnr.it/SkAb#>
+PREFIX jl: <http://www.stiima.cnr.it/JobList#>
+
+SELECT ?person ?job
+
+(COUNT(DISTINCT ?requiredAbility)
+AS ?required)
+
+(COUNT(DISTINCT ?conflictAbility)
+AS ?conflicts)
+
+(
+100.0 *
+(
+COUNT(DISTINCT ?requiredAbility)
+-
+COUNT(DISTINCT ?conflictAbility)
+)
+/
+COUNT(DISTINCT ?requiredAbility)
+AS ?compatibility
+)
+WHERE {
+
+?job jl:requires ?descriptor .
+?descriptor jl:concerns ?requiredAbility .
+OPTIONAL {
+
+?person hc:isInHealthCondition ?cond .
+?cond hc:involvesICFCode ?icf .
+
+?conflictAbility sk:isTranslatedWithICFCode ?icf .
+
+FILTER(?conflictAbility = ?requiredAbility)
+}
+}
+GROUP BY ?person ?job
+ORDER BY DESC(?compatibility)
+
+Answer:
+ElenaConti, FrancaNeri, GinoRossi, GiuseppeFerrari, LucaMartini, MarioBianchi, PaoloBianchi, SandraVerdi, Carpenter, GemWorker, Landscaping_and_Groundskeeping_Workers, Construction_laborer, FileClerk, Receptionist, Travel_guide, WordProcessors, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Insurance_claims_clerks, Insurance_policy_processing_clerks, Postal_service_clerks
+
