@@ -1,0 +1,103 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix FOAF: <http://www.stiima.cnr.it/FOAF-excerpt#> .
+@prefix JobL: <http://www.stiima.cnr.it/JobList#> .
+@prefix JobD: <http://www.stiima.cnr.it/JobDescription#> .
+@prefix SkAb: <http://www.stiima.cnr.it/SkAb#> .
+@prefix Rien3: <http://www.stiima.cnr.it/RientraHC#> .
+@prefix Rien: <http://www.stiima.cnr.it/RientraOnt3#> .
+@prefix Rien2: <http://www.stiima.cnr.it/RientraOnt3Merged#> .
+@prefix ICF-: <http://www.stiima.cnr.it/ICF-exc-coreset#> .
+
+### 1. CORE DOMAIN CLASSES
+FOAF:Person a owl:Class .
+JobL:Job a owl:Class .
+JobL:Job_Descriptor a owl:Class .
+SkAb:Abilities a owl:Class .
+SkAb:Skills a owl:Class .
+Rien3:Health_Condition a owl:Class .
+Rien3:HC_Descriptor a owl:Class .
+ICF-:ICF a owl:Class .
+ICF-:Body_functions rdfs:subClassOf ICF-:ICF .
+ICF-:Body_structures rdfs:subClassOf ICF-:ICF .
+ICF-:Activities_and_participation rdfs:subClassOf ICF-:ICF .
+
+### 2. CORE PROPERTIES & RELATIONAL PATHS
+# Job path: Job -> Job_Descriptor -> Ability / Skill
+JobL:requires a owl:ObjectProperty ;
+    rdfs:domain JobL:Job ;
+    rdfs:range JobL:Job_Descriptor .
+
+JobL:concerns a owl:ObjectProperty ;
+    rdfs:domain JobL:Job_Descriptor ;
+    rdfs:range SkAb:Abilities, SkAb:Skills .
+
+# Job metadata
+JobL:SOC_Code a owl:DatatypeProperty ;
+    rdfs:domain JobL:Job ;
+    rdfs:range xsd:string .
+
+JobL:ONet_short_description a owl:DatatypeProperty ;
+    rdfs:domain JobL:Job ;
+    rdfs:range xsd:string .
+
+# Semantic Bridge (Ability/Skill to ICF)
+SkAb:isTranslatedWithICFCode a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities, SkAb:Skills ;
+    rdfs:range ICF-:ICF .
+
+# Person & Health Condition path: Person -> Health_Condition -> HC_Descriptor -> ICF
+Rien3:isInHealthCondition a owl:ObjectProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range Rien3:Health_Condition .
+
+Rien3:isDescribedBy a owl:ObjectProperty ;
+    rdfs:domain Rien3:Health_Condition ;
+    rdfs:range Rien3:HC_Descriptor .
+
+Rien3:involvesICFCode a owl:ObjectProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range ICF-:ICF .
+
+### 3. JOB SUBCLASSES (Target of rdfs:subClassOf* JobL:Job)
+JobL:Animal_Control_Workers rdfs:subClassOf JobL:Job .
+JobL:Audio_and_video_Technicians rdfs:subClassOf JobL:Job .
+JobL:Billing_cost_and_rate_clerks rdfs:subClassOf JobL:Job .
+JobL:Bookkeping_accounting_and_auditing_clerks rdfs:subClassOf JobL:Job .
+JobL:Cabinet_makers_and_bench_carpenters rdfs:subClassOf JobL:Job .
+JobL:Computer_Systems_Analysts rdfs:subClassOf JobL:Job .
+JobL:Construction_laborers rdfs:subClassOf JobL:Job .
+JobL:Couriers_and_Messengers rdfs:subClassOf JobL:Job .
+JobL:Customer_Service_representatives rdfs:subClassOf JobL:Job .
+JobL:Data_Entry_Keyers rdfs:subClassOf JobL:Job .
+JobL:Database_architects rdfs:subClassOf JobL:Job .
+JobL:Editors rdfs:subClassOf JobL:Job .
+JobL:Exercise_Trainers_and_Group_Fitness_Instructors rdfs:subClassOf JobL:Job .
+JobL:Fast_food_and_Counter_workers rdfs:subClassOf JobL:Job .
+JobL:File_clerks rdfs:subClassOf JobL:Job .
+JobL:Gem_and_diamond_workers rdfs:subClassOf JobL:Job .
+JobL:Graphic_Designers rdfs:subClassOf JobL:Job .
+JobL:Helpers_Extraction_Workers rdfs:subClassOf JobL:Job .
+JobL:Insurance_claims_clerks rdfs:subClassOf JobL:Job .
+JobL:Insurance_policy_processing_clerks rdfs:subClassOf JobL:Job .
+JobL:Interpreters_and_Translators rdfs:subClassOf JobL:Job .
+JobL:Landscaping_and_Groundskeeping_Workers rdfs:subClassOf JobL:Job .
+JobL:Medical_Secretaries_and_Administrative_Assistants rdfs:subClassOf JobL:Job .
+JobL:Online_merchants rdfs:subClassOf JobL:Job .
+JobL:Payroll_and_Timekeeping_Clerks rdfs:subClassOf JobL:Job .
+JobL:Postal_service_clerks rdfs:subClassOf JobL:Job .
+JobL:Programmers rdfs:subClassOf JobL:Job .
+JobL:Public_Relations_Specialists rdfs:subClassOf JobL:Job .
+JobL:Receptionist_and_information_clerks rdfs:subClassOf JobL:Job .
+JobL:Retail_Salespersons rdfs:subClassOf JobL:Job .
+JobL:Search_marketing_strategists rdfs:subClassOf JobL:Job .
+JobL:Shipping_Receiving_and_Inventory_Clerks rdfs:subClassOf JobL:Job .
+JobL:Statistical_Assistants rdfs:subClassOf JobL:Job .
+JobL:Tailors_Dressmakers_and_Custom_Sewers rdfs:subClassOf JobL:Job .
+JobL:Travel_guides rdfs:subClassOf JobL:Job .
+JobL:Word_Processors_and_Typists rdfs:subClassOf JobL:Job .
+
+### 4. ICF ENTITY PATTERN NOTE
+# Specific impairment codes (like b730, b760, d450) are instances or classes of type ICF-:ICF
+# They are referenced as: ICF-:<code_name> (e.g., ICF-:b760, ICF-:b730)

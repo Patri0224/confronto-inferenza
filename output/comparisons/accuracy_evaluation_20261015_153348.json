@@ -1,0 +1,290 @@
+[
+    {
+        "QID": 16,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "Audio_and_video_Technicians, Computer_Systems_Analysts, Customer_Service_representatives, Fast_food_and_Counter_workers, Programmers, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Bookkeping_accounting_and_auditing_clerks, Insurance_policy_processing_clerks, Billing_cost_and_rate_clerks, Postal_service_clerks, Insurance_claims_clerks, Landscaping_and_Groundskeeping_Workers, Animal_Control_Workers, Couriers_and_Messengers, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Graphic_Designers, Helpers_Extraction_Workers, Interpreters_and_Translators, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Public_Relations_Specialists, Retail_Salespersons, Search_marketing_strategists, Tailors_Dressmakers_and_Custom_Sewers",
+        "Exact_Match": 0.8055555555555556
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "Bookkeeping, Accounting, and Auditing Clerks 43-3031.00 Compute, classify, and record numerical data to keep financial records complete. Perform any combination of routine calculating, posting, and verifying duties to obtain primary financial data for use in maintaining accounting records. May also check the accuracy of figures, calculations, and postings pertaining to business transactions recorded by other workers., Insurance Policy Processing Clerks 43-9041.02  Account Administrator, Agency Service Representative, Client Process Specialist, Enrollment Representative, Insurance Analyst, Policy Analyst, Policy Service Coordinator, Policy Services Representative, Premium Representative, Processing Clerk, Billing, Cost, and Rate Clerks 43-3021.02 Compile data, compute fees and charges, and prepare invoices for billing purposes. Duties include computing costs and calculating rates for goods, services, and shipment of goods; posting data; and keeping other relevant records. May involve use of computer or typewriter, calculator, and adding and bookkeeping machines., Postal Service Clerks 43-5051.00 Perform any combination of tasks in a post office, such as receive letters and parcels; sell postage and revenue stamps, postal cards, and stamped envelopes; fill out and sell money orders; place mail in pigeon holes of mail rack or in bags; and examine mail for correct postage., Insurance Claims Clerks 43-9041.01 Obtain information from insured or designated persons for purpose of settling claim with insurance carrier., Landscaping and Groundskeeping Workers 37-3011.00  sod laying, mowing, trimming, planting, watering, fertilizing, digging, raking, sprinkler installation, and installation of mortarless segmental concrete masonry wall units., Animal Attendant 33-9011.00 Handle animals for the purpose of investigations of mistreatment, or control of abandoned, dangerous, or unattended animals., Courier 43-5021.00 ick up and deliver messages, documents, packages, and other items between offices or departments within an establishment or directly to other business concerns, traveling by foot, bicycle, motorcycle, automobile, or public conveyance., Acquisitions Editor 27-3041.00 Plan, coordinate, revise, or edit written material. May review proposals and drafts for possible publication., Aerobics Instructor 39-9031.00 Instruct or coach groups or individuals in exercise activities for the primary purpose of personal fitness. Demonstrate techniques and form, observe participants, and explain to them corrective measures necessary to improve their skills. Develop and implement individualized approaches to exercise., Artist 27-1024.00 Design or create graphics to meet specific commercial or promotional needs, such as packaging, displays, or logos. May use a variety of mediums to achieve artistic or decorative effects., Continuous Miner Operator Helper 47-5081.00 Help extraction craft workers, such as earth drillers, blasters and explosives workers, derrick operators, and mining machine operators, by performing duties requiring less skill. Duties include supplying equipment or cleaning work area., American Sign Language Interpreter (ASL Interpreter) 27-3091.00 Interpret oral or sign language, or translate written text from one language into another., Clinic Office Assistant 43-6013.00 Perform secretarial duties using specific knowledge of medical terminology and hospital, clinic, or laboratory procedures. Duties may include scheduling appointments, billing patients, and compiling and recording medical charts, reports, and correspondence., Online Services Manager 13-1199.06 Conduct retail activities of businesses operating exclusively online. May perform duties such as preparing business strategies, buying merchandise, managing inventory, implementing marketing activities, fulfilling and shipping online orders, and balancing financial records., Payroll Assistant 43-3051.00 Compile and record employee time and payroll data. May compute employees' time worked, production, and commission. May compute and post wages and deductions, or prepare paychecks., Communications Specialist 27-3031.00 Promote or create an intended public image for individuals, groups, or organizations. May write or select material for release to various communications media. May specialize in using social media., Car Salesman 41-2031.00 Sell merchandise, such as furniture, motor vehicles, appliances, or apparel to consumers., Digital Marketing Strategist 13-1161.01 Employ search marketing tactics to increase visibility and engagement with content, products, or services in Internet-enabled devices or interfaces. Examine search query behaviors on general or specialty search engines or other Internet-based content. Analyze research, data, or technology to understand user intent and measure outcomes for ongoing optimization., Alterations Expert 51-6052.00 Design, make, alter, repair, or fit garments.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "ManPersonnelResources d859-ManagementOfPersonnelResources, DynamicFlexibilty b789-DynamicFlexibility, ManFinancialResources d172, Mathematics d172, ManFinancialResources d2400, ManFinancialResources d865, ManMaterialResources d859-ManagementOfMaterialResources, SocialPerceptiveness b122, ActiveLearning d198-ActiveLearning, ActiveListening d329-ActiveListening, ComplexProblemSolving b1646, ComplexProblemSolving d1751, Science d1751, Coordination d720, CriticalThinking b1645, Instructing d398-Instructing, JudgmentAndDecisionMaking d177, LearningStrategies d198-LearningStrategies, Monitoring b1648-Monitoring, Negotiation d3558-Negotiation, Persuasion d3558-Persuasion, ReadingComprehension d166, ServiceOrientation b1261, Speaking d330, TimeManagement b1642, Writing d170, WrittenComprehension d325, ArmHandSteadiness b7603, ArmHandSteadiness d455, SpatialOrientation b1144, SpatialOrientation b1565, DepthPerception b1565, AuditoryAttention b1408-AuditoryAttention, CategoryFlexibility b1643, ControlPrecision b176, ControlPrecision b760, DeductiveReasoning b189-DeductiveReasoning, DynamicStrenght b7401, ExplosiveStrenght b7308-ExplosiveStrength, ExtentFlexibility b710, ExtentFlexibility b735, FarVision b21000, FarVision b21001, FingerDexterity d4402, FlexibilityOfClosure b1568-FlexibilityOfClosure, FluencyOfIdeas b1648-FluencyOfIdeas, GlareSensitivity b21028-GlareSensitivity, GrossBodyCoordination b770, GrossBodyEquilibrium b2351, GrossBodyEquilibrium b755, HearingSensitivity b1560, HearingSensitivity b2301, InductiveReasoning b189-InductiveReasoning, InformationOrdering b1641, ManualDexterity b7602, MultilimbCoordination b7602, ManualDexterity d445, MathematicalReasoning b1721, Memorization b1440, Memorization b1441, Memorization b1442, NearVision b21002, NearVision b21003, NightVision b21028-NightVision, NumberFacility b1720, OralComprehension d310, OralExpression d3300, OralExpression d3301, OralExpression d3302, Originality b1648-Originality, PerceptualSpeed b1568-PerceptualSpeed, PeripheralVision b2101, ProblemSensitivity b1648-ProblemSensitivity, RateControl b7608-RateControl, ReactionTime b1478-ReactionTime, ResponseOrientation b7608-ResponseOrientation, SelectiveAttention b1400, SelectiveAttention d160, SoundLocalization b2302, SoundLocalization b2303, SpeechClarity b320, SpeechClarity b330, SpeechRecognition b16700, SpeechRecognition b2304, SpeedOfClosure b1600, SpeedOfClosure b1601, SpeedOfLimbMovement b7608-SpeedOfLimbMovement, Stamina b4550, StaticStrenght b7306, TimeSharing b1401, TrunkStrenght b7305, VisualColorDiscrimination b21021, VisualColorDiscrimination b21022, Visualization b1143, Visualization b1640, WristFingerSpeed d4408-WristFingerSpeed, WrittenExpression d345",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/gpt-oss:20b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 16,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "Audio_and_video_Technicians, Computer_Systems_Analysts, Customer_Service_representatives, Fast_food_and_Counter_workers, Programmers, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Bookkeping_accounting_and_auditing_clerks, Insurance_policy_processing_clerks, Billing_cost_and_rate_clerks, Postal_service_clerks, Insurance_claims_clerks, Landscaping_and_Groundskeeping_Workers, Animal_Control_Workers, Couriers_and_Messengers, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Graphic_Designers, Helpers_Extraction_Workers, Interpreters_and_Translators, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Public_Relations_Specialists, Retail_Salespersons, Search_marketing_strategists, Tailors_Dressmakers_and_Custom_Sewers",
+        "Exact_Match": 0.8055555555555556
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "Bookkeeping, Accounting, and Auditing Clerks 43-3031.00 Compute, classify, and record numerical data to keep financial records complete. Perform any combination of routine calculating, posting, and verifying duties to obtain primary financial data for use in maintaining accounting records. May also check the accuracy of figures, calculations, and postings pertaining to business transactions recorded by other workers., Insurance Policy Processing Clerks 43-9041.02  Account Administrator, Agency Service Representative, Client Process Specialist, Enrollment Representative, Insurance Analyst, Policy Analyst, Policy Service Coordinator, Policy Services Representative, Premium Representative, Processing Clerk, Billing, Cost, and Rate Clerks 43-3021.02 Compile data, compute fees and charges, and prepare invoices for billing purposes. Duties include computing costs and calculating rates for goods, services, and shipment of goods; posting data; and keeping other relevant records. May involve use of computer or typewriter, calculator, and adding and bookkeeping machines., Postal Service Clerks 43-5051.00 Perform any combination of tasks in a post office, such as receive letters and parcels; sell postage and revenue stamps, postal cards, and stamped envelopes; fill out and sell money orders; place mail in pigeon holes of mail rack or in bags; and examine mail for correct postage., Insurance Claims Clerks 43-9041.01 Obtain information from insured or designated persons for purpose of settling claim with insurance carrier., Landscaping and Groundskeeping Workers 37-3011.00  sod laying, mowing, trimming, planting, watering, fertilizing, digging, raking, sprinkler installation, and installation of mortarless segmental concrete masonry wall units., Animal Attendant 33-9011.00 Handle animals for the purpose of investigations of mistreatment, or control of abandoned, dangerous, or unattended animals., Courier 43-5021.00 ick up and deliver messages, documents, packages, and other items between offices or departments within an establishment or directly to other business concerns, traveling by foot, bicycle, motorcycle, automobile, or public conveyance., Acquisitions Editor 27-3041.00 Plan, coordinate, revise, or edit written material. May review proposals and drafts for possible publication., Aerobics Instructor 39-9031.00 Instruct or coach groups or individuals in exercise activities for the primary purpose of personal fitness. Demonstrate techniques and form, observe participants, and explain to them corrective measures necessary to improve their skills. Develop and implement individualized approaches to exercise., Artist 27-1024.00 Design or create graphics to meet specific commercial or promotional needs, such as packaging, displays, or logos. May use a variety of mediums to achieve artistic or decorative effects., Continuous Miner Operator Helper 47-5081.00 Help extraction craft workers, such as earth drillers, blasters and explosives workers, derrick operators, and mining machine operators, by performing duties requiring less skill. Duties include supplying equipment or cleaning work area., American Sign Language Interpreter (ASL Interpreter) 27-3091.00 Interpret oral or sign language, or translate written text from one language into another., Clinic Office Assistant 43-6013.00 Perform secretarial duties using specific knowledge of medical terminology and hospital, clinic, or laboratory procedures. Duties may include scheduling appointments, billing patients, and compiling and recording medical charts, reports, and correspondence., Online Services Manager 13-1199.06 Conduct retail activities of businesses operating exclusively online. May perform duties such as preparing business strategies, buying merchandise, managing inventory, implementing marketing activities, fulfilling and shipping online orders, and balancing financial records., Payroll Assistant 43-3051.00 Compile and record employee time and payroll data. May compute employees' time worked, production, and commission. May compute and post wages and deductions, or prepare paychecks., Communications Specialist 27-3031.00 Promote or create an intended public image for individuals, groups, or organizations. May write or select material for release to various communications media. May specialize in using social media., Car Salesman 41-2031.00 Sell merchandise, such as furniture, motor vehicles, appliances, or apparel to consumers., Digital Marketing Strategist 13-1161.01 Employ search marketing tactics to increase visibility and engagement with content, products, or services in Internet-enabled devices or interfaces. Examine search query behaviors on general or specialty search engines or other Internet-based content. Analyze research, data, or technology to understand user intent and measure outcomes for ongoing optimization., Alterations Expert 51-6052.00 Design, make, alter, repair, or fit garments.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "ManPersonnelResources d859-ManagementOfPersonnelResources, DynamicFlexibilty b789-DynamicFlexibility, ManFinancialResources d172, Mathematics d172, ManFinancialResources d2400, ManFinancialResources d865, ManMaterialResources d859-ManagementOfMaterialResources, SocialPerceptiveness b122, ActiveLearning d198-ActiveLearning, ActiveListening d329-ActiveListening, ComplexProblemSolving b1646, ComplexProblemSolving d1751, Science d1751, Coordination d720, CriticalThinking b1645, Instructing d398-Instructing, JudgmentAndDecisionMaking d177, LearningStrategies d198-LearningStrategies, Monitoring b1648-Monitoring, Negotiation d3558-Negotiation, Persuasion d3558-Persuasion, ReadingComprehension d166, ServiceOrientation b1261, Speaking d330, TimeManagement b1642, Writing d170, WrittenComprehension d325, ArmHandSteadiness b7603, ArmHandSteadiness d455, SpatialOrientation b1144, SpatialOrientation b1565, DepthPerception b1565, AuditoryAttention b1408-AuditoryAttention, CategoryFlexibility b1643, ControlPrecision b176, ControlPrecision b760, DeductiveReasoning b189-DeductiveReasoning, DynamicStrenght b7401, ExplosiveStrenght b7308-ExplosiveStrength, ExtentFlexibility b710, ExtentFlexibility b735, FarVision b21000, FarVision b21001, FingerDexterity d4402, FlexibilityOfClosure b1568-FlexibilityOfClosure, FluencyOfIdeas b1648-FluencyOfIdeas, GlareSensitivity b21028-GlareSensitivity, GrossBodyCoordination b770, GrossBodyEquilibrium b2351, GrossBodyEquilibrium b755, HearingSensitivity b1560, HearingSensitivity b2301, InductiveReasoning b189-InductiveReasoning, InformationOrdering b1641, ManualDexterity b7602, MultilimbCoordination b7602, ManualDexterity d445, MathematicalReasoning b1721, Memorization b1440, Memorization b1441, Memorization b1442, NearVision b21002, NearVision b21003, NightVision b21028-NightVision, NumberFacility b1720, OralComprehension d310, OralExpression d3300, OralExpression d3301, OralExpression d3302, Originality b1648-Originality, PerceptualSpeed b1568-PerceptualSpeed, PeripheralVision b2101, ProblemSensitivity b1648-ProblemSensitivity, RateControl b7608-RateControl, ReactionTime b1478-ReactionTime, ResponseOrientation b7608-ResponseOrientation, SelectiveAttention b1400, SelectiveAttention d160, SoundLocalization b2302, SoundLocalization b2303, SpeechClarity b320, SpeechClarity b330, SpeechRecognition b16700, SpeechRecognition b2304, SpeedOfClosure b1600, SpeedOfClosure b1601, SpeedOfLimbMovement b7608-SpeedOfLimbMovement, Stamina b4550, StaticStrenght b7306, TimeSharing b1401, TrunkStrenght b7305, VisualColorDiscrimination b21021, VisualColorDiscrimination b21022, Visualization b1143, Visualization b1640, WristFingerSpeed d4408-WristFingerSpeed, WrittenExpression d345",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/granite4.1:8b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 16,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "Audio_and_video_Technicians, Computer_Systems_Analysts, Customer_Service_representatives, Fast_food_and_Counter_workers, Programmers, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Bookkeping_accounting_and_auditing_clerks, Insurance_policy_processing_clerks, Billing_cost_and_rate_clerks, Postal_service_clerks, Insurance_claims_clerks, Landscaping_and_Groundskeeping_Workers, Animal_Control_Workers, Couriers_and_Messengers, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Graphic_Designers, Helpers_Extraction_Workers, Interpreters_and_Translators, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Public_Relations_Specialists, Retail_Salespersons, Search_marketing_strategists, Tailors_Dressmakers_and_Custom_Sewers",
+        "Exact_Match": 0.8055555555555556
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "Bookkeeping, Accounting, and Auditing Clerks 43-3031.00 Compute, classify, and record numerical data to keep financial records complete. Perform any combination of routine calculating, posting, and verifying duties to obtain primary financial data for use in maintaining accounting records. May also check the accuracy of figures, calculations, and postings pertaining to business transactions recorded by other workers., Insurance Policy Processing Clerks 43-9041.02  Account Administrator, Agency Service Representative, Client Process Specialist, Enrollment Representative, Insurance Analyst, Policy Analyst, Policy Service Coordinator, Policy Services Representative, Premium Representative, Processing Clerk, Billing, Cost, and Rate Clerks 43-3021.02 Compile data, compute fees and charges, and prepare invoices for billing purposes. Duties include computing costs and calculating rates for goods, services, and shipment of goods; posting data; and keeping other relevant records. May involve use of computer or typewriter, calculator, and adding and bookkeeping machines., Postal Service Clerks 43-5051.00 Perform any combination of tasks in a post office, such as receive letters and parcels; sell postage and revenue stamps, postal cards, and stamped envelopes; fill out and sell money orders; place mail in pigeon holes of mail rack or in bags; and examine mail for correct postage., Insurance Claims Clerks 43-9041.01 Obtain information from insured or designated persons for purpose of settling claim with insurance carrier., Landscaping and Groundskeeping Workers 37-3011.00  sod laying, mowing, trimming, planting, watering, fertilizing, digging, raking, sprinkler installation, and installation of mortarless segmental concrete masonry wall units., Animal Attendant 33-9011.00 Handle animals for the purpose of investigations of mistreatment, or control of abandoned, dangerous, or unattended animals., Courier 43-5021.00 ick up and deliver messages, documents, packages, and other items between offices or departments within an establishment or directly to other business concerns, traveling by foot, bicycle, motorcycle, automobile, or public conveyance., Acquisitions Editor 27-3041.00 Plan, coordinate, revise, or edit written material. May review proposals and drafts for possible publication., Aerobics Instructor 39-9031.00 Instruct or coach groups or individuals in exercise activities for the primary purpose of personal fitness. Demonstrate techniques and form, observe participants, and explain to them corrective measures necessary to improve their skills. Develop and implement individualized approaches to exercise., Artist 27-1024.00 Design or create graphics to meet specific commercial or promotional needs, such as packaging, displays, or logos. May use a variety of mediums to achieve artistic or decorative effects., Continuous Miner Operator Helper 47-5081.00 Help extraction craft workers, such as earth drillers, blasters and explosives workers, derrick operators, and mining machine operators, by performing duties requiring less skill. Duties include supplying equipment or cleaning work area., American Sign Language Interpreter (ASL Interpreter) 27-3091.00 Interpret oral or sign language, or translate written text from one language into another., Clinic Office Assistant 43-6013.00 Perform secretarial duties using specific knowledge of medical terminology and hospital, clinic, or laboratory procedures. Duties may include scheduling appointments, billing patients, and compiling and recording medical charts, reports, and correspondence., Online Services Manager 13-1199.06 Conduct retail activities of businesses operating exclusively online. May perform duties such as preparing business strategies, buying merchandise, managing inventory, implementing marketing activities, fulfilling and shipping online orders, and balancing financial records., Payroll Assistant 43-3051.00 Compile and record employee time and payroll data. May compute employees' time worked, production, and commission. May compute and post wages and deductions, or prepare paychecks., Communications Specialist 27-3031.00 Promote or create an intended public image for individuals, groups, or organizations. May write or select material for release to various communications media. May specialize in using social media., Car Salesman 41-2031.00 Sell merchandise, such as furniture, motor vehicles, appliances, or apparel to consumers., Digital Marketing Strategist 13-1161.01 Employ search marketing tactics to increase visibility and engagement with content, products, or services in Internet-enabled devices or interfaces. Examine search query behaviors on general or specialty search engines or other Internet-based content. Analyze research, data, or technology to understand user intent and measure outcomes for ongoing optimization., Alterations Expert 51-6052.00 Design, make, alter, repair, or fit garments.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "ManPersonnelResources d859-ManagementOfPersonnelResources, DynamicFlexibilty b789-DynamicFlexibility, ManFinancialResources d172, Mathematics d172, ManFinancialResources d2400, ManFinancialResources d865, ManMaterialResources d859-ManagementOfMaterialResources, SocialPerceptiveness b122, ActiveLearning d198-ActiveLearning, ActiveListening d329-ActiveListening, ComplexProblemSolving b1646, ComplexProblemSolving d1751, Science d1751, Coordination d720, CriticalThinking b1645, Instructing d398-Instructing, JudgmentAndDecisionMaking d177, LearningStrategies d198-LearningStrategies, Monitoring b1648-Monitoring, Negotiation d3558-Negotiation, Persuasion d3558-Persuasion, ReadingComprehension d166, ServiceOrientation b1261, Speaking d330, TimeManagement b1642, Writing d170, WrittenComprehension d325, ArmHandSteadiness b7603, ArmHandSteadiness d455, SpatialOrientation b1144, SpatialOrientation b1565, DepthPerception b1565, AuditoryAttention b1408-AuditoryAttention, CategoryFlexibility b1643, ControlPrecision b176, ControlPrecision b760, DeductiveReasoning b189-DeductiveReasoning, DynamicStrenght b7401, ExplosiveStrenght b7308-ExplosiveStrength, ExtentFlexibility b710, ExtentFlexibility b735, FarVision b21000, FarVision b21001, FingerDexterity d4402, FlexibilityOfClosure b1568-FlexibilityOfClosure, FluencyOfIdeas b1648-FluencyOfIdeas, GlareSensitivity b21028-GlareSensitivity, GrossBodyCoordination b770, GrossBodyEquilibrium b2351, GrossBodyEquilibrium b755, HearingSensitivity b1560, HearingSensitivity b2301, InductiveReasoning b189-InductiveReasoning, InformationOrdering b1641, ManualDexterity b7602, MultilimbCoordination b7602, ManualDexterity d445, MathematicalReasoning b1721, Memorization b1440, Memorization b1441, Memorization b1442, NearVision b21002, NearVision b21003, NightVision b21028-NightVision, NumberFacility b1720, OralComprehension d310, OralExpression d3300, OralExpression d3301, OralExpression d3302, Originality b1648-Originality, PerceptualSpeed b1568-PerceptualSpeed, PeripheralVision b2101, ProblemSensitivity b1648-ProblemSensitivity, RateControl b7608-RateControl, ReactionTime b1478-ReactionTime, ResponseOrientation b7608-ResponseOrientation, SelectiveAttention b1400, SelectiveAttention d160, SoundLocalization b2302, SoundLocalization b2303, SpeechClarity b320, SpeechClarity b330, SpeechRecognition b16700, SpeechRecognition b2304, SpeedOfClosure b1600, SpeedOfClosure b1601, SpeedOfLimbMovement b7608-SpeedOfLimbMovement, Stamina b4550, StaticStrenght b7306, TimeSharing b1401, TrunkStrenght b7305, VisualColorDiscrimination b21021, VisualColorDiscrimination b21022, Visualization b1143, Visualization b1640, WristFingerSpeed d4408-WristFingerSpeed, WrittenExpression d345",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/llama3.1",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 16,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "Animal_Control_Workers, Audio_and_video_Technicians, Billing_cost_and_rate_clerks, Bookkeping_accounting_and_auditing_clerks, Carpenter, Computer_Systems_Analysts, Construction_laborer, Couriers_and_Messengers, Customer_Service_representatives, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Fast_food_and_Counter_workers, FileClerk, GemWorker, Graphic_Designers, Helpers_Extraction_Workers, Insurance_claims_clerks, Insurance_policy_processing_clerks, Interpreters_and_Translators, Landscaping_and_Groundskeeping_Workers, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Postal_service_clerks, Programmers, Public_Relations_Specialists, Receptionist, Retail_Salespersons, Search_marketing_strategists, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Tailors_Dressmakers_and_Custom_Sewers, Travel_guide, WordProcessors",
+        "Short_Answer": "Audio_and_video_Technicians, Computer_Systems_Analysts, Customer_Service_representatives, Fast_food_and_Counter_workers, Programmers, Shipping_Receiving_and_Inventory_Clerks, Statistical_Assistants, Bookkeping_accounting_and_auditing_clerks, Insurance_policy_processing_clerks, Billing_cost_and_rate_clerks, Postal_service_clerks, Insurance_claims_clerks, Landscaping_and_Groundskeeping_Workers, Animal_Control_Workers, Couriers_and_Messengers, Data_Entry_Keyers, Database_architects, Editors, Exercise_Trainers_and_Group_Fitness_Instructors, Graphic_Designers, Helpers_Extraction_Workers, Interpreters_and_Translators, Medical_Secretaries_and_Administrative_Assistants, Online_merchants, Payroll_and_Timekeeping_Clerks, Public_Relations_Specialists, Retail_Salespersons, Search_marketing_strategists, Tailors_Dressmakers_and_Custom_Sewers",
+        "Exact_Match": 0.8055555555555556
+    },
+    {
+        "QID": 17,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "Bookkeeping, Accounting, and Auditing Clerks 43-3031.00 Compute, classify, and record numerical data to keep financial records complete. Perform any combination of routine calculating, posting, and verifying duties to obtain primary financial data for use in maintaining accounting records. May also check the accuracy of figures, calculations, and postings pertaining to business transactions recorded by other workers., Insurance Policy Processing Clerks 43-9041.02  Account Administrator, Agency Service Representative, Client Process Specialist, Enrollment Representative, Insurance Analyst, Policy Analyst, Policy Service Coordinator, Policy Services Representative, Premium Representative, Processing Clerk, Billing, Cost, and Rate Clerks 43-3021.02 Compile data, compute fees and charges, and prepare invoices for billing purposes. Duties include computing costs and calculating rates for goods, services, and shipment of goods; posting data; and keeping other relevant records. May involve use of computer or typewriter, calculator, and adding and bookkeeping machines., Postal Service Clerks 43-5051.00 Perform any combination of tasks in a post office, such as receive letters and parcels; sell postage and revenue stamps, postal cards, and stamped envelopes; fill out and sell money orders; place mail in pigeon holes of mail rack or in bags; and examine mail for correct postage., Insurance Claims Clerks 43-9041.01 Obtain information from insured or designated persons for purpose of settling claim with insurance carrier., Landscaping and Groundskeeping Workers 37-3011.00  sod laying, mowing, trimming, planting, watering, fertilizing, digging, raking, sprinkler installation, and installation of mortarless segmental concrete masonry wall units., Animal Attendant 33-9011.00 Handle animals for the purpose of investigations of mistreatment, or control of abandoned, dangerous, or unattended animals., Courier 43-5021.00 ick up and deliver messages, documents, packages, and other items between offices or departments within an establishment or directly to other business concerns, traveling by foot, bicycle, motorcycle, automobile, or public conveyance., Acquisitions Editor 27-3041.00 Plan, coordinate, revise, or edit written material. May review proposals and drafts for possible publication., Aerobics Instructor 39-9031.00 Instruct or coach groups or individuals in exercise activities for the primary purpose of personal fitness. Demonstrate techniques and form, observe participants, and explain to them corrective measures necessary to improve their skills. Develop and implement individualized approaches to exercise., Artist 27-1024.00 Design or create graphics to meet specific commercial or promotional needs, such as packaging, displays, or logos. May use a variety of mediums to achieve artistic or decorative effects., Continuous Miner Operator Helper 47-5081.00 Help extraction craft workers, such as earth drillers, blasters and explosives workers, derrick operators, and mining machine operators, by performing duties requiring less skill. Duties include supplying equipment or cleaning work area., American Sign Language Interpreter (ASL Interpreter) 27-3091.00 Interpret oral or sign language, or translate written text from one language into another., Clinic Office Assistant 43-6013.00 Perform secretarial duties using specific knowledge of medical terminology and hospital, clinic, or laboratory procedures. Duties may include scheduling appointments, billing patients, and compiling and recording medical charts, reports, and correspondence., Online Services Manager 13-1199.06 Conduct retail activities of businesses operating exclusively online. May perform duties such as preparing business strategies, buying merchandise, managing inventory, implementing marketing activities, fulfilling and shipping online orders, and balancing financial records., Payroll Assistant 43-3051.00 Compile and record employee time and payroll data. May compute employees' time worked, production, and commission. May compute and post wages and deductions, or prepare paychecks., Communications Specialist 27-3031.00 Promote or create an intended public image for individuals, groups, or organizations. May write or select material for release to various communications media. May specialize in using social media., Car Salesman 41-2031.00 Sell merchandise, such as furniture, motor vehicles, appliances, or apparel to consumers., Digital Marketing Strategist 13-1161.01 Employ search marketing tactics to increase visibility and engagement with content, products, or services in Internet-enabled devices or interfaces. Examine search query behaviors on general or specialty search engines or other Internet-based content. Analyze research, data, or technology to understand user intent and measure outcomes for ongoing optimization., Alterations Expert 51-6052.00 Design, make, alter, repair, or fit garments.",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 18,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 19,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 20,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "ManPersonnelResources d859-ManagementOfPersonnelResources, DynamicFlexibilty b789-DynamicFlexibility, ManFinancialResources d172, Mathematics d172, ManFinancialResources d2400, ManFinancialResources d865, ManMaterialResources d859-ManagementOfMaterialResources, SocialPerceptiveness b122, ActiveLearning d198-ActiveLearning, ActiveListening d329-ActiveListening, ComplexProblemSolving b1646, ComplexProblemSolving d1751, Science d1751, Coordination d720, CriticalThinking b1645, Instructing d398-Instructing, JudgmentAndDecisionMaking d177, LearningStrategies d198-LearningStrategies, Monitoring b1648-Monitoring, Negotiation d3558-Negotiation, Persuasion d3558-Persuasion, ReadingComprehension d166, ServiceOrientation b1261, Speaking d330, TimeManagement b1642, Writing d170, WrittenComprehension d325, ArmHandSteadiness b7603, ArmHandSteadiness d455, SpatialOrientation b1144, SpatialOrientation b1565, DepthPerception b1565, AuditoryAttention b1408-AuditoryAttention, CategoryFlexibility b1643, ControlPrecision b176, ControlPrecision b760, DeductiveReasoning b189-DeductiveReasoning, DynamicStrenght b7401, ExplosiveStrenght b7308-ExplosiveStrength, ExtentFlexibility b710, ExtentFlexibility b735, FarVision b21000, FarVision b21001, FingerDexterity d4402, FlexibilityOfClosure b1568-FlexibilityOfClosure, FluencyOfIdeas b1648-FluencyOfIdeas, GlareSensitivity b21028-GlareSensitivity, GrossBodyCoordination b770, GrossBodyEquilibrium b2351, GrossBodyEquilibrium b755, HearingSensitivity b1560, HearingSensitivity b2301, InductiveReasoning b189-InductiveReasoning, InformationOrdering b1641, ManualDexterity b7602, MultilimbCoordination b7602, ManualDexterity d445, MathematicalReasoning b1721, Memorization b1440, Memorization b1441, Memorization b1442, NearVision b21002, NearVision b21003, NightVision b21028-NightVision, NumberFacility b1720, OralComprehension d310, OralExpression d3300, OralExpression d3301, OralExpression d3302, Originality b1648-Originality, PerceptualSpeed b1568-PerceptualSpeed, PeripheralVision b2101, ProblemSensitivity b1648-ProblemSensitivity, RateControl b7608-RateControl, ReactionTime b1478-ReactionTime, ResponseOrientation b7608-ResponseOrientation, SelectiveAttention b1400, SelectiveAttention d160, SoundLocalization b2302, SoundLocalization b2303, SpeechClarity b320, SpeechClarity b330, SpeechRecognition b16700, SpeechRecognition b2304, SpeedOfClosure b1600, SpeedOfClosure b1601, SpeedOfLimbMovement b7608-SpeedOfLimbMovement, Stamina b4550, StaticStrenght b7306, TimeSharing b1401, TrunkStrenght b7305, VisualColorDiscrimination b21021, VisualColorDiscrimination b21022, Visualization b1143, Visualization b1640, WristFingerSpeed d4408-WristFingerSpeed, WrittenExpression d345",
+        "Exact_Match": 0.0
+    },
+    {
+        "QID": 21,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 22,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 23,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    },
+    {
+        "QID": 24,
+        "Model": "ollama/qwen2.5:1.5b",
+        "Prompt_Mode": "RAG_b",
+        "Ground_Truth_FC": "",
+        "Short_Answer": "",
+        "Exact_Match": NaN
+    }
+]

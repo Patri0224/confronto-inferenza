@@ -1,0 +1,2168 @@
+@prefix : <http://www.stiima.cnr.it/RientraReturns#> .
+@prefix FOAF: <http://www.stiima.cnr.it/FOAF-excerpt#> .
+@prefix ICF-: <http://www.stiima.cnr.it/ICF-exc-coreset#> .
+@prefix JobD: <http://www.stiima.cnr.it/JobDescription#> .
+@prefix JobL: <http://www.stiima.cnr.it/JobList#> .
+@prefix Rien: <http://www.stiima.cnr.it/RientraOnt3#> .
+@prefix Rien2: <http://www.stiima.cnr.it/RientraOnt3Merged#> .
+@prefix Rien3: <http://www.stiima.cnr.it/RientraHC#> .
+@prefix SkAb: <http://www.stiima.cnr.it/SkAb#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+FOAF:Person_with_impairment a owl:Class ;
+    rdfs:subClassOf FOAF:Person .
+
+FOAF:TIN a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:string .
+
+FOAF:ZIPcode a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:int .
+
+FOAF:birthday a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:dateTime .
+
+FOAF:city a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:string .
+
+FOAF:country a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:string .
+
+FOAF:first_name a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:string .
+
+FOAF:surname a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:string .
+
+ICF-:b110 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b1142 a owl:Class ;
+    rdfs:subClassOf ICF-:b114 .
+
+ICF-:b1143 a owl:Class ;
+    rdfs:subClassOf ICF-:b114 .
+
+ICF-:b1144 a owl:Class ;
+    rdfs:subClassOf ICF-:b114 .
+
+ICF-:b117 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:b122 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions .
+
+ICF-:b1261 a owl:Class ;
+    rdfs:subClassOf ICF-:b126 .
+
+ICF-:b130 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b134 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b1400 a owl:Class ;
+    rdfs:subClassOf ICF-:b140 .
+
+ICF-:b1401 a owl:Class ;
+    rdfs:subClassOf ICF-:b140 .
+
+ICF-:b1408 a owl:Class ;
+    rdfs:subClassOf ICF-:b140 .
+
+ICF-:b1440 a owl:Class ;
+    rdfs:subClassOf ICF-:b144 .
+
+ICF-:b1441 a owl:Class ;
+    rdfs:subClassOf ICF-:b144 .
+
+ICF-:b1442 a owl:Class ;
+    rdfs:subClassOf ICF-:b144 .
+
+ICF-:b1478 a owl:Class ;
+    rdfs:subClassOf ICF-:b147 .
+
+ICF-:b152 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b1560 a owl:Class ;
+    rdfs:subClassOf ICF-:b156,
+        Rien2:Hearing_Loss .
+
+ICF-:b1565 a owl:Class ;
+    rdfs:subClassOf ICF-:b156 .
+
+ICF-:b1568 a owl:Class ;
+    rdfs:subClassOf ICF-:b156 .
+
+ICF-:b1600 a owl:Class ;
+    rdfs:subClassOf ICF-:b160 .
+
+ICF-:b1601 a owl:Class ;
+    rdfs:subClassOf ICF-:b160 .
+
+ICF-:b1640 a owl:Class ;
+    rdfs:subClassOf ICF-:b164 .
+
+ICF-:b1641 a owl:Class ;
+    rdfs:subClassOf ICF-:b164 .
+
+ICF-:b1642 a owl:Class ;
+    rdfs:subClassOf ICF-:b164 .
+
+ICF-:b1643 a owl:Class ;
+    rdfs:subClassOf ICF-:b164 .
+
+ICF-:b1645 a owl:Class ;
+    rdfs:subClassOf ICF-:b164 .
+
+ICF-:b1646 a owl:Class ;
+    rdfs:subClassOf ICF-:b164 .
+
+ICF-:b1648 a owl:Class ;
+    rdfs:subClassOf ICF-:b164 .
+
+ICF-:b16700 a owl:Class ;
+    rdfs:subClassOf ICF-:b1670 .
+
+ICF-:b16701 a owl:Class ;
+    rdfs:subClassOf ICF-:b1670 .
+
+ICF-:b16710 a owl:Class ;
+    rdfs:subClassOf ICF-:b1671 .
+
+ICF-:b16711 a owl:Class ;
+    rdfs:subClassOf ICF-:b1671 .
+
+ICF-:b1720 a owl:Class ;
+    rdfs:subClassOf ICF-:b172 .
+
+ICF-:b1721 a owl:Class ;
+    rdfs:subClassOf ICF-:b172 .
+
+ICF-:b176 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke .
+
+ICF-:b189 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions .
+
+ICF-:b21000 a owl:Class ;
+    rdfs:subClassOf ICF-:b2100 .
+
+ICF-:b21001 a owl:Class ;
+    rdfs:subClassOf ICF-:b2100 .
+
+ICF-:b21002 a owl:Class ;
+    rdfs:subClassOf ICF-:b2100 .
+
+ICF-:b21003 a owl:Class ;
+    rdfs:subClassOf ICF-:b2100 .
+
+ICF-:b2101 a owl:Class ;
+    rdfs:subClassOf ICF-:b210 .
+
+ICF-:b21020 a owl:Class ;
+    rdfs:subClassOf ICF-:b2102 .
+
+ICF-:b21021 a owl:Class ;
+    rdfs:subClassOf ICF-:b2102 .
+
+ICF-:b21022 a owl:Class ;
+    rdfs:subClassOf ICF-:b2102 .
+
+ICF-:b21023 a owl:Class ;
+    rdfs:subClassOf ICF-:b2102 .
+
+ICF-:b21028 a owl:Class ;
+    rdfs:subClassOf ICF-:b2102 .
+
+ICF-:b215 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b2300 a owl:Class ;
+    rdfs:subClassOf ICF-:b230,
+        Rien2:Hearing_Loss .
+
+ICF-:b2301 a owl:Class ;
+    rdfs:subClassOf ICF-:b230,
+        Rien2:Hearing_Loss .
+
+ICF-:b2302 a owl:Class ;
+    rdfs:subClassOf ICF-:b230,
+        Rien2:Hearing_Loss .
+
+ICF-:b2303 a owl:Class ;
+    rdfs:subClassOf ICF-:b230 .
+
+ICF-:b2304 a owl:Class ;
+    rdfs:subClassOf ICF-:b230,
+        Rien2:Hearing_Loss .
+
+ICF-:b2351 a owl:Class ;
+    rdfs:subClassOf ICF-:b235 .
+
+ICF-:b240 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:b255 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b260 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b265 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        Rien2:Hand_Conditions .
+
+ICF-:b28010 a owl:Class ;
+    rdfs:subClassOf ICF-:b2801 .
+
+ICF-:b28011 a owl:Class ;
+    rdfs:subClassOf ICF-:b2801 .
+
+ICF-:b28012 a owl:Class ;
+    rdfs:subClassOf ICF-:b2801 .
+
+ICF-:b28013 a owl:Class ;
+    rdfs:subClassOf ICF-:b2801 .
+
+ICF-:b28014 a owl:Class ;
+    rdfs:subClassOf ICF-:b2801 .
+
+ICF-:b28015 a owl:Class ;
+    rdfs:subClassOf ICF-:b2801 .
+
+ICF-:b28016 a owl:Class ;
+    rdfs:subClassOf ICF-:b2801 .
+
+ICF-:b2803 a owl:Class ;
+    rdfs:subClassOf ICF-:b280 .
+
+ICF-:b2804 a owl:Class ;
+    rdfs:subClassOf ICF-:b280 .
+
+ICF-:b310 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:b320 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:b330 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:b410 a owl:Class ;
+    rdfs:subClassOf ICF-:Stroke .
+
+ICF-:b415 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b420 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b440 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b445 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:b4550 a owl:Class ;
+    rdfs:subClassOf ICF-:b455 .
+
+ICF-:b510 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b525 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b530 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b550 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:b555 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b610 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:b6200 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:b620 .
+
+ICF-:b6201 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:b620 .
+
+ICF-:b6202 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:b620 .
+
+ICF-:b640 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Low_Back_Pain .
+
+ICF-:b660 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:b670 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:b7102 a owl:Class ;
+    rdfs:subClassOf ICF-:b710 .
+
+ICF-:b715 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b720 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain .
+
+ICF-:b7304 a owl:Class ;
+    rdfs:subClassOf ICF-:b730 .
+
+ICF-:b7305 a owl:Class ;
+    rdfs:subClassOf ICF-:b730 .
+
+ICF-:b7306 a owl:Class ;
+    rdfs:subClassOf ICF-:b730 .
+
+ICF-:b7308 a owl:Class ;
+    rdfs:subClassOf ICF-:b730 .
+
+ICF-:b735 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b7401 a owl:Class ;
+    rdfs:subClassOf ICF-:b740 .
+
+ICF-:b750 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        Rien2:Low_Back_Pain .
+
+ICF-:b755 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b7600 a owl:Class ;
+    rdfs:subClassOf ICF-:b760 .
+
+ICF-:b7601 a owl:Class ;
+    rdfs:subClassOf ICF-:b760 .
+
+ICF-:b7602 a owl:Class ;
+    rdfs:subClassOf ICF-:b760 .
+
+ICF-:b7603 a owl:Class ;
+    rdfs:subClassOf ICF-:b760 .
+
+ICF-:b7608 a owl:Class ;
+    rdfs:subClassOf ICF-:b760 .
+
+ICF-:b7611 a owl:Class ;
+    rdfs:subClassOf ICF-:b761 .
+
+ICF-:b765 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions .
+
+ICF-:b770 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b780 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b789 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions .
+
+ICF-:b810 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b820 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Hand_Conditions .
+
+ICF-:b830 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Hand_Conditions .
+
+ICF-:b840 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Hand_Conditions .
+
+ICF-:d110 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:d115 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:d155 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d160 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:d163 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation .
+
+ICF-:d166 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation .
+
+ICF-:d170 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions .
+
+ICF-:d172 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Vocational_Rehabilitation .
+
+ICF-:d1751 a owl:Class ;
+    rdfs:subClassOf ICF-:d175 .
+
+ICF-:d177 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d198 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation .
+
+ICF-:d210 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation .
+
+ICF-:d220 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:d230 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d2400 a owl:Class ;
+    rdfs:subClassOf ICF-:d240 .
+
+ICF-:d310 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d315 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:d325 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke .
+
+ICF-:d329 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation .
+
+ICF-:d3300 a owl:Class ;
+    rdfs:subClassOf ICF-:d330 .
+
+ICF-:d3301 a owl:Class ;
+    rdfs:subClassOf ICF-:d330 .
+
+ICF-:d3302 a owl:Class ;
+    rdfs:subClassOf ICF-:d330 .
+
+ICF-:d335 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:d345 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:d3550 a owl:Class ;
+    rdfs:subClassOf ICF-:d355 .
+
+ICF-:d3551 a owl:Class ;
+    rdfs:subClassOf ICF-:d355 .
+
+ICF-:d3558 a owl:Class ;
+    rdfs:subClassOf ICF-:d355 .
+
+ICF-:d360 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d398 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation .
+
+ICF-:d4100 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d410 .
+
+ICF-:d4102 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d410 .
+
+ICF-:d4103 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d410 .
+
+ICF-:d4104 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d410 .
+
+ICF-:d4105 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d410 .
+
+ICF-:d4106 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d410 .
+
+ICF-:d415 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d420 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d430 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d4400 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d440,
+        Rien2:Hand_Conditions .
+
+ICF-:d4401 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d440,
+        Rien2:Hand_Conditions .
+
+ICF-:d4402 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d440,
+        Rien2:Hand_Conditions .
+
+ICF-:d4403 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d440,
+        Rien2:Hand_Conditions .
+
+ICF-:d4408 a owl:Class ;
+    rdfs:subClassOf ICF-:d440,
+        Rien2:Hand_Conditions .
+
+ICF-:d4450 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d445,
+        Rien2:Hand_Conditions .
+
+ICF-:d4451 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d445,
+        Rien2:Hand_Conditions .
+
+ICF-:d4452 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d445,
+        Rien2:Hand_Conditions .
+
+ICF-:d4453 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d445,
+        Rien2:Hand_Conditions .
+
+ICF-:d4454 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d445,
+        Rien2:Hand_Conditions .
+
+ICF-:d4500 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d450 .
+
+ICF-:d4501 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d450 .
+
+ICF-:d4502 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d450 .
+
+ICF-:d4503 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d450 .
+
+ICF-:d455 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions .
+
+ICF-:d4600 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d460 .
+
+ICF-:d4601 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d460 .
+
+ICF-:d4602 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d460 .
+
+ICF-:d465 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d470 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d475 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d510 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d520 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d5300 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d530 .
+
+ICF-:d5301 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d530 .
+
+ICF-:d5302 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:d530 .
+
+ICF-:d540 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d550 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d560 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d570 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d610 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:d620 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d630 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain .
+
+ICF-:d640 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain .
+
+ICF-:d650 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain .
+
+ICF-:d660 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d710 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d720 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d730 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d740 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d750 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d760 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d770 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d810 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d820 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d825 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:d830 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:d840 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d845 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d850 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d855 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss .
+
+ICF-:d859 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain .
+
+ICF-:d860 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:d865 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation .
+
+ICF-:d870 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:d910 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d920 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:d930 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:d940 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:s110 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:s12000 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s1200 .
+
+ICF-:s12001 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s1200 .
+
+ICF-:s12002 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s1200 .
+
+ICF-:s12003 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s1200 .
+
+ICF-:s1201 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s120 .
+
+ICF-:s410 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Stroke,
+        Rien2:Hand_Conditions .
+
+ICF-:s430 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:s610 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Spinal_Cord_Injury .
+
+ICF-:s710 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:s720 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Stroke,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:s7300 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s730,
+        Rien2:Hand_Conditions .
+
+ICF-:s7301 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s730,
+        Rien2:Hand_Conditions .
+
+ICF-:s7302 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s730,
+        Rien2:Hand_Conditions .
+
+ICF-:s7500 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s750 .
+
+ICF-:s7501 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s750 .
+
+ICF-:s7502 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s750 .
+
+ICF-:s760 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Spinal_Cord_Injury,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:s8102 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s810 .
+
+ICF-:s8103 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s810 .
+
+ICF-:s8104 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s810 .
+
+ICF-:s8105 a owl:Class ;
+    rdfs:subClassOf ICF-:Spinal_Cord_Injury,
+        ICF-:s810 .
+
+JobD:isImportantFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range JobL:Job .
+
+JobD:isLessImportantFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range JobL:Job .
+
+JobD:isSlightlyCriticalFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills .
+
+JobD:isSomewhatImportantFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range JobL:Job .
+
+JobD:isVeryImportantFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range JobL:Job .
+
+JobL:Animal_Control_Workers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Audio_and_video_Technicians a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Billing_cost_and_rate_clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Bookkeping_accounting_and_auditing_clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Cabinet_makers_and_bench_carpenters a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Computer_Systems_Analysts a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Construction_laborers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Couriers_and_Messengers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Customer_Service_representatives a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Data_Entry_Keyers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Database_architects a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Editors a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Exercise_Trainers_and_Group_Fitness_Instructors a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Fast_food_and_Counter_workers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:File_clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Gem_and_diamond_workers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Graphic_Designers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Helpers_Extraction_Workers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Insurance_claims_clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Insurance_policy_processing_clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Interpreters_and_Translators a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Landscaping_and_Groundskeeping_Workers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Medical_Secretaries_and_Administrative_Assistants a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Online_merchants a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Payroll_and_Timekeeping_Clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Postal_service_clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Programmers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Public_Relations_Specialists a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Receptionist_and_information_clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Retail_Salespersons a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Search_marketing_strategists a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Shipping_Receiving_and_Inventory_Clerks a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Statistical_Assistants a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Tailors_Dressmakers_and_Custom_Sewers a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Travel_guides a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:Word_Processors_and_Typists a owl:Class ;
+    rdfs:subClassOf JobL:Job .
+
+JobL:concerns a owl:ObjectProperty ;
+    rdfs:domain JobL:Job_Descriptor ;
+    rdfs:range SkAb:Abilities,
+        SkAb:Skills .
+
+JobL:hasScore a owl:DatatypeProperty ;
+    rdfs:domain JobL:Job_Descriptor ;
+    rdfs:range xsd:int .
+
+JobL:requires a owl:ObjectProperty ;
+    rdfs:domain JobL:Job ;
+    rdfs:range JobL:Job_Descriptor .
+
+Rien3:AP1qual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:AP2qual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:AP3qual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:AP4qual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:BFqual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:BS1qual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:BS2qual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:BS3qual a owl:DatatypeProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range [ ] .
+
+Rien3:Health_Condition_with_impairment a owl:Class ;
+    rdfs:subClassOf Rien3:Health_Condition .
+
+Rien3:involvesICFCode a owl:ObjectProperty ;
+    rdfs:domain Rien3:HC_Descriptor ;
+    rdfs:range ICF-:ICF .
+
+Rien3:isDescribedBy a owl:ObjectProperty ;
+    rdfs:domain Rien3:Health_Condition ;
+    rdfs:range Rien3:HC_Descriptor .
+
+Rien3:isInHealthCondition a owl:ObjectProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range Rien3:Health_Condition .
+
+Rien:hasExtremeCriticalityIn a owl:ObjectProperty .
+
+Rien:hasGenericMatchValue a owl:DatatypeProperty ;
+    rdfs:domain Rien:Match ;
+    rdfs:range xsd:float .
+
+Rien:hasMatch a owl:ObjectProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range Rien:Match .
+
+Rien:hasModerateCriticalityIn a owl:ObjectProperty .
+
+Rien:hasNoCriticalityIn a owl:ObjectProperty .
+
+Rien:hasRelevantCriticalityIn a owl:ObjectProperty .
+
+Rien:hasSlightCriticalityIn a owl:ObjectProperty .
+
+Rien:hasSpecificCriticality a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ] ;
+    rdfs:range xsd:int .
+
+Rien:isEvaluatedForJob a owl:ObjectProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range JobL:Job .
+
+Rien:isExtremelyCriticalFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range FOAF:Person .
+
+Rien:isModeratelyCriticalFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range FOAF:Person .
+
+Rien:isNotCriticalFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range FOAF:Person .
+
+Rien:isRelevantlyCriticalFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range FOAF:Person .
+
+Rien:isSlightlyCriticalFor a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range FOAF:Person .
+
+Rien:matchedJob a owl:ObjectProperty ;
+    rdfs:domain Rien:Match ;
+    rdfs:range JobL:Job .
+
+Rien2:b1561 a owl:Class ;
+    rdfs:subClassOf ICF-:b156,
+        Rien2:Hearing_Loss .
+
+Rien2:b2700 a owl:Class ;
+    rdfs:subClassOf ICF-:b270,
+        Rien2:Hand_Conditions .
+
+Rien2:b2701 a owl:Class ;
+    rdfs:subClassOf ICF-:b270,
+        Rien2:Hand_Conditions .
+
+Rien2:b2702 a owl:Class ;
+    rdfs:subClassOf ICF-:b270,
+        Rien2:Hand_Conditions .
+
+Rien2:b2703 a owl:Class ;
+    rdfs:subClassOf ICF-:b270,
+        Rien2:Hand_Conditions .
+
+Rien2:b435 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+Rien2:b7100 a owl:Class ;
+    rdfs:subClassOf ICF-:b710,
+        Rien2:Hand_Conditions .
+
+Rien2:b7101 a owl:Class ;
+    rdfs:subClassOf ICF-:b710,
+        Rien2:Hand_Conditions .
+
+Rien2:b7300 a owl:Class ;
+    rdfs:subClassOf ICF-:b730,
+        Rien2:Hand_Conditions .
+
+Rien2:b7301 a owl:Class ;
+    rdfs:subClassOf ICF-:b730,
+        Rien2:Hand_Conditions .
+
+Rien2:b860 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        Rien2:Hand_Conditions .
+
+Rien2:d140 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        Rien2:Hearing_Loss .
+
+Rien2:d3503 a owl:Class ;
+    rdfs:subClassOf ICF-:d350,
+        Rien2:Hearing_Loss .
+
+Rien2:d3504 a owl:Class ;
+    rdfs:subClassOf ICF-:d350,
+        Rien2:Hearing_Loss .
+
+Rien2:d4455 a owl:Class ;
+    rdfs:subClassOf ICF-:d445,
+        Rien2:Hand_Conditions .
+
+Rien2:d950 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        Rien2:Hearing_Loss .
+
+Rien2:isSelected a owl:DatatypeProperty ;
+    rdfs:domain FOAF:Person ;
+    rdfs:range xsd:boolean .
+
+Rien2:s240 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        Rien2:Hearing_Loss .
+
+Rien2:s250 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        Rien2:Hearing_Loss .
+
+Rien2:s260 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures .
+
+Rien2:s740 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+Rien2:s770 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain .
+
+Rien2:s830 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        Rien2:Hand_Conditions .
+
+Rien2:selectedJob a owl:DatatypeProperty ;
+    rdfs:domain JobL:Job ;
+    rdfs:range xsd:boolean .
+
+:1801 a owl:Class ;
+    rdfs:subClassOf ICF-:b180,
+        Rien2:Hand_Conditions .
+
+SkAb:ActiveLearning a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:ActiveListening a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:ArmHandSteadiness a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:AuditoryAttention a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:CategoryFlexibility a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:ComplexProblemSolving a owl:Class ;
+    rdfs:subClassOf SkAb:Complex_problem_solving_Skills .
+
+SkAb:ControlPrecision a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:Coordination a owl:Class ;
+    rdfs:subClassOf SkAb:Social_Skills .
+
+SkAb:CriticalThinking a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:DeductiveReasoning a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:DepthPerception a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:DynamicStrenght a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:Dynamic_Flexibility a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:Equipment_Maintenance a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:Equipment_Selection a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:ExplosiveStrenght a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:ExtentFlexibility a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:FarVision a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:FingerDexterity a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:FlexibilityOfClosure a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:FluencyOfIdeas a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:GlareSensitivity a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:GrossBodyCoordination a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:GrossBodyEquilibrium a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:HearingSensitivity a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:InductiveReasoning a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:InformationOrdering a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Installation a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:Instructing a owl:Class ;
+    rdfs:subClassOf SkAb:Social_Skills .
+
+SkAb:JudgmentAndDecisionMaking a owl:Class ;
+    rdfs:subClassOf SkAb:Systems_Skills .
+
+SkAb:LearningStrategies a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:Management_of_Financial_Resources a owl:Class ;
+    rdfs:subClassOf SkAb:Resource_Management_Skills .
+
+SkAb:Management_of_Material_Resources a owl:Class ;
+    rdfs:subClassOf SkAb:Resource_Management_Skills .
+
+SkAb:Management_of_Personnel_Resources a owl:Class ;
+    rdfs:subClassOf SkAb:Resource_Management_Skills .
+
+SkAb:ManualDexterity a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:MathematicalReasoning a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Mathematics a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:Memorization a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Monitoring a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:MultilimbCoordination a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:NearVision a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:Negotiation a owl:Class ;
+    rdfs:subClassOf SkAb:Social_Skills .
+
+SkAb:NightVision a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:NumberFacility a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Operation_Analysis a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:Operation_Monitoring a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:Operation_and_Control a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:OralComprehension a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:OralExpression a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Originality a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:PerceptualSpeed a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:PeripheralVision a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:Persuasion a owl:Class ;
+    rdfs:subClassOf SkAb:Social_Skills .
+
+SkAb:ProblemSensitivity a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Programming a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:Quality_Control_Analysis a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:RateControl a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:ReactionTime a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:ReadingComprehension a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:Repairing a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:ResponseOrientation a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:Science a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:SelectiveAttention a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:ServiceOrientation a owl:Class ;
+    rdfs:subClassOf SkAb:Social_Skills .
+
+SkAb:Social_Perceptiveness a owl:Class ;
+    rdfs:subClassOf SkAb:Social_Skills .
+
+SkAb:SoundLocalization a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:SpatialOrientation a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Speaking a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:SpeechClarity a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:SpeechRecognition a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:SpeedOfClosure a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:SpeedOfLimbMovement a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:Stamina a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:StaticStrenght a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:SystemAnalysis a owl:Class ;
+    rdfs:subClassOf SkAb:Systems_Skills .
+
+SkAb:SystemEvaluation a owl:Class ;
+    rdfs:subClassOf SkAb:Systems_Skills .
+
+SkAb:Technology_Design a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:TimeManagement a owl:Class ;
+    rdfs:subClassOf SkAb:Resource_Management_Skills .
+
+SkAb:TimeSharing a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:Troubleshooting a owl:Class ;
+    rdfs:subClassOf SkAb:Technical_Skills .
+
+SkAb:TrunkStrenght a owl:Class ;
+    rdfs:subClassOf SkAb:Physical_Abilities .
+
+SkAb:VisualColorDiscrimination a owl:Class ;
+    rdfs:subClassOf SkAb:Sensory_Abilities .
+
+SkAb:Visualization a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:WristFingerSpeed a owl:Class ;
+    rdfs:subClassOf SkAb:Psychomotor_Abilities .
+
+SkAb:Writing a owl:Class ;
+    rdfs:subClassOf SkAb:Basic_Skills .
+
+SkAb:WrittenComprehension a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:WrittenExpression a owl:Class ;
+    rdfs:subClassOf SkAb:Cognitive_Abilities .
+
+SkAb:isTranslatedWithICFCode a owl:ObjectProperty ;
+    rdfs:domain SkAb:Abilities,
+        SkAb:Skills ;
+    rdfs:range ICF-:ICF .
+
+<http://www.stiima.cnr.it/SkAb#translatesO*NET-SOC_SkAb> a owl:ObjectProperty .
+
+ICF-:b126 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain .
+
+ICF-:b147 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b180 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        Rien2:Low_Back_Pain .
+
+ICF-:b235 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:b455 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b740 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b761 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions .
+
+ICF-:d175 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:d240 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+SkAb:Complex_problem_solving_Skills a owl:Class ;
+    rdfs:subClassOf SkAb:Skills .
+
+ICF-:b160 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation .
+
+ICF-:b167 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:b1670 a owl:Class ;
+    rdfs:subClassOf ICF-:b167 .
+
+ICF-:b1671 a owl:Class ;
+    rdfs:subClassOf ICF-:b167 .
+
+ICF-:b172 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke .
+
+ICF-:d350 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation .
+
+ICF-:s120 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain .
+
+ICF-:b114 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b140 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:b144 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:b210 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:b280 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Hearing_Loss,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b620 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b710 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d330 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hearing_Loss .
+
+ICF-:d355 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        Rien2:Hearing_Loss .
+
+ICF-:d460 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d530 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:s730 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Stroke,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:s750 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        ICF-:Stroke,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+JobL:Job_Descriptor a owl:Class .
+
+Rien3:Health_Condition a owl:Class .
+
+Rien:Match a owl:Class .
+
+SkAb:Systems_Skills a owl:Class ;
+    rdfs:subClassOf SkAb:Skills .
+
+ICF-:b156 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury .
+
+ICF-:b2100 a owl:Class ;
+    rdfs:subClassOf ICF-:b210 .
+
+ICF-:b270 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d450 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:s1200 a owl:Class ;
+    rdfs:subClassOf ICF-:s120 .
+
+ICF-:s810 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_structures,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+SkAb:Resource_Management_Skills a owl:Class ;
+    rdfs:subClassOf SkAb:Skills .
+
+ICF-:ICF a owl:Class .
+
+ICF-:b2102 a owl:Class ;
+    rdfs:subClassOf ICF-:b210 .
+
+ICF-:b230 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Vocational_Rehabilitation .
+
+ICF-:b760 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        Rien2:Hand_Conditions,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d440 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:b730 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Spinal_Cord_Injury,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d410 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hand_Conditions,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+ICF-:d445 a owl:Class ;
+    rdfs:subClassOf ICF-:Activities_and_participation,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Low_Back_Pain,
+        Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care .
+
+SkAb:Social_Skills a owl:Class ;
+    rdfs:subClassOf SkAb:Skills .
+
+ICF-:b164 a owl:Class ;
+    rdfs:subClassOf ICF-:Body_functions,
+        ICF-:Stroke,
+        ICF-:Traumatic_Brain_Injury,
+        ICF-:Vocational_Rehabilitation,
+        Rien2:Hearing_Loss .
+
+ICF-:b2801 a owl:Class ;
+    rdfs:subClassOf ICF-:b280 .
+
+ICF-:ICF_Core_set a owl:Class .
+
+SkAb:Physical_Abilities a owl:Class ;
+    rdfs:subClassOf SkAb:Abilities .
+
+Rien3:HC_Descriptor a owl:Class .
+
+SkAb:Basic_Skills a owl:Class ;
+    rdfs:subClassOf SkAb:Skills .
+
+SkAb:Psychomotor_Abilities a owl:Class ;
+    rdfs:subClassOf SkAb:Abilities .
+
+SkAb:Technical_Skills a owl:Class ;
+    rdfs:subClassOf SkAb:Skills .
+
+SkAb:Sensory_Abilities a owl:Class ;
+    rdfs:subClassOf SkAb:Abilities .
+
+SkAb:Abilities a owl:Class .
+
+FOAF:Person a owl:Class .
+
+ICF-:Body_structures a owl:Class ;
+    rdfs:subClassOf ICF-:ICF .
+
+SkAb:Skills a owl:Class .
+
+SkAb:Cognitive_Abilities a owl:Class ;
+    rdfs:subClassOf SkAb:Abilities .
+
+JobL:Job a owl:Class .
+
+Rien2:Low_Back_Pain a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .
+
+Rien2:Muskoloskeletal_Conditions_for_Post_Acute_Care a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .
+
+ICF-:Vocational_Rehabilitation a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .
+
+Rien2:Hearing_Loss a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .
+
+ICF-:Body_functions a owl:Class ;
+    rdfs:subClassOf ICF-:ICF .
+
+ICF-:Activities_and_participation a owl:Class ;
+    rdfs:subClassOf ICF-:ICF .
+
+Rien2:Hand_Conditions a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .
+
+ICF-:Stroke a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .
+
+ICF-:Traumatic_Brain_Injury a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .
+
+ICF-:Spinal_Cord_Injury a owl:Class ;
+    rdfs:subClassOf ICF-:ICF_Core_set .

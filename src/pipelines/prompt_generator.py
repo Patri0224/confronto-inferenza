@@ -1,8 +1,7 @@
 import os
 
-
 class PromptGenerator:
-    def __init__(self, system_role=None, domain_constraint=None, answer_type=None):
+    def __init__(self, system_role=None, domain_constraint=None, answer_type=None, rag_a=None,rag_b=None):
         self.system_role = system_role or (
             "You are a specialized model for answering questions using ontology-based knowledge."
         )
@@ -26,9 +25,17 @@ class PromptGenerator:
             "- Do NOT repeat the same word multiple times.\n"
             "- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes."
         )
+        self.rag_a = rag_a
+        self.rag_b = rag_b
 
     def generate_prompt(self, question, sparql=None, ontology_context=None, mode="Q+Onto+Domain"):
-        # Q, Q+Domain, Q+Onto+Domain
+        # Q, Q+Domain, Q+Onto+Domain, RAG_a, RAG_b
+
+
+        if mode == "RAG_b":
+            return self.rag_b.generate_sparql_prompt(question)
+        if mode == "RAG_a":
+            mode = "Q+Domain+Onto+RAG_a"
         system_parts = []
         user_parts = []
 
@@ -43,7 +50,16 @@ class PromptGenerator:
         # -------------------------------------------------------------
         if "Onto" in mode:
             system_parts.append(self.system_role)
-            if raw_ontology:
+            if "RAG_a" in mode:
+                if not self.rag_a:
+                    raise ValueError(
+                        "RAG is not initialized. Please provide a valid RAG instance.")
+                retrieved_context = self.rag_a.retrieve_as_context(
+                    query=question, top_k=35)
+                system_parts.append(
+                    f"Refer to the following retrieved context extracted using RAG from the ontology when responding to questions:\n{retrieved_context}"
+                )
+            elif raw_ontology:
                 system_parts.append(
                     f"Refer to the following {onto_name} Ontology when responding to questions:\n{raw_ontology}"
                 )

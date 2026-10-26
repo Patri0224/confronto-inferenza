@@ -62,6 +62,7 @@ class LLMEvaluator:
         return cleaned_short, explanation_part
 
     def compute_metrics(self, llm_answer_text, fc_answer, sparql_query, ground_truth_text=None):
+        
         if not llm_answer_text:
             return {
                 "cosine_similarity": float('nan'),

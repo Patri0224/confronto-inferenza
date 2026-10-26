@@ -45,7 +45,7 @@ def run_all_benchmarks(op, output_dir=RESPONSES_DIR, specific_ontology=ONTOLOGY_
         models_to_run = MODELLI_LOCALI
 
     if specific_ontology == "Rientra.rdf" or specific_ontology == "Rientra.ttl":
-        prompt_modes = ["Q+Onto+Domain"]#il modello rientra è troppo specifico quindi non ha senso fare Q o Q+Domain
+        prompt_modes = ["RAG_b"]
     else:
         prompt_modes = PROMPT_MODES
 
@@ -107,12 +107,21 @@ def evaluate_and_generate_matrix(responses_dir=RESPONSES_DIR, comparisons_dir=CO
             fc_ans = resp.get("FC_Ans") or resp.get("ground_truth", "")
             metrics = resp.get("metrics", {})
 
-            eval_metrics = evaluator.compute_metrics(
-                llm_answer_text=llm_answer,
-                fc_answer=fc_ans if fc_ans else "N/A",
-                sparql_query=sparql if sparql else "N/A",
-                ground_truth_text=None
-            )
+            eval_metrics = ""
+            if prompt_mode == "RAG_b":
+                eval_metrics = evaluator.compute_metrics(
+                    llm_answer_text=llm_answer,
+                    fc_answer=fc_ans if fc_ans else "N/A",
+                    sparql_query=sparql if sparql else "N/A",
+                    ground_truth_text=None
+                )
+            else:
+                eval_metrics = evaluator.compute_metrics(
+                    llm_answer_text=llm_answer,
+                    fc_answer=fc_ans if fc_ans else "N/A",
+                    sparql_query=sparql if sparql else "N/A",
+                    ground_truth_text=None
+                )
 
             # Costruzione riga dell'array bidimensionale
             row = {
@@ -179,18 +188,29 @@ if __name__ == "__main__":
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     responses_base_dir = os.path.join(BASE_DIR, "output", "responses")
     output_dir = os.path.join(BASE_DIR, "output", "responses", timestamp)
-    chosen_ontology = input(
-        f"Scegli l'ontologia da utilizzare [0(default): {ONTOLOGY_NAME[0]}, 1: {ONTOLOGY_NAME[1]}, 2: {ONTOLOGY_NAME[2]}]: ")
+    op = False
+    if op:
+        chosen_ontology = input(
+            f"Scegli l'ontologia da utilizzare [0(default): {ONTOLOGY_NAME[0]}, 1: {ONTOLOGY_NAME[1]}, 2: {ONTOLOGY_NAME[2]}]: ")
+    else:
+        chosen_ontology = "2"
     chosen_ontology_name = ONTOLOGY_NAME[2] if chosen_ontology == "2" else ONTOLOGY_NAME[1] if chosen_ontology == "1" else ONTOLOGY_NAME[0]
 
-    rerun_option = input(
-        "Eeseguire i benchmark? [0(default): No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli]: ")
+
+    if op:
+        rerun_option = input(
+            "Eeseguire i benchmark? [0(default): No, 1: Solo modelli piccoli, 2: Solo modelli grandi, 3: Tutti i modelli]: ")
+    else:
+        rerun_option = "2"    
     try:
         rerun_option = int(rerun_option)
     except ValueError:
         rerun_option = 0
     if rerun_option not in [0, 1, 2, 3]:
         rerun_option = 0
+
+
+
 
     if rerun_option == 0:
         subdirs = [d for d in os.listdir(responses_base_dir) if os.path.isdir(
