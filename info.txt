@@ -57,3 +57,15 @@ tesi
 -metodo: algoritmi 
 -risultati: tutti i plot possibili + discussione
 -conclusione
+
+
+
+
+
+
+
+
+
+
+raggruppare i plot con più linee per metriche
+raggruppare i plot con più linee per modelli 

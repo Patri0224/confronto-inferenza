@@ -17,6 +17,7 @@ if BASE_DIR not in sys.path:
 INPUT_PATH = os.path.join(BASE_DIR, "data", "input")
 OUTPUT_PATH = os.path.join(BASE_DIR, "output", "responses")
 
+# ==========================================
 
 MODELLI_LOCALI = [
     "qwen2.5:0.5b",
