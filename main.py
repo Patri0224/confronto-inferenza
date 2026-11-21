@@ -43,9 +43,9 @@ def run_all_benchmarks(
 ):
     print("--- FASE 1: AVVIO ESECUZIONE BENCHMARK ---")
     if model_option == 1:
-        models_to_run = ["qwen2.5:0.5b", "llama2:7b"]
+        models_to_run = ["qwen2.5:0.5b", "qwen2.5:1.5b"]
     elif model_option == 2:
-        models_to_run = ["qwen2.5:1.5b", "llama3.1", "granite4.1:8b", "gpt-oss:20b"]
+        models_to_run = ["qwen2.5:7b", "llama3.1", "granite4.1:8b", "gpt-oss:20b"]
     elif model_option == 3:
         models_to_run = MODELLI_LOCALI
     elif isinstance(model_option, list):
