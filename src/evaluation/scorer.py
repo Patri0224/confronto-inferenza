@@ -3,25 +3,25 @@ from sentence_transformers import SentenceTransformer, util
 import re
 
 SYNONYM_MAPPINGS = {
-    # Per QID 13 e domande generali sui topping di pesce
+    # For QID 13 and general sea-food-topping questions
     "sea food topping": [
         "anchovies", "prawns", "mixedseafood", "seafood", "fish", "squid",
         "clam", "mussel", "crab", "lobster", "scallop", "anchoviestopping",
         "mixedseafoodtopping", "prawnstopping", "sea food"
     ],
 
-    # Per QID 9 e 15 (Frutti di mare)
-    # NB: "seafood" appartiene a "sea food topping", non va duplicato qui
+    # For QID 9 and 15 (Frutti di mare)
+    # NB: "seafood" belongs to "sea food topping", do not duplicate it here
     "frutti di mare": [
         "fruttidimare", "frutti di mare", "fruttidimarepizza", "FishPizza"
     ],
 
-    # Per QID 3 (Basi incompatibili)
+    # For QID 3 (incompatible bases)
     "deep pan base": [
         "deep pan", "deeppanbase", "deeppan", "deep_pan"
     ],
 
-    # Per categorie generali di topping formaggio
+    # For general cheese-topping categories
     "cheese topping": [
         "cheese", "mozzarella", "parmesan", "gorgonzola", "cheesetopping"
     ]
@@ -29,12 +29,12 @@ SYNONYM_MAPPINGS = {
 
 
 def normalize_item(text):
-    """Minuscolo, senza prefisso di namespace e senza separatori.
+    """Lowercase, without namespace prefix and without separators.
 
     'Quattro Formaggi' == 'QuattroFormaggi'; 'foaf:Person' == 'Person'.
     """
     text = str(text).strip()
-    # CURIE GO:0000278 e ID GO_0000278 sono lo stesso identificativo: il prefisso non va tolto
+    # CURIE GO:0000278 and ID GO_0000278 are the same identifier: keep the prefix
     text = re.sub(r'^GO:(?=\d)', 'GO_', text, flags=re.IGNORECASE)
     text = re.sub(r'^(?!https?:)(?!GO_)[A-Za-z][\w\-]*:', '', text, flags=re.IGNORECASE)
     return re.sub(r'[\s_\-]+', '', text.lower())
@@ -42,10 +42,10 @@ def normalize_item(text):
 
 class LLMEvaluator:
     def __init__(self):
-        # Carica il modello per le similarità semantiche
+        # Load the model for semantic similarities
         self.encoder = SentenceTransformer('all-MiniLM-L6-v2')
 
-        # Carica la metrica BLEU di Hugging Face (equivalente robusto a sacrebleu/nltk)
+        # Load the Hugging Face BLEU metric (robust equivalent of sacrebleu/nltk)
         self.bleu_metric = evaluate.load("bleu")
 
         REVERSE_SYNONYM_MAP = {}
@@ -90,23 +90,23 @@ class LLMEvaluator:
 
         short_part, explanation_part = self.parse_llm_response(llm_answer_text)
 
-        # Le dichiarazioni PREFIX/BASE possono stare anche sulla stessa riga della query
+        # PREFIX/BASE declarations may also sit on the same line as the query
         query_body = re.sub(
             r'\b(?:PREFIX\s+[\w\-]*:\s*<[^>]*>|BASE\s*<[^>]*>)', '',
             sparql_query or '', flags=re.IGNORECASE)
         is_ask = bool(re.match(r'\s*ASK\b', query_body, re.IGNORECASE))
         ref_text = ground_truth_text if ground_truth_text else fc_answer
-        # La ground truth è una risposta breve: va confrontata con la risposta breve
+        # The ground truth is a short answer: compare it with the short answer
         text_to_compare = short_part if short_part else llm_answer_text
-        # 1. Similarity con Sentence Transformers
+        # 1. Similarity with Sentence Transformers
         emb_gt = self.encoder.encode(ref_text, convert_to_tensor=True)
         emb_llm = self.encoder.encode(text_to_compare, convert_to_tensor=True)
         cosine_sim = float(util.cos_sim(emb_gt, emb_llm).item())
 
-        # 2. BLEU Score con Hugging Face evaluate
-        # BLEU richiede una lista di predizioni
+        # 2. BLEU score with Hugging Face evaluate
+        # BLEU requires a list of predictions
         predictions = [text_to_compare]
-        # BLEU richiede una lista di liste per le referenze
+        # BLEU requires a list of lists for the references
         references = [[ref_text]]
 
         try:
@@ -117,7 +117,7 @@ class LLMEvaluator:
             bleu = float('nan')
             print("Warning: BLEU computation failed, setting BLEU score to 0.0")
 
-        # 3. Exact Match (accuracy) su short_answer
+        # 3. Exact match (accuracy) on short_answer
         exact_match = 0.0
         short_lower = short_part.lower()
         fc_lower = fc_answer.strip().lower()
@@ -131,7 +131,7 @@ class LLMEvaluator:
             elif target_ans == "no":
                 exact_match = 1.0 if (has_no and not has_yes) else 0.0
         else:
-            # caso None in SELECT
+            # None case in SELECT
             if fc_lower in ["none", "no", ""]:
                 empty_words = ["no", "none", "nothing",
                                "n/a", "nessuna", "nessuno", "empty"]

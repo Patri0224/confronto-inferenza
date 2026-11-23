@@ -1,6 +1,5 @@
 import json
 import re
-from matplotlib import text
 from rdflib import Graph
 import litellm
 
@@ -16,8 +15,7 @@ class TextToSparqlEngine:
         print(f"Ontologia caricata con successo ({len(self.graph)} triple).")
 
     def generate_sparql_prompt(self, question: str) -> tuple[str, str]:
-        #Rientra_TBox_Schema.ttl
-        #RTSS.ttl
+        # Rientra_TBox_Schema.ttl / RTSS.ttl: the TBox extract used for prompting
         TBox_Schema_path = "./data/ontologies/RTSS.ttl"
         TBox_Schema_content = ""
         try:
@@ -41,7 +39,7 @@ class TextToSparqlEngine:
         return system_prompt, user_prompt
 
     def extract_sparql_query(self, raw_llm_response: str) -> str:
-        """Estrae la query ripulita dai blocchi di codice markdown."""
+        """Extract the cleaned query from markdown code blocks."""
         match = re.search(r"```(?:sparql)?(.*?)```",
                           raw_llm_response, re.DOTALL | re.IGNORECASE)
         if match:
@@ -61,17 +59,17 @@ class TextToSparqlEngine:
         return text.strip()
 
     def execute_query(self, sparql_query: str) -> list[str]:
-        """Esegue la query generata su RDFLib ed estrae i risultati come nomi locali."""
+        """Execute the generated query on RDFLib and extract results as local names."""
         try:
             qres = self.graph.query(sparql_query)
             extracted_items = []
 
             for row in qres:
-                # Se la query restituisce una sola variabile o più variabili per riga
+                # Whether the query returns one variable or more per row
                 row_items = []
                 for val in row:
                     val_str = str(val)
-                    # Pulizia degli URI per ottenere il nome locale
+                    # Clean the URIs to obtain the local name
                     local_name = val_str.split(
                         "#")[-1].split("/")[-1].split(":")[-1]
                     row_items.append(local_name)
@@ -85,10 +83,10 @@ class TextToSparqlEngine:
             return []
 
     def run_text_to_sparql(self, question: str, model: str = "ollama/llama3.1") -> dict:
-        """Esegue l'intero flusso: Prompt -> LLM -> Estrazione -> Esecuzione su grafo."""
+        """Run the whole flow: Prompt -> LLM -> Extraction -> Execution on the graph."""
         sys_p, usr_p = self.generate_sparql_prompt(question)
 
-        # Chiamata tramite LiteLLM all'istanza locale di Ollama
+        # Call via LiteLLM to the local Ollama instance
         response = litellm.completion(
             model=model,
             messages=[
@@ -124,7 +122,7 @@ class TextToSparqlEngine:
 
 
 if __name__ == "__main__":
-    # Esempio di utilizzo
+    # Example usage
     engine = TextToSparqlEngine(
         ontology_path="./data/ontologies/Rientra.rdf")
     with open("./data/input/questions.json", "r") as f:
@@ -143,6 +141,6 @@ if __name__ == "__main__":
             "Answer": answer
         })
 
-    # Salvataggio dei risultati in un file JSON
+    # Save the results to a JSON file
     with open("./output/results.json", "w", encoding="utf-8") as f:
         json.dump(results_list, f, ensure_ascii=False, indent=4)

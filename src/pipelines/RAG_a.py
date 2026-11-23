@@ -15,21 +15,23 @@ class OntologyRAG:
         predicates: set[str] | None = None,
     ):
         """
-        label_aware: mostra anche le rdfs:label accanto agli ID ("cell cycle (GO_0007049)"),
-            necessario per ontologie come GO dove l'ID da solo non è confrontabile con la domanda.
-        predicates: se impostato, indicizza solo le triple con questi nomi locali di predicato
-            (utile per ontologie enormi). Con None si indicizza tutto (comportamento originale).
+        label_aware: also show rdfs:label next to IDs ("cell cycle (GO_0007049)"),
+            needed for ontologies like GO where the ID alone cannot be matched
+            against the question.
+        predicates: if set, index only the triples with these local predicate
+            names (useful for huge ontologies). With None everything is indexed
+            (original behavior).
         """
         self.ontology_path = ontology_path
         self.label_aware = label_aware
         self.predicates = predicates
         self.embedder = SentenceTransformer(model_name)
         
-        # Inizializza ChromaDB persistente su disco
+        # Initialize ChromaDB persisted on disk
         self.client = chromadb.PersistentClient(path=persist_dir)
         self.collection = self.client.get_or_create_collection(name=collection_name)
         
-        # Se la collezione è vuota, indicizza l'ontologia
+        # If the collection is empty, index the ontology
         if self.collection.count() == 0:
             print(f"Collezione '{collection_name}' vuota. Avvio indicizzazione di {ontology_path}...")
             self._build_index()

@@ -21,7 +21,7 @@ class PromptGenerator:
         self.domain_constraint_go = domain_constraint or (
             "Focus strictly on the Gene Ontology (GO): biological process classes and their subclass hierarchy."
         )
-        # GO identifica le classi con ID (GO_0008150): la risposta deve usare gli ID, non le etichette
+        # GO identifies classes by ID (GO_0008150): the answer must use IDs, not labels
         self.answer_type_go = answer_type or (
             "Provide your response using EXACTLY this format:\n"
             "[Short Answer: yes, no, or comma-separated list of GO identifiers]\n"
@@ -34,7 +34,7 @@ class PromptGenerator:
         self.domain_constraint_wine = domain_constraint or (
             "Focus strictly on wine-related topics, as modelled in the W3C OWL Guide wine ontology."
         )
-        # Formato generico (risposta breve + spiegazione) per ontologie con domande si/no e liste
+        # Generic format (short answer + explanation) for ontologies with yes/no and list questions
         self.answer_type_short = answer_type or (
             "Provide your response using EXACTLY this format:\n"
             "[Short Answer: yes, no, or comma-separated list]\n"
@@ -73,13 +73,13 @@ class PromptGenerator:
         is_go = (ontology_context == "go.owl")
         is_pizza = (ontology_context == "pizza.owl")
 
-        # L'ontologia intera si legge solo se serve (go.owl pesa 130 MB)
+        # The whole ontology is read only if needed (go.owl weighs 130 MB)
         needs_full_text = "Onto" in mode and "RAG_a" not in mode
         raw_ontology = self.getOntology(
             ontology_context) if ontology_context and needs_full_text else None
 
         # -------------------------------------------------------------
-        # SYSTEM PROMPT: Contesto ontologico, ruolo e vincoli globali
+        # SYSTEM PROMPT: ontological context, role and global constraints
         # -------------------------------------------------------------
         if "Onto" in mode:
             system_parts.append(self.system_role)
@@ -126,7 +126,7 @@ class PromptGenerator:
         system_parts.append("Avoid extra explanation or unrelated details.")
 
         # -------------------------------------------------------------
-        # USER PROMPT: La domanda operativa specifica e input dinamico
+        # USER PROMPT: the specific operative question and dynamic input
         # -------------------------------------------------------------
         user_parts.append(
             "Provide a clear and concise answer to the following question.")

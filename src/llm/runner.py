@@ -18,13 +18,13 @@ INPUT_PATH = os.path.join(BASE_DIR, "data", "input")
 
 API_BASE = "http://localhost:11434"
 NUM_CTX = 24576
-# wine.rdf da solo pesa ~24k token: non entra in NUM_CTX con il resto del prompt
+# wine.rdf alone weighs ~24k tokens: it does not fit in NUM_CTX with the rest of the prompt
 NUM_CTX_BY_ONTOLOGY = {"wine.rdf": 32768}
 NUM_PREDICT = 2048
 REQUEST_TIMEOUT_SEC = 900
-# Finestra di contesto nativa di ogni modello (ollama show): limite superiore
-# all'espansione automatica di num_ctx. Un modello la cui finestra nativa è più
-# piccola del prompt non può contenere l'ontologia per intero.
+# Native context window of each model (ollama show): upper bound for the
+# automatic expansion of num_ctx. A model whose native window is smaller than
+# the prompt cannot hold the whole ontology.
 NUM_CTX_BY_MODEL = {
     "qwen2.5:7b": 32768,
     "granite3.3:8b": 131072,
@@ -33,31 +33,32 @@ NUM_CTX_BY_MODEL = {
     "gpt-oss:20b": 131072,
     "qwen3.8:27b": 262144,
 }
-# Tetto di sicurezza per l'espansione automatica (KV cache: la memoria unificata
-# non basta per 27B con contesti molto grandi).
+# Safety cap for the automatic expansion (KV cache: unified memory is not
+# enough for 27B models with very large contexts).
 MAX_NUM_CTX = 98304
-CHARS_PER_TOKEN = 3.5   # stima tipica per testo RDF/Turtle (~3-4 caratteri/token)
-CHARS_PER_TOKEN_UPPER = 6  # limite superiore caratteri/token -> stima per difetto dei token
-# I modelli "thinking" consumano num_predict nel ragionamento: granite4.2 lo scrive nella
-# risposta, gpt-oss restituisce testo vuoto. Il ragionamento è disattivato per tutti i modelli
-# (confronto omogeneo); gpt-oss non può disattivarlo e accetta solo low/medium/high:
-# con "low" risponde vuoto quando il contesto recuperato non basta, con "medium" risponde.
+CHARS_PER_TOKEN = 3.5   # typical estimate for RDF/Turtle text (~3-4 chars/token)
+CHARS_PER_TOKEN_UPPER = 6  # upper bound chars/token -> lower-bound token estimate
+# "Thinking" models consume num_predict while reasoning: granite4.2 writes it into
+# the answer, gpt-oss returns empty text. Reasoning is disabled for all models
+# (homogeneous comparison); gpt-oss cannot disable it and accepts only
+# low/medium/high: with "low" it answers empty when the retrieved context is
+# insufficient, with "medium" it answers.
 THINK_DEFAULT = False
 THINK_BY_MODEL = {"gpt-oss:20b": "medium"}
-# Comportamento verificato sperimentalmente su Ollama 0.34.2 (API diretta, senza LiteLLM):
-# un prompt più lungo di num_ctx NON dà errore, ma viene troncato in silenzio a
-# num_ctx/2 + 2 token tenendo la CODA del prompt (l'inizio sparisce).
-# Esempi: num_ctx=24576 -> 12290 token valutati; num_ctx=65536 -> 32770.
-# Un prompt che entra in num_ctx viene invece valutato per intero. Conseguenze:
-# 1) num_ctx va scelto in modo che il prompt ci stia (espansione automatica qui sotto);
-# 2) il flag di troncamento non può confrontare prompt_tokens con num_ctx (dopo il taglio
-#    vale num_ctx/2, non num_ctx): confronta i token riportati con una stima per difetto
-#    dei token effettivamente inviati.
+# Behavior verified experimentally on Ollama 0.34.2 (direct API, without LiteLLM):
+# a prompt longer than num_ctx does NOT raise an error, but is silently truncated
+# to num_ctx/2 + 2 tokens, keeping the TAIL of the prompt (the beginning disappears).
+# Examples: num_ctx=24576 -> 12290 evaluated tokens; num_ctx=65536 -> 32770.
+# A prompt that fits in num_ctx is instead evaluated in full. Consequences:
+# 1) num_ctx must be chosen so the prompt fits (automatic expansion below);
+# 2) the truncation flag cannot compare prompt_tokens with num_ctx (after the cut
+#    it equals num_ctx/2, not num_ctx): it compares the reported tokens with a
+#    lower-bound estimate of the tokens actually sent.
 TRUNCATION_MARGIN = 8
 
-# Ontologie su cui RAG_a è applicabile, con la configurazione del relativo indice.
-# GO usa le etichette (gli ID GO_xxxxxxx da soli non si confrontano con la domanda) e indicizza
-# solo gerarchia e sinonimi esatti: 1,4M triple complete richiederebbero troppo tempo.
+# Ontologies on which RAG_a is applicable, with the configuration of their index.
+# GO uses labels (GO_xxxxxxx IDs alone cannot be matched against the question) and
+# indexes only hierarchy and exact synonyms: the full 1.4M triples would take too long.
 RAG_CONFIG = {
     "Rientra.ttl": {
         "ontology_path": os.path.join(BASE_DIR, "data", "ontologies", "Rientra.ttl"),
@@ -72,7 +73,7 @@ RAG_CONFIG = {
 }
 RAG_ONTOLOGIES = set(RAG_CONFIG)
 
-# Ontologie troppo grandi per essere incollate nel prompt (go.owl: 130 MB, ~37M token)
+# Ontologies too large to be pasted into the prompt (go.owl: 130 MB, ~37M tokens)
 NO_FULL_PASTE_ONTOLOGIES = {"go.owl"}
 
 _rag_cache = {}
@@ -81,7 +82,7 @@ _rag_cache = {}
 
 
 def get_rag(ontology_name):
-    """Crea l'indice RAG una sola volta per ontologia (caricamento embedder costoso)."""
+    """Create the RAG index once per ontology (loading the embedder is expensive)."""
     if ontology_name not in _rag_cache:
         cfg = RAG_CONFIG[ontology_name]
         predicates = cfg.get("predicates")
@@ -102,7 +103,7 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
     original_model_name = model_name
     model_name = f"ollama/{model_name}"
 
-    # carica le domande dal file JSON e inizializza il generatore di prompt
+    # load the questions from the JSON file and initialize the prompt generator
     questions_path = questions_path or os.path.join(INPUT_PATH, "questions.json")
     with open(questions_path, "r", encoding="utf-8") as f:
         questions = json.load(f)
@@ -128,7 +129,7 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
         question_text = q.get("Question")
         ontology_context = q.get("Ontology")
         if specific_ontology == "Rientra.ttl" and ontology_context == "Rientra.rdf":
-            # Forza l'ontologia a Rientra.ttl per il confronto
+            # Force the ontology to Rientra.ttl for the comparison
             ontology_context = "Rientra.ttl"
         if specific_ontology and (
             not ontology_context
@@ -137,11 +138,11 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
             continue
         sparql_query = q.get("SPARQL")
 
-        # --- Dimensionamento del contesto ---
-        # num_ctx deve contenere prompt + generazione, altrimenti Ollama tronca
-        # il prompt in silenzio a num_ctx/2 (vedi commento in testa al file).
-        # Si parte dal valore base dell'ontologia e si espande fino a far entrare
-        # il prompt, entro la finestra nativa del modello e il tetto di sicurezza.
+        # --- Context sizing ---
+        # num_ctx must hold prompt + generation, otherwise Ollama silently
+        # truncates the prompt to num_ctx/2 (see the comment at the top of the file).
+        # Start from the ontology's base value and expand until the prompt fits,
+        # within the model's native window and the safety cap.
         num_ctx = max(
             NUM_CTX_BY_ONTOLOGY.get(ontology_context, NUM_CTX), NUM_CTX
         )
@@ -174,9 +175,9 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
                     num_ctx = expanded
             extra_info["est_prompt_tokens"] = int(est_tokens)
             if est_tokens + NUM_PREDICT > num_ctx:
-                # Nemmeno la finestra massima contiene il prompt: Ollama lo
-                # troncherà a num_ctx/2. La richiesta viene comunque eseguita
-                # (condizione sperimentale "frammento"), ma marcata a priori.
+                # Not even the maximum window holds the prompt: Ollama will
+                # truncate it to num_ctx/2. The request is still executed
+                # (experimental "fragment" condition), but flagged in advance.
                 extra_info["context_expected_truncated"] = True
                 print(
                     f"  [ctx] ATTENZIONE: prompt ~{int(est_tokens)} token "
@@ -192,12 +193,12 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
                 temperature=0.0,
                 api_base=API_BASE,
                 timeout=REQUEST_TIMEOUT_SEC,
-                # Parametri specifici passati direttamente al motore Ollama
+                # Engine-specific parameters passed directly to Ollama
                 extra_body={
                     "think": think,
                     "options": {
-                        "num_ctx": num_ctx,      # Finestra di contesto estesa per contenere l'ontologia
-                        "num_predict": NUM_PREDICT,    # Budget per la generazione dell'inferenza
+                        "num_ctx": num_ctx,      # Extended context window to hold the ontology
+                        "num_predict": NUM_PREDICT,    # Generation budget for the inference
                         "temperature": 0.0,
                         "repeat_penalty": 1.0,
                     }
@@ -212,9 +213,9 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
             response_cost = response._hidden_params.get(
                 "response_cost", 0.0) if hasattr(response, "_hidden_params") else 0.0
             min_prompt_tokens = (len(system_prompt) + len(user_prompt)) / CHARS_PER_TOKEN_UPPER
-            # Troncamento: i token valutati sono meno dei token (stimati per
-            # difetto) effettivamente inviati, oppure il prompt stimato non
-            # entrava comunque in num_ctx (Ollama lo taglia a num_ctx/2).
+            # Truncation: the evaluated tokens are fewer than the tokens
+            # actually sent (lower-bound estimate), or the estimated prompt
+            # did not fit in num_ctx anyway (Ollama cuts it to num_ctx/2).
             extra_info["context_truncated"] = bool(
                 prompt_tokens < min_prompt_tokens - TRUNCATION_MARGIN
                 or min_prompt_tokens > num_ctx
@@ -222,7 +223,7 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
             )
             if not answer:
                 extra_info["empty_answer"] = True
-        except Exception as e:  # noqa: BLE001 - l'errore viene salvato nel risultato
+        except Exception as e:  # noqa: BLE001 - the error is saved in the result
             error = str(e)
             answer = f"Error: {error}"
             time_taken = round(time() - start_time, 3)

@@ -32,14 +32,15 @@ MODEL_LEVELS = {
     "3": MODELLI_LOCALI,
 }
 
-# Q+Onto+Domain incolla l'ontologia intera nel prompt; RAG_a usa solo le triple
-# recuperate ed è applicabile solo a Rientra.ttl (caso speciale).
+# Q+Onto+Domain pastes the whole ontology into the prompt; RAG_a uses only the
+# retrieved triples and is applicable only to the ontologies in RAG_CONFIG.
 PROMPT_MODES = ["Q", "Q+Domain", "Q+Onto+Domain", "RAG_a"]
 RAG_MODES = {"RAG_a"}
 ONTOLOGY_NAME = ["pizza.owl", "Rientra.rdf", "Rientra.ttl", "foaf.rdf", "wine.rdf", "go.owl"]
 
-# Risposte attese troppo lunghe per num_predict (2048) / num_ctx: punteggio dipendente
-# dalla lunghezza dell'output, non dal ragionamento. Escluse dalle medie, riportate a parte.
+# Expected answers too long for num_predict (2048) / num_ctx: the score would
+# depend on output length, not on reasoning. Excluded from the averages and
+# reported separately in the summary_oversized_* files.
 OVERSIZED_QIDS = {
     18: "2720 righe (~33k token)",
     19: "501 righe (~4k token)",
@@ -50,20 +51,20 @@ OVERSIZED_QIDS = {
 SUMMARY_METRICS = [
     "Exact_Match", "Cosine_Similarity", "BLEU_Score", "Runtime_Sec", "Tokens_Per_Sec",
 ]
-# Risposta vuota (es. modello di ragionamento che esaurisce num_predict nel "thinking"):
-# conta come risposta sbagliata, quindi punteggio 0, ed è riportata in N_Empty.
+# Empty answer (e.g. a reasoning model that exhausts num_predict while
+# "thinking"): counts as a wrong answer, i.e. score 0, and is reported in N_Empty.
 SCORE_METRICS = ["cosine_similarity", "bleu_score", "exact_match"]
 
 RESPONSES_ROOT = Path(BASE_DIR) / "output" / "responses"
 
 
 def ontology_folder_name(ontology_name):
-    """'Rientra.rdf' -> 'Rientra_rdf' (evita collisioni tra .rdf e .ttl)."""
+    """'Rientra.rdf' -> 'Rientra_rdf' (avoids collisions between .rdf and .ttl)."""
     return ontology_name.replace(".", "_")
 
 
 def modes_for_ontology(ontology_name, modes):
-    """RAG_a solo sulle ontologie con indice RAG; Q+Onto+Domain non su quelle troppo grandi."""
+    """RAG_a only on ontologies with a RAG index; Q+Onto+Domain not on the oversized ones."""
     return [
         m for m in modes
         if (m not in RAG_MODES or ontology_name in RAG_ONTOLOGIES)
@@ -90,7 +91,7 @@ def resolve_models(models_arg):
 
 
 # ==========================================
-# FASE INFERENZA (BENCHMARK CICLICO)
+# INFERENCE PHASE (BENCHMARK LOOP)
 # ==========================================
 def run_all_benchmarks(output_dir, specific_ontology, models, modes, questions_path=None):
     print("--- FASE 1: AVVIO ESECUZIONE BENCHMARK ---")
@@ -105,17 +106,17 @@ def run_all_benchmarks(output_dir, specific_ontology, models, modes, questions_p
                     output_dir=output_dir,
                     questions_path=questions_path,
                 )
-            except Exception as e:  # noqa: BLE001 - un modello non deve fermare gli altri
+            except Exception as e:  # noqa: BLE001 - one model must not stop the others
                 print(
                     f"Errore durante l'esecuzione di {model} con modalità {mode}: {e}"
                 )
 
 
 # ==========================================
-# FASE VALUTAZIONE & ESTRAZIONE MATRICE
+# EVALUATION PHASE & MATRIX EXTRACTION
 # ==========================================
 def _json_safe(value):
-    """json.dump scrive NaN, che non è JSON valido: lo sostituisce con None."""
+    """json.dump writes NaN, which is not valid JSON: replace it with None."""
     if isinstance(value, float) and math.isnan(value):
         return None
     return value
@@ -128,13 +129,13 @@ def _dump_json(rows, path):
 
 
 def summarize(df, oversized=False):
-    """Medie per Ontology/Model/Prompt_Mode escludendo risposte troncate o in errore.
+    """Means per Ontology/Model/Prompt_Mode, excluding truncated or errored responses.
 
-    Le righe escluse restano nella matrice e vengono contate come statistica
-    (N_Total, N_Truncated, N_Error, N_Empty, N_Valid). Le risposte vuote restano
-    nelle medie con punteggio 0. Le domande con risposta attesa
-    troppo lunga (OVERSIZED_QIDS) sono escluse dal riepilogo principale
-    (oversized=False) e riportate in un riepilogo separato (oversized=True).
+    Excluded rows stay in the matrix and are counted as statistics
+    (N_Total, N_Truncated, N_Error, N_Empty, N_Valid). Empty answers stay
+    in the means with score 0. Questions whose expected answer is too long
+    (OVERSIZED_QIDS) are excluded from the main summary (oversized=False)
+    and reported in a separate summary (oversized=True).
     """
     if df.empty:
         return pd.DataFrame()
@@ -190,14 +191,14 @@ def evaluate_and_generate_matrix(
             fc_ans = resp.get("FC_Ans") or resp.get("ground_truth", "")
             metrics = resp.get("metrics", {})
 
-            # Le risposte in errore non vanno valutate come risposte reali
+            # Errored responses must not be evaluated as real answers
             eval_metrics = evaluator.compute_metrics(
                 llm_answer_text="" if error else llm_answer,
                 fc_answer=fc_ans if fc_ans else "N/A",
                 sparql_query=sparql if sparql else "N/A",
                 ground_truth_text=None,
             )
-            # Risposta vuota senza errore: sbagliata, non mancante (punteggio 0)
+            # Empty answer without error: wrong, not missing (score 0)
             is_empty = not error and not (llm_answer or "").strip()
             if is_empty:
                 eval_metrics = {**eval_metrics, **{k: 0.0 for k in SCORE_METRICS}}
@@ -263,7 +264,7 @@ def evaluate_and_generate_matrix(
 
 
 # ==========================================
-# CLI PARSER E MAIN EXECUTION
+# CLI PARSER AND MAIN EXECUTION
 # ==========================================
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -310,7 +311,7 @@ def parse_arguments():
 
 
 def latest_responses_dir():
-    """Cartella più recente che contiene sottocartelle per ontologia."""
+    """Most recent directory containing per-ontology subdirectories."""
     if not RESPONSES_ROOT.is_dir():
         return None
     candidates = [
