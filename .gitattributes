@@ -1,2 +1,6 @@
 data/ontologies/go.owl filter=lfs diff=lfs merge=lfs -text
 chroma_db/chroma.sqlite3 filter=lfs diff=lfs merge=lfs -text
+data/ontologies/{foaf.rdf,food.rdf,go.owl,wine.rdf filter=lfs diff=lfs merge=lfs -text
+data/ontologies/wine.rdf filter=lfs diff=lfs merge=lfs -text
+data/ontologies/foaf.rdf filter=lfs diff=lfs merge=lfs -text
+data/ontologies/food.rdf filter=lfs diff=lfs merge=lfs -text
