@@ -1,6 +1,6 @@
 import os
 import chromadb
-from rdflib import Graph
+from rdflib import BNode, Graph, Literal, RDFS
 from sentence_transformers import SentenceTransformer
 
 
@@ -10,9 +10,19 @@ class OntologyRAG:
         ontology_path: str = "./data/ontologies/Rientra.ttl",
         model_name: str = "all-MiniLM-L6-v2",
         persist_dir: str = "./chroma_db",
-        collection_name: str = "rientra_rag"
+        collection_name: str = "rientra_rag",
+        label_aware: bool = False,
+        predicates: set[str] | None = None,
     ):
+        """
+        label_aware: mostra anche le rdfs:label accanto agli ID ("cell cycle (GO_0007049)"),
+            necessario per ontologie come GO dove l'ID da solo non è confrontabile con la domanda.
+        predicates: se impostato, indicizza solo le triple con questi nomi locali di predicato
+            (utile per ontologie enormi). Con None si indicizza tutto (comportamento originale).
+        """
         self.ontology_path = ontology_path
+        self.label_aware = label_aware
+        self.predicates = predicates
         self.embedder = SentenceTransformer(model_name)
         
         # Inizializza ChromaDB persistente su disco
@@ -42,12 +52,27 @@ class OntologyRAG:
         file_format = "turtle" if self.ontology_path.endswith((".ttl", ".turtle")) else "xml"
         g.parse(self.ontology_path, format=file_format)
 
+        labels = {}
+        if self.label_aware:
+            for s, o in g.subject_objects(RDFS.label):
+                labels.setdefault(s, str(o))
+
+        def render(term):
+            if isinstance(term, Literal):
+                return str(term).strip()
+            name = self._extract_local_name(term)
+            if self.label_aware and not isinstance(term, Literal) and term in labels:
+                return f"{labels[term]} ({name})"
+            return name
+
         triples_set = set()
         for s, p, o in g:
-            sub = self._extract_local_name(s)
-            pred = self._extract_local_name(p)
-            obj = self._extract_local_name(o)
-            triples_set.add(f"{sub} {pred} {obj}")
+            if self.predicates is not None:
+                if self._extract_local_name(p) not in self.predicates:
+                    continue
+                if isinstance(s, BNode) or isinstance(o, BNode):
+                    continue
+            triples_set.add(f"{render(s)} {self._extract_local_name(p)} {render(o)}")
 
         return list(triples_set)
 
