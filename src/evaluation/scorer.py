@@ -55,7 +55,7 @@ class LLMEvaluator:
                 norm_syn = normalize_item(syn)
                 if REVERSE_SYNONYM_MAP.get(norm_syn, norm_key) != norm_key:
                     raise ValueError(
-                        f"Sinonimo ambiguo in SYNONYM_MAPPINGS: '{syn}'")
+                        f"Ambiguous synonym in SYNONYM_MAPPINGS: '{syn}'")
                 REVERSE_SYNONYM_MAP[norm_syn] = norm_key
         self.reverse_synonym_map = REVERSE_SYNONYM_MAP
 

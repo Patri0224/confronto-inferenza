@@ -33,10 +33,10 @@ class OntologyRAG:
         
         # If the collection is empty, index the ontology
         if self.collection.count() == 0:
-            print(f"Collezione '{collection_name}' vuota. Avvio indicizzazione di {ontology_path}...")
+            print(f"Collection '{collection_name}' is empty. Indexing {ontology_path}...")
             self._build_index()
         else:
-            print(f"Collezione '{collection_name}' caricata da disco: {self.collection.count()} asserzioni presenti.")
+            print(f"Collection '{collection_name}' loaded from disk: {self.collection.count()} assertions present.")
 
     def _extract_local_name(self, uri_or_literal) -> str:
         val = str(uri_or_literal)
@@ -48,7 +48,7 @@ class OntologyRAG:
 
     def _load_and_linearize_triples(self) -> list[str]:
         if not os.path.exists(self.ontology_path):
-            raise FileNotFoundError(f"File ontologia non trovato: {self.ontology_path}")
+            raise FileNotFoundError(f"Ontology file not found: {self.ontology_path}")
 
         g = Graph()
         file_format = "turtle" if self.ontology_path.endswith((".ttl", ".turtle")) else "xml"
@@ -80,7 +80,7 @@ class OntologyRAG:
 
     def _build_index(self, batch_size: int = 1000):
         triples = self._load_and_linearize_triples()
-        print(f"Estratte {len(triples)} asserzioni uniche. Calcolo embedding...")
+        print(f"Extracted {len(triples)} unique assertions. Computing embeddings...")
 
         for i in range(0, len(triples), batch_size):
             batch = triples[i : i + batch_size]
@@ -92,9 +92,9 @@ class OntologyRAG:
                 embeddings=batch_embeddings,
                 ids=batch_ids
             )
-            print(f"Indicizzate {min(i + batch_size, len(triples))}/{len(triples)} triple...")
+            print(f"Indexed {min(i + batch_size, len(triples))}/{len(triples)} triples...")
 
-        print("Indicizzazione completata con successo.")
+        print("Indexing completed successfully.")
 
     def retrieve(self, query: str, top_k: int = 15) -> list[str]:
         query_emb = self.embedder.encode([query]).tolist()

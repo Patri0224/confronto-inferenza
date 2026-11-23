@@ -8,11 +8,11 @@ class TextToSparqlEngine:
     def __init__(self, ontology_path: str = "./data/ontologies/Rientra.ttl"):
         self.ontology_path = ontology_path
         self.graph = Graph()
-        print(f"Caricamento ontologia in RDFLib da: {ontology_path}...")
+        print(f"Loading ontology into RDFLib from: {ontology_path}...")
         file_format = "turtle" if ontology_path.endswith(
             (".ttl", ".turtle")) else "xml"
         self.graph.parse(ontology_path, format=file_format)
-        print(f"Ontologia caricata con successo ({len(self.graph)} triple).")
+        print(f"Ontology loaded successfully ({len(self.graph)} triples).")
 
     def generate_sparql_prompt(self, question: str) -> tuple[str, str]:
         # Rientra_TBox_Schema.ttl / RTSS.ttl: the TBox extract used for prompting
@@ -23,7 +23,7 @@ class TextToSparqlEngine:
                 TBox_Schema_content = f.read()
         except FileNotFoundError:
             print(
-                f"[Warning]: Il file {TBox_Schema_path} non è stato trovato. Assicurati che sia presente nella directory corrente.")
+                f"[Warning]: File {TBox_Schema_path} not found. Make sure it is present in the current directory.")
             TBox_Schema_content = "Schema non disponibile."
         system_prompt = (
             "You are an expert SPARQL query generator for the Rientra OWL ontology.\n"
@@ -79,7 +79,7 @@ class TextToSparqlEngine:
             return extracted_items
         except Exception as e:
             print(
-                f"[RDFLib Error]: Impossibile eseguire la query. Dettaglio: {e}")
+                f"[RDFLib Error]: Could not execute the query. Details: {e}")
             return []
 
     def run_text_to_sparql(self, question: str, model: str = "ollama/llama3.1") -> dict:

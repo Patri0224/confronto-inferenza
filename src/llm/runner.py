@@ -109,11 +109,11 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
         questions = json.load(f)
 
     if prompt_mode == "Q+Onto+Domain" and specific_ontology in NO_FULL_PASTE_ONTOLOGIES:
-        raise ValueError(f"{specific_ontology} è troppo grande per essere incollata nel prompt")
+        raise ValueError(f"{specific_ontology} is too large to be pasted into the prompt")
     rag_a = None
     if prompt_mode == "RAG_a":
         if specific_ontology not in RAG_ONTOLOGIES:
-            raise ValueError(f"RAG_a è supportato solo per {sorted(RAG_ONTOLOGIES)}")
+            raise ValueError(f"RAG_a is supported only for {sorted(RAG_ONTOLOGIES)}")
         rag_a = get_rag(specific_ontology)
     generator = PromptGenerator(rag_a=rag_a)
 
@@ -180,9 +180,9 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
                 # (experimental "fragment" condition), but flagged in advance.
                 extra_info["context_expected_truncated"] = True
                 print(
-                    f"  [ctx] ATTENZIONE: prompt ~{int(est_tokens)} token "
-                    f"oltre la finestra massima {num_ctx} di "
-                    f"{original_model_name}: sara' troncato a ~{num_ctx // 2} token"
+                    f"  [ctx] WARNING: prompt ~{int(est_tokens)} tokens "
+                    f"beyond the maximum window {num_ctx} of "
+                    f"{original_model_name}: it will be truncated to ~{num_ctx // 2} tokens"
                 )
             response = litellm.completion(
                 model=model_name,
@@ -229,7 +229,7 @@ def benchmark(model_name, prompt_mode, specific_ontology, output_dir, questions_
             time_taken = round(time() - start_time, 3)
             prompt_tokens = completion_tokens = total_tokens = 0
             response_cost = 0.0
-            print(f"Errore: {e}")
+            print(f"Error: {e}")
 
         tokens_per_second = round(
             completion_tokens / time_taken, 2) if time_taken and time_taken > 0 else 0

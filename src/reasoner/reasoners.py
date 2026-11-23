@@ -7,7 +7,7 @@ class Reasoner:
     def __init__(self, ontology_path):
         if not ontology_path or not os.path.exists(ontology_path):
             raise ValueError(
-                f"Ontology path non valido o file inesistente: {ontology_path}")
+                f"Invalid ontology path or nonexistent file: {ontology_path}")
 
         self.ontology_path = ontology_path
         self.ontology = get_ontology(ontology_path).load()
@@ -17,10 +17,10 @@ class Reasoner:
 
     def reason(self):
         """Run HermiT to materialize the OWL classifications"""
-        print(f"⚙️ Avvio HermiT su {os.path.basename(self.ontology_path)}...")
+        print(f"[reasoner] Running HermiT on {os.path.basename(self.ontology_path)}...")
         with self.ontology:
             sync_reasoner_hermit(infer_property_values=True)
-        print("✅ Ragionamento HermiT completato!")
+        print("[reasoner] HermiT reasoning completed!")
 
     def _clean_name(self, raw_name):
         """Clean the string, isolating the pure class name"""

@@ -119,6 +119,7 @@ The consolidated per-configuration numbers (both the "empty = 0" and the
 
 ## License
 
-The benchmark code is provided for review. The Rientra ontology is publicly
-released; the public ontologies (FOAF, Wine, Pizza, GO) are redistributed or
-referenced by version.
+The code in this repository is licensed under the [Apache License 2.0](LICENSE).
+The Rientra ontology is publicly released; the public ontologies (FOAF, Wine,
+Pizza, GO) are redistributed or referenced by version and remain under their
+respective licenses.

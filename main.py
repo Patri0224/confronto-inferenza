@@ -78,7 +78,7 @@ def resolve_modes(modes_arg):
     modes = [m.strip() for m in modes_arg.split(",") if m.strip()]
     unknown = [m for m in modes if m not in PROMPT_MODES]
     if unknown:
-        sys.exit(f"Modalità sconosciute: {unknown}. Valide: {PROMPT_MODES}")
+        sys.exit(f"Unknown modes: {unknown}. Valid modes: {PROMPT_MODES}")
     return modes
 
 
@@ -94,9 +94,9 @@ def resolve_models(models_arg):
 # INFERENCE PHASE (BENCHMARK LOOP)
 # ==========================================
 def run_all_benchmarks(output_dir, specific_ontology, models, modes, questions_path=None):
-    print("--- FASE 1: AVVIO ESECUZIONE BENCHMARK ---")
+    print("--- PHASE 1: BENCHMARK EXECUTION ---")
     for model in models:
-        print(f"\nModello Corrente: {model}")
+        print(f"\nCurrent model: {model}")
         for mode in modes_for_ontology(specific_ontology, modes):
             try:
                 benchmark(
@@ -108,7 +108,7 @@ def run_all_benchmarks(output_dir, specific_ontology, models, modes, questions_p
                 )
             except Exception as e:  # noqa: BLE001 - one model must not stop the others
                 print(
-                    f"Errore durante l'esecuzione di {model} con modalità {mode}: {e}"
+                    f"Error while running {model} in mode {mode}: {e}"
                 )
 
 
@@ -161,7 +161,7 @@ def evaluate_and_generate_matrix(
 ):
     if timestamp is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    print("--- FASE 2: ELABORAZIONE RISPOSTE E VALUTAZIONE METRICHE ---")
+    print("--- PHASE 2: RESPONSE PROCESSING AND METRIC EVALUATION ---")
     os.makedirs(comparisons_dir, exist_ok=True)
 
     json_files = sorted(glob.glob(os.path.join(responses_dir, "*.json")))
@@ -172,7 +172,7 @@ def evaluate_and_generate_matrix(
     for file_path in json_files:
         filename = os.path.basename(file_path)
 
-        print(f" Analisi file: {filename}")
+        print(f" Analyzing file: {filename}")
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
@@ -255,10 +255,10 @@ def evaluate_and_generate_matrix(
             comparisons_dir, f"{name}_evaluation_{timestamp}.json"
         )
         _dump_json(summary.to_dict(orient="records"), json_summary_path)
-        print(f"Riepilogo '{name}' (senza risposte troncate/in errore) salvato in: {json_summary_path}")
+        print(f"Summary '{name}' (without truncated/errored responses) saved to: {json_summary_path}")
     print(
-        f"\nValutazione completata con successo!\n"
-        f"Matrice JSON salvata in: {json_matrix_path}"
+        f"\nEvaluation completed successfully!\n"
+        f"JSON matrix saved to: {json_matrix_path}"
     )
     return df
 
@@ -268,44 +268,44 @@ def evaluate_and_generate_matrix(
 # ==========================================
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description="Benchmark di inferenza ontologica e Text-to-SPARQL con LLM locali."
+        description="Ontology inference and Text-to-SPARQL benchmark with local LLMs."
     )
     parser.add_argument(
         "--ontology",
         type=str,
         choices=ONTOLOGY_NAME,
         default=None,
-        help="Ontologia di riferimento su cui eseguire il benchmark (default: tutte).",
+        help="Ontology to run the benchmark on (default: all).",
     )
     parser.add_argument(
         "--questions",
         type=str,
         default=None,
-        help="Percorso al file JSON contenente le domande (default: data/input/questions.json).",
+        help="Path to the JSON file with the questions (default: data/input/questions.json).",
     )
     parser.add_argument(
         "--models",
         type=str,
         default=None,
-        help="Livello di modelli da eseguire ('1': piccoli, '2': grandi, '3': tutti) o lista separata da virgole.",
+        help="Model level to run ('1': small, '2': large, '3': all) or a comma-separated list.",
     )
     parser.add_argument(
         "--modes",
         type=str,
         default=None,
-        help=f"Lista separata da virgole di modalità di prompt tra {PROMPT_MODES} (default: tutte). "
+        help=f"Comma-separated list of prompt modes among {PROMPT_MODES} (default: all). "
              f"RAG_a è eseguita solo su {sorted(RAG_ONTOLOGIES)}.",
     )
     parser.add_argument(
         "--skip-benchmark",
         action="store_true",
-        help="Salta la fase di inferenza e valuta solo le risposte già presenti nella cartella di output più recente.",
+        help="Skip the inference phase and only score the responses already present in the latest output directory.",
     )
     parser.add_argument(
         "--output-dir",
         type=str,
         default=None,
-        help="Cartella base di destinazione per le risposte (default: output/responses/<timestamp>).",
+        help="Base output directory for the responses (default: output/responses/<timestamp>).",
     )
     return parser.parse_args()
 
@@ -323,9 +323,9 @@ def latest_responses_dir():
 
 
 def print_preview(df_matrix):
-    print("\n Anteprima della Matrice Risultati:")
+    print("\n Preview of the results matrix:")
     if df_matrix.empty:
-        print("Attenzione: Il DataFrame è vuoto! Nessun file di risposta valido trovato.")
+        print("Warning: the DataFrame is empty! No valid response file found.")
         return
     columns_to_show = [
         "QID",
@@ -353,7 +353,7 @@ def main():
             Path(args.output_dir) if args.output_dir else latest_responses_dir()
         )
         if responses_base_dir is None or not responses_base_dir.is_dir():
-            sys.exit("Nessuna cartella di risposte trovata da valutare.")
+            sys.exit("No responses directory found to evaluate.")
     else:
         responses_base_dir = (
             Path(args.output_dir) if args.output_dir else RESPONSES_ROOT / timestamp
@@ -368,7 +368,7 @@ def main():
 
         if args.skip_benchmark:
             if not output_dir.is_dir():
-                print(f"Nessuna risposta per {chosen_ontology_name} in {output_dir}, salto.")
+                print(f"No responses for {chosen_ontology_name} in {output_dir}, skipping.")
                 continue
         else:
             output_dir.mkdir(exist_ok=True, parents=True)

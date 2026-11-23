@@ -33,6 +33,7 @@ new_run_after_change/
 main-old.py
 Archive.zip
 full_run.log
+info.txt
 
 # Protégé
 Protege-*/
