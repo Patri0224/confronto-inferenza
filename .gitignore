@@ -16,8 +16,9 @@ env/
 # Logs
 *.log
 
-# Experiment outputs (keep output/responses/full_run, the run reported in the paper)
-output/comparisons/
+# Experiment outputs: keep only output/responses/full_run, the run reported in the paper
+output/*
+!output/responses/
 output/responses/*
 !output/responses/full_run/
 
