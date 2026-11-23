@@ -24,7 +24,7 @@ class TextToSparqlEngine:
         except FileNotFoundError:
             print(
                 f"[Warning]: File {TBox_Schema_path} not found. Make sure it is present in the current directory.")
-            TBox_Schema_content = "Schema non disponibile."
+            TBox_Schema_content = "Schema not available."
         system_prompt = (
             "You are an expert SPARQL query generator for the Rientra OWL ontology.\n"
             "Your task is to translate the user question into a valid SPARQL query using EXCLUSIVELY the provided vocabulary and exact prefix URIs.\n\n"
