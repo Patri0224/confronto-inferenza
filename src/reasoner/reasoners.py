@@ -7,23 +7,23 @@ class Reasoner:
     def __init__(self, ontology_path):
         if not ontology_path or not os.path.exists(ontology_path):
             raise ValueError(
-                f"Ontology path non valido o file inesistente: {ontology_path}")
+                f"Invalid ontology path or nonexistent file: {ontology_path}")
 
         self.ontology_path = ontology_path
         self.ontology = get_ontology(ontology_path).load()
 
-        # 1. Eseguiamo HermiT per classificare l'ontologia
+        # 1. Run HermiT to classify the ontology
         self.reason()
 
     def reason(self):
-        """Avvia HermiT per materializzare le classificazioni OWL"""
-        print(f"⚙️ Avvio HermiT su {os.path.basename(self.ontology_path)}...")
+        """Run HermiT to materialize the OWL classifications"""
+        print(f"[reasoner] Running HermiT on {os.path.basename(self.ontology_path)}...")
         with self.ontology:
             sync_reasoner_hermit(infer_property_values=True)
-        print("✅ Ragionamento HermiT completato!")
+        print("[reasoner] HermiT reasoning completed!")
 
     def _clean_name(self, raw_name):
-        """Pulisce la stringa isolando il nome puro della classe"""
+        """Clean the string, isolating the pure class name"""
         if not raw_name:
             return ""
         text = str(raw_name).strip()
@@ -35,7 +35,7 @@ class Reasoner:
         return text.strip(" .;")
 
     def _get_class(self, raw_name):
-        """Mappa i nomi usati in 60qas.json con i nomi reali in pizza.owl"""
+        """Map the names used in 60qas.json to the real names in pizza.owl"""
         clean = self._extract_clean_name_raw(raw_name)
 
         mapping = {
@@ -59,7 +59,7 @@ class Reasoner:
 
         target = mapping.get(clean.lower(), clean)
 
-        # Cerca la classe case-insensitive nell'ontologia
+        # Look up the class case-insensitively in the ontology
         for cls in self.ontology.classes():
             if cls.name.lower() == target.lower():
                 return cls
@@ -76,20 +76,20 @@ class Reasoner:
         return s.strip(" .;")
 
     def _get_toppings_for_pizza(self, pizza_cls):
-        """Estrae l'elenco dei condimenti (someValuesFrom) definiti per una pizza"""
+        """Extract the list of toppings (someValuesFrom) defined for a pizza"""
         toppings = []
         if not pizza_cls:
             return toppings
 
         for parent in pizza_cls.is_a:
-            # Se è una restrizione owl:hasTopping
+            # If it is an owl:hasTopping restriction
             if hasattr(parent, "property") and parent.property.name == "hasTopping":
                 if hasattr(parent, "value"):
                     toppings.append(parent.value)
         return toppings
 
     def evaluate_question(self, sparql_query):
-        """Valuta le domande tramite ispezione ontologica formale DL"""
+        """Evaluate the questions through formal DL ontology inspection"""
         if not sparql_query:
             return None
 
@@ -104,13 +104,13 @@ class Reasoner:
                 super_cls = self._get_class(match.group(2))
 
                 if sub_cls and super_cls:
-                    # 1. Controllo diretto o tra gli antenati
+                    # 1. Direct check or among the ancestors
                     if super_cls in sub_cls.ancestors():
                         return True
 
-                    # 2. Gestione speciale per VegetarianPizza e CheeseyPizza (Classi Equivalenti DL)
+                    # 2. Special handling for VegetarianPizza and CheeseyPizza (DL Equivalent Classes)
                     if super_cls.name in ["VegetarianPizza", "VegetarianPizzaEquivalent1", "VegetarianPizzaEquivalent2"]:
-                        # Una pizza è vegetariana se NON ha MeatTopping nè FishTopping
+                        # A pizza is vegetarian if it has NO MeatTopping or FishTopping
                         toppings = self._get_toppings_for_pizza(sub_cls)
                         has_meat_or_fish = False
                         for t in toppings:
@@ -138,7 +138,7 @@ class Reasoner:
                 cls2 = self._get_class(match.group(2))
 
                 if cls1 and cls2:
-                    # Verifica disgiunzione diretta o ereditata tra antenati
+                    # Check direct or inherited disjointness among ancestors
                     anc1 = cls1.ancestors()
                     anc2 = cls2.ancestors()
 

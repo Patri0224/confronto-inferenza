@@ -1,6 +1,6 @@
 import os
 import chromadb
-from rdflib import Graph
+from rdflib import BNode, Graph, Literal, RDFS
 from sentence_transformers import SentenceTransformer
 
 
@@ -10,21 +10,33 @@ class OntologyRAG:
         ontology_path: str = "./data/ontologies/Rientra.ttl",
         model_name: str = "all-MiniLM-L6-v2",
         persist_dir: str = "./chroma_db",
-        collection_name: str = "rientra_rag"
+        collection_name: str = "rientra_rag",
+        label_aware: bool = False,
+        predicates: set[str] | None = None,
     ):
+        """
+        label_aware: also show rdfs:label next to IDs ("cell cycle (GO_0007049)"),
+            needed for ontologies like GO where the ID alone cannot be matched
+            against the question.
+        predicates: if set, index only the triples with these local predicate
+            names (useful for huge ontologies). With None everything is indexed
+            (original behavior).
+        """
         self.ontology_path = ontology_path
+        self.label_aware = label_aware
+        self.predicates = predicates
         self.embedder = SentenceTransformer(model_name)
         
-        # Inizializza ChromaDB persistente su disco
+        # Initialize ChromaDB persisted on disk
         self.client = chromadb.PersistentClient(path=persist_dir)
         self.collection = self.client.get_or_create_collection(name=collection_name)
         
-        # Se la collezione è vuota, indicizza l'ontologia
+        # If the collection is empty, index the ontology
         if self.collection.count() == 0:
-            print(f"Collezione '{collection_name}' vuota. Avvio indicizzazione di {ontology_path}...")
+            print(f"Collection '{collection_name}' is empty. Indexing {ontology_path}...")
             self._build_index()
         else:
-            print(f"Collezione '{collection_name}' caricata da disco: {self.collection.count()} asserzioni presenti.")
+            print(f"Collection '{collection_name}' loaded from disk: {self.collection.count()} assertions present.")
 
     def _extract_local_name(self, uri_or_literal) -> str:
         val = str(uri_or_literal)
@@ -36,24 +48,39 @@ class OntologyRAG:
 
     def _load_and_linearize_triples(self) -> list[str]:
         if not os.path.exists(self.ontology_path):
-            raise FileNotFoundError(f"File ontologia non trovato: {self.ontology_path}")
+            raise FileNotFoundError(f"Ontology file not found: {self.ontology_path}")
 
         g = Graph()
         file_format = "turtle" if self.ontology_path.endswith((".ttl", ".turtle")) else "xml"
         g.parse(self.ontology_path, format=file_format)
 
+        labels = {}
+        if self.label_aware:
+            for s, o in g.subject_objects(RDFS.label):
+                labels.setdefault(s, str(o))
+
+        def render(term):
+            if isinstance(term, Literal):
+                return str(term).strip()
+            name = self._extract_local_name(term)
+            if self.label_aware and not isinstance(term, Literal) and term in labels:
+                return f"{labels[term]} ({name})"
+            return name
+
         triples_set = set()
         for s, p, o in g:
-            sub = self._extract_local_name(s)
-            pred = self._extract_local_name(p)
-            obj = self._extract_local_name(o)
-            triples_set.add(f"{sub} {pred} {obj}")
+            if self.predicates is not None:
+                if self._extract_local_name(p) not in self.predicates:
+                    continue
+                if isinstance(s, BNode) or isinstance(o, BNode):
+                    continue
+            triples_set.add(f"{render(s)} {self._extract_local_name(p)} {render(o)}")
 
         return list(triples_set)
 
     def _build_index(self, batch_size: int = 1000):
         triples = self._load_and_linearize_triples()
-        print(f"Estratte {len(triples)} asserzioni uniche. Calcolo embedding...")
+        print(f"Extracted {len(triples)} unique assertions. Computing embeddings...")
 
         for i in range(0, len(triples), batch_size):
             batch = triples[i : i + batch_size]
@@ -65,9 +92,9 @@ class OntologyRAG:
                 embeddings=batch_embeddings,
                 ids=batch_ids
             )
-            print(f"Indicizzate {min(i + batch_size, len(triples))}/{len(triples)} triple...")
+            print(f"Indexed {min(i + batch_size, len(triples))}/{len(triples)} triples...")
 
-        print("Indicizzazione completata con successo.")
+        print("Indexing completed successfully.")
 
     def retrieve(self, query: str, top_k: int = 15) -> list[str]:
         query_emb = self.embedder.encode([query]).tolist()

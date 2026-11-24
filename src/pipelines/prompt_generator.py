@@ -1,5 +1,6 @@
 import os
 
+
 class PromptGenerator:
     def __init__(self, system_role=None, domain_constraint=None, answer_type=None, rag_a=None,rag_b=None):
         self.system_role = system_role or (
@@ -14,6 +15,33 @@ class PromptGenerator:
             "---\n"
             "[Detailed explanation of inference steps]"
         )
+        self.domain_constraint_foaf = domain_constraint or (
+            "Focus strictly on the FOAF (Friend of a Friend) vocabulary: its classes, properties and axioms."
+        )
+        self.domain_constraint_go = domain_constraint or (
+            "Focus strictly on the Gene Ontology (GO): biological process classes and their subclass hierarchy."
+        )
+        # GO identifies classes by ID (GO_0008150): the answer must use IDs, not labels
+        self.answer_type_go = answer_type or (
+            "Provide your response using EXACTLY this format:\n"
+            "[Short Answer: yes, no, or comma-separated list of GO identifiers]\n"
+            "---\n"
+            "[Detailed explanation of inference steps]\n"
+            "If the question asks whether something is true (Is/Are/Does...), the short answer must be only "
+            "'yes' or 'no'. If the question asks for classes, the short answer must be a comma-separated "
+            "list of their GO identifiers (format GO_0000000), not their labels."
+        )
+        self.domain_constraint_wine = domain_constraint or (
+            "Focus strictly on wine-related topics, as modelled in the W3C OWL Guide wine ontology."
+        )
+        # Generic format (short answer + explanation) for ontologies with yes/no and list questions
+        self.answer_type_short = answer_type or (
+            "Provide your response using EXACTLY this format:\n"
+            "[Short Answer: yes, no, or comma-separated list]\n"
+            "---\n"
+            "[Detailed explanation of inference steps]\n"
+            "Use local names without namespace prefix in the short answer (e.g. Person, not foaf:Person)."
+        )
         self.domain_constraint_rientra = domain_constraint or (
             "your job is to answer questions about the Rientra ontology instead of a reasoner, the SPARQL query is only for reference."
         )
@@ -21,6 +49,9 @@ class PromptGenerator:
             "Task: Answer the question by extracting the exact class or individual names from the ontology text.\n"
             "Rules:\n"
             "- Output only the names (short identifiers), separated by commas.\n"
+            "- If the question asks for several values per result (e.g. a job and its code, a person and a count),"
+            " write each result as its values separated by a single space (e.g. 'Name 42'),"
+            " and separate results with commas.\n"
             "- Do NOT output generic placeholders like 'Job1', 'Job2', or 'none'.\n"
             "- Do NOT repeat the same word multiple times.\n"
             "- Look specifically for classes defined under rdfs:subClassOf or RDF rdf:about attributes."
@@ -31,22 +62,24 @@ class PromptGenerator:
     def generate_prompt(self, question, sparql=None, ontology_context=None, mode="Q+Onto+Domain"):
         # Q, Q+Domain, Q+Onto+Domain, RAG_a, RAG_b
 
-
-        if mode == "RAG_b":
-            return self.rag_b.generate_sparql_prompt(question)
         if mode == "RAG_a":
             mode = "Q+Domain+Onto+RAG_a"
         system_parts = []
         user_parts = []
 
         onto_name = ontology_context if ontology_context else "N/A"
+        is_foaf = (ontology_context == "foaf.rdf")
+        is_wine = (ontology_context == "wine.rdf")
+        is_go = (ontology_context == "go.owl")
         is_pizza = (ontology_context == "pizza.owl")
 
+        # The whole ontology is read only if needed (go.owl weighs 130 MB)
+        needs_full_text = "Onto" in mode and "RAG_a" not in mode
         raw_ontology = self.getOntology(
-            ontology_context) if ontology_context else None
+            ontology_context) if ontology_context and needs_full_text else None
 
         # -------------------------------------------------------------
-        # SYSTEM PROMPT: Contesto ontologico, ruolo e vincoli globali
+        # SYSTEM PROMPT: ontological context, role and global constraints
         # -------------------------------------------------------------
         if "Onto" in mode:
             system_parts.append(self.system_role)
@@ -68,16 +101,32 @@ class PromptGenerator:
                     "Refer to your internal ontology knowledge when responding.")
 
         if "Domain" in mode:
-            domain_rule = self.domain_constraint_pizza if is_pizza else self.domain_constraint_rientra
+            if is_pizza:
+                domain_rule = self.domain_constraint_pizza
+            elif is_foaf:
+                domain_rule = self.domain_constraint_foaf
+            elif is_wine:
+                domain_rule = self.domain_constraint_wine
+            elif is_go:
+                domain_rule = self.domain_constraint_go
+            else:
+                domain_rule = self.domain_constraint_rientra
             system_parts.append(domain_rule)
 
         # Regole di formato dell'output e vincoli generali
-        format_rule = self.answer_type_pizza if is_pizza else self.answer_type_rientra
+        if is_pizza:
+            format_rule = self.answer_type_pizza
+        elif is_go:
+            format_rule = self.answer_type_go
+        elif is_foaf or is_wine:
+            format_rule = self.answer_type_short
+        else:
+            format_rule = self.answer_type_rientra
         system_parts.append(format_rule)
         system_parts.append("Avoid extra explanation or unrelated details.")
 
         # -------------------------------------------------------------
-        # USER PROMPT: La domanda operativa specifica e input dinamico
+        # USER PROMPT: the specific operative question and dynamic input
         # -------------------------------------------------------------
         user_parts.append(
             "Provide a clear and concise answer to the following question.")
@@ -94,8 +143,10 @@ class PromptGenerator:
         return system_prompt, user_prompt
 
     def getOntology(self, ontology_name):
-        onto_path = os.path.join("./data/ontologies/", f"{ontology_name}")
+        base_dir = os.path.dirname(os.path.dirname(
+            os.path.dirname(os.path.abspath(__file__))))
+        onto_path = os.path.join(base_dir, "data", "ontologies", ontology_name)
         if os.path.exists(onto_path):
             with open(onto_path, "r", encoding="utf-8") as f:
                 return f.read()
-        return ontology_name
+        return None

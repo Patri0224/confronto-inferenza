@@ -1,28 +1,39 @@
-# Ambiente virtuale Python (fondamentale!)
-env/
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+.venv/
 venv/
-ENV/
+env/
 
-# File temporanei di Python (cache)
-**/__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# File di configurazione di VS Code che potrebbero contenere percorsi locali
+# Editors / OS
 .vscode/
+.idea/
+.DS_Store
 
+# Logs
+*.log
 
-# Cartella exe protege
-Protege-5.6.9
+# Experiment outputs: keep only output/responses/full_run, the run reported in the paper
+output/*
+!output/responses/
+output/responses/*
+!output/responses/full_run/
 
+# Persisted RAG index: regenerated automatically on first run
+chroma_db/
 
-#output
-output/responses
+# Scratch / study material not part of the released artifact
+materiale/
+results-pizza/
+results-rientra/
+new_run_after_change/
+main-old.py
+Archive.zip
+full_run.log
+info.txt
 
-#materiale di studio
-materiale/ontologyRAG-main
-materiale/Ontology Evals for LLMs _ Ojitha Hewa Kumanayaka_files
-materiale/graph-constrained-reasoning-main
-materiale/OWLAPY_ A Pythonic Framework for OWL Ontology Engineering_files 
-materiale/1-s2.0-S2001037024001570-main.pdf
+# Protégé
+Protege-*/

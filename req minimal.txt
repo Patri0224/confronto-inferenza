@@ -1,3 +1,0 @@
-ollama==0.6.2
-owlready2==0.51
-rdflib==7.6.0

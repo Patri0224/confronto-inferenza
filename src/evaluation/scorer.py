@@ -3,43 +3,60 @@ from sentence_transformers import SentenceTransformer, util
 import re
 
 SYNONYM_MAPPINGS = {
-    # Per QID 13 e domande generali sui topping di pesce
+    # For QID 13 and general sea-food-topping questions
     "sea food topping": [
         "anchovies", "prawns", "mixedseafood", "seafood", "fish", "squid",
         "clam", "mussel", "crab", "lobster", "scallop", "anchoviestopping",
         "mixedseafoodtopping", "prawnstopping", "sea food"
     ],
 
-    # Per QID 9 e 15 (Frutti di mare / Seafood)
+    # For QID 9 and 15 (Frutti di mare)
+    # NB: "seafood" belongs to "sea food topping", do not duplicate it here
     "frutti di mare": [
-        "fruttidimare", "seafood", "frutti di mare", "fruttidimarepizza", "FishPizza"
+        "fruttidimare", "frutti di mare", "fruttidimarepizza", "FishPizza"
     ],
 
-    # Per QID 3 (Basi incompatibili)
+    # For QID 3 (incompatible bases)
     "deep pan base": [
         "deep pan", "deeppanbase", "deeppan", "deep_pan"
     ],
 
-    # Per categorie generali di topping formaggio
+    # For general cheese-topping categories
     "cheese topping": [
         "cheese", "mozzarella", "parmesan", "gorgonzola", "cheesetopping"
     ]
 }
 
 
+def normalize_item(text):
+    """Lowercase, without namespace prefix and without separators.
+
+    'Quattro Formaggi' == 'QuattroFormaggi'; 'foaf:Person' == 'Person'.
+    """
+    text = str(text).strip()
+    # CURIE GO:0000278 and ID GO_0000278 are the same identifier: keep the prefix
+    text = re.sub(r'^GO:(?=\d)', 'GO_', text, flags=re.IGNORECASE)
+    text = re.sub(r'^(?!https?:)(?!GO_)[A-Za-z][\w\-]*:', '', text, flags=re.IGNORECASE)
+    return re.sub(r'[\s_\-]+', '', text.lower())
+
+
 class LLMEvaluator:
     def __init__(self):
-        # Carica il modello per le similarità semantiche
+        # Load the model for semantic similarities
         self.encoder = SentenceTransformer('all-MiniLM-L6-v2')
 
-        # Carica la metrica BLEU di Hugging Face (equivalente robusto a sacrebleu/nltk)
+        # Load the Hugging Face BLEU metric (robust equivalent of sacrebleu/nltk)
         self.bleu_metric = evaluate.load("bleu")
 
         REVERSE_SYNONYM_MAP = {}
         for key, synonyms in SYNONYM_MAPPINGS.items():
-            norm_key = key.lower().strip()
+            norm_key = normalize_item(key)
             for syn in synonyms:
-                REVERSE_SYNONYM_MAP[syn.lower().strip()] = norm_key
+                norm_syn = normalize_item(syn)
+                if REVERSE_SYNONYM_MAP.get(norm_syn, norm_key) != norm_key:
+                    raise ValueError(
+                        f"Ambiguous synonym in SYNONYM_MAPPINGS: '{syn}'")
+                REVERSE_SYNONYM_MAP[norm_syn] = norm_key
         self.reverse_synonym_map = REVERSE_SYNONYM_MAP
 
     def parse_llm_response(self, llm_answer_text):
@@ -73,18 +90,23 @@ class LLMEvaluator:
 
         short_part, explanation_part = self.parse_llm_response(llm_answer_text)
 
-        is_ask = "ASK" in sparql_query.upper() if sparql_query else "SELECT"
+        # PREFIX/BASE declarations may also sit on the same line as the query
+        query_body = re.sub(
+            r'\b(?:PREFIX\s+[\w\-]*:\s*<[^>]*>|BASE\s*<[^>]*>)', '',
+            sparql_query or '', flags=re.IGNORECASE)
+        is_ask = bool(re.match(r'\s*ASK\b', query_body, re.IGNORECASE))
         ref_text = ground_truth_text if ground_truth_text else fc_answer
-        text_to_compare = explanation_part if explanation_part else llm_answer_text
-        # 1. Similarity con Sentence Transformers
+        # The ground truth is a short answer: compare it with the short answer
+        text_to_compare = short_part if short_part else llm_answer_text
+        # 1. Similarity with Sentence Transformers
         emb_gt = self.encoder.encode(ref_text, convert_to_tensor=True)
         emb_llm = self.encoder.encode(text_to_compare, convert_to_tensor=True)
         cosine_sim = float(util.cos_sim(emb_gt, emb_llm).item())
 
-        # 2. BLEU Score con Hugging Face evaluate
-        # BLEU richiede una lista di predizioni
+        # 2. BLEU score with Hugging Face evaluate
+        # BLEU requires a list of predictions
         predictions = [text_to_compare]
-        # BLEU richiede una lista di liste per le referenze
+        # BLEU requires a list of lists for the references
         references = [[ref_text]]
 
         try:
@@ -95,35 +117,39 @@ class LLMEvaluator:
             bleu = float('nan')
             print("Warning: BLEU computation failed, setting BLEU score to 0.0")
 
-        # 3. Exact Match (accuracy) su short_answer
+        # 3. Exact match (accuracy) on short_answer
         exact_match = 0.0
         short_lower = short_part.lower()
         fc_lower = fc_answer.strip().lower()
+        has_yes = bool(re.search(r'\byes\b', short_lower))
+        has_no = bool(re.search(r'\bno\b', short_lower))
 
         if is_ask:
             target_ans = fc_lower
             if target_ans == "yes":
-                exact_match = 1.0 if (
-                    "yes" in short_lower and "no" not in short_lower) else 0.0
+                exact_match = 1.0 if (has_yes and not has_no) else 0.0
             elif target_ans == "no":
-                exact_match = 1.0 if (
-                    "no" in short_lower and "yes" not in short_lower) else 0.0
+                exact_match = 1.0 if (has_no and not has_yes) else 0.0
         else:
-            # caso None in SELECT
+            # None case in SELECT
             if fc_lower in ["none", "no", ""]:
-                empty_keywords = ["no", "none", "nothing",
-                                  "n/a", "nessuna", "nessuno", "empty", "-"]
-                if any(kw in short_lower for kw in empty_keywords):
-                    exact_match = 1.0
-                else:
-                    exact_match = 0.0
+                empty_words = ["no", "none", "nothing",
+                               "n/a", "nessuna", "nessuno", "empty"]
+                is_empty_answer = (
+                    short_lower.strip() == "-"
+                    or any(re.search(rf'\b{re.escape(kw)}\b', short_lower)
+                           for kw in empty_words))
+                exact_match = 1.0 if is_empty_answer else 0.0
             else:
-                gt_items = {item.strip().lower() for item in fc_answer.replace(
-                    ";", ",").split(",") if item.strip()}
-                llm_items = {item.strip().lower() for item in short_part.replace(
-                    ";", ",").split(",") if item.strip()}
-                llm_items = {self.reverse_synonym_map.get(
-                    item, item) for item in llm_items}
+                def to_items(text):
+                    return {normalize_item(item)
+                            for item in text.replace(";", ",").split(",")
+                            if item.strip()}
+
+                gt_items = {self.reverse_synonym_map.get(i, i)
+                            for i in to_items(fc_answer)}
+                llm_items = {self.reverse_synonym_map.get(i, i)
+                             for i in to_items(short_part)}
 
                 n = len(gt_items)
                 if n > 0:
